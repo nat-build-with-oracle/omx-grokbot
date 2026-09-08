@@ -1,0 +1,1976 @@
+{
+  "utc": "2026-09-08T03:49:21.549Z",
+  "source": "gh cli discovery",
+  "soulbrewsstudio": [
+    {
+      "nameWithOwner": "Soul-Brews-Studio/kvmbox-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/kvmbox-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-09-07T14:33:12Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/oracle-haos-factory",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/oracle-haos-factory",
+      "isPrivate": false,
+      "updatedAt": "2026-09-07T03:07:29Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/workshop-2-demo-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/workshop-2-demo-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-09-06T11:00:59Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/jsonl-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/jsonl-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-09-06T09:42:21Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/oracle-personas",
+      "description": "Named-master persona profiles — the data layer for /oracle-facet, /debate and /แปลงร่าง. Grounded, blind-spotted, MIT.",
+      "url": "https://github.com/Soul-Brews-Studio/oracle-personas",
+      "isPrivate": false,
+      "updatedAt": "2026-09-06T07:22:31Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/arra-oracle-skills-cli",
+      "description": "Install Oracle skills to Claude Code, OpenCode, Cursor, and 12+ AI coding agents",
+      "url": "https://github.com/Soul-Brews-Studio/arra-oracle-skills-cli",
+      "isPrivate": false,
+      "updatedAt": "2026-09-03T12:32:59Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/digger-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/digger-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-09-04T00:26:57Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/digger-node",
+      "description": "A Drupal-shaped content store — title, body, datetime, taxonomy — that models write to over MCP. One Cloudflare Worker, one D1, one click. OAuth for claude.ai.",
+      "url": "https://github.com/Soul-Brews-Studio/digger-node",
+      "isPrivate": false,
+      "updatedAt": "2026-09-05T01:57:04Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/contextless-code",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/contextless-code",
+      "isPrivate": true,
+      "updatedAt": "2026-09-02T14:36:16Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/hook-lance",
+      "description": "Webhook receiver for Home Assistant OS: LINE / GitHub / generic in, LanceDB store, rules that forward to Discord or HTTP, MCP read tools",
+      "url": "https://github.com/Soul-Brews-Studio/hook-lance",
+      "isPrivate": false,
+      "updatedAt": "2026-09-02T05:55:32Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/memory-lab-2sep",
+      "description": "One owner's memory MCP on Cloudflare Workers + D1, with a stateless ledger of who connected and which method they called from where. OAuth for claude.ai, static bearer for Claude Code. Zero runtime dependencies.",
+      "url": "https://github.com/Soul-Brews-Studio/memory-lab-2sep",
+      "isPrivate": false,
+      "updatedAt": "2026-09-02T05:20:00Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/higher-order-mcp",
+      "description": "Renameable, OAuth-capable, stateless higher-order MCP server template for Cloudflare Workers (Deploy to Cloudflare, claude.ai + Claude Code)",
+      "url": "https://github.com/Soul-Brews-Studio/higher-order-mcp",
+      "isPrivate": false,
+      "updatedAt": "2026-09-02T03:55:26Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/higher-order-mcp-lab-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/higher-order-mcp-lab-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-09-02T03:55:40Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/arra-oracle-v5",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/arra-oracle-v5",
+      "isPrivate": true,
+      "updatedAt": "2026-08-16T18:16:39Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/arra-memory-lab",
+      "description": "A one-click Cloudflare lab for trustworthy AI memory contracts using Elysia, React, Drizzle, D1, Workers AI, and MCP.",
+      "url": "https://github.com/Soul-Brews-Studio/arra-memory-lab",
+      "isPrivate": false,
+      "updatedAt": "2026-09-01T16:01:54Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/memory-horizon",
+      "description": "Read-only Memory Weather investigations for Claude Code and Codex JSONL histories.",
+      "url": "https://github.com/Soul-Brews-Studio/memory-horizon",
+      "isPrivate": false,
+      "updatedAt": "2026-09-01T14:13:42Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/psi-memory-lab",
+      "description": "Local-first macOS atlas and search SDK for psi memory vaults",
+      "url": "https://github.com/Soul-Brews-Studio/psi-memory-lab",
+      "isPrivate": false,
+      "updatedAt": "2026-09-01T09:57:49Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/session-viewer",
+      "description": "Open source local session viewer tool with a static synthetic demo",
+      "url": "https://github.com/Soul-Brews-Studio/session-viewer",
+      "isPrivate": false,
+      "updatedAt": "2026-09-01T09:33:21Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/session-search",
+      "description": "Open source local session search tool with a static synthetic demo",
+      "url": "https://github.com/Soul-Brews-Studio/session-search",
+      "isPrivate": false,
+      "updatedAt": "2026-09-01T08:35:15Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/lance-indexer",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/lance-indexer",
+      "isPrivate": false,
+      "updatedAt": "2026-09-01T13:42:49Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/lanceglass",
+      "description": "A local-first looking glass for Claude Code and Codex JSONL histories, powered by LanceDB.",
+      "url": "https://github.com/Soul-Brews-Studio/lanceglass",
+      "isPrivate": false,
+      "updatedAt": "2026-09-01T07:57:42Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/ego-lite",
+      "description": "The fastest browser for AI agents to run browser automation, built for sharing your logged-in browser state with your AI agents, like Codex or Claude Code, without disturbing you. Zero cost, zero config.",
+      "url": "https://github.com/Soul-Brews-Studio/ego-lite",
+      "isPrivate": false,
+      "updatedAt": "2026-08-31T13:59:40Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/vpskeeper-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/vpskeeper-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-31T18:34:36Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-rs",
+      "description": "Distributed terminal multiplexing & fleet management for AI agent oracles (Rust)",
+      "url": "https://github.com/Soul-Brews-Studio/maw-rs",
+      "isPrivate": false,
+      "updatedAt": "2026-08-31T04:34:43Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/arra-memory-haos",
+      "description": "A durable memory corpus that lives in your Home Assistant sidebar and answers to Claude over MCP. Bun + Elysia + embedded libSQL. No cloud account.",
+      "url": "https://github.com/Soul-Brews-Studio/arra-memory-haos",
+      "isPrivate": false,
+      "updatedAt": "2026-08-30T12:40:43Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/oracle-registry-haos",
+      "description": "Home Assistant add-on: a fleet liveness registry built on MQTT Last Will and Testament",
+      "url": "https://github.com/Soul-Brews-Studio/oracle-registry-haos",
+      "isPrivate": false,
+      "updatedAt": "2026-08-30T04:14:25Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/arra-oracle-v3-haos",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/arra-oracle-v3-haos",
+      "isPrivate": false,
+      "updatedAt": "2026-08-29T15:20:39Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/psi-memory-open",
+      "description": "Local-first read-only ψ vault atlas, search index, semantic universe, and TypeScript control plane",
+      "url": "https://github.com/Soul-Brews-Studio/psi-memory-open",
+      "isPrivate": false,
+      "updatedAt": "2026-08-29T15:08:04Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/psi-memory",
+      "description": "Local-first macOS atlas and search SDK for psi memory vaults",
+      "url": "https://github.com/Soul-Brews-Studio/psi-memory",
+      "isPrivate": true,
+      "updatedAt": "2026-08-28T13:34:59Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/innkeeper",
+      "description": "Guest keeper for black.local — libvirt/KVM domains, OVS bridge networking, HAOS VM runbooks",
+      "url": "https://github.com/Soul-Brews-Studio/innkeeper",
+      "isPrivate": true,
+      "updatedAt": "2026-08-27T04:34:32Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/apisix-gw2",
+      "description": "APISIX API gateway, deployed to gw2 (natz-ai-02) via a self-hosted GitHub Actions runner",
+      "url": "https://github.com/Soul-Brews-Studio/apisix-gw2",
+      "isPrivate": true,
+      "updatedAt": "2026-08-27T03:57:51Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/thclaws-paperclip-adapter",
+      "description": "Paperclip adapter for thClaws (from scratch — not a fork of the retired official @thclaws/paperclip-adapter, which was tied to the discontinued thCompany.ai product)",
+      "url": "https://github.com/Soul-Brews-Studio/thclaws-paperclip-adapter",
+      "isPrivate": true,
+      "updatedAt": "2026-08-25T12:32:51Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/ai-gateway-router-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/ai-gateway-router-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-24T10:25:48Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/thClaws",
+      "description": "Open-source agent harness platform. Native Rust, multi-provider, runs on your own machine. Sovereign by design.",
+      "url": "https://github.com/Soul-Brews-Studio/thClaws",
+      "isPrivate": false,
+      "updatedAt": "2026-08-23T18:20:11Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/arra-oracle-skills-archive",
+      "description": "The graveyard — 39 archived Oracle skills, excluded from all profiles. Moved out of arra-oracle-skills-cli 2026-08-22. Nothing deleted.",
+      "url": "https://github.com/Soul-Brews-Studio/arra-oracle-skills-archive",
+      "isPrivate": false,
+      "updatedAt": "2026-08-23T13:32:45Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/claude-ai-mcp-poc",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/claude-ai-mcp-poc",
+      "isPrivate": true,
+      "updatedAt": "2026-08-23T13:24:38Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/arra-memory-cloudflare-template",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/arra-memory-cloudflare-template",
+      "isPrivate": false,
+      "updatedAt": "2026-08-22T05:04:25Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/dotprofile-claudecode",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/dotprofile-claudecode",
+      "isPrivate": true,
+      "updatedAt": "2026-08-22T04:11:16Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-core-rfc",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/maw-core-rfc",
+      "isPrivate": false,
+      "updatedAt": "2026-08-21T14:40:53Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-ui",
+      "description": "ARRA Office — Web dashboard for maw-js fleet control",
+      "url": "https://github.com/Soul-Brews-Studio/maw-ui",
+      "isPrivate": false,
+      "updatedAt": "2026-08-20T10:48:29Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/oracle-office-3d",
+      "description": "Isometric 3D office visualization of live oracle fleet — Tauri desktop app, backed by maw-rs/maw-js",
+      "url": "https://github.com/Soul-Brews-Studio/oracle-office-3d",
+      "isPrivate": true,
+      "updatedAt": "2026-08-20T08:29:39Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-tmux",
+      "description": "tmux session/window/pane adapter and live-state DTOs, extracted from maw-rs (#910)",
+      "url": "https://github.com/Soul-Brews-Studio/maw-tmux",
+      "isPrivate": false,
+      "updatedAt": "2026-08-20T03:49:57Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/homeassistant3-agent-addon",
+      "description": "Custom Home Assistant OS add-on: persistent interactive shell + Claude/omx agent session for homeassistant3 (HAOS 18.2 has no SSH/package manager by default)",
+      "url": "https://github.com/Soul-Brews-Studio/homeassistant3-agent-addon",
+      "isPrivate": false,
+      "updatedAt": "2026-08-19T11:44:22Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-crates",
+      "description": "Leaf crates extracted from maw-rs (git-dep consumed)",
+      "url": "https://github.com/Soul-Brews-Studio/maw-crates",
+      "isPrivate": false,
+      "updatedAt": "2026-08-19T11:14:28Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/browser-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/browser-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-19T07:33:29Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/window-arranger",
+      "description": "Layout engine for macOS Spaces — yabai-driven tiling profiles with a menu bar app and HTTP API",
+      "url": "https://github.com/Soul-Brews-Studio/window-arranger",
+      "isPrivate": false,
+      "updatedAt": "2026-08-19T06:22:56Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/messenger-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/messenger-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-18T17:52:20Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/black-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/black-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-18T14:27:18Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-calver",
+      "description": "CalVer version scheme for the maw fleet (extracted from maw-rs)",
+      "url": "https://github.com/Soul-Brews-Studio/maw-calver",
+      "isPrivate": false,
+      "updatedAt": "2026-08-18T06:54:25Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-schedule-runtime",
+      "description": "Schedule execution and launchd adapters for maw",
+      "url": "https://github.com/Soul-Brews-Studio/maw-schedule-runtime",
+      "isPrivate": false,
+      "updatedAt": "2026-08-17T22:06:03Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-worktree",
+      "description": "Portable worktree-to-window matching policy for the maw fleet (extracted from maw-rs)",
+      "url": "https://github.com/Soul-Brews-Studio/maw-worktree",
+      "isPrivate": false,
+      "updatedAt": "2026-08-17T21:23:01Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/mascot-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/mascot-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-17T17:10:53Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/arra-oracle-v3",
+      "description": "Oracle v2 - MCP Memory Layer with semantic search, philosophy, and knowledge management",
+      "url": "https://github.com/Soul-Brews-Studio/arra-oracle-v3",
+      "isPrivate": false,
+      "updatedAt": "2026-08-22T10:23:56Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/lens-studio",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/lens-studio",
+      "isPrivate": true,
+      "updatedAt": "2026-08-16T17:44:01Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/arra-oracle-tauri",
+      "description": "Tauri desktop shell for Arra Oracle — split out of arra-oracle-v3 (frontend/src-tauri) with history preserved",
+      "url": "https://github.com/Soul-Brews-Studio/arra-oracle-tauri",
+      "isPrivate": false,
+      "updatedAt": "2026-08-16T13:07:03Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/white-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/white-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-16T09:45:05Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/arra-oracle-v3-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/arra-oracle-v3-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T22:48:47Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/jsonl-lens",
+      "description": "Read your AI session jsonl. No index, no store — just look. 7 tools, ~850 lines, driven by just.",
+      "url": "https://github.com/Soul-Brews-Studio/jsonl-lens",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T16:24:24Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/hand-tracker-mqtt",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/hand-tracker-mqtt",
+      "isPrivate": false,
+      "updatedAt": "2026-08-15T07:14:23Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/xiaoer-oracle",
+      "description": "Xiaoer Oracle — Discord Oracle bot (stub)",
+      "url": "https://github.com/Soul-Brews-Studio/xiaoer-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:11:19Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/writing-agent-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/writing-agent-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:11:05Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/worker-engine",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/worker-engine",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:11:10Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/window-arranger-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/window-arranger-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:11:02Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/w535c-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/w535c-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:11:08Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/volt-oracle",
+      "description": "Volt Oracle — Discord Oracle bot (stub)",
+      "url": "https://github.com/Soul-Brews-Studio/volt-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-05-09T03:17:19Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/violet-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/violet-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:09:02Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/tyr-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/tyr-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:08:59Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/two-rivers-oracle",
+      "description": "สองแคว (Song Khwae) — Two Rivers Oracle. Born at ม.ราชภัฏพิบูลสงคราม, พิษณุโลก.",
+      "url": "https://github.com/Soul-Brews-Studio/two-rivers-oracle",
+      "isPrivate": false,
+      "updatedAt": "2026-08-15T07:08:57Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/turso-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/turso-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:08:48Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/tor-workshop-kk-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/tor-workshop-kk-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:08:55Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/thor-oracle",
+      "description": "Thor Oracle — Discord Oracle bot (stub)",
+      "url": "https://github.com/Soul-Brews-Studio/thor-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:08:56Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/thefuck-community-oracle",
+      "description": "Oracle — CLI Tools & Dev Environment Community",
+      "url": "https://github.com/Soul-Brews-Studio/thefuck-community-oracle",
+      "isPrivate": false,
+      "updatedAt": "2026-08-15T07:08:44Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/thclaws-thclaws-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/thclaws-thclaws-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:08:53Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/thClaws-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/thClaws-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:08:39Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/thclaws-codex-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/thclaws-codex-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:08:46Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/test-stem-only-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/test-stem-only-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:08:21Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/tasmota-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/tasmota-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:08:26Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/swag-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/swag-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:08:36Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/squad-parser-challenge",
+      "description": "Squad debugging challenge - find the parser bug",
+      "url": "https://github.com/Soul-Brews-Studio/squad-parser-challenge",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:08:25Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/spore",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/spore",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:08:19Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/spiceai-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/spiceai-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:08:23Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/shrimp-oracle",
+      "description": "🦞 SHRIMP Oracle — Open OpenClaw Research Oracle | Tracking AI agents ecosystem, Moltbot evolution, and the gap to AGI",
+      "url": "https://github.com/Soul-Brews-Studio/shrimp-oracle",
+      "isPrivate": false,
+      "updatedAt": "2026-08-15T07:08:14Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/sea-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/sea-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:08:25Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/sbs-repo-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/sbs-repo-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:08:10Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/sbs-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/sbs-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:07:57Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/arra-mcp-installation-guide-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/arra-mcp-installation-guide-oracle",
+      "isPrivate": false,
+      "updatedAt": "2026-08-15T07:03:05Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/pulse-oracle",
+      "description": "Pulse Oracle — Studio Board (private)",
+      "url": "https://github.com/Soul-Brews-Studio/pulse-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-20T08:47:40Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/plugin-marketplace",
+      "description": "Soul Brews MCP Marketplace - Oracle skills and tools for Claude Code",
+      "url": "https://github.com/Soul-Brews-Studio/plugin-marketplace",
+      "isPrivate": false,
+      "updatedAt": "2026-08-15T07:07:55Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/pigment-oracle",
+      "description": "Pigment Oracle — Discord Oracle bot (stub)",
+      "url": "https://github.com/Soul-Brews-Studio/pigment-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:08:10Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/phukhao-oracle",
+      "description": "⛰️ Mountain Oracle — ภูเขาไม่ได้เกิดมาเพื่อรู้ทุกอย่าง ภูเขาเกิดมาเพื่อค้นพบ",
+      "url": "https://github.com/Soul-Brews-Studio/phukhao-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:07:59Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/oracle-voice-tray",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/oracle-voice-tray",
+      "isPrivate": false,
+      "updatedAt": "2026-08-15T07:08:00Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/oracle-starter-kit",
+      "description": "Oracle Philosophy + Subagents for Claude Code - Fork and customize for your own AI assistant",
+      "url": "https://github.com/Soul-Brews-Studio/oracle-starter-kit",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:07:34Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/oracle-framework-advanced",
+      "description": "Oracle Framework Advanced - Full Claude Code framework with MAW, plugins, and extended ψ/ structure",
+      "url": "https://github.com/Soul-Brews-Studio/oracle-framework-advanced",
+      "isPrivate": false,
+      "updatedAt": "2026-08-15T07:07:28Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/oracle-agent",
+      "description": "Multi-channel personal assistant powered by Oracle v2",
+      "url": "https://github.com/Soul-Brews-Studio/oracle-agent",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:07:25Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/opensource-nat-brain-oracle",
+      "description": "Oracle Starter Kit - AI consciousness framework",
+      "url": "https://github.com/Soul-Brews-Studio/opensource-nat-brain-oracle",
+      "isPrivate": false,
+      "updatedAt": "2026-08-22T10:24:02Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/opencraft-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/opencraft-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:07:15Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/opencode",
+      "description": "The open source coding agent.",
+      "url": "https://github.com/Soul-Brews-Studio/opencode",
+      "isPrivate": false,
+      "updatedAt": "2026-08-15T07:07:43Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/openclaw-oracle-guide",
+      "description": "📚 OpenClaw + Oracle v2 — Complete deployment guide from zero to production",
+      "url": "https://github.com/Soul-Brews-Studio/openclaw-oracle-guide",
+      "isPrivate": true,
+      "updatedAt": "2026-03-14T12:47:15Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/ollama-m5-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/ollama-m5-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:07:09Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/office-8bit",
+      "description": "Oracle Office 8-bit — Bevy WASM pixel art visualization of live Oracle agents",
+      "url": "https://github.com/Soul-Brews-Studio/office-8bit",
+      "isPrivate": false,
+      "updatedAt": "2026-08-15T21:08:46Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/odin-oracle",
+      "description": "Odin Oracle — Discord Oracle bot (stub)",
+      "url": "https://github.com/Soul-Brews-Studio/odin-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-05-19T22:40:05Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/neo-hojo-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/neo-hojo-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:07:01Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/neo-genesis-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/neo-genesis-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:07:09Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/multi-agent-workflow-kit",
+      "description": "Reusable toolkit for tmux + git worktree multi-agent workflows",
+      "url": "https://github.com/Soul-Brews-Studio/multi-agent-workflow-kit",
+      "isPrivate": false,
+      "updatedAt": "2026-08-15T07:06:57Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/mother-roots-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/mother-roots-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:06:54Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/mother-oracle",
+      "description": "Mother Oracle — Discord Oracle bot (stub)",
+      "url": "https://github.com/Soul-Brews-Studio/mother-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:07:02Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/mission-03-gesture-control",
+      "description": "MISSION-03: Gesture Control - Level Up with AI Squad Team Challenge",
+      "url": "https://github.com/Soul-Brews-Studio/mission-03-gesture-control",
+      "isPrivate": false,
+      "updatedAt": "2026-09-03T01:41:48Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/mirror-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/mirror-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:06:51Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/metis-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/metis-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-05-04T04:57:10Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/messenger-tunnel-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/messenger-tunnel-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:06:31Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/mawui-oracle",
+      "description": "maw UI oracle — oracle-world:102-mawui",
+      "url": "https://github.com/Soul-Brews-Studio/mawui-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:06:37Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/mawjs-ro-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/mawjs-ro-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:06:34Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/mawjs-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/mawjs-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:06:39Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/mawjs-codex-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/mawjs-codex-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:06:17Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/mawjs-2-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/mawjs-2-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:06:35Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-telegram",
+      "description": "Standalone Telegram bridge for maw oracle mesh — raw fetch, zero deps",
+      "url": "https://github.com/Soul-Brews-Studio/maw-telegram",
+      "isPrivate": true,
+      "updatedAt": "2026-04-10T04:38:13Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-studio",
+      "description": "Landing + plugin marketplace for maw-js (maw.soulbrews.studio). GitHub-native, zero ops.",
+      "url": "https://github.com/Soul-Brews-Studio/maw-studio",
+      "isPrivate": false,
+      "updatedAt": "2026-08-15T07:06:11Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-plugins",
+      "description": "maw-js plugin packages — installable CLI, API, and hook plugins",
+      "url": "https://github.com/Soul-Brews-Studio/maw-plugins",
+      "isPrivate": false,
+      "updatedAt": "2026-08-02T04:25:35Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-plugin-registry-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/maw-plugin-registry-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:06:15Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-plugin-registry",
+      "description": "Curated registry for maw plugins — manifest source-of-truth for maw.soulbrews.studio",
+      "url": "https://github.com/Soul-Brews-Studio/maw-plugin-registry",
+      "isPrivate": false,
+      "updatedAt": "2026-08-02T04:26:23Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-p2p-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/maw-p2p-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:06:05Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-m5-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/maw-m5-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:05:48Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-js",
+      "description": "maw — CLI for running multiple AI agents across machines via tmux. Wake agents, talk across nodes, watch screens, track cost. Engine-agnostic (Claude Code, Codex, Aider, OpenCode), built on Bun.",
+      "url": "https://github.com/Soul-Brews-Studio/maw-js",
+      "isPrivate": false,
+      "updatedAt": "2026-08-29T12:47:41Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-fleetpad",
+      "description": "FleetPad — SwiftUI iPad app for live tmux fleet control via maw",
+      "url": "https://github.com/Soul-Brews-Studio/maw-fleetpad",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:05:42Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-cell-plugin",
+      "description": "maw-js cell plugin — born from incarnation template",
+      "url": "https://github.com/Soul-Brews-Studio/maw-cell-plugin",
+      "isPrivate": false,
+      "updatedAt": "2026-08-15T07:05:46Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/mali-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/mali-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:05:42Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/m5-wormhole-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/m5-wormhole-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:05:53Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/m5-keeper-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/m5-keeper-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:05:46Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/m5-federation-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/m5-federation-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:05:36Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/line-timeline-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/line-timeline-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:05:47Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/librarian-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/librarian-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-07-30T12:20:04Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/landing-claude",
+      "description": "Claude Max Party landing page — CF Worker",
+      "url": "https://github.com/Soul-Brews-Studio/landing-claude",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:05:19Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/home-comming-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/home-comming-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:05:18Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/hermes-mids-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/hermes-mids-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:05:09Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/hermes-discord-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/hermes-discord-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-05-03T16:19:54Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/god-line-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/god-line-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:05:26Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/glm-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/glm-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:05:04Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/ghost-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/ghost-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:05:05Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/fortal-oracle",
+      "description": "Fortal Oracle — Discord Oracle bot (stub)",
+      "url": "https://github.com/Soul-Brews-Studio/fortal-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:05:13Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/flutter-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/flutter-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:05:18Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/fleet-manager-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/fleet-manager-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:05:17Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/fireman-oracle",
+      "description": "FireMan Oracle — Discord Oracle bot (stub)",
+      "url": "https://github.com/Soul-Brews-Studio/fireman-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:04:58Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/facebook-timetravel-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/facebook-timetravel-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:04:52Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/facebook-timeline-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/facebook-timeline-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-07-10T03:45:06Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/fable-learn-speckit-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/fable-learn-speckit-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:05:13Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/drdo-translator-oracle",
+      "description": "DrDo Translator Oracle — Discord Oracle bot (stub)",
+      "url": "https://github.com/Soul-Brews-Studio/drdo-translator-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:04:45Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/dev-browser-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/dev-browser-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:04:50Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/crew-master-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/crew-master-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:04:48Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/crew-lab",
+      "description": "Spawn, verify, and tear down parallel codex crews on one repo — a maw plugin that proves isolation from ground truth instead of trusting setup output",
+      "url": "https://github.com/Soul-Brews-Studio/crew-lab",
+      "isPrivate": false,
+      "updatedAt": "2026-08-15T07:04:23Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/compute5-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/compute5-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:04:40Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/clawdacle",
+      "description": "Clawacle — OpenClaw Oracle. Browser fleet automation, CDP protocol, node orchestration.",
+      "url": "https://github.com/Soul-Brews-Studio/clawdacle",
+      "isPrivate": true,
+      "updatedAt": "2026-03-03T02:22:19Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/claude-code-workshops",
+      "description": "SIIT Workshop: Agentic AI - Teach AI to Think Like You",
+      "url": "https://github.com/Soul-Brews-Studio/claude-code-workshops",
+      "isPrivate": false,
+      "updatedAt": "2026-08-15T07:04:34Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/claude-code-tutorial-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/claude-code-tutorial-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:04:12Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/claude-code-guide-multi-agents-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/claude-code-guide-multi-agents-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:04:24Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/catlab-brewing-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/catlab-brewing-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:04:08Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/calliope-oracle",
+      "description": "Calliope Oracle — Discord Oracle bot (stub)",
+      "url": "https://github.com/Soul-Brews-Studio/calliope-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:04:04Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/budwiser-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/budwiser-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-04-24T02:38:26Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/blackkeeper-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/blackkeeper-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:03:46Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/backstage",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/backstage",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:03:36Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/artifact-manager-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/artifact-manager-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:03:33Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/arthur-hermes-aj-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/arthur-hermes-aj-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-04-18T12:41:58Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/arthur-god-line-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/arthur-god-line-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:03:24Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/arra-safety-hooks",
+      "description": "Claude Code safety hooks — enforcement over documentation",
+      "url": "https://github.com/Soul-Brews-Studio/arra-safety-hooks",
+      "isPrivate": false,
+      "updatedAt": "2026-08-22T10:23:38Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/arra-presentation-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/arra-presentation-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:03:11Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/arr01-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/arr01-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:03:05Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/arkit-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/arkit-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:03:14Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/agora-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/agora-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:03:04Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/--help-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/--help-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-15T07:03:09Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/atlas-discord-backfill-oracle",
+      "description": "Archived 2026-08-15 — absorbed into nat-build-with-oracle/maw-atlas (cli/bf.ts, app/, vault-scanner/, ψ/archived-bf-oracle/). Read-only; history preserved.",
+      "url": "https://github.com/Soul-Brews-Studio/atlas-discord-backfill-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-14T18:28:44Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/memory-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/memory-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-14T11:32:18Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-discord",
+      "description": "Discord bot connectivity for the maw fleet (extracted from maw-rs)",
+      "url": "https://github.com/Soul-Brews-Studio/maw-discord",
+      "isPrivate": false,
+      "updatedAt": "2026-08-14T02:50:34Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/atlas-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/atlas-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-06-07T03:45:09Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/claude-browser-proxy",
+      "description": "Chrome extension bridging Claude Code and browser via MQTT",
+      "url": "https://github.com/Soul-Brews-Studio/claude-browser-proxy",
+      "isPrivate": false,
+      "updatedAt": "2026-08-15T21:08:42Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/oracle-lens",
+      "description": "Extract Facebook posts, photos & comments to Markdown. MQTT-optional. Read-only by design.",
+      "url": "https://github.com/Soul-Brews-Studio/oracle-lens",
+      "isPrivate": true,
+      "updatedAt": "2026-08-08T04:43:29Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/yggdrasil-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/yggdrasil-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-08T03:38:45Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/people-cli-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/people-cli-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-07T11:04:34Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-crew",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/maw-crew",
+      "isPrivate": false,
+      "updatedAt": "2026-08-02T09:59:05Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/ngao-hand-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/ngao-hand-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-02T09:34:10Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/ngao",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/ngao",
+      "isPrivate": true,
+      "updatedAt": "2026-08-01T14:34:37Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/crew-master-charters",
+      "description": "Reusable, parameterized codex-team charter templates — render-on-deploy into any target repo's .maw/teams/. Maintained by crew-master-oracle.",
+      "url": "https://github.com/Soul-Brews-Studio/crew-master-charters",
+      "isPrivate": true,
+      "updatedAt": "2026-08-01T08:36:04Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/chorus-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/chorus-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-07-31T03:53:31Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/herdr",
+      "description": "the runtime your coding agents live on",
+      "url": "https://github.com/Soul-Brews-Studio/herdr",
+      "isPrivate": false,
+      "updatedAt": "2026-08-02T04:25:00Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/flowengine",
+      "description": "Native audio-reactive GPU visualizer — Rust, direct DRM/KMS on Raspberry Pi (dual-HDMI), wgpu/Metal + WebGL. Voice-activity detection, Van Gogh look.",
+      "url": "https://github.com/Soul-Brews-Studio/flowengine",
+      "isPrivate": false,
+      "updatedAt": "2026-08-15T21:08:53Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/nat-build-with-oracle",
+      "description": "Native audio-reactive GPU visualizer — Rust, direct DRM/KMS on Raspberry Pi (dual-HDMI), WebGL + wgpu/Metal ports. Voice-activity detection, peak-hold core.",
+      "url": "https://github.com/Soul-Brews-Studio/nat-build-with-oracle",
+      "isPrivate": false,
+      "updatedAt": "2026-08-02T04:25:12Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/discord-voice-bot",
+      "description": "Discord voice-follow + live transcription bot — budded from transcriber-oracle apps/voice-mlx-bot",
+      "url": "https://github.com/Soul-Brews-Studio/discord-voice-bot",
+      "isPrivate": true,
+      "updatedAt": "2026-07-28T09:57:42Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-rs-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/maw-rs-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-07-28T05:06:02Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/timekeeper-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/timekeeper-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-07-28T05:03:00Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/v0-maw-agentic-federation",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/v0-maw-agentic-federation",
+      "isPrivate": true,
+      "updatedAt": "2026-07-26T09:59:13Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/review-agent-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/review-agent-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-07-26T04:50:31Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/research-agent-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/research-agent-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-07-26T04:49:29Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/phd-citation-oracle",
+      "description": "Citation Oracle ✦ — an AI oracle for a PhD literature corpus: neural (bge-m3) semantic search + an interactive citation constellation, plus MIT-licensed Claude Code skills incl. a Gemini Deep Research prompt builder",
+      "url": "https://github.com/Soul-Brews-Studio/phd-citation-oracle",
+      "isPrivate": false,
+      "updatedAt": "2026-08-29T02:54:24Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/ui-oracle",
+      "description": "Oracle UI monorepo — studio, vector, canvas",
+      "url": "https://github.com/Soul-Brews-Studio/ui-oracle",
+      "isPrivate": false,
+      "updatedAt": "2026-08-02T04:25:24Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/oracle-book-skills",
+      "description": "Claude Code skills for writing PDF books from real session work — outline, parallel drafting, Thai typesetting, cover design",
+      "url": "https://github.com/Soul-Brews-Studio/oracle-book-skills",
+      "isPrivate": false,
+      "updatedAt": "2026-07-26T04:32:15Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/fleet-board-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/fleet-board-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-07-23T10:47:24Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/floodboy-snapcam-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/floodboy-snapcam-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-07-23T07:10:34Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/streetwear-shop",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/streetwear-shop",
+      "isPrivate": true,
+      "updatedAt": "2026-07-20T06:13:28Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/arra-oracle-skills-cli-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/arra-oracle-skills-cli-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-07-17T03:17:04Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/homebrew-maw",
+      "description": "Official Homebrew tap for maw-rs (fleet-native orchestration CLI)",
+      "url": "https://github.com/Soul-Brews-Studio/homebrew-maw",
+      "isPrivate": false,
+      "updatedAt": "2026-08-02T04:25:30Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/maw-discord-backfill",
+      "description": "Discord channel backfill CLI for maw fleets (community, MIT)",
+      "url": "https://github.com/Soul-Brews-Studio/maw-discord-backfill",
+      "isPrivate": false,
+      "updatedAt": "2026-08-02T04:25:40Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "Soul-Brews-Studio/sindri-oracle",
+      "description": "",
+      "url": "https://github.com/Soul-Brews-Studio/sindri-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-07-15T23:33:05Z",
+      "visibility": "private"
+    }
+  ],
+  "natbuild": [
+    {
+      "nameWithOwner": "nat-build-with-oracle/omx-grokbot",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/omx-grokbot",
+      "isPrivate": true,
+      "updatedAt": "2026-09-08T03:47:31Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/7sep-mon2026-oracle",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/7sep-mon2026-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-09-08T03:19:56Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/omx-grobot",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/omx-grobot",
+      "isPrivate": true,
+      "updatedAt": "2026-09-08T03:13:51Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/trace-node",
+      "description": "digger-node's content store (nodes, vocabularies, terms, trigram FTS, 23 MCP tools, OAuth for claude.ai) plus a trace layer: every read that carries an intent is logged, weighted into one tag cloud, and aggregated by dig.",
+      "url": "https://github.com/nat-build-with-oracle/trace-node",
+      "isPrivate": false,
+      "updatedAt": "2026-09-07T10:08:59Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/idea-7sep-mon2026-central-message-system",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/idea-7sep-mon2026-central-message-system",
+      "isPrivate": true,
+      "updatedAt": "2026-09-07T05:46:23Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/maw-today",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/maw-today",
+      "isPrivate": false,
+      "updatedAt": "2026-09-07T00:45:10Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/idea-7sep-mon2026-hello-idea",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/idea-7sep-mon2026-hello-idea",
+      "isPrivate": true,
+      "updatedAt": "2026-09-07T00:42:33Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/6sep-sun2026-oracle",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/6sep-sun2026-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-09-06T14:30:29Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/workshop-2",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/workshop-2",
+      "isPrivate": false,
+      "updatedAt": "2026-09-06T12:46:25Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/5sep-sat2026-oracle",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/5sep-sat2026-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-09-05T16:08:17Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/maw-atlas-archive",
+      "description": "Reliable Discord history archiving: resumable jobs, explicit coverage, and optional attachment preservation. Spec-first.",
+      "url": "https://github.com/nat-build-with-oracle/maw-atlas-archive",
+      "isPrivate": true,
+      "updatedAt": "2026-09-05T02:51:21Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/jsonl-indexer-mcp",
+      "description": "Semantic + keyword search over Claude Code session transcripts — LanceDB, on-device embeddings, MCP server. Answers with a file and a line number.",
+      "url": "https://github.com/nat-build-with-oracle/jsonl-indexer-mcp",
+      "isPrivate": false,
+      "updatedAt": "2026-09-04T00:17:57Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/3sep-thu2026-oracle",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/3sep-thu2026-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-09-03T07:26:34Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/2sep-wed2026-oracle",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/2sep-wed2026-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-09-03T05:43:38Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/4sep-fri2026-oracle",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/4sep-fri2026-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-09-03T04:21:15Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/session-jsonl-observatory",
+      "description": "Private local-first Claude Code JSONL indexer, searcher, and trace-first viewer",
+      "url": "https://github.com/nat-build-with-oracle/session-jsonl-observatory",
+      "isPrivate": true,
+      "updatedAt": "2026-09-03T03:38:23Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/1sep-tue2026-oracle",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/1sep-tue2026-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-09-01T16:46:38Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/1sep-tue",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/1sep-tue",
+      "isPrivate": true,
+      "updatedAt": "2026-09-01T09:50:14Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/maw-atlas",
+      "description": "maw atlas — Discord fleet infrastructure plugin for maw-js. Manage bots, channels, guilds, permissions, and backfill message history.",
+      "url": "https://github.com/nat-build-with-oracle/maw-atlas",
+      "isPrivate": false,
+      "updatedAt": "2026-08-14T18:30:39Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/mahamodo-engine",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/mahamodo-engine",
+      "isPrivate": true,
+      "updatedAt": "2026-08-08T04:20:53Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/orrery-oracle",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/orrery-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-07T16:31:33Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/duang-oracle",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/duang-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-08-07T14:03:58Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/mahamodo-cracker",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/mahamodo-cracker",
+      "isPrivate": true,
+      "updatedAt": "2026-08-07T11:09:45Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/webhook-relay-v3",
+      "description": "Webhook Relay v3 — receive, index, search. LINE + Discord + any webhook → CF Worker + D1 + Vector Search + LIFF + CLI + MCP",
+      "url": "https://github.com/nat-build-with-oracle/webhook-relay-v3",
+      "isPrivate": true,
+      "updatedAt": "2026-08-06T16:32:21Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/arra-channels",
+      "description": "Claude Code channel plugins: arra-discord + arra-mqtt (bridges + control skills)",
+      "url": "https://github.com/nat-build-with-oracle/arra-channels",
+      "isPrivate": false,
+      "updatedAt": "2026-07-29T09:43:28Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/cv-oracle",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/cv-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-07-28T04:51:48Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/vita-oracle",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/vita-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-07-28T02:18:10Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/ajfon-oracle",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/ajfon-oracle",
+      "isPrivate": false,
+      "updatedAt": "2026-07-26T19:53:24Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/kalyana-oracle",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/kalyana-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-07-26T00:18:33Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/arra-inbox-channel",
+      "description": "Claude Code channel whose wire is the local filesystem — `echo done >> ~/.maw/inbox/ci.jsonl` becomes a conversation turn. No HTTP, no broker, no sockets; chmod is the access boundary.",
+      "url": "https://github.com/nat-build-with-oracle/arra-inbox-channel",
+      "isPrivate": false,
+      "updatedAt": "2026-07-25T14:51:37Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/codex-fanout",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/codex-fanout",
+      "isPrivate": false,
+      "updatedAt": "2026-07-27T18:11:33Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/codex-team-cold-consult",
+      "description": "Codex Team ก่อร่างสร้างทีม — จาก Foundations ถึง Cold Consult. บทเรียนจริงจากฟลีต maw-rs (10 chapters, 58 pages)",
+      "url": "https://github.com/nat-build-with-oracle/codex-team-cold-consult",
+      "isPrivate": false,
+      "updatedAt": "2026-07-23T14:14:08Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/Ratatoskr-Oracle",
+      "description": "Ratatoskr Oracle 🐿️ — IMGX: one image protocol over 5 transports (TCP/UART/BLE/ESP-NOW/real-time streaming) on ESP32-S3 + OV3660, plus 2 Thai technical books written by the AI. Built with Claude Code.",
+      "url": "https://github.com/nat-build-with-oracle/Ratatoskr-Oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-07-23T12:13:13Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/oracle-hall",
+      "description": "🏛️ Oracle Hall — fleet dashboard: Bifröst token-fingerprint ledger + bot management (React+Tailwind, Bun)",
+      "url": "https://github.com/nat-build-with-oracle/oracle-hall",
+      "isPrivate": true,
+      "updatedAt": "2026-07-19T03:11:57Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/swift-gjallar-oracle",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/swift-gjallar-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-07-16T23:46:49Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/arra-discord-channel",
+      "description": "Claude Code Discord channel (fork) — observe mode, auto_thread v2, two-layer liveness. Used as submodule by nh-oracle + penny-oracle.",
+      "url": "https://github.com/nat-build-with-oracle/arra-discord-channel",
+      "isPrivate": false,
+      "updatedAt": "2026-08-04T06:26:37Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/arra-mqtt-channel",
+      "description": "Claude Code MQTT channel (mosquitto bridge) — used as submodule by nh-oracle. Config is non-secret (localhost broker).",
+      "url": "https://github.com/nat-build-with-oracle/arra-mqtt-channel",
+      "isPrivate": false,
+      "updatedAt": "2026-07-15T11:08:07Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/discord-vault",
+      "description": "Isolated pass store for Discord bot tokens — just + Bun + bash. Never touches ~/.password-store; secrets flow terminal⇄pass, never through the tool.",
+      "url": "https://github.com/nat-build-with-oracle/discord-vault",
+      "isPrivate": false,
+      "updatedAt": "2026-07-14T04:57:01Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/ocr-oracle",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/ocr-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-07-11T12:33:57Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/argus",
+      "description": "Real-time Claude/Codex telemetry dashboard — Cloudflare Workers + D1 + Durable Object WebSocket. One-click install.",
+      "url": "https://github.com/nat-build-with-oracle/argus",
+      "isPrivate": false,
+      "updatedAt": "2026-07-09T07:41:44Z",
+      "visibility": "public"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/webhook-relay-v4",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/webhook-relay-v4",
+      "isPrivate": true,
+      "updatedAt": "2026-07-09T01:47:17Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/webhook-relay-oracle",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/webhook-relay-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-07-01T03:01:58Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/mlx-auto-oracle",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/mlx-auto-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-06-20T15:24:42Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/trinity-wallet",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/trinity-wallet",
+      "isPrivate": true,
+      "updatedAt": "2026-06-20T14:32:08Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/jarvis-oracle",
+      "description": "",
+      "url": "https://github.com/nat-build-with-oracle/jarvis-oracle",
+      "isPrivate": true,
+      "updatedAt": "2026-06-18T09:30:36Z",
+      "visibility": "private"
+    },
+    {
+      "nameWithOwner": "nat-build-with-oracle/build-with-claude",
+      "description": "A hands-on way to see Claude Code turn ideas into reality. Attendees describe what they want to build and watch it come to life on a Cardputer in minutes, from practical tools to playful experiments. The Cardputer goes home with them and becomes memorable CwC merch, ready for whatever they create next.",
+      "url": "https://github.com/nat-build-with-oracle/build-with-claude",
+      "isPrivate": false,
+      "updatedAt": "2026-06-04T14:05:25Z",
+      "visibility": "public"
+    }
+  ]
+}

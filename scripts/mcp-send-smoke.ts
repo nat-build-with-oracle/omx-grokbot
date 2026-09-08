@@ -12,8 +12,15 @@ function asText(content: unknown): string {
 }
 
 function readToolResult<T>(tool: any): T {
-  if (!tool?.structuredContent) throw new Error('tool without structuredContent');
-  return tool.structuredContent as T;
+  if (tool?.structuredContent) return tool.structuredContent as T;
+  if (tool?.content?.[0]?.text) {
+    try {
+      return JSON.parse(tool.content[0].text) as T;
+    } catch {
+      return { error: 'tool response missing structuredContent', raw: String(tool.content[0].text) } as unknown as T;
+    }
+  }
+  throw new Error('tool without structured response');
 }
 
 const proof: any = { utc: new Date().toISOString(), transport: 'Streamable HTTP', tools: [] as string[], result: 'started' };
@@ -39,7 +46,7 @@ try {
   await new Promise(r => setTimeout(r, 500));
   verifyRun = sendRun;
 
-  proof.messageId = sendRun.id;
+  proof.messageId = (sendRun as any).id || sendRun.messageRun?.id;
   proof.sendStatus = sendRun.status;
   proof.verifyStatus = verifyRun.status;
   proof.replyRecorded = verifyRun.status === 'reply_recorded';

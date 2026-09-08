@@ -1,7 +1,7 @@
 {
-  "utc": "2026-09-08T03:46:52.413Z",
-  "origin": "http://127.0.0.1:4370",
-  "publicUrl": "http://127.0.0.1:4370",
+  "utc": "2026-09-08T03:51:03.398Z",
+  "origin": "http://127.0.0.1:4328",
+  "publicUrl": "http://127.0.0.1:4328",
   "steps": [
     {
       "check": "config_public_url_present",
@@ -32,7 +32,7 @@
     {
       "check": "protected_resource_discovery",
       "ok": true,
-      "details": "resource=http://127.0.0.1:4370/mcp"
+      "details": "resource=http://127.0.0.1:4328/mcp"
     },
     {
       "check": "protected_resource_matches_mcp",
