@@ -19,8 +19,10 @@ Original objective: learn webapp / Tailwind / React / vector DB / LanceDB / ORM 
 - [x] LanceDB queries use actual local multilingual embeddings for all 46 chunks; ORM provenance and idempotent ingestion are exercised. Three live semantic queries return three hits each; no broad relevance-quality claim.
 - [x] Local authenticated MCP initialize/list/call works with the independent v2 SDK client. Negative auth, consent/PKCE, CSRF and read-only grant cases are tested. This does not prove Claude.ai acceptance.
 - [x] One end-to-end MCP Grok Bot prompt receives a request-correlated real reply; uncertain sends remain read-only via explicit verification and do not auto-resend.
+- [x] Local bridge-readiness smoke is currently passing on loopback with tool discovery and OAuth/mcp metadata in place (`docs/evidence/bridge/connector-readiness.json`).
 - [ ] Claude.ai connector is deployed, authenticated, and actually tested from Claude.ai, not inferred from local tests.
 - [ ] Grok Bot can use the MCP endpoint for retrieval, verified from its actual client/runtime.
+- [ ] Cloudflare quick tunnel (`cloudflared tunnel --url`) was tested as a public exposure path, but the quick hostname returned `invalid_host` for this deployment path; a production-grade public endpoint or allowed-host ingress is still required.
 - [x] Operating instructions, secret handling, deployment/recovery notes, and retrospective updates are now captured.
 
 ## Current observations

@@ -43,6 +43,8 @@ Expected outputs:
 - non-empty `mcpTools`
 - `readyForClaude: true` when metadata discovery + health + MCP route checks pass.
 
+> Quick note: account-less `cloudflared tunnel --url` exposure was tested and returned `invalid_host` from a quick tunnel edge route for this bridge in this environment. Treat that as a limitation of that temporary exposure mode. Use a production-grade ingress (or pre-approved hostname path) before claiming external connector readiness.
+
 ## 2) Claude.ai connector setup (manual account action)
 
 - Open Claude.ai → settings/integrations/custom MCP connector.
