@@ -2,6 +2,32 @@
 
 An in-progress, single-owner bridge between Grok Bot, MCP clients, and source-linked local memory. Remote gateway calls execute on the Grok Bot computer; discovery, transcript, and MCP responses never return the gateway credential.
 
+## Screenshots
+
+All five main pages, captured from the running app with **synthetic demo data**.
+These images show the UI—not live connection or delivery proof. No private chats,
+credentials, or real infrastructure addresses are included.
+
+### Conversations
+![Conversations with a demo bot and a verified-reply display](docs/screenshots/conversations.png)
+
+### New bot
+![New bot name and description form](docs/screenshots/new-bot.png)
+
+### History
+![Source-linked project history search with a demo result](docs/screenshots/history.png)
+
+### Connections
+![Connection details with demo endpoints](docs/screenshots/connections.png)
+
+### Owner sign-in
+![Private workspace owner sign-in page](docs/screenshots/sign-in.png)
+
+To regenerate, run the local app and execute `node scripts/readme-screenshots.mjs`
+with Playwright installed (or set `PLAYWRIGHT_MODULE` to its module path) and Chrome
+available. The script intercepts every API request; it does not read credentials,
+send messages, or create bots.
+
 ## Current implementation
 
 - Authenticated Streamable HTTP MCP using SDK v2, with legacy-client compatibility.
@@ -12,7 +38,7 @@ An in-progress, single-owner bridge between Grok Bot, MCP clients, and source-li
 - Dark sidebar-first React/Tailwind workspace with a responsive navigation drawer, owner sign-in, conversations, a New bot flow, history search, and connection details. Drafts and operation IDs survive uncertain responses.
 - Selected-bot conversations load existing Grok Bot text history read-only, with earlier-page loading and refresh. Remote history remains separate from durable bridge receipts and the imported project-memory index. See [chat history behavior and limits](docs/chat-history.md).
 
-This is a checkpoint, not a completed deployment. Public HTTPS hosting, actual Claude.ai connection, Grok Bot's MCP-client connection, live remote bot creation and deployment hardening remain open. Desktop/mobile UI behavior has local and fixture-based browser evidence in `docs/evidence/bridge/ui-smoke.json`. See [the complete requirement ledger](docs/bridge-plan.md).
+This is a checkpoint, not a completed deployment. Public HTTPS hosting, actual Claude.ai connection, Grok Bot's MCP-client connection and deployment hardening remain open. Live bot creation and the context handoff now have separate evidence in `docs/evidence/bridge/context-transfer.json`. Desktop/mobile UI behavior has local and fixture-based browser evidence in `docs/evidence/bridge/ui-smoke.json`. See [the complete requirement ledger](docs/bridge-plan.md).
 
 ## Run locally
 
