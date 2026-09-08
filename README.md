@@ -101,3 +101,9 @@ See [MCP/Claude research](docs/learning/mcp-claude-integration.md), [React/Tailw
 - Deployment-readiness proof (local): `docs/evidence/bridge/connector-readiness.json`.
 
 See also: `docs/operations/connector-deployment-runbook.md` for the external Claude.ai and Grok Bot connector workflow.
+
+## License
+
+Bridge source code is available under the [MIT License](LICENSE).
+Third-party dependencies and referenced materials retain their respective licenses.
+Credentials, local runtime data, and private conversation records are not included.
