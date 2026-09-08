@@ -1,5 +1,6 @@
 import type { CreationRun } from '../server/creation.js';
-import type { Agent, HistoryStatus, MessageRun, SearchHit } from '../server/types.js';
+import type { Agent, HistoryStatus, MessageRun, SearchHit, TranscriptPage } from '../server/types.js';
+import { isTranscriptPage } from './transcript.js';
 
 export interface SessionState { authenticated: boolean }
 export interface RequestOptions { signal?: AbortSignal }
@@ -22,6 +23,7 @@ export class ApiError extends Error {
 export interface CreationInput { operationId: string; name: string; description?: string }
 export interface ConnectionInfo { grokHost: string; historyHost: string; mcpUrl: string; auth: string; publicDeploymentVerified: boolean }
 export interface ApiClient {
+  transcript(agentId: string, beforeRowid?: number, options?: RequestOptions): Promise<TranscriptPage>;
   connections(options?: RequestOptions): Promise<ConnectionInfo>;
   creations(options?: RequestOptions): Promise<CreationRun[]>;
   createAgent(input: CreationInput, options?: RequestOptions): Promise<CreationRun>;
@@ -136,6 +138,15 @@ export function createApiClient(fetcher: FetchLike = (input, init) => globalThis
   }
 
   return {
+    async transcript(agentId, beforeRowid, options) {
+      requireId(agentId);
+      if (beforeRowid !== undefined && (!Number.isSafeInteger(beforeRowid) || beforeRowid < 1)) throw new ApiError('invalid_input', 'History page must use a positive row identifier.');
+      const page = expected(await request(`/api/agents/${agentId}/transcript${beforeRowid === undefined ? '' : `?before=${beforeRowid}`}`, 'GET', undefined, options), isTranscriptPage);
+      if (page.agentId !== agentId || (beforeRowid !== undefined && (page.entries.some(e => e.rowid >= beforeRowid) || (page.nextBeforeRowid !== null && page.nextBeforeRowid >= beforeRowid)))) {
+        throw new ApiError('invalid_response', 'History did not match the selected bot or page.');
+      }
+      return page;
+    },
     async connections(options) {
       return expected(await request('/api/connections', 'GET', undefined, options), (v): v is ConnectionInfo =>
         object(v) && string(v.grokHost) && string(v.historyHost) && string(v.mcpUrl) && string(v.auth) && typeof v.publicDeploymentVerified === 'boolean');

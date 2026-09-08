@@ -336,3 +336,13 @@ details code { display: block; color: var(--muted); margin: 6px 0; }
   .bot-list { max-height: 180px; }
   .sidebar-footer { margin-top: 20px; }
 }
+
+/* Remote text transcript; existing message typography and surfaces are shared. */
+.remote-history-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+.remote-history-header h3 { font-size: .92rem; font-weight: 550; }
+.remote-history-header p { color: var(--muted); font-size: .8rem; margin-top: 4px; }
+.history-pagination { display: flex; justify-content: center; margin: 12px 0 28px; }
+.remote-history-error { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; color: var(--caution); }
+.history-loading, .transcript-note { color: var(--muted); font-size: .85rem; margin: 16px 0 24px; }
+.bridge-history-divider { border-top: 1px solid var(--line); padding-top: 24px; margin: 28px 0; color: var(--muted); font-size: .85rem; }
+.transcript-entry .message-byline { flex-wrap: wrap; }

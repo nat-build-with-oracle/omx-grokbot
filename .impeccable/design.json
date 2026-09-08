@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-08T05:34:25Z",
+  "generatedAt": "2026-09-08T06:06:22Z",
   "title": "Design System: ARRA Oracle GrokBot Bridge",
   "extensions": {
     "colorMeta": {
@@ -475,7 +475,36 @@
         "public HTTPS deployment",
         "full screen-reader or focus-trap audit"
       ],
-      "newBrowserRun": false
+      "newBrowserRun": false,
+      "incrementalReadOnlyHistory": {
+        "record": "docs/evidence/bridge/chat-history-smoke.json",
+        "checkedAt": "2026-09-08T06:03:08.508Z",
+        "sourceFiles": [
+          "src/ChatHistory.tsx",
+          "client/transcript.ts"
+        ],
+        "scope": "Selected-bot read-only text history; existing message components reused. No new tokens or component previews; original finish-review scope unchanged.",
+        "live": {
+          "historyHttpStatus": 200,
+          "renderedMessages": 27,
+          "hasEarlierPage": true,
+          "sourceTextMatches": true,
+          "paginationVerified": true,
+          "messagesAfterEarlierPage": 57,
+          "botWriteRequests": 0,
+          "browserErrors": 0
+        },
+        "fixtures": {
+          "staleBotResponseSuppressed": true,
+          "loadedHistoryPreservedOnFailure": true,
+          "botWriteRequests": 0
+        },
+        "notEstablished": [
+          "new live message delivery",
+          "live agent creation",
+          "public HTTPS deployment"
+        ]
+      }
     }
   },
   "components": [

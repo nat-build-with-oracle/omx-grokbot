@@ -13,6 +13,23 @@ export interface BridgeConfig {
 }
 
 export interface Agent { agentId: string; name: string }
+export interface TranscriptEntry {
+  rowid: number;
+  role: 'user' | 'assistant';
+  content: string;
+  timestamp: string | null;
+  contentTruncated: boolean;
+  isStreaming: boolean;
+  requestId: string | null;
+  clientNonce: string | null;
+}
+export interface TranscriptPage {
+  agentId: string;
+  name: string;
+  entries: TranscriptEntry[];
+  hasMore: boolean;
+  nextBeforeRowid: number | null;
+}
 export type MessageStatus = 'prepared' | 'sending' | 'accepted' | 'delivery_uncertain' | 'reply_pending' | 'reply_recorded' | 'failed';
 export interface MessageRun {
   id: string;
@@ -46,6 +63,7 @@ export interface HistoryStatus {
   projects: string[];
 }
 export interface BridgeApi {
+  transcript(agentId: string, beforeRowid?: number): Promise<TranscriptPage>;
   creations(): import('./creation.js').CreationRun[];
   createAgent(input: { operationId: string; name: string; description?: string }): Promise<import('./creation.js').CreationRun>;
   verifyCreation(operationId: string): Promise<import('./creation.js').CreationRun>;

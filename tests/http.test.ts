@@ -38,7 +38,9 @@ test('host filter accepts loopback and configured public hosts', async () => {
       'tunnel2.example.com:8443',
     ],
   };
+  let transcriptReads = 0;
   const api: BridgeApi = {
+    transcript: async (agentId) => { transcriptReads++; return { agentId, name: 'HTTP fixture', entries: [], hasMore: false, nextBeforeRowid: null }; },
     creations: () => [],
     createAgent: async () => { throw new Error('not mocked'); },
     verifyCreation: async () => { throw new Error('not mocked'); },
@@ -87,6 +89,16 @@ test('host filter accepts loopback and configured public hosts', async () => {
 
     const res3 = await request(address.port, '/x/health', { Host: 'bad.example', 'x-forwarded-host': 'tunnel.example.com' });
     assert.equal(res3.statusCode, 200, 'forwarded allowed host should pass');
+
+    const path = '/x/api/agents/11111111-1111-4111-8111-111111111111/transcript';
+    const anonymous = await fetch(origin + path);
+    assert.equal(anonymous.status, 401); assert.equal(transcriptReads, 0);
+    const headers = { Authorization: `Bearer ${config.apiToken}` };
+    assert.equal((await fetch(origin + path + '?before=bad', { headers })).status, 400);
+    assert.equal((await fetch(origin + path + '?unexpected=1', { headers })).status, 400);
+    assert.equal(transcriptReads, 0);
+    assert.equal((await fetch(origin + path + '?before=30', { headers })).status, 200);
+    assert.equal(transcriptReads, 1);
   } finally {
     await close();
     await new Promise<void>((resolve, reject) => server.close((error) => (error ? reject(error) : resolve())));

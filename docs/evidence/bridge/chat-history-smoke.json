@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-09-08T06:03:08.508Z",
+  "target": "test",
+  "live": {
+    "historyHttpStatus": 200,
+    "agentId": "52e5160a-924f-42f4-9044-84fb6b15eb2d",
+    "renderedMessages": 27,
+    "hasEarlierPage": true,
+    "sourceTextMatches": true,
+    "paginationVerified": true,
+    "messagesAfterEarlierPage": 57,
+    "botWriteRequests": 0,
+    "browserErrors": 0
+  },
+  "fixtures": {
+    "staleBotResponseSuppressed": true,
+    "loadedHistoryPreservedOnFailure": true,
+    "botWriteRequests": 0
+  },
+  "liveAgentCreationVerified": false
+}

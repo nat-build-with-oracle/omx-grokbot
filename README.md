@@ -1,6 +1,6 @@
 # ARRA Oracle GrokBot Bridge
 
-An in-progress, single-owner bridge between Grok Bot, MCP clients, and source-linked local memory. The gateway credential stays on the Grok Bot computer; the browser and MCP server never receive it.
+An in-progress, single-owner bridge between Grok Bot, MCP clients, and source-linked local memory. Remote gateway calls execute on the Grok Bot computer; discovery, transcript, and MCP responses never return the gateway credential.
 
 ## Current implementation
 
@@ -10,6 +10,7 @@ An in-progress, single-owner bridge between Grok Bot, MCP clients, and source-li
 - Drizzle/SQLite message ledger and provenance; LanceDB vectors with local multilingual embeddings in isolated model-specific stores.
 - Source-selected history import, redaction, explicit embedding and independent keyword/vector search.
 - Dark sidebar-first React/Tailwind workspace with a responsive navigation drawer, owner sign-in, conversations, a New bot flow, history search, and connection details. Drafts and operation IDs survive uncertain responses.
+- Selected-bot conversations load existing Grok Bot text history read-only, with earlier-page loading and refresh. Remote history remains separate from durable bridge receipts and the imported project-memory index. See [chat history behavior and limits](docs/chat-history.md).
 
 This is a checkpoint, not a completed deployment. Public HTTPS hosting, actual Claude.ai connection, Grok Bot's MCP-client connection, live remote bot creation and deployment hardening remain open. Desktop/mobile UI behavior has local and fixture-based browser evidence in `docs/evidence/bridge/ui-smoke.json`. See [the complete requirement ledger](docs/bridge-plan.md).
 
@@ -37,6 +38,8 @@ npm run web:dev
 Default listener: `http://127.0.0.1:4328`, MCP at `/mcp`. The root and `/chat`, `/new`, `/history`, `/connections` serve the built web app when `dist/index.html` exists.
 
 On first start, independent owner and headless-client secrets are generated in `data/access.json` with mode `0600`. The data directory is private (`0700`) and Git-ignored. Read that file locally when configuring a client; never paste its contents into a commit, issue, chat, screenshot or public document. OAuth clients receive separate revocable tokens, not the owner secret. Real history, databases and model assets must remain uncommitted.
+
+Keep the owner, headless-client, and remote gateway credentials distinct for deployment. An owner can explicitly configure a shared owner/gateway value locally, but that removes their credential separation; it does not bypass bridge authentication. The headless-client API token must remain distinct.
 
 Configuration: `BRIDGE_DATA_DIR`, `PORT`, `BRIDGE_HOST`, `BRIDGE_PUBLIC_URL`, `BRIDGE_ALLOWED_HOSTS`, `GROKBOT_SSH_HOST`, `GROKBOT_SSH_IDENTITY_FILE`, `BRIDGE_OWNER_SECRET`, `BRIDGE_API_TOKEN`. `BRIDGE_PUBLIC_URL` is an **origin**, not a URL ending in `/mcp`; non-loopback origins require HTTPS. Default binding is loopback. Public reachability is not created merely by setting this variable.
 
@@ -90,8 +93,9 @@ See [MCP/Claude research](docs/learning/mcp-claude-integration.md), [React/Tailw
 
 ## Verification artifacts
 
-- `npm run check` passes locally (typecheck, unit tests, build); the Python gateway suite has 12 passing tests.
+- `npm run check` passes locally (typecheck, unit tests, build); the Python gateway suite includes read-only transcript and pagination checks.
 - Browser proof: `docs/evidence/bridge/ui-smoke.json` distinguishes live local UI checks from isolated message/creation fixtures. It does not establish live remote bot creation.
+- Live chat history proof: `docs/evidence/bridge/chat-history-smoke.json` checks source-matched text, earlier pages, and zero bot writes. Stale-response and failure recovery checks are explicitly isolated fixtures.
 - Real MCP-to-Grok request correlation proof: `docs/evidence/bridge/mcp-send-smoke.json` (status to `reply_recorded`).
 - Owner HTTP API MCP-equivalent proof: `docs/evidence/bridge/http-send-smoke.json`.
 - Deployment-readiness proof (local): `docs/evidence/bridge/connector-readiness.json`.

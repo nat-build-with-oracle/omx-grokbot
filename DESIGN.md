@@ -271,6 +271,14 @@ The bot preview is a flat avatar-and-name row with a bottom divider, followed by
 
 History results are flat, separated excerpts with project heading, line range, preserved text, and a View source disclosure. Source paths and matching mode remain available without resembling executable instructions. Search has loading, empty, error, and returned-result states; returned fixture excerpts are not live remote transcript browsing. Connection rows keep technical addresses subordinate in wrapping monospace, use explicit independent status labels, and keep endpoint copying separate from public-deployment verification.
 
+### Selected-bot remote chat history
+
+`src/ChatHistory.tsx` reuses the existing conversation entries, user bubbles, bot bylines, timestamps, and caution receipts; it adds no design tokens or preview primitives. **Grok Bot history** is labeled **Text messages · read-only**, with Refresh history and Load earlier messages controls. Each page scans 50 raw rows, so visible message counts vary. Internal, tool, agent-to-agent, and attachment rows are excluded; shortened text and still-recording messages are explicitly labeled. This is separate from imported History search.
+
+Earlier-page loading preserves the reading position; refresh returns to the latest loaded content. Loading has status semantics, errors offer Retry history without discarding already loaded messages, and bot switches abort or suppress stale responses. Local operation receipts remain under **Messages sent through this bridge**. `client/transcript.ts` hides only copies proven by exact bridge correlation or recorded request identifiers, never by similar text alone; reading old messages does not mark a new send as verified.
+
+The incremental evidence in `docs/evidence/bridge/chat-history-smoke.json` (`2026-09-08T06:03:08.508Z`) reports source-matched live reads of 27 recent messages and 57 after an earlier page, with zero bot-write requests and zero browser errors. Stale-bot suppression and retaining loaded history after failure are fixture checks. This establishes read-only history browsing, not live send, creation, or public-deployment proof. The original finish-review scope above is unchanged.
+
 ## Do's and Don'ts
 
 ### Do:

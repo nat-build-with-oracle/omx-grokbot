@@ -94,6 +94,7 @@ try {
     let data;
     if (path === '/api/session') data = { authenticated: true, csrfToken: 'ui-fixture-not-a-real-secret' };
     else if (path === '/api/agents' && request.method() === 'GET') data = { agents, health: { ok: true } };
+    else if (/^\/api\/agents\/[^/]+\/transcript$/.test(path)) data = { agentId: path.split('/')[3], name: 'UI fixture', entries: [], hasMore: false, nextBeforeRowid: null };
     else if (path === '/api/agents') {
       createPosts++; data = { ...body, agentId: createMode === 'verified' ? 'ac20af1c-2b33-41f2-8e21-3c8269eb7653' : null, status: createMode };
       creations.unshift(data); if (data.agentId) agents.push({ agentId: data.agentId, name: data.name });

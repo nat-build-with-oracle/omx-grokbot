@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Run over SSH on the Grok Bot computer. Tokens stay in remote process memory.
 
-Read-only actions: discover, prepare, verify. Send and create-agent each perform one POST.
+Read-only actions: discover, history, prepare, verify, verify-agent. Send and create-agent each perform one POST.
 No retries, redirects, proxies, transcript writes or UI draft modifications.
 """
 import argparse
+from contextlib import closing
 from datetime import datetime, timezone
 import json
 from pathlib import Path
@@ -115,10 +116,56 @@ def inspect_rows(rows, marker):
     return {"status": "reply_recorded" if replies else "prompt_recorded_waiting_for_reply", "prompt": {"rowid": seq, "id": prompt.get("id"), "requestId": rid, "clientNonce": prompt.get("clientNonce"), "content": prompt.get("content")}, "replies": replies}
 
 
+def history_page(agent_id, before=None, limit=50):
+    aid = str(UUID(agent_id))
+    if type(limit) is not int or not 1 <= limit <= 50 or (before is not None and (type(before) is not int or before < 1)):
+        raise ValueError("Invalid history page bounds")
+    profile = json.loads((agent_path(aid) / "profile.json").read_text())
+    if not isinstance(profile.get("name"), str):
+        raise ValueError("Agent profile has no name")
+    with closing(connect(aid)) as db:
+        rows = db.execute("SELECT rowid,entry FROM transcript_entries WHERE (? IS NULL OR rowid < ?) ORDER BY rowid DESC LIMIT ?", (before, before, limit + 1)).fetchall()
+    entries, consumed, budget = [], 0, 131072
+    for rowid, raw in rows[:limit]:
+        e = json.loads(raw)
+        role, content = None, None
+        # Agent-to-agent, tool, system and attachment records are not user-facing text.
+        if e.get("kind") == "message" and e.get("role") in ("user", "assistant") and not e.get("fromAgent") and not e.get("toAgent"):
+            role, content = e["role"], e.get("content")
+        elif e.get("kind") == "send-message" and isinstance(e.get("message"), dict) and e["message"].get("type") == "text":
+            role, content = "assistant", e["message"].get("content")
+        if not isinstance(content, str) or not content.strip():
+            consumed += 1
+            continue
+        shown = content[:8000]
+        if len(shown) > budget:
+            break  # Leave this row for the next page, rather than silently lose it.
+        budget -= len(shown)
+        timestamp = None
+        if type(e.get("timestampMs")) in (int, float):
+            try:
+                timestamp = datetime.fromtimestamp(e["timestampMs"] / 1000, timezone.utc).isoformat()
+            except (ValueError, OverflowError, OSError):
+                pass
+        entries.append({"rowid": rowid, "role": role, "content": shown,
+                        "timestamp": timestamp, "contentTruncated": len(content) > len(shown),
+                        "isStreaming": e.get("isStreaming") is True,
+                        "requestId": e.get("requestId") if isinstance(e.get("requestId"), str) and len(e["requestId"]) <= 200 else None,
+                        "clientNonce": e.get("clientNonce") if isinstance(e.get("clientNonce"), str) and len(e["clientNonce"]) <= 200 else None})
+        consumed += 1
+    has_more = len(rows) > consumed
+    return {"agentId": aid, "name": profile["name"], "entries": list(reversed(entries)),
+            "hasMore": has_more, "nextBeforeRowid": rows[consumed - 1][0] if has_more and consumed else None}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="action", required=True)
     sub.add_parser("discover")
+    history = sub.add_parser("history")
+    history.add_argument("--agent-id", required=True)
+    history.add_argument("--before-rowid", type=int)
+    history.add_argument("--limit", type=int, default=50)
     create = sub.add_parser("create-agent")
     create.add_argument("--name", required=True)
     create.add_argument("--description", required=True)
@@ -141,6 +188,9 @@ def main():
     common = {"action": args.action, "utc": utc()}
     if args.action == "discover":
         emit({**common, "health": health(), "agents": profiles()})
+        return
+    if args.action == "history":
+        emit({**common, **history_page(args.agent_id, args.before_rowid, args.limit)})
         return
     if args.action == "create-agent":
         nonce = str(UUID(args.operation_id))

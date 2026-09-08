@@ -1,4 +1,5 @@
 import { Creations } from './creation.js';
+import { readTranscript } from './transcript.js';
 import { z } from 'zod';
 import { Store } from './store.js';
 import { BridgeError } from './errors.js';
@@ -11,6 +12,7 @@ export class Bridge implements BridgeApi {
   private creationStore: Creations;
   constructor(private store: Store, private remote: RemoteGateway, private history: History) { this.creationStore = new Creations(store, remote); }
   creations() { return this.creationStore.list(); }
+  transcript(agentId: string, beforeRowid?: number) { return readTranscript(this.remote, agentId, beforeRowid); }
   createAgent(input: Parameters<BridgeApi['createAgent']>[0]) { return this.creationStore.create(input); }
   verifyCreation(id: string) { return this.creationStore.verify(id); }
   async agents() {
