@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Run over SSH on the Grok Bot computer. Tokens stay in remote process memory.
 
-Read-only actions: discover, prepare, verify. Only send performs one POST.
+Read-only actions: discover, prepare, verify. Send and create-agent each perform one POST.
 No retries, redirects, proxies, transcript writes or UI draft modifications.
 """
 import argparse
@@ -119,6 +119,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="action", required=True)
     sub.add_parser("discover")
+    create = sub.add_parser("create-agent")
+    create.add_argument("--name", required=True)
+    create.add_argument("--description", required=True)
+    create.add_argument("--operation-id", required=True)
+    check = sub.add_parser("verify-agent")
+    check.add_argument("--agent-id", required=True)
+    check.add_argument("--expected-name", required=True)
     prepare = sub.add_parser("prepare")
     prepare.add_argument("--agent-name", required=True)
     prepare.add_argument("--marker", type=marker_value, required=True)
@@ -134,6 +141,24 @@ def main():
     common = {"action": args.action, "utc": utc()}
     if args.action == "discover":
         emit({**common, "health": health(), "agents": profiles()})
+        return
+    if args.action == "create-agent":
+        nonce = str(UUID(args.operation_id))
+        if not 1 <= len(args.name.strip()) <= 120 or len(args.description) > 4000:
+            raise ValueError("Invalid profile")
+        status, data = request("/api/createAgent", {
+            "name": args.name, "description": args.description, "clientNonce": nonce,
+            "creationRoute": {"kind": "box"}, "origin": "user",
+            "isIntroductionSuppressed": True, "isKickstartRequested": False,
+        })
+        aid = str(UUID(data["agent"]["id"]))
+        emit({**common, "operationId": nonce, "agentId": aid, "httpStatus": status})
+        return
+    if args.action == "verify-agent":
+        aid = str(UUID(args.agent_id))
+        profile = json.loads((agent_path(aid) / "profile.json").read_text())
+        emit({**common, "agentId": aid, "name": profile.get("name"),
+              "verified": profile.get("name") == args.expected_name})
         return
     if args.action == "prepare":
         matches = [p for p in profiles() if p["name"] == args.agent_name]

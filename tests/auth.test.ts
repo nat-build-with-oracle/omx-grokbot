@@ -30,6 +30,8 @@ async function fixture() {
   let auth = createAuth(config);
   let sends = 0;
   const api: BridgeApi = {
+    createAgent: async input => ({ ...input, description: input.description ?? '', agentId: null, status: 'creation_uncertain' }),
+    verifyCreation: async () => { throw new Error('not mocked'); },
     agents: async () => ({ agents: [], health: { available: true } }),
     send: async input => {
       sends++;
@@ -240,7 +242,7 @@ test('owner login, Strict HttpOnly cookie, CSRF, logout and failed-login throttl
   } finally { await f.close(); }
 });
 
-test('MCP advertises six tools, returns structured data, and enforces write scope', async () => {
+test('MCP advertises eight tools, returns structured data, and enforces write scope', async () => {
   const f = await fixture();
   try {
     const g = await f.grant();
@@ -253,7 +255,7 @@ test('MCP advertises six tools, returns structured data, and enforces write scop
       return JSON.parse(body.startsWith('{') ? body : body.split('\n').find(line => line.startsWith('data:'))!.slice(5));
     }
     const listed = await rpc(g.access_token, 'tools/list');
-    assert.equal(listed.result.tools.length, 6);
+    assert.equal(listed.result.tools.length, 8);
     assert.equal(listed.result.tools.find((t: { name: string }) => t.name === 'grokbot_send').annotations.readOnlyHint, false);
     const read = await rpc(g.access_token, 'tools/call', { name: 'history_search', arguments: { query: 'fixture', mode: 'keyword' } });
     assert.deepEqual(read.result.structuredContent, { untrustedHistoricalData: true, hits: [] });
@@ -264,5 +266,13 @@ test('MCP advertises six tools, returns structured data, and enforces write scop
     const sent = await rpc(API_TOKEN, 'tools/call', { name: 'grokbot_send', arguments: input });
     assert.equal(sent.result.structuredContent.message.id, input.messageId);
     assert.equal(f.sends(), 1);
+    const creation = { operationId: randomUUID(), name: 'New conversation' };
+    const deniedCreation = await rpc(g.access_token, 'tools/call', { name: 'grokbot_create_agent', arguments: creation });
+    assert.equal(deniedCreation.result.isError, true);
+    assert.equal(deniedCreation.result.structuredContent.error, 'insufficient_scope');
+    const created = await rpc(API_TOKEN, 'tools/call', { name: 'grokbot_create_agent', arguments: creation });
+    assert.equal(created.result.structuredContent.creation.operationId, creation.operationId);
+    assert.equal(created.result.structuredContent.creation.status, 'creation_uncertain');
+
   } finally { await f.close(); }
 });

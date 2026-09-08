@@ -41,6 +41,8 @@ export function createApp(config: BridgeConfig, bridge: BridgeApi) {
   app.all('/mcp', auth.requireMcp, express.json({ limit: '32kb' }), mcp);
   app.use('/api', auth.requireOwner, express.json({ limit: '32kb' }));
   app.get('/api/agents', async (_req, res) => res.json(await bridge.agents()));
+  app.post('/api/agents', async (req, res) => res.status(202).json(await bridge.createAgent(req.body)));
+  app.post('/api/agent-creations/:id/verify', async (req, res) => res.json(await bridge.verifyCreation(String(req.params.id))));
   app.get('/api/messages', (_req, res) => res.json(bridge.messages()));
   app.post('/api/messages', async (req, res) => res.status(202).json(await bridge.send(req.body)));
   app.post('/api/messages/:id/verify', async (req, res) => res.json(await bridge.verify(String(req.params.id))));

@@ -1,3 +1,4 @@
+import { Creations } from './creation.js';
 import { z } from 'zod';
 import { Store } from './store.js';
 import { BridgeError } from './errors.js';
@@ -7,7 +8,10 @@ import type { History } from './history.js';
 
 const sendSchema = z.object({ messageId: z.uuid(), agentId: z.uuid(), prompt: z.string().trim().min(1).max(8000) }).strict();
 export class Bridge implements BridgeApi {
-  constructor(private store: Store, private remote: RemoteGateway, private history: History) {}
+  private creations: Creations;
+  constructor(private store: Store, private remote: RemoteGateway, private history: History) { this.creations = new Creations(store, remote); }
+  createAgent(input: Parameters<BridgeApi['createAgent']>[0]) { return this.creations.create(input); }
+  verifyCreation(id: string) { return this.creations.verify(id); }
   async agents() {
     const result = await this.remote.run(['discover']);
     const event = result.events.find(e => e.action === 'discover');

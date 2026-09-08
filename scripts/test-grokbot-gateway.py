@@ -14,6 +14,30 @@ gateway = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(gateway)
 
 
+class CreationTests(unittest.TestCase):
+    def test_creation_uses_gateway_once_without_kickstart(self):
+        operation = "a95379bc-cccb-44de-bda1-4629e750ec59"
+        agent = "bb5379bc-cccb-44de-bda1-4629e750ec59"
+        argv = ["gateway", "create-agent", "--operation-id", operation,
+                "--name", "New bot", "--description", ""]
+        with patch("sys.argv", argv), patch.object(gateway, "request", return_value=(200, {"agent": {"id": agent}})) as request, patch.object(gateway, "emit") as emit:
+            gateway.main()
+        request.assert_called_once_with("/api/createAgent", {
+            "name": "New bot", "description": "", "clientNonce": operation,
+            "creationRoute": {"kind": "box"}, "origin": "user",
+            "isIntroductionSuppressed": True, "isKickstartRequested": False,
+        })
+        self.assertEqual(emit.call_args.args[0]["agentId"], agent)
+
+    def test_creation_timeout_is_not_retried(self):
+        argv = ["gateway", "create-agent", "--operation-id",
+                "a95379bc-cccb-44de-bda1-4629e750ec59", "--name", "New", "--description", ""]
+        with patch("sys.argv", argv), patch.object(gateway, "request", side_effect=TimeoutError()) as request:
+            with self.assertRaises(TimeoutError):
+                gateway.main()
+        self.assertEqual(request.call_count, 1)
+
+
 class CorrelationTests(unittest.TestCase):
     marker = "DOC_NETBIRD_SYNTHETIC_TEST"
 
