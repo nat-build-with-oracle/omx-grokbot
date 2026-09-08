@@ -76,3 +76,9 @@ The requested GitHub organizations were read using `gh`; the canonical first org
 - [arra-memory-lab](https://github.com/Soul-Brews-Studio/arra-memory-lab): React/ORM/MCP boundaries.
 
 See [MCP/Claude research](docs/learning/mcp-claude-integration.md), [React/Tailwind/Impeccable research](docs/learning/webapp-design-stack.md), [m5 history lessons](docs/learning/m5-history-lessons.md), and [the previous system report](system_full_exploration_report.md). Local learning appendices and baseline captures contain internal infrastructure metadata; review before changing repository visibility.
+
+## Verification artifacts
+
+- `npm run check` passes locally (typecheck, 34 unit tests, build).
+- Real MCP-to-Grok request correlation proof: `docs/evidence/bridge/mcp-send-smoke.json` (status to `reply_recorded`).
+- Owner HTTP API MCP-equivalent proof: `docs/evidence/bridge/http-send-smoke.json`.

@@ -1,0 +1,22 @@
+{
+  "utc": "2026-09-08T03:21:17.693Z",
+  "transport": "Streamable HTTP",
+  "tools": [
+    "grokbot_agents",
+    "grokbot_send",
+    "grokbot_verify",
+    "history_search",
+    "history_read",
+    "history_status"
+  ],
+  "messageId": "6028733d-3542-462d-a5f2-c55b1297f0b4",
+  "agentId": "273ef4e6-19cb-44d2-beea-8b6e2dc4fa05",
+  "sendStatus": "accepted",
+  "verifyStatuses": [
+    "reply_pending",
+    "reply_recorded"
+  ],
+  "replySnippet": "smoke ok",
+  "requestId": "e8b0d10f-ad49-45b1-9642-9aa4ffa3434e",
+  "result": "pass"
+}

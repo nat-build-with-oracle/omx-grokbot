@@ -1,0 +1,14 @@
+{
+  "utc": "2026-09-08T03:17:16.114Z",
+  "method": "Owner HTTP API + origin/same-site headers",
+  "messageId": "1c27d713-e726-41a4-8fb5-18e87ea7c30f",
+  "agentId": "273ef4e6-19cb-44d2-beea-8b6e2dc4fa05",
+  "initialStatus": "accepted",
+  "verifySequence": [
+    { "step": 0, "status": "reply_pending", "requestId": null },
+    { "step": 1, "status": "reply_recorded", "requestId": "da02416e-e36a-4c2d-8d17-e78b9b41f5be" }
+  ],
+  "finalStatus": "reply_recorded",
+  "replySnippet": "test-ack",
+  "result": "pass"
+}

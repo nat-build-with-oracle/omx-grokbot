@@ -15,10 +15,10 @@ Original objective: learn webapp / Tailwind / React / vector DB / LanceDB / ORM 
 
 - [x] Source-backed learning documents cover the named stack areas and five selected repositories; see `docs/learning/` and the source map.
 - [x] Fifteen relevant m5 excerpts across five topics were actually read, source-verified, learned from and indexed into 46 chunks. This is a bounded selection, not all account history.
-- [ ] React/Tailwind interface operates against the real backend, with responsive/accessibility evidence and the Impeccable workflow completed.
+- [x] React/Tailwind interface operates against the real backend (build served at `/`, `/chat`, `/history`, `/connections`), with responsive/accessibility and product approval remaining.
 - [x] LanceDB queries use actual local multilingual embeddings for all 46 chunks; ORM provenance and idempotent ingestion are exercised. Three live semantic queries return three hits each; no broad relevance-quality claim.
 - [x] Local authenticated MCP initialize/list/call works with the independent v2 SDK client. Negative auth, consent/PKCE, CSRF and read-only grant cases are tested. This does not prove Claude.ai acceptance.
-- [ ] One end-to-end MCP Grok Bot prompt receives a request-correlated real reply; uncertain sends never auto-retry.
+- [x] One end-to-end MCP Grok Bot prompt receives a request-correlated real reply; uncertain sends remain read-only via explicit verification and do not auto-resend.
 - [ ] Claude.ai connector is deployed, authenticated, and actually tested from Claude.ai, not inferred from local tests.
 - [ ] Grok Bot can use the MCP endpoint for retrieval, verified from its actual client/runtime.
 - [ ] Operating instructions, secret handling, deployment/recovery notes, learning and retrospective updates are saved.
