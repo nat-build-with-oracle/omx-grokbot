@@ -39,6 +39,8 @@ try {
   await page.getByRole('button',{name:'Open workspace',exact:true}).click();
   await page.getByRole('button',{name:new RegExp(state.creationResult.name)}).first().click({timeout:45000});
   await page.waitForFunction(id=>[...document.querySelectorAll('.conversation-entry')].some(e=>e.querySelector('.message-details code')?.textContent===id&&e.querySelector('.message-receipt.positive')),messageId,{timeout:180000});
+  await page.waitForTimeout(10000);
+  assert(checks>0,'Fresh live operation must receive an automatic read-only check');
   assert(writes===0,'Live watcher must not send or create');
   await page.screenshot({path:'.impeccable/review/live-handoff.png',fullPage:true});
   proof.live={messageId,replyRendered:true,automaticVerificationRequests:checks,botWrites:writes};

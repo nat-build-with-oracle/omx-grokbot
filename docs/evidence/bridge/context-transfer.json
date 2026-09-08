@@ -1,0 +1,59 @@
+{
+  "checkedAt": "2026-09-08T08:06:33.890928+00:00",
+  "scope": "Project working-context handoff, not model or identity transfer",
+  "creation": {
+    "agentId": "29495d76-f0e8-4571-83ce-cff6cd7f524a",
+    "name": "ARRA Oracle Bridge Keeper",
+    "status": "verified",
+    "remoteProfileRechecked": true
+  },
+  "handoffPhase": "persisted_and_read_back",
+  "verifiedReplies": 3,
+  "exchanges": [
+    {
+      "operationId": "2a3d6d50-3476-45bc-8ee6-0b0be16e49a2",
+      "status": "reply_recorded",
+      "requestId": "f746186c-fe57-4fa8-a459-9b1aee6cebba"
+    },
+    {
+      "operationId": "d3318378-017d-4891-9cdd-00fc6bbfcbd1",
+      "status": "reply_recorded",
+      "requestId": "6f7a543f-987e-41f7-b536-2438fd834794"
+    },
+    {
+      "operationId": "3460a71b-578c-4a81-aa2a-c5a227666974",
+      "status": "reply_recorded",
+      "requestId": "b4947446-291a-46af-8969-6ff2cb99d0b3"
+    }
+  ],
+  "durableNote": {
+    "path": "/home/box/ARRA_BRIDGE_HANDOFF.md",
+    "sha256": "b15b6524bf79b25182b722bf66aab7e8689024c39363c07ec5405dbe39db0399",
+    "independentlyReadOverSSH": true,
+    "hashMatchesBotReport": true,
+    "covers": [
+      "project and repository",
+      "transport",
+      "history distinctions",
+      "uncertain-send recovery",
+      "evidence provenance",
+      "current public source and local deployment distinction",
+      "polling limits",
+      "restart checklist"
+    ]
+  },
+  "readback": {
+    "uncertainSendNoResend": true,
+    "hostWideBusyDistinguished": true,
+    "acknowledgementNotTaskCompletion": true,
+    "publicSourceNotPublicDeployment": true,
+    "recoveryPathIdentified": true
+  },
+  "browserProof": "auto-reply-smoke.json",
+  "limitations": [
+    "No model, identity, credentials, or hidden instructions transferred",
+    "Persistence verified by file read and hash; bot restart not exercised",
+    "Read-only polling, not WebSocket or token streaming",
+    "Web application remains local"
+  ]
+}

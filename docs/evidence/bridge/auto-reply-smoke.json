@@ -1,10 +1,15 @@
 {
-  "checkedAt": "2026-09-08T08:01:09.031Z",
+  "checkedAt": "2026-09-08T08:05:36.450Z",
   "fixture": {
     "automaticReplyRendered": true,
     "verificationRequests": 1,
     "botWrites": 0,
     "stopsAfterReply": true
   },
-  "live": null
+  "live": {
+    "messageId": "3460a71b-578c-4a81-aa2a-c5a227666974",
+    "replyRendered": true,
+    "automaticVerificationRequests": 1,
+    "botWrites": 0
+  }
 }
