@@ -14,19 +14,21 @@ class FakeRemote implements RemoteGateway {
   posts = 0;
   uncertain = false;
   malformedProof = false;
+  hostBusy = false;
   sentPrompt = '';
+  replyText = 'Verified reply';
   async run(argv: string[]): Promise<RemoteResult> {
     const action = argv[0];
     const val = (key: string) => argv[argv.indexOf(key) + 1];
     let event: any;
     if (action === 'discover') event = { action, agents: [{ agentId: aid, name: 'OMX Proxy' }], health: { ok: true } };
-    else if (action === 'prepare') event = { action, agentId: aid, name: 'OMX Proxy', afterRowid: 8, existingMarkerRows: 0, health: { isBusy: false } };
+    else if (action === 'prepare') event = { action, agentId: aid, name: 'OMX Proxy', afterRowid: 8, existingMarkerRows: 0, health: { isBusy: this.hostBusy } };
     else if (action === 'send') {
       this.posts++; this.sentPrompt = val('--prompt');
       if (this.uncertain) throw new Error('network lost after POST');
       event = { action, phase: 'post_result', httpStatus: 200, accepted: true };
     } else {
-      event = { action, agentId: aid, marker: val('--marker'), afterRowid: 8, status: 'reply_recorded', prompt: { rowid: 9, requestId: 'request-1', clientNonce: val('--marker'), content: this.malformedProof ? 'wrong content' : this.sentPrompt }, replies: [{ rowid: 11, requestId: 'request-1', content: 'Verified reply', contentTruncated: false, isStreaming: false }] };
+      event = { action, agentId: aid, marker: val('--marker'), afterRowid: 8, status: 'reply_recorded', prompt: { rowid: 9, requestId: 'request-1', clientNonce: val('--marker'), content: this.malformedProof ? 'wrong content' : this.sentPrompt }, replies: [{ rowid: 11, requestId: 'request-1', content: this.replyText, contentTruncated: false, isStreaming: false }] };
     }
     return { exitCode: 0, events: [event] };
   }
@@ -85,5 +87,29 @@ test('late acceptance or pending verification cannot downgrade a recorded reply'
       const run = f.store.update(input.messageId, { status, error: 'late event' });
       assert.equal(run.status, 'reply_recorded'); assert.equal(run.reply, 'Verified reply'); assert.equal(run.error, null);
     }
+  } finally { f.close(); }
+});
+
+test('host-wide busy status does not block a named target; unresolved duplicates still cannot send', async () => {
+  const f = fixture(); try {
+    f.remote.hostBusy = true;
+    const input = { messageId: randomUUID(), agentId: aid, prompt: 'Explicit target' };
+    assert.equal((await f.bridge.send(input)).status, 'accepted');
+    assert.equal(f.remote.posts, 1);
+    await assert.rejects(f.bridge.send({ ...input, messageId: randomUUID() }), /pending message/);
+    assert.equal(f.remote.posts, 1);
+  } finally { f.close(); }
+});
+
+test('recorded replies can refresh later response text without a second send', async () => {
+  const f = fixture(); try {
+    const input = { messageId: randomUUID(), agentId: aid, prompt: 'One greeting' };
+    await f.bridge.send(input); await f.bridge.verify(input.messageId);
+    f.remote.replyText = 'Verified reply\n\nFinal report';
+    assert.equal((await f.bridge.verify(input.messageId)).reply, f.remote.replyText);
+    f.remote.malformedProof = true;
+    assert.equal((await f.bridge.verify(input.messageId)).status, 'reply_recorded');
+    assert.equal(f.store.get(input.messageId)?.reply, f.remote.replyText);
+    assert.equal(f.remote.posts, 1);
   } finally { f.close(); }
 });

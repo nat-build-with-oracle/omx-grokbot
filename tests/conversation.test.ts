@@ -281,3 +281,15 @@ test('creation client rejects mismatched and malformed success responses without
   await assert.rejects(client.verifyCreation(ID), (e: unknown) => e instanceof ApiError && e.code === 'invalid_response');
   assert.equal(posts, 2);
 });
+
+test('explicit recorded refresh remains read-only and clears a late pending observation', () => {
+  const c = ready(); c.prepareAndSubmit(ID);
+  c.dispatch({ type: 'receive', messageId: ID, run: run('reply_recorded') });
+  assert.equal(c.verify(ID), null);
+  assert.deepEqual(c.verify(ID, true), { type: 'verify', messageId: ID });
+  assert.equal(c.verify(ID, true), null);
+  c.dispatch({ type: 'receive', messageId: ID, run: run('reply_pending') });
+  assert.equal(activeOperation(c.getState())?.phase, 'recorded');
+  assert.equal(activeOperation(c.getState())?.verifying, false);
+  assert.equal(c.submit(), null);
+});

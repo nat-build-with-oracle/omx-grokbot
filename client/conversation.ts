@@ -23,7 +23,7 @@ export type ConversationEvent =
   | { type: 'edit_draft'; agentId: string; prompt: string }
   | { type: 'prepare'; messageId: string }
   | { type: 'send_started'; messageId: string }
-  | { type: 'verify_started'; messageId: string }
+  | { type: 'verify_started'; messageId: string; refreshRecorded?: boolean }
   | { type: 'receive'; messageId: string; run: MessageRun }
   | { type: 'send_unknown'; messageId: string; message?: string }
   | { type: 'verify_failed'; messageId: string; message?: string }
@@ -84,7 +84,7 @@ export function conversationReducer(state: ConversationState, event: Conversatio
       if (operation.sendAttempted || operation.phase !== 'prepared') return state;
       return replaceOperation(state, { ...operation, phase: 'sending', sendAttempted: true, error: null });
     case 'verify_started':
-      if (!operation.sendAttempted || operation.verifying || operation.phase === 'recorded') return state;
+      if (!operation.sendAttempted || operation.verifying || (operation.phase === 'recorded' && !event.refreshRecorded)) return state;
       return replaceOperation(state, { ...operation, verifying: true, error: null });
     case 'send_unknown':
       if (!operation.sendAttempted || operation.phase === 'recorded') return state;
@@ -98,7 +98,7 @@ export function conversationReducer(state: ConversationState, event: Conversatio
         return operation.phase === 'recorded' ? state : replaceOperation(state, { ...operation, phase: 'uncertain', verifying: false, error: 'The response did not match this operation. Check its original identifier.' });
       }
       // Late accepted/pending observations cannot undo an already verified reply.
-      if (operation.phase === 'recorded' && run.status !== 'reply_recorded') return state;
+      if (operation.phase === 'recorded' && run.status !== 'reply_recorded') return replaceOperation(state, { ...operation, verifying: false });
       const phase = phases[run.status];
       const next = replaceOperation(state, { ...operation, phase, verifying: false, error: run.error, run });
       // Do not erase text the user has edited while waiting for the response.
@@ -127,10 +127,10 @@ export function createConversationController(initial = initialConversationState(
     dispatch({ type: 'send_started', messageId: operation.messageId });
     return { type: 'send', input: { messageId: operation.messageId, agentId: operation.agentId, prompt: operation.prompt } };
   };
-  const verify = (messageId = activeOperation(state)?.messageId): ConversationCommand | null => {
+  const verify = (messageId = activeOperation(state)?.messageId, refreshRecorded = false): ConversationCommand | null => {
     const operation = messageId ? state.operations[messageId] : undefined;
-    if (!operation || !operation.sendAttempted || operation.verifying || operation.phase === 'recorded') return null;
-    dispatch({ type: 'verify_started', messageId: operation.messageId });
+    if (!operation || !operation.sendAttempted || operation.verifying || (operation.phase === 'recorded' && !refreshRecorded)) return null;
+    dispatch({ type: 'verify_started', messageId: operation.messageId, refreshRecorded });
     return { type: 'verify', messageId: operation.messageId };
   };
   return {

@@ -1,0 +1,10 @@
+{
+  "checkedAt": "2026-09-08T08:01:09.031Z",
+  "fixture": {
+    "automaticReplyRendered": true,
+    "verificationRequests": 1,
+    "botWrites": 0,
+    "stopsAfterReply": true
+  },
+  "live": null
+}

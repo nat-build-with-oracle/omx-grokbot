@@ -41,3 +41,13 @@ BRIDGE_TEST_AGENT=test node scripts/chat-history-smoke.mjs
 The live phase signs in using private local configuration, selects that exact bot, compares rendered text to the authenticated transcript response, loads one earlier page when available, and signs out. It sends no bot message and creates no bot. Separate isolated fixtures test stale bot responses and preservation after read failure. No message contents or credentials enter the committed JSON proof.
 
 Evidence: `docs/evidence/bridge/chat-history-smoke.json`. Screenshots stay in the ignored `.impeccable/review/` directory because they can contain private conversations. This proof establishes history reads, not live bot creation, native-window selection, public deployment, or a new correlated reply.
+
+## Automatic bridge reply checks
+
+While the selected conversation is visible, unresolved bridge messages are verified
+against the remote transcript every four seconds after each check completes. No
+prompt is resent. Fresh recorded replies continue refreshing until ten minutes
+after message creation, so a later final report can follow an initial acknowledgement.
+Use **Refresh reply** for older operations. This is read-only polling, not WebSocket
+or token streaming. Native chat history still loads on selection or manual refresh.
+Bridge operations display oldest first and follow the bottom unless you scroll up.

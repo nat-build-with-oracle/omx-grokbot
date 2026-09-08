@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import { createConversationController, type ConversationOperation } from '../client/conversation';
 import { ApiError, createApiClient, type ConnectionInfo } from '../client/api';
 import type { Agent, HistoryStatus, MessageRun, SearchHit } from '../server/types';
@@ -11,7 +11,7 @@ type Connection = 'unchecked' | 'checking' | 'online' | 'offline';
 const routePath: Record<Route, string> = { chat: '/', new: '/new', history: '/history', connections: '/connections' };
 function currentRoute(): Route { return ({ '/new': 'new', '/history': 'history', '/connections': 'connections' } as Record<string, Route>)[window.location.pathname] ?? 'chat'; }
 const statusLabel: Record<Connection, string> = { unchecked: 'Not checked', checking: 'Connecting…', online: 'Reachable', offline: 'Connection failed' };
-const phaseLabel: Record<ConversationOperation['phase'], string> = { prepared: 'Prepared', sending: 'Submitting…', accepted: 'Submitted · reply not verified', uncertain: 'Delivery not confirmed', pending: 'Waiting for a recorded reply', recorded: 'Reply verified', error: 'Not sent' };
+const phaseLabel: Record<ConversationOperation['phase'], string> = { prepared: 'Prepared', sending: 'Submitting…', accepted: 'Submitted · checking for a reply', uncertain: 'Delivery not confirmed', pending: 'Waiting for reply · checking automatically', recorded: 'Reply verified', error: 'Not sent' };
 const errorMessage = (error: unknown, fallback: string) => error instanceof ApiError ? error.message : fallback;
 
 function Status({ state, children }: { state: Connection; children?: React.ReactNode }) {
@@ -24,7 +24,7 @@ function ConversationEntry({ operation, onVerify }: { operation: ConversationOpe
     {operation.run?.reply && <div className="message bot-message"><div className="message-byline"><Avatar name={operation.run.agentName} /><strong>{operation.run.agentName}</strong></div><div className="message-text">{operation.run.reply}</div></div>}
     <div className={`message-receipt ${operation.phase === 'recorded' ? 'positive' : operation.phase === 'uncertain' || operation.phase === 'error' ? 'caution' : ''}`}>
       <Icon name={operation.phase === 'recorded' ? 'check' : operation.phase === 'uncertain' ? 'alert' : 'chat'} size={15} /><span>{phaseLabel[operation.phase]}</span>
-      {pending && <button className="text-button" disabled={operation.verifying || operation.phase === 'sending'} onClick={() => onVerify(operation.messageId)}>{operation.verifying ? 'Checking…' : 'Check reply'}</button>}
+      {(pending || operation.phase === 'recorded') && <button className="text-button" disabled={operation.verifying || operation.phase === 'sending'} onClick={() => onVerify(operation.messageId)}>{operation.verifying ? 'Checking…' : operation.phase === 'recorded' ? 'Refresh reply' : 'Check reply'}</button>}
     </div>
     {operation.error && <p className="form-error">{operation.error}</p>}
     <details className="message-details"><summary>Message details</summary><code>{operation.messageId}</code><p>Checks read the transcript. They never send the message again.</p></details>
@@ -57,11 +57,13 @@ export function App() {
   const [searchError, setSearchError] = useState<string | null>(null);
   const sessionEpoch = useRef(0);
   const remoteFlight = useRef(false);
+  const verificationFlights = useRef(new Set<string>());
   const loginFlight = useRef(false);
   const searchFlight = useRef(false);
   const drawer = useRef<HTMLDialogElement>(null);
   const pageTitle = useRef<HTMLHeadingElement>(null);
   const chatEnd = useRef<HTMLDivElement>(null);
+  const followChat = useRef(true);
   const isAuthed = auth === 'owner';
   const sync = () => setConversation(controller.getState());
 
@@ -128,6 +130,7 @@ export function App() {
     requestAnimationFrame(() => pageTitle.current?.focus());
   };
   const chooseAgent = (agent: Agent) => {
+    followChat.current = true;
     setAgents(previous => previous.some(a => a.agentId === agent.agentId) ? previous : [...previous, agent]);
     controller.dispatch({ type: 'select_agent', agentId: agent.agentId }); sync(); navigate('chat');
   };
@@ -142,7 +145,13 @@ export function App() {
   const selected = knownAgents.find(a => a.agentId === conversation.selectedAgentId);
   const selectedIsLive = agents.some(a => a.agentId === selected?.agentId);
   const draft = conversation.drafts[conversation.selectedAgentId ?? ''] ?? '';
-  const operations = Object.values(conversation.operations).filter(o => o.agentId === selected?.agentId);
+  const operations = Object.values(conversation.operations).filter(o => o.agentId === selected?.agentId)
+    .sort((a, b) => (a.run?.createdAt ?? '\uffff').localeCompare(b.run?.createdAt ?? '\uffff'));
+  const latest = operations.at(-1);
+  useLayoutEffect(() => {
+    const scroll = chatEnd.current?.closest('.conversation-scroll');
+    if (scroll && followChat.current) scroll.scrollTop = scroll.scrollHeight;
+  }, [selected?.agentId, operations.length, latest?.run?.reply]);
   const activeId = conversation.activeByAgent[selected?.agentId ?? ''];
   const active = activeId ? conversation.operations[activeId] : undefined;
   const hasPending = Boolean(active && !['recorded', 'error'].includes(active.phase));
@@ -171,13 +180,29 @@ export function App() {
     catch (error) { if (epoch === sessionEpoch.current) { handleAuthError(error); controller.dispatch({ type: 'send_unknown', messageId: command.input.messageId }); setSendError('Delivery could not be confirmed. Check this message; your draft is kept.'); } }
     finally { if (epoch === sessionEpoch.current) { sync(); chatEnd.current?.scrollIntoView({ block: 'nearest' }); } }
   };
-  const verify = async (id: string) => {
-    const command = controller.verify(id); if (!command) return;
-    const epoch = sessionEpoch.current; sync();
+  const verify = useCallback(async (id: string) => {
+    if (verificationFlights.current.has(id)) return;
+    const command = controller.verify(id, true); if (!command) return;
+    verificationFlights.current.add(id);
+    const epoch = sessionEpoch.current; setConversation(controller.getState());
     try { const run = await api.verify(id); if (epoch === sessionEpoch.current) controller.dispatch({ type: 'receive', messageId: run.id, run }); }
     catch (error) { if (epoch === sessionEpoch.current) { handleAuthError(error); controller.dispatch({ type: 'verify_failed', messageId: id }); } }
-    finally { if (epoch === sessionEpoch.current) sync(); }
-  };
+    finally { verificationFlights.current.delete(id); if (epoch === sessionEpoch.current) setConversation(controller.getState()); }
+  }, [api, controller, handleAuthError]);
+  useEffect(() => {
+    if (!isAuthed || route !== 'chat' || !activeId || !active || !['accepted', 'uncertain', 'pending', 'recorded'].includes(active.phase)) return;
+    let stopped = false;
+    let timer: ReturnType<typeof setTimeout>;
+    const check = async () => {
+      if (stopped) return;
+      const current = controller.getState().operations[activeId];
+      if (current?.phase === 'recorded' && (!current.run || Date.now() - Date.parse(current.run.createdAt) > 600_000)) return;
+      if (document.visibilityState === 'visible') await verify(activeId);
+      if (!stopped) timer = setTimeout(() => void check(), 4000);
+    };
+    timer = setTimeout(() => void check(), 4000);
+    return () => { stopped = true; clearTimeout(timer); };
+  }, [isAuthed, route, activeId, active?.phase, verify, controller]);
   const search = async (text = query) => {
     if (!text.trim() || searchFlight.current) return;
     searchFlight.current = true; const epoch = sessionEpoch.current;
@@ -211,7 +236,7 @@ export function App() {
       {workspaceError && isAuthed && <div className="global-notice" role="alert"><Icon name="alert" size={18} /><span>{workspaceError}</span><button className="icon-button" aria-label="Dismiss message" onClick={() => setWorkspaceError(null)}><Icon name="close" size={16} /></button></div>}
       {!isAuthed ? <div className="welcome"><div className="welcome-content"><Mark large /><h1>ARRA Oracle<br /><span>GrokBot Bridge</span></h1><p>Conversations, new ideas, and the history behind them.<br className="desktop-break" /> All through your private bridge.</p><form className="login-form" onSubmit={login}><label htmlFor="owner-secret">Owner secret</label><div className="secret-input"><Icon name="lock" size={18} /><input id="owner-secret" name="owner-secret" type="password" autoComplete="current-password" placeholder="Enter your owner secret" value={secret} onChange={e => setSecret(e.target.value)} disabled={auth === 'checking' || loginBusy} required /></div>{loginError && <p className="form-error" role="alert">{loginError}</p>}<button className="button primary" disabled={auth === 'checking' || loginBusy || !secret.trim()} type="submit">{auth === 'checking' ? 'Checking session…' : loginBusy ? 'Signing in…' : 'Open workspace'}<Icon name="chevron" size={18} /></button><details className="login-help"><summary>Where do I find my secret?</summary><p>Use <code>ownerSecret</code> in <code>data/access.json</code> on the computer running this bridge. It must match the bridge configuration. Your secret is not saved in browser storage.</p></details></form></div><div className="welcome-footer"><Icon name="lock" size={14} />Local access · Your conversations stay behind sign-in</div></div> : <>
         {route === 'chat' && <div className="chat-page">{remoteState === 'offline' && <div className="offline-strip"><Icon name="alert" size={17} /><span>Remote gateway connection failed. Saved conversations and local history still work.</span><button className="text-button" disabled={remoteBusy} onClick={() => void refreshAgents()}>Reconnect</button></div>}
-          <div className="conversation-scroll">{selected ? <div className="conversation-feed"><ChatHistory key={selected.agentId} api={api} agent={selected} operations={operations} onAuthError={handleAuthError} />{operations.map(operation => <ConversationEntry key={operation.messageId} operation={operation} onVerify={id => void verify(id)} />)}<div ref={chatEnd} /></div> : <div className="empty-conversation"><Mark large /><h1>A little space for your next idea.</h1><p>Choose a bot from the sidebar, or give a new one<br className="desktop-break" /> a name and a conversation of its own.</p><button className="button primary" onClick={() => navigate('new')}><Icon name="plus" size={18} />Create a bot</button><button className="text-button" onClick={() => navigate('history')}>Pick up from your history <Icon name="chevron" size={15} /></button></div>}</div>
+          <div className="conversation-scroll" onScroll={e => { const el = e.currentTarget; followChat.current = el.scrollHeight - el.scrollTop - el.clientHeight < 100; }}>{selected ? <div className="conversation-feed"><ChatHistory key={selected.agentId} api={api} agent={selected} operations={operations} onAuthError={handleAuthError} />{operations.map(operation => <ConversationEntry key={operation.messageId} operation={operation} onVerify={id => void verify(id)} />)}<div ref={chatEnd} /></div> : <div className="empty-conversation"><Mark large /><h1>A little space for your next idea.</h1><p>Choose a bot from the sidebar, or give a new one<br className="desktop-break" /> a name and a conversation of its own.</p><button className="button primary" onClick={() => navigate('new')}><Icon name="plus" size={18} />Create a bot</button><button className="text-button" onClick={() => navigate('history')}>Pick up from your history <Icon name="chevron" size={15} /></button></div>}</div>
           <div className="composer-area">{selected && <form className="composer" onSubmit={submit}><label className="sr-only" htmlFor="message-draft">Message {selected.name}</label><textarea id="message-draft" value={draft} maxLength={8000} rows={3} onChange={e => { controller.dispatch({ type: 'edit_draft', agentId: selected.agentId, prompt: e.target.value }); sync(); }} placeholder={`Message ${selected.name}…`} onKeyDown={e => { if (e.key === 'Enter' && (e.metaKey || e.ctrlKey) && !e.nativeEvent.isComposing) { e.preventDefault(); e.currentTarget.form?.requestSubmit(); } }} /><div className="composer-actions"><span>{hasPending ? 'Draft kept · check the previous reply before sending' : remoteState !== 'online' ? 'Draft locally · reconnect to send' : '⌘ / Ctrl + Enter to send'}</span><button className="send-button" type="submit" aria-label="Send message" disabled={!sendEnabled}><Icon name="arrow" size={20} /></button></div></form>}{sendError && <p className="form-error" role="alert">{sendError}</p>}<p className="composer-note"><Icon name="lock" size={12} />{selected ? 'Messages are sent once. Replies are checked against the transcript.' : 'A private connection to your Grok Bot workspace.'}</p></div>
         </div>}
         <div hidden={route !== 'new'} className="scroll-page"><NewBot api={api} online={remoteState === 'online'} onOpen={chooseAgent} /></div>

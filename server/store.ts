@@ -66,7 +66,14 @@ export class Store {
     return this.sqlite.transaction(() => {
       const current = this.get(id);
       if (!current) throw new BridgeError('not_found', 'Message not found.', 404);
-      if (current.status === 'reply_recorded' || current.status === 'failed') return current;
+      if (current.status === 'failed') return current;
+      if (current.status === 'reply_recorded') {
+        // Only append verified text for the same request; stale reads cannot
+        // shorten a reply or replace its delivery evidence.
+        if (patch.status !== 'reply_recorded' || patch.requestId !== current.requestId ||
+            typeof patch.reply !== 'string' || !patch.reply.startsWith(current.reply ?? '')) return current;
+        patch = { status: 'reply_recorded', reply: patch.reply, requestId: current.requestId, error: null };
+      }
       const rank: Record<MessageRun['status'], number> = { prepared: 0, sending: 1, accepted: 2, delivery_uncertain: 2, reply_pending: 3, reply_recorded: 4, failed: 4 };
       if (patch.status && rank[patch.status] < rank[current.status]) return current;
       this.db.update(runs).set({ ...patch, updatedAt: new Date().toISOString() }).where(eq(runs.id, id)).run();

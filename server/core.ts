@@ -42,7 +42,10 @@ export class Bridge implements BridgeApi {
       const prepared = await this.remote.run(['prepare', '--agent-name', agent.name, '--marker', initial.marker]);
       const prep = prepared.events.find(e => e.action === 'prepare');
       if (prepared.exitCode !== 0 || prep?.agentId !== agent.agentId || prep?.name !== agent.name || prep?.existingMarkerRows !== 0 || !Number.isInteger(prep.afterRowid)) throw new BridgeError('prepare_failed', 'Could not safely prepare this named agent. Nothing was sent.', 502);
-      if (prep.health?.isBusy) throw new BridgeError('agent_busy', 'Grok Bot is busy. Nothing was sent.', 409);
+      // /health.isBusy aggregates all agents and background shell work; it
+      // cannot establish that this named target rejects a new prompt. Let the
+      // gateway admit the addressed request, preserving our durable nonce and
+      // one-unresolved-operation-per-agent guard in Store.create.
       const intent = this.store.update(initial.id, { afterRowid: prep.afterRowid, status: 'sending' });
       if (intent.status !== 'sending') return intent;
       postIntentPersisted = true;
@@ -59,7 +62,7 @@ export class Bridge implements BridgeApi {
     z.uuid().parse(messageId);
     const run = this.store.get(messageId);
     if (!run) throw new BridgeError('not_found', 'Message not found.', 404);
-    if (run.afterRowid === null || run.status === 'failed' || run.status === 'reply_recorded') return run;
+    if (run.afterRowid === null || run.status === 'failed') return run;
     try {
       const result = await this.remote.run(['verify', '--agent-id', run.agentId, '--marker', run.marker, '--after-rowid', String(run.afterRowid)]);
       const proof = result.events.find(e => e.action === 'verify');
