@@ -1,0 +1,65 @@
+{
+  "utc": "2026-09-08T03:23:25.131Z",
+  "origin": "http://127.0.0.1:4328",
+  "publicUrl": "http://127.0.0.1:4328",
+  "steps": [
+    {
+      "check": "config_public_url_present",
+      "ok": true
+    },
+    {
+      "check": "public_url_transport",
+      "ok": true,
+      "details": "Non-loopback public URLs must be HTTPS"
+    },
+    {
+      "check": "authorization_server_discovery",
+      "ok": true,
+      "details": "Found 11 keys"
+    },
+    {
+      "check": "authorization_server_has_authorize",
+      "ok": true
+    },
+    {
+      "check": "authorization_server_has_token",
+      "ok": true
+    },
+    {
+      "check": "authorization_server_scopes",
+      "ok": true
+    },
+    {
+      "check": "protected_resource_discovery",
+      "ok": true,
+      "details": "resource=http://127.0.0.1:4328/mcp"
+    },
+    {
+      "check": "protected_resource_matches_mcp",
+      "ok": true
+    },
+    {
+      "check": "health_ok",
+      "ok": true
+    },
+    {
+      "check": "mcp_tools_listed",
+      "ok": true,
+      "details": "Listed 6 tools"
+    },
+    {
+      "check": "mcp_expected_tools_present",
+      "ok": true
+    }
+  ],
+  "mcpTools": [
+    "grokbot_agents",
+    "grokbot_send",
+    "grokbot_verify",
+    "history_search",
+    "history_read",
+    "history_status"
+  ],
+  "readyForClaude": true,
+  "readyForGrokBot": true
+}

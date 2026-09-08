@@ -21,17 +21,18 @@ Original objective: learn webapp / Tailwind / React / vector DB / LanceDB / ORM 
 - [x] One end-to-end MCP Grok Bot prompt receives a request-correlated real reply; uncertain sends remain read-only via explicit verification and do not auto-resend.
 - [ ] Claude.ai connector is deployed, authenticated, and actually tested from Claude.ai, not inferred from local tests.
 - [ ] Grok Bot can use the MCP endpoint for retrieval, verified from its actual client/runtime.
-- [ ] Operating instructions, secret handling, deployment/recovery notes, learning and retrospective updates are saved.
+- [x] Operating instructions, secret handling, deployment/recovery notes, and retrospective updates are now captured.
 
 ## Current observations
 
 - Previous goal was completed with a real OMX Proxy reply. This new goal is separate and remains active.
 - `beta@m5` uses an old LAN SSH override and times out. The user-specified `beta@m5.oracle.netbird` authenticates successfully.
 - Canonical GitHub org is `Soul-Brews-Studio`; `soulbrewsstudio` was not recognized. `gh` access to both requested organizations succeeds.
-- Public HTTPS endpoint/hosting and owner-UI product assumptions have been asked asynchronously; local implementation can proceed without pretending those gates are complete.
+- Local deployment-readiness evidence now exists at `docs/evidence/bridge/connector-readiness.json`; this confirms metadata/tooling checks from local run context.
+- Public HTTPS endpoint/hosting and actual external connector testing remain open.
 
-No deployments, account connections, real-history bulk exports, or second bot message have been performed for this new goal at this checkpoint.
+No external deployments/connector account connections have been completed yet.
 
 ## Commit checkpoint
 
-The user requested commit/push. A local Git repository was initialized on `main`; private destination selection is pending because no matching `omx-grokbot` repository exists in either organization. Secrets, source history selections, databases/models, runtime state and local retrospective files are excluded from staging. The active goal remains incomplete; a checkpoint commit is not deployment or visual-UI completion.
+The repository is now tracking a checkpointed public/private-safe implementation on `main` in `nat-build-with-oracle/omx-grokbot`. Sensitive runtime files remain excluded. The active goal remains incomplete until actual external connector/client verification is completed.

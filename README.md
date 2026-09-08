@@ -82,3 +82,6 @@ See [MCP/Claude research](docs/learning/mcp-claude-integration.md), [React/Tailw
 - `npm run check` passes locally (typecheck, 34 unit tests, build).
 - Real MCP-to-Grok request correlation proof: `docs/evidence/bridge/mcp-send-smoke.json` (status to `reply_recorded`).
 - Owner HTTP API MCP-equivalent proof: `docs/evidence/bridge/http-send-smoke.json`.
+- Deployment-readiness proof (local): `docs/evidence/bridge/connector-readiness.json`.
+
+See also: `docs/operations/connector-deployment-runbook.md` for the external Claude.ai and Grok Bot connector workflow.
