@@ -25,7 +25,8 @@ async function fixture() {
   assert(address && typeof address !== 'string');
   const origin = `http://127.0.0.1:${address.port}`;
   const config: BridgeConfig = { host: '127.0.0.1', port: address.port, publicUrl: origin, dataDir,
-    ownerSecret: SECRET, apiToken: API_TOKEN, grokHost: 'unused', historyHost: 'unused', embeddingModel: 'unused' };
+    ownerSecret: SECRET, apiToken: API_TOKEN, grokHost: 'unused', historyHost: 'unused', embeddingModel: 'unused',
+    allowedHosts: [`127.0.0.1:${address.port}`, `localhost:${address.port}`] };
   let auth = createAuth(config);
   let sends = 0;
   const api: BridgeApi = {

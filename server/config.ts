@@ -23,5 +23,22 @@ export function loadConfig(): BridgeConfig {
   if (typeof ownerSecret !== 'string' || typeof apiToken !== 'string' || ownerSecret.length < 32 || apiToken.length < 32 || ownerSecret === apiToken) throw new Error('Distinct owner and API secrets of at least 32 characters are required');
   const grokHost = process.env.GROKBOT_SSH_HOST ?? 'box@grokbot1';
   if (!['box@grokbot1', 'box@grokbot1.oracle.netbird'].includes(grokHost)) throw new Error('Use the approved Grok Bot NetBird SSH target');
-  return { host: process.env.BRIDGE_HOST ?? '127.0.0.1', port, publicUrl: publicUrl.origin, dataDir, ownerSecret, apiToken, grokHost, historyHost: 'beta@m5.oracle.netbird', embeddingModel: 'Xenova/paraphrase-multilingual-MiniLM-L12-v2' };
+  const explicitHosts = new Set<string>();
+  explicitHosts.add(new URL(publicUrl).host);
+  explicitHosts.add(`127.0.0.1:${port}`);
+  explicitHosts.add(`localhost:${port}`);
+  const extraHosts = process.env.BRIDGE_ALLOWED_HOSTS?.split(',').map((value) => value.trim().toLowerCase()).filter(Boolean) ?? [];
+  for (const host of extraHosts) explicitHosts.add(host);
+  return {
+    host: process.env.BRIDGE_HOST ?? '127.0.0.1',
+    port,
+    publicUrl: publicUrl.origin,
+    dataDir,
+    ownerSecret,
+    apiToken,
+    grokHost,
+    historyHost: 'beta@m5.oracle.netbird',
+    embeddingModel: 'Xenova/paraphrase-multilingual-MiniLM-L12-v2',
+    allowedHosts: [...explicitHosts],
+  };
 }

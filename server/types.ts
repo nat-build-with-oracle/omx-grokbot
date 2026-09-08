@@ -8,6 +8,7 @@ export interface BridgeConfig {
   grokHost: string;
   historyHost: string;
   embeddingModel: string;
+  allowedHosts: string[];
 }
 
 export interface Agent { agentId: string; name: string }

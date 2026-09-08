@@ -12,10 +12,28 @@ export function createApp(config: BridgeConfig, bridge: BridgeApi) {
   app.disable('x-powered-by');
   const auth = createAuth(config);
   const mcp = createBridgeMcp(bridge);
-  const allowedHosts = new Set([new URL(config.publicUrl).host, `127.0.0.1:${config.port}`, `localhost:${config.port}`]);
+  const lowerDefault = new Set(config.allowedHosts.map((host) => host.toLowerCase()));
+  const normalize = (raw: string) => {
+    const value = raw.trim().toLowerCase();
+    if (!value.includes(':') || value.startsWith('[')) return value;
+    const idx = value.lastIndexOf(':');
+    return idx === -1 ? value : value.slice(0, idx);
+  };
   app.use((req, res, next) => {
     res.set({ 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'no-referrer', 'X-Frame-Options': 'DENY', 'Cache-Control': 'no-store', 'Permissions-Policy': 'camera=(), microphone=(), geolocation=()' });
-    if (!allowedHosts.has(req.headers.host ?? '')) { res.status(421).json({ error: { code: 'invalid_host', message: 'Host not allowed.' } }); return; }
+    const headerHost = req.headers.host ?? '';
+    const forwarded = req.headers['x-forwarded-host'] ?? '';
+    const forwardedHosts = String(forwarded).split(',').map((value) => value.trim());
+    const candidates = [String(headerHost), ...forwardedHosts];
+    const allowed = candidates.some((candidate) => {
+      const exact = candidate.toLowerCase();
+      const base = normalize(candidate);
+      return lowerDefault.has(exact) || lowerDefault.has(base);
+    });
+    if (!allowed) {
+      res.status(421).json({ error: { code: 'invalid_host', message: 'Host not allowed.' } });
+      return;
+    }
     next();
   });
   app.get('/health', (_req, res) => res.json({ ok: true, service: 'grokbot-bridge' }));

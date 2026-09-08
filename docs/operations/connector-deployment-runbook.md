@@ -17,6 +17,7 @@ Still required for end-to-end external connectivity:
 ## 0) Pre-flight checklist
 
 - [ ] Public HTTPS domain for MCP endpoint set in `BRIDGE_PUBLIC_URL`.
+- [ ] If the public domain is reached via reverse proxy/tunnel host rewrite, add that host (or host:port) to `BRIDGE_ALLOWED_HOSTS`.
 - [ ] Loopback-only hosts (`127.0.0.1` / `localhost`) are only for local testing.
 - [ ] TLS is valid for MCP domain.
 - [ ] Reverse proxy forwards:
@@ -33,6 +34,8 @@ From repo root with Node 22:
 
 ```sh
 export BRIDGE_PUBLIC_URL=https://bridge.example.com  # example
+# If needed:
+# export BRIDGE_ALLOWED_HOSTS='tunnel-or-proxy-host.example.com'
 export PATH=/Users/nat/.nvm/versions/node/v22.20.0/bin:/opt/homebrew/bin:$PATH
 npm run start
 npx tsx scripts/connector-readiness-smoke.ts

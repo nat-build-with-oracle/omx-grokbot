@@ -36,7 +36,9 @@ Default listener: `http://127.0.0.1:4328`, MCP at `/mcp`. The root and `/chat`, 
 
 On first start, independent owner and headless-client secrets are generated in `data/access.json` with mode `0600`. The data directory is private (`0700`) and Git-ignored. Read that file locally when configuring a client; never paste its contents into a commit, issue, chat, screenshot or public document. OAuth clients receive separate revocable tokens, not the owner secret. Real history, databases and model assets must remain uncommitted.
 
-Configuration: `BRIDGE_DATA_DIR`, `PORT`, `BRIDGE_HOST`, `BRIDGE_PUBLIC_URL`, `GROKBOT_SSH_HOST`, `BRIDGE_OWNER_SECRET`, `BRIDGE_API_TOKEN`. `BRIDGE_PUBLIC_URL` is an **origin**, not a URL ending in `/mcp`; non-loopback origins require HTTPS. Default binding is loopback. Public reachability is not created merely by setting this variable.
+Configuration: `BRIDGE_DATA_DIR`, `PORT`, `BRIDGE_HOST`, `BRIDGE_PUBLIC_URL`, `BRIDGE_ALLOWED_HOSTS`, `GROKBOT_SSH_HOST`, `BRIDGE_OWNER_SECRET`, `BRIDGE_API_TOKEN`. `BRIDGE_PUBLIC_URL` is an **origin**, not a URL ending in `/mcp`; non-loopback origins require HTTPS. Default binding is loopback. Public reachability is not created merely by setting this variable.
+
+`BRIDGE_ALLOWED_HOSTS` (optional) is a comma-separated allowlist of extra `host[:port]` values accepted by the front-door host filter (for reverse-proxy or tunnel deployments).
 
 The bot transport permits `box@grokbot1` or `box@grokbot1.oracle.netbird`, preserves strict SSH host-key checking, and streams variable request data through stdin. The existing [NetBird gateway runbook](docs/grokbot-gateway-runbook.md) describes the underlying verified transport.
 
