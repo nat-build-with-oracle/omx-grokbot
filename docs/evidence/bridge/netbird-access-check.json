@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-09-08T05:36:07.525824+00:00",
+  "host": "grokbot1.oracle.netbird",
+  "resolvedAddress": "100.97.170.153",
+  "ping": {
+    "transmitted": 3,
+    "received": 3,
+    "lossPercent": 0,
+    "averageMs": 312.325
+  },
+  "ssh": {
+    "user": "box",
+    "hostKeyChecking": "strict",
+    "exitCode": 255,
+    "result": "Permission denied (publickey,password).",
+    "defaultPublicKeysOfferedAndRejected": [
+      "id_rsa",
+      "id_ed25519"
+    ]
+  },
+  "gatewayTokenRetrieved": false,
+  "liveAgentCreationVerified": false
+}

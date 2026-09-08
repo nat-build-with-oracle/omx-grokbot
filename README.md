@@ -1,4 +1,4 @@
-# Grok Bot bridge
+# ARRA Oracle GrokBot Bridge
 
 An in-progress, single-owner bridge between Grok Bot, MCP clients, and source-linked local memory. The gateway credential stays on the Grok Bot computer; the browser and MCP server never receive it.
 
@@ -6,12 +6,12 @@ An in-progress, single-owner bridge between Grok Bot, MCP clients, and source-li
 
 - Authenticated Streamable HTTP MCP using SDK v2, with legacy-client compatibility.
 - Owner-approved OAuth (DCR, PKCE S256, rotating refresh tokens), separate static bearer access, and CSRF-protected browser sessions.
-- Six MCP tools for agent discovery, durable message submission, read-only reply verification, and history search/read/status.
+- Eight MCP tools for agent discovery/creation, creation verification, durable message submission, reply verification, and history search/read/status.
 - Drizzle/SQLite message ledger and provenance; LanceDB vectors with local multilingual embeddings in isolated model-specific stores.
 - Source-selected history import, redaction, explicit embedding and independent keyword/vector search.
-- Typed browser API and draft-preserving conversation controller. React/Tailwind web console now exists at `/`, with agent selection, durable send workflow, and history search.
+- Dark sidebar-first React/Tailwind workspace with a responsive navigation drawer, owner sign-in, conversations, a New bot flow, history search, and connection details. Drafts and operation IDs survive uncertain responses.
 
-This is a checkpoint, not a completed deployment. Public HTTPS hosting, actual Claude.ai connection, Grok Bot's MCP-client connection, responsive visual verification and operational hardening remain open. See [the complete requirement ledger](docs/bridge-plan.md).
+This is a checkpoint, not a completed deployment. Public HTTPS hosting, actual Claude.ai connection, Grok Bot's MCP-client connection, live remote bot creation and deployment hardening remain open. Desktop/mobile UI behavior has local and fixture-based browser evidence in `docs/evidence/bridge/ui-smoke.json`. See [the complete requirement ledger](docs/bridge-plan.md).
 
 ## Run locally
 
@@ -25,6 +25,8 @@ npm test
 npm start
 ```
 
+For the web console, build once before starting the backend (`npm run build && npm start`).
+
 For web development:
 
 ```sh
@@ -32,7 +34,7 @@ npm run build
 npm run web:dev
 ```
 
-Default listener: `http://127.0.0.1:4328`, MCP at `/mcp`. The root and `/chat`, `/history`, `/connections` serve the built web app when `dist/index.html` exists.
+Default listener: `http://127.0.0.1:4328`, MCP at `/mcp`. The root and `/chat`, `/new`, `/history`, `/connections` serve the built web app when `dist/index.html` exists.
 
 On first start, independent owner and headless-client secrets are generated in `data/access.json` with mode `0600`. The data directory is private (`0700`) and Git-ignored. Read that file locally when configuring a client; never paste its contents into a commit, issue, chat, screenshot or public document. OAuth clients receive separate revocable tokens, not the owner secret. Real history, databases and model assets must remain uncommitted.
 
@@ -81,7 +83,8 @@ See [MCP/Claude research](docs/learning/mcp-claude-integration.md), [React/Tailw
 
 ## Verification artifacts
 
-- `npm run check` passes locally (typecheck, 34 unit tests, build).
+- `npm run check` passes locally (typecheck, 41 unit tests, build); the Python gateway suite has 12 passing tests.
+- Browser proof: `docs/evidence/bridge/ui-smoke.json` distinguishes live local UI checks from isolated message/creation fixtures. It does not establish live remote bot creation.
 - Real MCP-to-Grok request correlation proof: `docs/evidence/bridge/mcp-send-smoke.json` (status to `reply_recorded`).
 - Owner HTTP API MCP-equivalent proof: `docs/evidence/bridge/http-send-smoke.json`.
 - Deployment-readiness proof (local): `docs/evidence/bridge/connector-readiness.json`.

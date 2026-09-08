@@ -41,6 +41,7 @@ export function createApp(config: BridgeConfig, bridge: BridgeApi) {
   app.all('/mcp', auth.requireMcp, express.json({ limit: '32kb' }), mcp);
   app.use('/api', auth.requireOwner, express.json({ limit: '32kb' }));
   app.get('/api/agents', async (_req, res) => res.json(await bridge.agents()));
+  app.get('/api/agent-creations', (_req, res) => res.json(bridge.creations()));
   app.post('/api/agents', async (req, res) => res.status(202).json(await bridge.createAgent(req.body)));
   app.post('/api/agent-creations/:id/verify', async (req, res) => res.json(await bridge.verifyCreation(String(req.params.id))));
   app.get('/api/messages', (_req, res) => res.json(bridge.messages()));
@@ -57,7 +58,7 @@ export function createApp(config: BridgeConfig, bridge: BridgeApi) {
   const dist = join(process.cwd(), 'dist');
   if (existsSync(join(dist, 'index.html'))) {
     app.use(express.static(dist, { index: false }));
-    app.get(['/', '/chat', '/history', '/connections'], (_req, res) => res.sendFile(join(dist, 'index.html')));
+    app.get(['/', '/chat', '/new', '/history', '/connections'], (_req, res) => res.sendFile(join(dist, 'index.html')));
   } else {
     app.get('/', (_req, res) => res.type('text').send('Grok Bot bridge backend is running. The web interface is not built yet. MCP and owner APIs require authentication.'));
   }

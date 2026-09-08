@@ -30,6 +30,7 @@ async function fixture() {
   let auth = createAuth(config);
   let sends = 0;
   const api: BridgeApi = {
+    creations: () => [],
     createAgent: async input => ({ ...input, description: input.description ?? '', agentId: null, status: 'creation_uncertain' }),
     verifyCreation: async () => { throw new Error('not mocked'); },
     agents: async () => ({ agents: [], health: { available: true } }),

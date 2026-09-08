@@ -37,5 +37,26 @@ provide automatic nonce reconciliation.
 ## Remaining acceptance
 
 Live NetBird gateway access, a real creation through the bridge, profile readback,
-and native app visibility remain unverified. The web console does not yet have
-a creation button. Unit tests are fixture-based and do not prove live creation.
+and native app visibility remain unverified. The web creation form is implemented;
+fixture-based tests do not prove live creation.
+
+## Web console (2026-09-08)
+
+The owner console now exposes **New bot** at `/new`, with name/description,
+profile preview, connection gating, a verified-profile result, and explicit
+read-only status checks. `GET /api/agent-creations` lists the owner's saved
+operations so interrupted creations can be restored on reload. Only a pending
+operation UUID (not credentials or profile text) is retained in sessionStorage.
+A timeout never enables an automatic second creation.
+
+Sign-in and local history remain usable when the remote computer is offline.
+The browser smoke uses real local authentication/read-only APIs for offline
+states and isolated synthetic responses for creation/send UI behavior. Those
+fixtures are **not** live bot-creation proof.
+
+Browser check: build and start the app, then run `node scripts/ui-smoke.mjs` with
+Playwright available. If it is installed outside this project, set
+`PLAYWRIGHT_MODULE` to that installation's `index.mjs`. The script uses installed
+Chrome in isolated headless contexts, captures desktop/mobile/short-window
+screenshots under `.impeccable/review/`, and writes redacted JSON evidence to
+`docs/evidence/bridge/ui-smoke.json`. It never sends to a real bot or creates one.

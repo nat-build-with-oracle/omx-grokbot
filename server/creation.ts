@@ -19,6 +19,9 @@ export class Creations {
     if (!row) throw new BridgeError('not_found', 'Creation operation not found.', 404);
     return JSON.parse(row.body);
   }
+  list(): CreationRun[] {
+    return (this.store.sqlite.prepare('SELECT body FROM agent_creations ORDER BY rowid DESC LIMIT 100').all() as { body: string }[]).map(row => JSON.parse(row.body));
+  }
   private save(run: CreationRun) {
     this.store.sqlite.prepare('UPDATE agent_creations SET body=? WHERE id=?').run(JSON.stringify(run), run.operationId);
     return run;

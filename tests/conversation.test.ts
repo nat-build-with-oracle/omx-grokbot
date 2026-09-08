@@ -245,3 +245,39 @@ test('a stale unauthorized read cannot clear a newer login token', async () => {
   await assert.rejects(stale, (error: unknown) => error instanceof ApiError && error.status === 401);
   assert.equal((await client.verify(ID)).status, 'reply_recorded');
 });
+
+test('creation client uses session CSRF, normalizes names and keeps operation IDs across verification', async () => {
+  const calls: { path: string; init?: RequestInit }[] = [];
+  const created = { operationId: ID, agentId: 'new-agent', name: 'New bot', description: '', status: 'verified' };
+  const client = createApiClient(async (input, init) => {
+    const path = String(input); calls.push({ path, init });
+    if (path === '/api/session') return json({ authenticated: true, csrfToken: CSRF });
+    if (path === '/api/agent-creations') return json([created]);
+    return json(created);
+  });
+  await assert.rejects(client.createAgent({ operationId: ID, name: 'New bot' }), (e: unknown) => e instanceof ApiError && e.code === 'csrf_missing');
+  assert.equal(calls.length, 0);
+  await client.session();
+  assert.equal((await client.createAgent({ operationId: ID, name: ' New bot ' })).operationId, ID);
+  const post = calls.find(c => c.path === '/api/agents')!;
+  assert.equal(new Headers(post.init?.headers).get('X-CSRF-Token'), CSRF);
+  assert.deepEqual(JSON.parse(String(post.init?.body)), { operationId: ID, name: 'New bot', description: '' });
+  assert.deepEqual(await client.creations(), [created]);
+  assert.equal((await client.verifyCreation(ID)).status, 'verified');
+  assert.equal(calls.filter(c => c.path === '/api/agents').length, 1);
+  assert.equal(calls.at(-1)?.path, `/api/agent-creations/${ID}/verify`);
+});
+
+test('creation client rejects mismatched and malformed success responses without retrying', async () => {
+  let posts = 0;
+  const client = createApiClient(async (input) => {
+    if (String(input) === '/api/session') return json({ authenticated: true, csrfToken: CSRF });
+    posts++;
+    return json({ operationId: ID2, name: 'New', description: '', agentId: 'an-id', status: 'verified' });
+  });
+  await client.session();
+  await assert.rejects(client.createAgent({ operationId: ID, name: 'New' }), (e: unknown) => e instanceof ApiError && e.code === 'invalid_response');
+  assert.equal(posts, 1);
+  await assert.rejects(client.verifyCreation(ID), (e: unknown) => e instanceof ApiError && e.code === 'invalid_response');
+  assert.equal(posts, 2);
+});

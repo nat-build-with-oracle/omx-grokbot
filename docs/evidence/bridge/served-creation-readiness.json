@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-09-08T05:21:43.628639+00:00",
+  "baseUrl": "http://127.0.0.1:4328",
+  "uiTitle": "ARRA Oracle GrokBot Bridge",
+  "health": {
+    "ok": true,
+    "service": "grokbot-bridge"
+  },
+  "newBotUiHttpStatus": 200,
+  "mcpTools": [
+    "grokbot_agents",
+    "grokbot_create_agent",
+    "grokbot_verify_creation",
+    "grokbot_send",
+    "grokbot_verify",
+    "history_search",
+    "history_read",
+    "history_status"
+  ],
+  "liveAgentCreationVerified": false,
+  "creationUiImplemented": true,
+  "publiclyServed": false
+}

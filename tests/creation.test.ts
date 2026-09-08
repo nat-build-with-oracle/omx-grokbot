@@ -50,3 +50,16 @@ test('mismatched profile is not creation proof', async () => {
   try { assert.equal((await creations.create({ operationId, name: 'New' })).status, 'created_unverified'); }
   finally { store.close(); rmSync(dir, { recursive: true }); }
 });
+
+test('creation history restores saved operations without remote requests', async () => {
+  const dir = mkdtempSync(join(tmpdir(), 'creation-')); let store = new Store(dir); let calls = 0;
+  const remote = { async run(): Promise<never> { calls++; throw new Error('offline'); } };
+  const operationId = randomUUID();
+  try {
+    await new Creations(store, remote).create({ operationId, name: 'Saved operation' });
+    store.close(); store = new Store(dir);
+    const list = new Creations(store, remote).list();
+    assert.equal(list[0].operationId, operationId); assert.equal(list[0].status, 'creation_uncertain');
+    assert.equal(calls, 1);
+  } finally { store.close(); rmSync(dir, { recursive: true }); }
+});

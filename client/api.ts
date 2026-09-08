@@ -1,3 +1,4 @@
+import type { CreationRun } from '../server/creation.js';
 import type { Agent, HistoryStatus, MessageRun, SearchHit } from '../server/types.js';
 
 export interface SessionState { authenticated: boolean }
@@ -18,7 +19,13 @@ export class ApiError extends Error {
   }
 }
 
+export interface CreationInput { operationId: string; name: string; description?: string }
+export interface ConnectionInfo { grokHost: string; historyHost: string; mcpUrl: string; auth: string; publicDeploymentVerified: boolean }
 export interface ApiClient {
+  connections(options?: RequestOptions): Promise<ConnectionInfo>;
+  creations(options?: RequestOptions): Promise<CreationRun[]>;
+  createAgent(input: CreationInput, options?: RequestOptions): Promise<CreationRun>;
+  verifyCreation(operationId: string, options?: RequestOptions): Promise<CreationRun>;
   session(options?: RequestOptions): Promise<SessionState>;
   login(secret: string, options?: RequestOptions): Promise<SessionState>;
   logout(options?: RequestOptions): Promise<SessionState>;
@@ -37,6 +44,12 @@ const string = (value: unknown): value is string => typeof value === 'string';
 const nullableString = (value: unknown): value is string | null => value === null || string(value);
 const integer = (value: unknown): value is number => typeof value === 'number' && Number.isSafeInteger(value) && value >= 0;
 const statuses = new Set(['prepared', 'sending', 'accepted', 'delivery_uncertain', 'reply_pending', 'reply_recorded', 'failed']);
+
+function isCreation(value: unknown): value is CreationRun {
+  return object(value) && string(value.operationId) && string(value.name) && string(value.description)
+    && nullableString(value.agentId) && ['creation_uncertain', 'created_unverified', 'verified'].includes(String(value.status))
+    && (value.status !== 'verified' || (string(value.agentId) && value.agentId.length > 0));
+}
 
 function isAgent(value: unknown): value is Agent {
   return object(value) && string(value.agentId) && string(value.name);
@@ -123,6 +136,26 @@ export function createApiClient(fetcher: FetchLike = (input, init) => globalThis
   }
 
   return {
+    async connections(options) {
+      return expected(await request('/api/connections', 'GET', undefined, options), (v): v is ConnectionInfo =>
+        object(v) && string(v.grokHost) && string(v.historyHost) && string(v.mcpUrl) && string(v.auth) && typeof v.publicDeploymentVerified === 'boolean');
+    },
+    async creations(options) {
+      return expected(await request('/api/agent-creations', 'GET', undefined, options), (v): v is CreationRun[] => Array.isArray(v) && v.every(isCreation));
+    },
+    async createAgent(input, options) {
+      requireId(input.operationId);
+      if (!input.name.trim() || input.name.trim().length > 120 || (input.description?.length ?? 0) > 4000) throw new ApiError('invalid_input', 'Name your bot using 1–120 characters.');
+      const normalized = { ...input, name: input.name.trim(), description: input.description ?? '' };
+      const run = expected(await request('/api/agents', 'POST', normalized, options), isCreation);
+      if (run.operationId !== input.operationId || run.name !== normalized.name || run.description !== normalized.description) throw new ApiError('invalid_response', 'Creation response did not match. Check the saved operation; do not create again.');
+      return run;
+    },
+    async verifyCreation(operationId, options) {
+      const run = expected(await request(`/api/agent-creations/${requireId(operationId)}/verify`, 'POST', {}, options), isCreation);
+      if (run.operationId !== operationId) throw new ApiError('invalid_response', 'Verification did not match the saved creation.');
+      return run;
+    },
     async session(options) {
       const revision = authRevision;
       return applySession(await request('/api/session', 'GET', undefined, options), revision);

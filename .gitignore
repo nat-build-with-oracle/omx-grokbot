@@ -11,3 +11,5 @@ __pycache__/
 .impeccable/review/
 ψ/learn/**/origin
 ψ/memory/
+
+.playwright-mcp/

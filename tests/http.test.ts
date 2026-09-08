@@ -39,6 +39,7 @@ test('host filter accepts loopback and configured public hosts', async () => {
     ],
   };
   const api: BridgeApi = {
+    creations: () => [],
     createAgent: async () => { throw new Error('not mocked'); },
     verifyCreation: async () => { throw new Error('not mocked'); },
     agents: async () => ({ agents: [], health: { ok: true } }),

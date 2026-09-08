@@ -1,0 +1,100 @@
+{
+  "checkedAt": "2026-09-08T05:23:52.398Z",
+  "base": "http://127.0.0.1:4328",
+  "live": {
+    "loginMs": 196,
+    "remoteStatus": "Grok Bot unavailable",
+    "creationDisabledWhenOffline": true,
+    "mobileNavigationAccessibleName": true,
+    "mobileNavigationFocusReturn": true,
+    "mobileNavigation": true,
+    "shortViewportNavigation": true,
+    "sessionRestoredOnReload": true,
+    "logout": true,
+    "errors": []
+  },
+  "fixtures": {
+    "draftPreservedOnBotSwitch": true,
+    "uncertainSendRetainsDraft": true,
+    "duplicateSendSuppressed": true,
+    "verifyDoesNotSend": true,
+    "verifiedReplyClearsDraft": true,
+    "duplicateCreationSuppressed": true,
+    "uncertainCreationRestoredAfterReload": true,
+    "creationCheckDoesNotCreate": true,
+    "searchResults": true
+  },
+  "screenshots": [
+    {
+      "file": "desktop-login.png",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "file": "mobile-login.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "desktop.png",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "file": "mobile.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "mobile-navigation.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "user-855.png",
+      "width": 855,
+      "height": 476
+    },
+    {
+      "file": "desktop-connections.png",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "file": "mobile-connections.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "desktop-history.png",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "file": "mobile-history.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "fixture-chat-desktop.png",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "file": "fixture-chat-mobile.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "fixture-creation-recovery.png",
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "file": "fixture-history.png",
+      "width": 1440,
+      "height": 960
+    }
+  ],
+  "liveAgentCreationVerified": false
+}

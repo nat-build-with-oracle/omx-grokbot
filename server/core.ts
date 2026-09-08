@@ -8,10 +8,11 @@ import type { History } from './history.js';
 
 const sendSchema = z.object({ messageId: z.uuid(), agentId: z.uuid(), prompt: z.string().trim().min(1).max(8000) }).strict();
 export class Bridge implements BridgeApi {
-  private creations: Creations;
-  constructor(private store: Store, private remote: RemoteGateway, private history: History) { this.creations = new Creations(store, remote); }
-  createAgent(input: Parameters<BridgeApi['createAgent']>[0]) { return this.creations.create(input); }
-  verifyCreation(id: string) { return this.creations.verify(id); }
+  private creationStore: Creations;
+  constructor(private store: Store, private remote: RemoteGateway, private history: History) { this.creationStore = new Creations(store, remote); }
+  creations() { return this.creationStore.list(); }
+  createAgent(input: Parameters<BridgeApi['createAgent']>[0]) { return this.creationStore.create(input); }
+  verifyCreation(id: string) { return this.creationStore.verify(id); }
   async agents() {
     const result = await this.remote.run(['discover']);
     const event = result.events.find(e => e.action === 'discover');

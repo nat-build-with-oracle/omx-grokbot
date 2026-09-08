@@ -45,6 +45,7 @@ export interface HistoryStatus {
   projects: string[];
 }
 export interface BridgeApi {
+  creations(): import('./creation.js').CreationRun[];
   createAgent(input: { operationId: string; name: string; description?: string }): Promise<import('./creation.js').CreationRun>;
   verifyCreation(operationId: string): Promise<import('./creation.js').CreationRun>;
   agents(): Promise<{ agents: Agent[]; health: Record<string, unknown> }>;

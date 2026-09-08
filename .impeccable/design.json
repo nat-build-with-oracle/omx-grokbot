@@ -1,0 +1,607 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-08T05:34:25Z",
+  "title": "Design System: ARRA Oracle GrokBot Bridge",
+  "extensions": {
+    "colorMeta": {
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Near-black canvas",
+        "tonalRamp": [
+          "oklch(15.000% 0.002016 286.198)",
+          "oklch(26.429% 0.002016 286.198)",
+          "oklch(37.857% 0.002016 286.198)",
+          "oklch(49.286% 0.002016 286.198)",
+          "oklch(60.714% 0.002016 286.198)",
+          "oklch(72.143% 0.002016 286.198)",
+          "oklch(83.571% 0.002016 286.198)",
+          "oklch(95.000% 0.002016 286.198)"
+        ]
+      },
+      "sidebar": {
+        "role": "neutral",
+        "displayName": "Charcoal rail",
+        "tonalRamp": [
+          "oklch(15.000% 0.003881 286.068)",
+          "oklch(26.429% 0.003881 286.068)",
+          "oklch(37.857% 0.003881 286.068)",
+          "oklch(49.286% 0.003881 286.068)",
+          "oklch(60.714% 0.003881 286.068)",
+          "oklch(72.143% 0.003881 286.068)",
+          "oklch(83.571% 0.003881 286.068)",
+          "oklch(95.000% 0.003881 286.068)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Raised charcoal",
+        "tonalRamp": [
+          "oklch(15.000% 0.005589 285.994)",
+          "oklch(26.429% 0.005589 285.994)",
+          "oklch(37.857% 0.005589 285.994)",
+          "oklch(49.286% 0.005589 285.994)",
+          "oklch(60.714% 0.005589 285.994)",
+          "oklch(72.143% 0.005589 285.994)",
+          "oklch(83.571% 0.005589 285.994)",
+          "oklch(95.000% 0.005589 285.994)"
+        ]
+      },
+      "hover": {
+        "role": "neutral",
+        "displayName": "Hover charcoal",
+        "tonalRamp": [
+          "oklch(15.000% 0.007203 285.943)",
+          "oklch(26.429% 0.007203 285.943)",
+          "oklch(37.857% 0.007203 285.943)",
+          "oklch(49.286% 0.007203 285.943)",
+          "oklch(60.714% 0.007203 285.943)",
+          "oklch(72.143% 0.007203 285.943)",
+          "oklch(83.571% 0.007203 285.943)",
+          "oklch(95.000% 0.007203 285.943)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Quiet line",
+        "tonalRamp": [
+          "oklch(15.000% 0.007080 285.981)",
+          "oklch(26.429% 0.007080 285.981)",
+          "oklch(37.857% 0.007080 285.981)",
+          "oklch(49.286% 0.007080 285.981)",
+          "oklch(60.714% 0.007080 285.981)",
+          "oklch(72.143% 0.007080 285.981)",
+          "oklch(83.571% 0.007080 285.981)",
+          "oklch(95.000% 0.007080 285.981)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Off-white ink",
+        "tonalRamp": [
+          "oklch(15.000% 0.003403 325.604)",
+          "oklch(26.429% 0.003403 325.604)",
+          "oklch(37.857% 0.003403 325.604)",
+          "oklch(49.286% 0.003403 325.604)",
+          "oklch(60.714% 0.003403 325.604)",
+          "oklch(72.143% 0.003403 325.604)",
+          "oklch(83.571% 0.003403 325.604)",
+          "oklch(95.000% 0.003403 325.604)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted grey",
+        "tonalRamp": [
+          "oklch(15.000% 0.009155 308.322)",
+          "oklch(26.429% 0.009155 308.322)",
+          "oklch(37.857% 0.009155 308.322)",
+          "oklch(49.286% 0.009155 308.322)",
+          "oklch(60.714% 0.009155 308.322)",
+          "oklch(72.143% 0.009155 308.322)",
+          "oklch(83.571% 0.009155 308.322)",
+          "oklch(95.000% 0.009155 308.322)"
+        ]
+      },
+      "faint": {
+        "role": "neutral",
+        "displayName": "Faint grey",
+        "tonalRamp": [
+          "oklch(15.000% 0.012124 303.012)",
+          "oklch(26.429% 0.012124 303.012)",
+          "oklch(37.857% 0.012124 303.012)",
+          "oklch(49.286% 0.012124 303.012)",
+          "oklch(60.714% 0.012124 303.012)",
+          "oklch(72.143% 0.012124 303.012)",
+          "oklch(83.571% 0.012124 303.012)",
+          "oklch(95.000% 0.012124 303.012)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Soft pink",
+        "tonalRamp": [
+          "oklch(15.000% 0.103679 349.040)",
+          "oklch(26.429% 0.103679 349.040)",
+          "oklch(37.857% 0.103679 349.040)",
+          "oklch(49.286% 0.103679 349.040)",
+          "oklch(60.714% 0.103679 349.040)",
+          "oklch(72.143% 0.103679 349.040)",
+          "oklch(83.571% 0.103679 349.040)",
+          "oklch(95.000% 0.103679 349.040)"
+        ]
+      },
+      "accent-ink": {
+        "role": "primary",
+        "displayName": "Dark plum ink",
+        "tonalRamp": [
+          "oklch(15.000% 0.039111 348.911)",
+          "oklch(26.429% 0.039111 348.911)",
+          "oklch(37.857% 0.039111 348.911)",
+          "oklch(49.286% 0.039111 348.911)",
+          "oklch(60.714% 0.039111 348.911)",
+          "oklch(72.143% 0.039111 348.911)",
+          "oklch(83.571% 0.039111 348.911)",
+          "oklch(95.000% 0.039111 348.911)"
+        ]
+      },
+      "accent-surface": {
+        "role": "primary",
+        "displayName": "Muted plum surface",
+        "tonalRamp": [
+          "oklch(15.000% 0.029798 346.119)",
+          "oklch(26.429% 0.029798 346.119)",
+          "oklch(37.857% 0.029798 346.119)",
+          "oklch(49.286% 0.029798 346.119)",
+          "oklch(60.714% 0.029798 346.119)",
+          "oklch(72.143% 0.029798 346.119)",
+          "oklch(83.571% 0.029798 346.119)",
+          "oklch(95.000% 0.029798 346.119)"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "Pink hover",
+        "tonalRamp": [
+          "oklch(15.000% 0.083476 348.415)",
+          "oklch(26.429% 0.083476 348.415)",
+          "oklch(37.857% 0.083476 348.415)",
+          "oklch(49.286% 0.083476 348.415)",
+          "oklch(60.714% 0.083476 348.415)",
+          "oklch(72.143% 0.083476 348.415)",
+          "oklch(83.571% 0.083476 348.415)",
+          "oklch(95.000% 0.083476 348.415)"
+        ]
+      },
+      "positive": {
+        "role": "semantic",
+        "displayName": "Muted olive — verified / reachable",
+        "tonalRamp": [
+          "oklch(15.000% 0.053684 130.278)",
+          "oklch(26.429% 0.053684 130.278)",
+          "oklch(37.857% 0.053684 130.278)",
+          "oklch(49.286% 0.053684 130.278)",
+          "oklch(60.714% 0.053684 130.278)",
+          "oklch(72.143% 0.053684 130.278)",
+          "oklch(83.571% 0.053684 130.278)",
+          "oklch(95.000% 0.053684 130.278)"
+        ]
+      },
+      "caution": {
+        "role": "semantic",
+        "displayName": "Muted amber — unavailable / unconfirmed",
+        "tonalRamp": [
+          "oklch(15.000% 0.062040 76.512)",
+          "oklch(26.429% 0.062040 76.512)",
+          "oklch(37.857% 0.062040 76.512)",
+          "oklch(49.286% 0.062040 76.512)",
+          "oklch(60.714% 0.062040 76.512)",
+          "oklch(72.143% 0.062040 76.512)",
+          "oklch(83.571% 0.062040 76.512)",
+          "oklch(95.000% 0.062040 76.512)"
+        ]
+      },
+      "error": {
+        "role": "semantic",
+        "displayName": "Soft error rose",
+        "tonalRamp": [
+          "oklch(15.000% 0.071360 18.714)",
+          "oklch(26.429% 0.071360 18.714)",
+          "oklch(37.857% 0.071360 18.714)",
+          "oklch(49.286% 0.071360 18.714)",
+          "oklch(60.714% 0.071360 18.714)",
+          "oklch(72.143% 0.071360 18.714)",
+          "oklch(83.571% 0.071360 18.714)",
+          "oklch(95.000% 0.071360 18.714)"
+        ]
+      },
+      "avatar-rose-surface": {
+        "role": "identity",
+        "displayName": "Avatar rose surface",
+        "tonalRamp": [
+          "oklch(15.000% 0.058968 341.202)",
+          "oklch(26.429% 0.058968 341.202)",
+          "oklch(37.857% 0.058968 341.202)",
+          "oklch(49.286% 0.058968 341.202)",
+          "oklch(60.714% 0.058968 341.202)",
+          "oklch(72.143% 0.058968 341.202)",
+          "oklch(83.571% 0.058968 341.202)",
+          "oklch(95.000% 0.058968 341.202)"
+        ]
+      },
+      "avatar-rose-ink": {
+        "role": "identity",
+        "displayName": "Avatar rose ink",
+        "tonalRamp": [
+          "oklch(15.000% 0.069387 343.571)",
+          "oklch(26.429% 0.069387 343.571)",
+          "oklch(37.857% 0.069387 343.571)",
+          "oklch(49.286% 0.069387 343.571)",
+          "oklch(60.714% 0.069387 343.571)",
+          "oklch(72.143% 0.069387 343.571)",
+          "oklch(83.571% 0.069387 343.571)",
+          "oklch(95.000% 0.069387 343.571)"
+        ]
+      },
+      "avatar-sage-surface": {
+        "role": "identity",
+        "displayName": "Avatar sage surface",
+        "tonalRamp": [
+          "oklch(15.000% 0.031575 139.802)",
+          "oklch(26.429% 0.031575 139.802)",
+          "oklch(37.857% 0.031575 139.802)",
+          "oklch(49.286% 0.031575 139.802)",
+          "oklch(60.714% 0.031575 139.802)",
+          "oklch(72.143% 0.031575 139.802)",
+          "oklch(83.571% 0.031575 139.802)",
+          "oklch(95.000% 0.031575 139.802)"
+        ]
+      },
+      "avatar-sage-ink": {
+        "role": "identity",
+        "displayName": "Avatar sage ink",
+        "tonalRamp": [
+          "oklch(15.000% 0.051886 134.475)",
+          "oklch(26.429% 0.051886 134.475)",
+          "oklch(37.857% 0.051886 134.475)",
+          "oklch(49.286% 0.051886 134.475)",
+          "oklch(60.714% 0.051886 134.475)",
+          "oklch(72.143% 0.051886 134.475)",
+          "oklch(83.571% 0.051886 134.475)",
+          "oklch(95.000% 0.051886 134.475)"
+        ]
+      },
+      "avatar-blue-surface": {
+        "role": "identity",
+        "displayName": "Avatar blue surface",
+        "tonalRamp": [
+          "oklch(15.000% 0.032390 248.711)",
+          "oklch(26.429% 0.032390 248.711)",
+          "oklch(37.857% 0.032390 248.711)",
+          "oklch(49.286% 0.032390 248.711)",
+          "oklch(60.714% 0.032390 248.711)",
+          "oklch(72.143% 0.032390 248.711)",
+          "oklch(83.571% 0.032390 248.711)",
+          "oklch(95.000% 0.032390 248.711)"
+        ]
+      },
+      "avatar-blue-ink": {
+        "role": "identity",
+        "displayName": "Avatar blue ink",
+        "tonalRamp": [
+          "oklch(15.000% 0.040996 244.857)",
+          "oklch(26.429% 0.040996 244.857)",
+          "oklch(37.857% 0.040996 244.857)",
+          "oklch(49.286% 0.040996 244.857)",
+          "oklch(60.714% 0.040996 244.857)",
+          "oklch(72.143% 0.040996 244.857)",
+          "oklch(83.571% 0.040996 244.857)",
+          "oklch(95.000% 0.040996 244.857)"
+        ]
+      },
+      "avatar-sand-surface": {
+        "role": "identity",
+        "displayName": "Avatar sand surface",
+        "tonalRamp": [
+          "oklch(15.000% 0.030481 80.751)",
+          "oklch(26.429% 0.030481 80.751)",
+          "oklch(37.857% 0.030481 80.751)",
+          "oklch(49.286% 0.030481 80.751)",
+          "oklch(60.714% 0.030481 80.751)",
+          "oklch(72.143% 0.030481 80.751)",
+          "oklch(83.571% 0.030481 80.751)",
+          "oklch(95.000% 0.030481 80.751)"
+        ]
+      },
+      "avatar-sand-ink": {
+        "role": "identity",
+        "displayName": "Avatar sand ink",
+        "tonalRamp": [
+          "oklch(15.000% 0.052285 83.371)",
+          "oklch(26.429% 0.052285 83.371)",
+          "oklch(37.857% 0.052285 83.371)",
+          "oklch(49.286% 0.052285 83.371)",
+          "oklch(60.714% 0.052285 83.371)",
+          "oklch(72.143% 0.052285 83.371)",
+          "oklch(83.571% 0.052285 83.371)",
+          "oklch(95.000% 0.052285 83.371)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Page headline",
+        "purpose": "Shared focused-task heading; local sign-in heading is not a display scale."
+      },
+      "title": {
+        "displayName": "Small title",
+        "purpose": "Shared section headings; toolbar uses a local compact variant."
+      },
+      "body": {
+        "displayName": "Interface body",
+        "purpose": "14px-root system text and common control inheritance."
+      },
+      "body-message": {
+        "displayName": "Conversation body",
+        "purpose": "Whitespace-preserving message text with a more open line height."
+      },
+      "label": {
+        "displayName": "Field label",
+        "purpose": "Visible creation field label, paired with required or optional metadata."
+      },
+      "label-button": {
+        "displayName": "Button label",
+        "purpose": "Shared primary and secondary button text."
+      },
+      "metadata": {
+        "displayName": "Metadata",
+        "purpose": "Receipts, timestamps, and subordinate status text."
+      },
+      "code": {
+        "displayName": "Code and identifiers",
+        "purpose": "Operation IDs, endpoints, and source paths; wraps anywhere."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "drawer-reveal",
+        "value": "transform 180ms cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Native mobile dialog enters from translateX(-100%) using @starting-style; the only authored transition."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "@media (prefers-reduced-motion: reduce)",
+        "purpose": "Sets scroll-behavior to auto and removes transitions and animations with !important."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow-phone",
+        "value": "430px"
+      },
+      {
+        "name": "mobile-drawer",
+        "value": "800px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1050px"
+      },
+      {
+        "name": "short-window-height",
+        "value": "640px"
+      }
+    ],
+    "responsiveConditions": {
+      "narrow-phone": "(max-width: 430px)",
+      "mobile-drawer": "(max-width: 800px)",
+      "compact-desktop": "(max-width: 1050px) and (min-width: 801px)",
+      "short-window-height": "(max-height: 640px)"
+    },
+    "focus": {
+      "outline": "2px solid var(--accent)",
+      "outlineOffset": "3px",
+      "composerTextareaOutlineOffset": "6px",
+      "passwordGroup": "focus-within outline; inner password input has no separate outline"
+    },
+    "backdrop": {
+      "mobileNavigation": "rgb(0 0 0 / 65%)"
+    },
+    "tokenSource": {
+      "css": "src/styles.css",
+      "rootColorProperties": [
+        "canvas",
+        "sidebar",
+        "surface",
+        "hover",
+        "line",
+        "ink",
+        "muted",
+        "faint",
+        "accent",
+        "accent-ink",
+        "accent-surface",
+        "positive",
+        "caution"
+      ],
+      "aliasPolicy": "Other frontmatter tokens are extracted documentation aliases, not added CSS custom properties. Local component values remain in snippets."
+    },
+    "previewPolicy": {
+      "tonalRamps": "All eight-step OKLCH ramps are synthesized dark-to-light panel previews at the source hue and chroma. They are not implemented color tokens or approved replacements. Frontmatter is normative.",
+      "components": "Static self-contained previews extracted from implemented patterns. No snippet calls an API or proves live behavior; rem-based type is resolved against the implemented 14px root. Declared root tokens use live var() references with literal fallbacks.",
+      "scope": "No shipping raster assets or generated comp; review screenshots are evidence only."
+    },
+    "evidence": {
+      "record": "docs/evidence/bridge/ui-smoke.json",
+      "checkedAt": "2026-09-08T05:23:52.398Z",
+      "review": ".impeccable/review/finish-review.md",
+      "verdict": ".impeccable/review/finish-verdict.md",
+      "disposition": "ship",
+      "sourceFiles": [
+        "src/App.tsx",
+        "src/NewBot.tsx",
+        "src/Icons.tsx",
+        "src/styles.css",
+        "index.html"
+      ],
+      "inspectedScreenshots": [
+        ".impeccable/review/desktop.png",
+        ".impeccable/review/mobile-navigation.png",
+        ".impeccable/review/fixture-chat-desktop.png"
+      ],
+      "localChecks": [
+        "owner sign-in",
+        "session restoration",
+        "sign-out",
+        "offline creation blocking",
+        "named mobile dialog",
+        "Escape dismissal and trigger focus return",
+        "short-window navigation non-overlap"
+      ],
+      "syntheticChecks": [
+        "draftPreservedOnBotSwitch",
+        "uncertainSendRetainsDraft",
+        "duplicateSendSuppressed",
+        "verifyDoesNotSend",
+        "verifiedReplyClearsDraft",
+        "duplicateCreationSuppressed",
+        "uncertainCreationRestoredAfterReload",
+        "creationCheckDoesNotCreate",
+        "searchResults"
+      ],
+      "notEstablished": [
+        "live agent creation",
+        "live remote reply delivery",
+        "public HTTPS deployment",
+        "full screen-reader or focus-trap audit"
+      ],
+      "newBrowserRun": false
+    }
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Filled action shared by creation, sign-in, and search; preview only.",
+      "html": "<button class=\"ds-primary\" type=\"button\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\" /></svg>Create bot</button>",
+      "css": ".ds-primary { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 10px 16px; min-height: 42px; border: 0; border-radius: 10px; font: 550 13.02px/1.4 -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; cursor: pointer; } .ds-primary svg { flex-shrink: 0; } .ds-primary:disabled { cursor: not-allowed; opacity: .48; } .ds-primary:focus-visible { outline: 2px solid var(--accent, #eea0c6); outline-offset: 3px; } .ds-primary { background: var(--accent, #eea0c6); color: var(--accent-ink, #301a25); } .ds-primary:hover:not(:disabled) { background: #f8b8d7; }"
+    },
+    {
+      "name": "Secondary button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Neutral action for connection or operation checks; preview does not call an API.",
+      "html": "<button class=\"ds-secondary\" type=\"button\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 7v5h-5M4 17v-5h5M6.1 6.1a8 8 0 0 1 13.2 3.3M4.7 14.6a8 8 0 0 0 13.2 3.3\" /></svg>Check connection</button>",
+      "css": ".ds-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 10px 16px; min-height: 42px; border: 0; border-radius: 10px; font: 550 13.02px/1.4 -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; cursor: pointer; } .ds-secondary svg { flex-shrink: 0; } .ds-secondary:disabled { cursor: not-allowed; opacity: .48; } .ds-secondary:focus-visible { outline: 2px solid var(--accent, #eea0c6); outline-offset: 3px; } .ds-secondary { background: var(--surface, #222225); color: var(--ink, #eeecee); border: 1px solid var(--line, #303034); } .ds-secondary:hover:not(:disabled) { background: var(--hover, #2b2b2f); border-color: #565059; }"
+    },
+    {
+      "name": "New bot rail action",
+      "kind": "button",
+      "refersTo": "button-new-bot",
+      "description": "Persistent plum navigation action; selected and hover treatments match the rail.",
+      "html": "<button class=\"ds-new-bot\" type=\"button\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\" /></svg>New bot<span class=\"ds-tail\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 5 7 7-7 7\" /></svg></span></button>",
+      "css": ".ds-new-bot { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 10px 16px; min-height: 42px; border: 0; border-radius: 10px; font: 550 13.02px/1.4 -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; cursor: pointer; } .ds-new-bot svg { flex-shrink: 0; } .ds-new-bot:disabled { cursor: not-allowed; opacity: .48; } .ds-new-bot:focus-visible { outline: 2px solid var(--accent, #eea0c6); outline-offset: 3px; } .ds-new-bot { justify-content: flex-start; width: 100%; padding: 12px 14px; background: var(--accent-surface, #35242d); color: var(--accent, #eea0c6); } .ds-new-bot:hover, .ds-new-bot.ds-selected { background: #47303d; } .ds-tail { margin-left: auto; opacity: .75; }"
+    },
+    {
+      "name": "Icon button",
+      "kind": "button",
+      "refersTo": "button-icon",
+      "description": "Named square action used for menu, close, refresh, copy, and sign-out.",
+      "html": "<button class=\"ds-icon-button\" type=\"button\" aria-label=\"Open navigation\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 6h16M4 12h16M4 18h16\" /></svg></button>",
+      "css": ".ds-icon-button { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; flex-shrink: 0; border: 0; border-radius: 8px; background: none; color: var(--muted, #aaa7ad); cursor: pointer; } .ds-icon-button:hover:not(:disabled) { background: var(--hover, #2b2b2f); color: var(--ink, #eeecee); } .ds-icon-button:disabled { opacity: .48; cursor: not-allowed; } .ds-icon-button:focus-visible { outline: 2px solid var(--accent, #eea0c6); outline-offset: 3px; }"
+    },
+    {
+      "name": "Text button",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "Low-emphasis link-like button; use inline accent or caution only in their observed contexts.",
+      "html": "<button class=\"ds-text-button\" type=\"button\">Pick up from your history<svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 5 7 7-7 7\" /></svg></button>",
+      "css": ".ds-text-button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 3px 0; color: var(--muted, #aaa7ad); background: none; border: 0; border-radius: 2px; font: 400 11.9px/1.5 -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; text-underline-offset: 3px; cursor: pointer; } .ds-text-button:hover:not(:disabled) { color: var(--ink, #eeecee); text-decoration: underline; } .ds-text-button:disabled { opacity: .48; cursor: not-allowed; } .ds-text-button:focus-visible { outline: 2px solid var(--accent, #eea0c6); outline-offset: 3px; }"
+    },
+    {
+      "name": "Send button",
+      "kind": "button",
+      "refersTo": "button-send",
+      "description": "Dedicated disabled colors distinguish an unavailable send without disabling the draft field.",
+      "html": "<div class=\"ds-send-examples\"><button class=\"ds-send\" type=\"button\" aria-label=\"Send message\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 19V5m-6 6 6-6 6 6\" /></svg></button><button class=\"ds-send\" type=\"button\" aria-label=\"Send message unavailable\" disabled><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 19V5m-6 6 6-6 6 6\" /></svg></button></div>",
+      "css": ".ds-send { display: grid; place-items: center; width: 36px; height: 36px; flex-shrink: 0; border: 0; border-radius: 10px; background: var(--accent, #eea0c6); color: var(--accent-ink, #301a25); cursor: pointer; } .ds-send:hover:not(:disabled) { background: #f8b8d7; } .ds-send:disabled { color: #9a9299; background: #423b42; opacity: 1; cursor: not-allowed; } .ds-send:focus-visible { outline: 2px solid var(--accent, #eea0c6); outline-offset: 3px; } .ds-send-examples { display: flex; gap: 12px; }"
+    },
+    {
+      "name": "Labeled input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Creation field with required metadata, placeholder, keyboard focus, and muted disabled text.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-field-label\" for=\"ds-bot-name\">Bot name<span class=\"ds-field-meta\">Required</span></label><input class=\"ds-field-input\" id=\"ds-bot-name\" type=\"text\" placeholder=\"e.g. Projects Manager\" maxlength=\"120\" autocomplete=\"off\" required /></div>",
+      "css": ".ds-field { font: 400 14px/1.5 -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; color: var(--ink, #eeecee); } .ds-field-label { display: flex; align-items: baseline; justify-content: space-between; font-size: 12.6px; font-weight: 550; margin-bottom: 9px; } .ds-field-meta { font-size: 11.2px; color: var(--muted, #aaa7ad); font-weight: 400; } .ds-field-input { box-sizing: border-box; width: 100%; min-width: 0; padding: 12px 14px; border: 1px solid var(--line, #303034); border-radius: 10px; background: var(--surface, #222225); color: var(--ink, #eeecee); font: 400 14px/1.5 -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; caret-color: var(--accent, #eea0c6); } .ds-field-input::placeholder { color: var(--faint, #96939b); opacity: 1; } .ds-field-input:disabled { color: var(--muted, #aaa7ad); } .ds-field-input:focus-visible { outline: 2px solid var(--accent, #eea0c6); outline-offset: 3px; } @media (max-width: 430px) { .ds-field-input { font-size: 16px; } }"
+    },
+    {
+      "name": "Workspace navigation",
+      "kind": "nav",
+      "refersTo": "navigation-link",
+      "description": "Named link group with current-page semantics; the app reuses it inside a named native modal on mobile.",
+      "html": "<nav class=\"ds-workspace-nav\" aria-label=\"Workspace preview\"><a class=\"ds-nav-link ds-active\" href=\"#conversations\" aria-current=\"page\"><svg width=\"19\" height=\"19\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 11.5a7.5 7.5 0 0 1-7.5 7.5H8l-5 3V11.5A7.5 7.5 0 0 1 10.5 4H13a7 7 0 0 1 7 7.5Z\" /></svg>Conversations</a><a class=\"ds-nav-link\" href=\"#history\"><svg width=\"19\" height=\"19\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 5c-3-2-6-2-9-1v15c3-1 6-1 9 1m0-15c3-2 6-2 9-1v15c-3-1-6-1-9 1Zm0 0v15\" /></svg>History</a><a class=\"ds-nav-link\" href=\"#connections\"><svg width=\"19\" height=\"19\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M10 13a5 5 0 0 0 7 .1l3-3a5 5 0 0 0-7-7l-2 2M14 11a5 5 0 0 0-7-.1l-3 3a5 5 0 0 0 7 7l2-2\" /></svg>Connections</a></nav>",
+      "css": ".ds-workspace-nav { display: grid; gap: 3px; padding: 16px; background: var(--sidebar, #19191b); font: 400 14px/1.5 -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; } .ds-nav-link { display: flex; align-items: center; gap: 12px; padding: 11px 13px; color: var(--muted, #aaa7ad); border-radius: 8px; font-weight: 500; text-decoration: none; } .ds-nav-link svg { flex-shrink: 0; } .ds-nav-link:hover { background: var(--surface, #222225); color: var(--ink, #eeecee); } .ds-nav-link.ds-active { background: #2c2b2f; color: var(--ink, #eeecee); } .ds-nav-link:focus-visible { outline: 2px solid var(--accent, #eea0c6); outline-offset: 3px; }"
+    },
+    {
+      "name": "Verification receipts",
+      "kind": "custom",
+      "refersTo": "receipt-verified",
+      "description": "Two independent preview states, not a real conversation or proof of a remote reply.",
+      "html": "<div class=\"ds-receipt-examples\"><div class=\"ds-receipt ds-unconfirmed\"><svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 8v5m0 3v.01M10.3 3.8 2.4 18a1.4 1.4 0 0 0 1.2 2h16.8a1.4 1.4 0 0 0 1.2-2L13.7 3.8a2 2 0 0 0-3.4 0Z\" /></svg><span>Delivery not confirmed</span><button type=\"button\" class=\"ds-check\">Check reply</button></div><div class=\"ds-receipt ds-verified\"><svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m5 12 4 4L19 6\" /></svg><span>Reply verified</span></div><details class=\"ds-receipt-details\"><summary>Message details</summary><p>Checks read the transcript. They never send the message again.</p></details></div>",
+      "css": ".ds-receipt-examples { color: var(--muted, #aaa7ad); font: 400 14px/1.5 -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; } .ds-receipt { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 12px; font-size: 11.2px; } .ds-receipt svg { flex-shrink: 0; } .ds-unconfirmed { color: var(--caution, #dcc098); } .ds-verified { color: var(--positive, #b1c4a0); } .ds-check { display: inline-flex; align-items: center; justify-content: center; margin-left: auto; padding: 3px 0; border: 0; border-radius: 2px; background: none; color: var(--accent, #eea0c6); font: 400 11.9px/1.5 -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; cursor: pointer; text-underline-offset: 3px; } .ds-check:hover:not(:disabled) { text-decoration: underline; } .ds-check:disabled { opacity: .48; cursor: not-allowed; } .ds-receipt-details { margin-top: 9px; font-size: 10.78px; } .ds-receipt-details summary { color: var(--muted, #aaa7ad); cursor: pointer; width: fit-content; } .ds-receipt-details summary:hover { color: var(--ink, #eeecee); } .ds-receipt-details[open] summary { margin-bottom: 10px; } .ds-receipt-details p { margin: 0; font-size: 11.06px; line-height: 1.65; } .ds-check:focus-visible { outline: 2px solid var(--accent, #eea0c6); outline-offset: 3px; } .ds-receipt-details summary:focus-visible { outline: 2px solid var(--accent, #eea0c6); outline-offset: 3px; }"
+    },
+    {
+      "name": "Conversation composer",
+      "kind": "custom",
+      "refersTo": "composer",
+      "description": "Editable offline draft container with disabled send; a tonal panel, not a raised card.",
+      "html": "<section class=\"ds-composer\"><label class=\"ds-composer-label\" for=\"ds-message-draft\">Message Studio</label><textarea class=\"ds-draft\" id=\"ds-message-draft\" rows=\"3\" maxlength=\"8000\" placeholder=\"Message Studio…\"></textarea><div class=\"ds-composer-actions\"><span>Draft locally · reconnect to send</span><button class=\"ds-send\" type=\"button\" aria-label=\"Send message\" disabled><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 19V5m-6 6 6-6 6 6\" /></svg></button></div></section>",
+      "css": ".ds-composer { background: #232125; border: 1px solid #454049; border-radius: 16px; padding: 16px 16px 10px; color: var(--ink, #eeecee); font: 400 14px/1.5 -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; } .ds-composer:focus-within { border-color: var(--accent, #eea0c6); } .ds-composer-label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; } .ds-draft { box-sizing: border-box; width: 100%; min-width: 0; min-height: 66px; max-height: 220px; padding: 0 4px; border: 0; border-radius: 3px; resize: vertical; color: var(--ink, #eeecee); background: transparent; font: 400 14px/1.7 -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif; caret-color: var(--accent, #eea0c6); } .ds-draft::placeholder { color: var(--faint, #96939b); opacity: 1; } .ds-draft:focus-visible { outline: 2px solid var(--accent, #eea0c6); outline-offset: 6px; } .ds-composer-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; } .ds-composer-actions > span { font-size: 10.78px; color: var(--faint, #96939b); } .ds-send { display: grid; place-items: center; width: 36px; height: 36px; flex-shrink: 0; border: 0; border-radius: 10px; background: var(--accent, #eea0c6); color: var(--accent-ink, #301a25); cursor: pointer; } .ds-send:hover:not(:disabled) { background: #f8b8d7; } .ds-send:disabled { color: #9a9299; background: #423b42; opacity: 1; cursor: not-allowed; } .ds-send:focus-visible { outline: 2px solid var(--accent, #eea0c6); outline-offset: 3px; } @media (max-width: 430px) { .ds-draft { font-size: 16px; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "A private conversation desk",
+    "overview": "A quiet, dark workspace with the familiarity of native chat. Charcoal planes, off-white system typography, compact letter avatars, and restrained pink actions keep attention on conversations rather than infrastructure. The interface is direct and lightly rounded, with open canvas around focused work instead of decorative card grids.\n\nIdentity comes from the authored bridge mark, the exact name **ARRA Oracle GrokBot Bridge**, and consistent action and status treatments. The approved world is flat and code-led: no gradients, glow, decorative metrics, or generated mockup. The surface-specific composition and task sequence remain in `.impeccable/surfaces/src-app-tsx.md`; this file records how the completed implementation expresses that world.",
+    "keyCharacteristics": [
+      "Near-neutral charcoal layers and quiet hairline separators.",
+      "Pink for actions and focus; olive and amber for textual state feedback.",
+      "Compact system typography, sentence-case controls, and authored stroke icons.",
+      "Sidebar-first navigation, focused content widths, and a bottom-anchored composer.",
+      "Visible distinction between a submission, an uncertain operation, and a verified record."
+    ],
+    "rules": [
+      {
+        "name": "The State Has Words Rule",
+        "body": "A status dot or semantic color accompanies a readable state label; color alone never distinguishes submitted, unavailable, or verified.",
+        "section": "colors"
+      },
+      {
+        "name": "The Flat Surface Rule",
+        "body": "Use tonal separation and quiet rules for existing workspace surfaces; do not add glow, gradients, or elevation shadows to reproduce this system.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Receipt Is Evidence Rule",
+        "body": "Reserve verified language for a checked record; neither a submitted request nor a connected browser establishes a remote reply.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "**Do** retain the exact product name, charcoal world, native-chat typography, and authored SVG icon language.",
+      "**Do** keep action, unavailable, and verified treatments visually distinct and pair states with readable text.",
+      "**Do** preserve per-bot drafts and stable operation details through uncertainty; keep reconciliation actions separate from submission.",
+      "**Do** keep every navigation action reachable in the mobile dialog and short-window scrolling rail.",
+      "**Do** retain source and line provenance for history and visibly identify synthetic proof as synthetic.",
+      "**Do** use the shipped CSS and component state logic as the source when refreshing these extracted tokens and snippets."
+    ],
+    "donts": [
+      "**Don't** add glow, gradients, decorative metrics, or raised card grids to this workspace world.",
+      "**Don't** treat an unavailable remote as failed owner authentication, an empty bot roster, or lost local history.",
+      "**Don't** label gateway acceptance as a verified reply or a profile check as native-window selection proof.",
+      "**Don't** disable draft editing merely because sending or creation is unavailable.",
+      "**Don't** promote fixture screenshots, panel preview snippets, or generated tonal-ramp previews into evidence of live remote success or public deployment.",
+      "**Don't** generalize local heading treatments, isolated optical values, or small icon-button dimensions into new universal design requirements."
+    ]
+  }
+}
