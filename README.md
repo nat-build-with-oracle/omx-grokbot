@@ -38,7 +38,14 @@ Default listener: `http://127.0.0.1:4328`, MCP at `/mcp`. The root and `/chat`, 
 
 On first start, independent owner and headless-client secrets are generated in `data/access.json` with mode `0600`. The data directory is private (`0700`) and Git-ignored. Read that file locally when configuring a client; never paste its contents into a commit, issue, chat, screenshot or public document. OAuth clients receive separate revocable tokens, not the owner secret. Real history, databases and model assets must remain uncommitted.
 
-Configuration: `BRIDGE_DATA_DIR`, `PORT`, `BRIDGE_HOST`, `BRIDGE_PUBLIC_URL`, `BRIDGE_ALLOWED_HOSTS`, `GROKBOT_SSH_HOST`, `BRIDGE_OWNER_SECRET`, `BRIDGE_API_TOKEN`. `BRIDGE_PUBLIC_URL` is an **origin**, not a URL ending in `/mcp`; non-loopback origins require HTTPS. Default binding is loopback. Public reachability is not created merely by setting this variable.
+Configuration: `BRIDGE_DATA_DIR`, `PORT`, `BRIDGE_HOST`, `BRIDGE_PUBLIC_URL`, `BRIDGE_ALLOWED_HOSTS`, `GROKBOT_SSH_HOST`, `GROKBOT_SSH_IDENTITY_FILE`, `BRIDGE_OWNER_SECRET`, `BRIDGE_API_TOKEN`. `BRIDGE_PUBLIC_URL` is an **origin**, not a URL ending in `/mcp`; non-loopback origins require HTTPS. Default binding is loopback. Public reachability is not created merely by setting this variable.
+
+For a dedicated SSH key, set `GROKBOT_SSH_IDENTITY_FILE` to its path when starting the bridge. The key stays on disk; SSH receives its path using `-i` and `IdentitiesOnly=yes`. Strict host-key checking remains enabled. For example:
+
+```sh
+GROKBOT_SSH_HOST=box@grokbot1.oracle.netbird \
+GROKBOT_SSH_IDENTITY_FILE="$HOME/.ssh/grokbot-bridge" npm start
+```
 
 `BRIDGE_ALLOWED_HOSTS` (optional) is a comma-separated allowlist of extra `host[:port]` values accepted by the front-door host filter (for reverse-proxy or tunnel deployments).
 
@@ -83,7 +90,7 @@ See [MCP/Claude research](docs/learning/mcp-claude-integration.md), [React/Tailw
 
 ## Verification artifacts
 
-- `npm run check` passes locally (typecheck, 41 unit tests, build); the Python gateway suite has 12 passing tests.
+- `npm run check` passes locally (typecheck, unit tests, build); the Python gateway suite has 12 passing tests.
 - Browser proof: `docs/evidence/bridge/ui-smoke.json` distinguishes live local UI checks from isolated message/creation fixtures. It does not establish live remote bot creation.
 - Real MCP-to-Grok request correlation proof: `docs/evidence/bridge/mcp-send-smoke.json` (status to `reply_recorded`).
 - Owner HTTP API MCP-equivalent proof: `docs/evidence/bridge/http-send-smoke.json`.

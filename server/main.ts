@@ -21,7 +21,7 @@ process.on('exit', release);
 const store = new Store(config.dataDir);
 store.recoverInterrupted();
 const history = new History(store, config);
-const bridge = new Bridge(store, new SshGateway(config.grokHost), history);
+const bridge = new Bridge(store, new SshGateway(config.grokHost, config.grokIdentityFile), history);
 const http = createApp(config, bridge);
 const server = http.app.listen(config.port, config.host, () => {
   console.error(`Grok Bot bridge: http://${config.host}:${config.port} (MCP issuer ${config.publicUrl})`);

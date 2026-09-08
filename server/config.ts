@@ -37,6 +37,7 @@ export function loadConfig(): BridgeConfig {
     ownerSecret,
     apiToken,
     grokHost,
+    grokIdentityFile: process.env.GROKBOT_SSH_IDENTITY_FILE ? resolve(process.env.GROKBOT_SSH_IDENTITY_FILE) : undefined,
     historyHost: 'beta@m5.oracle.netbird',
     embeddingModel: 'Xenova/paraphrase-multilingual-MiniLM-L12-v2',
     allowedHosts: [...explicitHosts],

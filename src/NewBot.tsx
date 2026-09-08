@@ -58,7 +58,7 @@ export function NewBot({ api, online, onOpen }: { api: ApiClient; online: boolea
       <label htmlFor="bot-description">Description <span className="field-meta">Optional</span></label>
       <textarea id="bot-description" value={description} onChange={e => setDescription(e.target.value)} maxLength={4000} placeholder="What will you work on together?" rows={4} disabled={locked || loading} />
       <p className="field-help"><Icon name="chat" size={16} /> No first message or automatic introduction is requested.</p>
-      {!online && !locked && <div className="notice"><Icon name="alert" /><p><strong>Grok Bot is not reachable.</strong> You can draft a profile here. Reconnect from Connections before creating it.</p></div>}
+      {!online && !locked && <div className="notice"><Icon name="alert" /><p><strong>Gateway connection unavailable.</strong> You can draft a profile here. Reconnect from Connections before creating it.</p></div>}
       {loading && <p className="muted" role="status">Checking saved creations…</p>}
       {error && <p className="form-error" role="alert">{error}</p>}
       {locked ? <div className="creation-result" aria-live="polite">

@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-09-08T05:47:23.016516+00:00",
+  "baseUrl": "http://127.0.0.1:4328",
+  "host": "box@grokbot1.oracle.netbird",
+  "sshIdentityConfigured": true,
+  "strictHostKeyChecking": true,
+  "ownerLoginHttpStatus": 200,
+  "sessionRestored": true,
+  "agentsHttpStatus": 200,
+  "agentCount": 4,
+  "gatewayHealthOk": true,
+  "liveAgentCreationVerified": false,
+  "logoutVerified": true
+}

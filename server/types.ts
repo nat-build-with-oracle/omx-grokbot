@@ -6,6 +6,7 @@ export interface BridgeConfig {
   ownerSecret: string;
   apiToken: string;
   grokHost: string;
+  grokIdentityFile?: string;
   historyHost: string;
   embeddingModel: string;
   allowedHosts: string[];

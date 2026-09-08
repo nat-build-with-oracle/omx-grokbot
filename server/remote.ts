@@ -5,8 +5,13 @@ import { BridgeError } from './errors.js';
 
 export interface RemoteResult { exitCode: number | null; events: Record<string, any>[] }
 export interface RemoteGateway { run(argv: string[]): Promise<RemoteResult> }
+export function sshArguments(host: string, command: string, identityFile?: string): string[] {
+  const args = ['-o', 'BatchMode=yes', '-o', 'StrictHostKeyChecking=yes', '-o', 'ConnectTimeout=12'];
+  if (identityFile) args.push('-i', identityFile, '-o', 'IdentitiesOnly=yes');
+  return [...args, host, command];
+}
 export class SshGateway implements RemoteGateway {
-  constructor(private host: string) {}
+  constructor(private host: string, private identityFile?: string) {}
   run(argv: string[]): Promise<RemoteResult> {
     const source = readFileSync(fileURLToPath(new URL('../scripts/grokbot-gateway.py', import.meta.url)));
     // Only fixed program code enters the SSH command. All variable prompt/ID
@@ -14,7 +19,7 @@ export class SshGateway implements RemoteGateway {
     const code = `import json,sys; r=json.load(sys.stdin); sys.argv=['grokbot-gateway']+r['argv']; exec(bytes.fromhex('${source.toString('hex')}'),{'__name__':'__main__'})`;
     const command = `python3 -c '${code.replaceAll("'", "'\\''")}'`;
     return new Promise((resolve, reject) => {
-      const child = spawn('ssh', ['-o', 'BatchMode=yes', '-o', 'StrictHostKeyChecking=yes', '-o', 'ConnectTimeout=12', this.host, command], { stdio: ['pipe', 'pipe', 'pipe'] });
+      const child = spawn('ssh', sshArguments(this.host, command, this.identityFile), { stdio: ['pipe', 'pipe', 'pipe'] });
       let out = ''; let failed = false;
       const fail = (code: string) => { if (!failed) { failed = true; child.kill('SIGTERM'); reject(new BridgeError(code, 'SSH operation did not finish reliably. Verify before any resend.', 502)); } };
       const timer = setTimeout(() => fail('ssh_timeout'), 35_000);
