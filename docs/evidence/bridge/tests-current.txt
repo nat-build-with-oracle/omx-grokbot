@@ -1,0 +1,218 @@
+
+> grokbot-bridge@0.1.0 test
+> tsx --test tests/*.test.ts
+
+TAP version 13
+# Subtest: discovery publishes exact resource, supported PKCE and public-client auth
+ok 1 - discovery publishes exact resource, supported PKCE and public-client auth
+  ---
+  duration_ms: 270.410125
+  type: 'test'
+  ...
+# Subtest: DCR refuses arbitrary callbacks, implicit/confidential clients and excess metadata
+ok 2 - DCR refuses arbitrary callbacks, implicit/confidential clients and excess metadata
+  ---
+  duration_ms: 141.110458
+  type: 'test'
+  ...
+# Subtest: consent cannot grant on GET, wrong secret, missing browser binding, or cross-site POST
+ok 3 - consent cannot grant on GET, wrong secret, missing browser binding, or cross-site POST
+  ---
+  duration_ms: 127.140083
+  type: 'test'
+  ...
+# Subtest: PKCE, redirect, audience and single-use code binding; credentials stored only as hashes
+ok 4 - PKCE, redirect, audience and single-use code binding; credentials stored only as hashes
+  ---
+  duration_ms: 83.539792
+  type: 'test'
+  ...
+# Subtest: refresh rotates atomically; replay revokes family and persists across restart
+ok 5 - refresh rotates atomically; replay revokes family and persists across restart
+  ---
+  duration_ms: 186.061458
+  type: 'test'
+  ...
+# Subtest: explicit revocation and expired access tokens are rejected
+ok 6 - explicit revocation and expired access tokens are rejected
+  ---
+  duration_ms: 95.306084
+  type: 'test'
+  ...
+# Subtest: owner login, Strict HttpOnly cookie, CSRF, logout and failed-login throttle
+ok 7 - owner login, Strict HttpOnly cookie, CSRF, logout and failed-login throttle
+  ---
+  duration_ms: 28.590375
+  type: 'test'
+  ...
+# Subtest: MCP advertises six tools, returns structured data, and enforces write scope
+ok 8 - MCP advertises six tools, returns structured data, and enforces write scope
+  ---
+  duration_ms: 202.206083
+  type: 'test'
+  ...
+# Subtest: reducer edits are immutable and preparing requires a selected agent/nonblank draft
+ok 9 - reducer edits are immutable and preparing requires a selected agent/nonblank draft
+  ---
+  duration_ms: 7.4375
+  type: 'test'
+  ...
+# Subtest: manual preparation captures one stable UUID/prompt, and synchronous submit suppresses double clicks
+ok 10 - manual preparation captures one stable UUID/prompt, and synchronous submit suppresses double clicks
+  ---
+  duration_ms: 0.58775
+  type: 'test'
+  ...
+# Subtest: acceptance and pending are not recorded replies and do not discard the draft
+ok 11 - acceptance and pending are not recorded replies and do not discard the draft
+  ---
+  duration_ms: 0.238208
+  type: 'test'
+  ...
+# Subtest: unknown delivery retains UUID and draft; retry can only produce a read-side verify command
+ok 12 - unknown delivery retains UUID and draft; retry can only produce a read-side verify command
+  ---
+  duration_ms: 0.501125
+  type: 'test'
+  ...
+# Subtest: verified output clears only an unchanged submitted draft and late responses cannot downgrade it
+ok 13 - verified output clears only an unchanged submitted draft and late responses cannot downgrade it
+  ---
+  duration_ms: 0.176959
+  type: 'test'
+  ...
+# Subtest: draft edits and agent switches while waiting do not lose either draft
+ok 14 - draft edits and agent switches while waiting do not lose either draft
+  ---
+  duration_ms: 0.137792
+  type: 'test'
+  ...
+# Subtest: a mismatched result cannot replace the original operation or draft
+ok 15 - a mismatched result cannot replace the original operation or draft
+  ---
+  duration_ms: 0.304958
+  type: 'test'
+  ...
+# Subtest: restoring a server-prepared operation never emits a send, only explicit verification
+ok 16 - restoring a server-prepared operation never emits a send, only explicit verification
+  ---
+  duration_ms: 0.685667
+  type: 'test'
+  ...
+# Subtest: the HTTP client confines CSRF to memory, uses same-origin credentials and never adds Bearer auth
+ok 17 - the HTTP client confines CSRF to memory, uses same-origin credentials and never adds Bearer auth
+  ---
+  duration_ms: 71.58725
+  type: 'test'
+  ...
+# Subtest: session restores memory-only CSRF; unknown successful send response preserves ID/draft and causes no retry
+ok 18 - session restores memory-only CSRF; unknown successful send response preserves ID/draft and causes no retry
+  ---
+  duration_ms: 4.022666
+  type: 'test'
+  ...
+# Subtest: aborted/failed send is not retried and raw transport exception details are not exposed
+ok 19 - aborted/failed send is not retried and raw transport exception details are not exposed
+  ---
+  duration_ms: 2.282625
+  type: 'test'
+  ...
+# Subtest: typed route wrappers validate bodies, path-encode IDs and distinguish missing history from transport errors
+ok 20 - typed route wrappers validate bodies, path-encode IDs and distinguish missing history from transport errors
+  ---
+  duration_ms: 14.479125
+  type: 'test'
+  ...
+# Subtest: a late session response cannot restore CSRF after logout
+ok 21 - a late session response cannot restore CSRF after logout
+  ---
+  duration_ms: 1.094833
+  type: 'test'
+  ...
+# Subtest: a stale unauthorized read cannot clear a newer login token
+ok 22 - a stale unauthorized read cannot clear a newer login token
+  ---
+  duration_ms: 2.548084
+  type: 'test'
+  ...
+# Subtest: durable client ID suppresses concurrent duplicate POST and rejects changed content
+ok 23 - durable client ID suppresses concurrent duplicate POST and rejects changed content
+  ---
+  duration_ms: 44.999959
+  type: 'test'
+  ...
+# Subtest: uncertain acknowledgement preserves original ID and verification does not resend
+ok 24 - uncertain acknowledgement preserves original ID and verification does not resend
+  ---
+  duration_ms: 23.274542
+  type: 'test'
+  ...
+# Subtest: verification rejects marker-bearing proof with mismatched prompt content
+ok 25 - verification rejects marker-bearing proof with mismatched prompt content
+  ---
+  duration_ms: 48.515667
+  type: 'test'
+  ...
+# Subtest: opening a CLI store does not reconcile an active sender; explicit recovery does
+ok 26 - opening a CLI store does not reconcile an active sender; explicit recovery does
+  ---
+  duration_ms: 26.52725
+  type: 'test'
+  ...
+# Subtest: late acceptance or pending verification cannot downgrade a recorded reply
+ok 27 - late acceptance or pending verification cannot downgrade a recorded reply
+  ---
+  duration_ms: 17.044166
+  type: 'test'
+  ...
+# Subtest: import is idempotent, source-linked, redacted, and does not embed implicitly
+ok 28 - import is idempotent, source-linked, redacted, and does not embed implicitly
+  ---
+  duration_ms: 42.904208
+  type: 'test'
+  ...
+# Subtest: real LanceDB stores synthetic fixture vectors and refuses stale changed content
+ok 29 - real LanceDB stores synthetic fixture vectors and refuses stale changed content
+  ---
+  duration_ms: 152.239916
+  type: 'test'
+  ...
+# Subtest: model identity isolates vector spaces even with equal dimensions
+ok 30 - model identity isolates vector spaces even with equal dimensions
+  ---
+  duration_ms: 60.265333
+  type: 'test'
+  ...
+# Subtest: redaction catches representative secrets and chunks Unicode without broken surrogate pairs
+ok 31 - redaction catches representative secrets and chunks Unicode without broken surrogate pairs
+  ---
+  duration_ms: 1.238959
+  type: 'test'
+  ...
+# Subtest: concurrent import during embedding remains dirty instead of falsely becoming ready
+ok 32 - concurrent import during embedding remains dirty instead of falsely becoming ready
+  ---
+  duration_ms: 32.244875
+  type: 'test'
+  ...
+# Subtest: retired vector candidates cannot starve a live result after an excerpt shrinks
+ok 33 - retired vector candidates cannot starve a live result after an excerpt shrinks
+  ---
+  duration_ms: 928.108625
+  type: 'test'
+  ...
+# Subtest: missing vector store is detected and explicit embedding rebuilds from provenance
+ok 34 - missing vector store is detected and explicit embedding rebuilds from provenance
+  ---
+  duration_ms: 41.383542
+  type: 'test'
+  ...
+1..34
+# tests 34
+# suites 0
+# pass 34
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3741.77525

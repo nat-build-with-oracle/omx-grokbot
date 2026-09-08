@@ -1,0 +1,737 @@
+LOCAL WORKSTATION READ-ONLY BASELINE
+Capture start UTC: 2026-09-08T01:17:44.116469+00:00
+Scope: macOS OS/hardware/resources/storage/network/SSH/tool/security metadata only. No serials, UUIDs, MAC addresses, credentials, environment variables, process arguments, or home-directory scan.
+
+## OS version
+$ sw_vers
+ProductName:		macOS
+ProductVersion:		26.3.1
+ProductVersionExtra:	(a)
+BuildVersion:		25D771280a
+exit_status=0
+
+## Kernel
+$ uname -rs
+Darwin 25.3.0
+exit_status=0
+
+## Hardware without identifiers
+$ sysctl hw.model hw.machine machdep.cpu.brand_string hw.ncpu hw.physicalcpu hw.logicalcpu hw.memsize
+hw.model: Mac16,12
+hw.machine: arm64
+machdep.cpu.brand_string: Apple M4
+hw.ncpu: 10
+hw.physicalcpu: 10
+hw.logicalcpu: 10
+hw.memsize: 17179869184
+exit_status=0
+
+## Uptime/load
+$ uptime
+ 8:17  up 1 day, 10:22, 1 user, load averages: 9.00 5.50 3.88
+exit_status=0
+
+## VM and swap
+$ sysctl vm.swapusage
+vm.swapusage: total = 3072.00M  used = 1686.19M  free = 1385.81M  (encrypted)
+exit_status=0
+
+## VM statistics
+$ vm_stat
+Mach Virtual Memory Statistics: (page size of 16384 bytes)
+Pages free:                                6983.
+Pages active:                            244603.
+Pages inactive:                          243096.
+Pages speculative:                         1038.
+Pages throttled:                              0.
+Pages wired down:                        243739.
+Pages purgeable:                           3469.
+"Translation faults":                 739179751.
+Pages copy-on-write:                   67881975.
+Pages zero filled:                    223021105.
+Pages reactivated:                    112058987.
+Pages purged:                          21496446.
+File-backed pages:                       144140.
+Anonymous pages:                         344597.
+Pages stored in compressor:              901102.
+Pages occupied by compressor:            269800.
+Decompressions:                       103853775.
+Compressions:                         117490650.
+Pageins:                                9722597.
+Pageouts:                                244364.
+Swapins:                                 335025.
+Swapouts:                                579810.
+exit_status=0
+
+## Memory-pressure query only (no stress generation)
+$ memory_pressure -Q
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 49%
+exit_status=0
+
+## APFS mounted-volume usage
+$ df -h / /System/Volumes/Data
+Filesystem        Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s3s1   460Gi    17Gi    23Gi    43%    455k  236M    0%   /
+/dev/disk3s1     460Gi   398Gi    23Gi    95%    5.0M  236M    2%   /System/Volumes/Data
+exit_status=0
+
+## Disk metadata for / (selected plist fields)
+$ diskutil info -plist /
+{
+  "DeviceIdentifier": "disk3s3s1",
+  "FilesystemName": "APFS",
+  "FilesystemType": "apfs",
+  "MountPoint": "/",
+  "TotalSize": 494384795648,
+  "FreeSpace": 0,
+  "APFSContainerReference": "disk3",
+  "APFSContainerFree": 24177590272,
+  "APFSContainerSize": 494384795648,
+  "FileVault": true
+}
+exit_status=0
+
+## Disk metadata for /System/Volumes/Data (selected plist fields)
+$ diskutil info -plist /System/Volumes/Data
+{
+  "DeviceIdentifier": "disk3s1",
+  "FilesystemName": "APFS",
+  "FilesystemType": "apfs",
+  "MountPoint": "/System/Volumes/Data",
+  "TotalSize": 494384795648,
+  "FreeSpace": 0,
+  "APFSContainerReference": "disk3",
+  "APFSContainerFree": 24177242112,
+  "APFSContainerSize": 494384795648,
+  "FileVault": true
+}
+exit_status=0
+
+## APFS container capacity (selected plist fields)
+$ diskutil apfs list -plist
+[
+  {
+    "ContainerReference": "disk1",
+    "CapacityCeiling": 524288000,
+    "CapacityFree": 503177216
+  },
+  {
+    "ContainerReference": "disk2",
+    "CapacityCeiling": 5368664064,
+    "CapacityFree": 3033464832
+  },
+  {
+    "ContainerReference": "disk3",
+    "CapacityCeiling": 494384795648,
+    "CapacityFree": 24177037312
+  },
+  {
+    "ContainerReference": "disk5",
+    "CapacityCeiling": 394833920,
+    "CapacityFree": 65220608
+  }
+]
+exit_status=0
+
+## Network IPv4/interface status only; MAC and IPv6 omitted
+$ ifconfig
+lo0: flags=8049<UP,LOOPBACK,RUNNING,MULTICAST> mtu 16384
+	inet 127.0.0.1 netmask 0xff000000
+gif0: flags=8010<POINTOPOINT,MULTICAST> mtu 1280
+stf0: flags=0<> mtu 1280
+anpi0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+	status: inactive
+anpi1: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+	status: inactive
+en3: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+	status: inactive
+en4: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+	status: inactive
+en1: flags=8963<UP,BROADCAST,SMART,RUNNING,PROMISC,SIMPLEX,MULTICAST> mtu 1500
+	status: inactive
+en2: flags=8963<UP,BROADCAST,SMART,RUNNING,PROMISC,SIMPLEX,MULTICAST> mtu 1500
+	status: inactive
+bridge0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+	status: inactive
+ap1: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+	status: inactive
+en0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+	inet 192.168.1.12 netmask 0xffffff00 broadcast 192.168.1.255
+	status: active
+awdl0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+	status: active
+utun0: flags=8051<UP,POINTOPOINT,RUNNING,MULTICAST> mtu 1380
+llw0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+utun1: flags=8051<UP,POINTOPOINT,RUNNING,MULTICAST> mtu 1500
+utun2: flags=8051<UP,POINTOPOINT,RUNNING,MULTICAST> mtu 2000
+utun3: flags=8051<UP,POINTOPOINT,RUNNING,MULTICAST> mtu 1000
+utun4: flags=8051<UP,POINTOPOINT,RUNNING,MULTICAST> mtu 1380
+utun5: flags=8051<UP,POINTOPOINT,RUNNING,MULTICAST> mtu 1380
+utun6: flags=8051<UP,POINTOPOINT,RUNNING,MULTICAST> mtu 1500
+utun100: flags=8051<UP,POINTOPOINT,RUNNING,MULTICAST> mtu 1280
+	inet 100.97.232.195 --> 100.97.232.195 netmask 0xff000000
+utun7: flags=8051<UP,POINTOPOINT,RUNNING,MULTICAST> mtu 1500
+utun8: flags=8051<UP,POINTOPOINT,RUNNING,MULTICAST> mtu 1500
+exit_status=0
+
+## Default route (selected fields)
+$ route -n get default
+   route to: default
+destination: default
+       mask: default
+    gateway: 192.168.1.1
+  interface: en0
+      flags: <UP,GATEWAY,DONE,STATIC,PROTO1,PRCLONING,IFSCOPE,GLOBAL>
+exit_status=0
+
+## Effective SSH alias config (no identity-file disclosure)
+$ ssh -G box@grokbot1
+host grokbot1
+user box
+hostname grokbot1
+port 22
+batchmode no
+canonicalizehostname false
+checkhostip no
+stricthostkeychecking ask
+globalknownhostsfile /etc/ssh/ssh_known_hosts /etc/ssh/ssh_known_hosts2
+userknownhostsfile /Users/nat/.ssh/known_hosts /Users/nat/.ssh/known_hosts2
+exit_status=0
+
+## SSH alias DNS resolution
+$ dscacheutil -q host -a name grokbot1
+name: grokbot1.oracle.netbird
+
+name: grokbot1.oracle.netbird
+ip_address: 100.97.63.219
+exit_status=0
+
+## Existing known-host fingerprints for grokbot1 (no key material)
+$ ssh-keygen -F grokbot1 | ssh-keygen -lf -
+256 SHA256:rOpANPu0hrBNtNs1K7+txaffZkm7f6qUVY07600O2wI grokbot1 (ED25519)
+lookup_exit=0 fingerprint_exit=0
+
+## Existing known-host fingerprints for grokbot1.oracle.netbird (no key material)
+$ ssh-keygen -F grokbot1.oracle.netbird | ssh-keygen -lf -
+256 SHA256:rOpANPu0hrBNtNs1K7+txaffZkm7f6qUVY07600O2wI grokbot1.oracle.netbird (ED25519)
+lookup_exit=0 fingerprint_exit=0
+
+## Existing known-host fingerprints for 100.97.63.219 (no key material)
+$ ssh-keygen -F 100.97.63.219 | ssh-keygen -lf -
+(stdin) is not a public key file.
+lookup_exit=1 fingerprint_exit=255
+
+## SIP
+$ csrutil status
+System Integrity Protection status: enabled.
+exit_status=0
+
+## FileVault
+$ fdesetup status
+FileVault is On.
+exit_status=0
+
+## Gatekeeper
+$ spctl --status
+assessments enabled
+exit_status=0
+
+## Application firewall
+$ /usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate
+Firewall is disabled. (State = 0)
+exit_status=0
+
+## Tool SSH
+$ ssh -V
+OpenSSH_10.2p1, LibreSSL 3.3.6
+exit_status=0
+
+## Tool Git
+$ git --version
+git version 2.53.0
+exit_status=0
+
+## Tool Node
+$ node --version
+error: Missing script to execute. Bun's provided 'node' cli wrapper does not support a repl.
+exit_status=1
+
+## Tool Python
+$ python3 --version
+Python 3.14.3
+exit_status=0
+
+## Tool Bun
+$ bun --version
+1.3.14
+exit_status=0
+
+## Tool NetBird
+$ netbird version
+0.77.1
+exit_status=0
+
+## Tool OMX
+$ omx --version
+oh-my-codex v0.21.3
+Node.js v24.3.0
+Platform: darwin arm64
+exit_status=0
+
+## Workspace inventory (names only, excludes runtime logs)
+$ find . -maxdepth 3 -type f -not -path ./.omx/* -not -path ./.git/*
+./docs/evidence/remote-system.txt
+./docs/evidence/remote-services.txt
+./docs/evidence/local-workstation.txt
+./scripts/remote-system-snapshot.sh
+./system_full_exploration_report.md
+exit_status=0
+
+## Workspace size
+$ du -sh .
+ 96K	.
+exit_status=0
+
+## Workspace git status
+$ git rev-parse --is-inside-work-tree
+fatal: not a git repository (or any of the parent directories): .git
+exit_status=128
+
+Capture end UTC: 2026-09-08T01:17:47.281664+00:00
+
+Supplement start UTC: 2026-09-08T01:18:31.895745+00:00
+
+## CPU/resource aggregate; no process listing
+$ top -l 1 -n 0
+Processes: 792 total, 3 running, 1 stuck, 788 sleeping, 4693 threads 
+2026/09/08 08:18:33
+Load Avg: 9.57, 6.11, 4.19 
+CPU usage: 25.25% user, 28.74% sys, 45.99% idle 
+SharedLibs: 532M resident, 103M data, 87M linkedit.
+MemRegions: 819256 total, 4409M resident, 187M private, 2116M shared.
+PhysMem: 15G used (3686M wired, 4240M compressor), 131M unused.
+VM: 394T vsize, 5363M framework vsize, 335061(0) swapins, 579810(0) swapouts.
+Networks: packets: 10879242/9219M in, 5027587/1262M out.
+Disks: 13262248/206G read, 7092891/97G written.
+exit_status=0
+
+## OS pressure-level indicator
+$ sysctl kern.memorystatus_vm_pressure_level
+kern.memorystatus_vm_pressure_level: 1
+exit_status=0
+
+## Route to SSH target
+$ route -n get 100.97.63.219
+   route to: 100.97.63.219
+destination: 100.97.63.219
+  interface: utun100
+      flags: <UP,HOST,DONE,WASCLONED,IFSCOPE,IFREF>
+exit_status=0
+
+## Effective fully qualified SSH alias config
+$ ssh -G box@grokbot1.oracle.netbird
+host grokbot1.oracle.netbird
+user box
+hostname grokbot1.oracle.netbird
+port 22
+batchmode no
+canonicalizehostname false
+checkhostip no
+stricthostkeychecking ask
+globalknownhostsfile /etc/ssh/ssh_known_hosts /etc/ssh/ssh_known_hosts2
+userknownhostsfile /Users/nat/.ssh/known_hosts /Users/nat/.ssh/known_hosts2
+exit_status=0
+
+## Node resolution
+$ zsh -lc type -a node; node -e 'console.log(JSON.stringify({version:process.version,execPath:process.execPath,bun:process.versions.bun||null}))'
+node is /Users/nat/.nvm/versions/node/v22.20.0/bin/node
+node is /opt/homebrew/bin/node
+node is /Users/nat/.bun/bin/node
+node is /Users/nat/.nvm/versions/node/v22.20.0/bin/node
+{"version":"v22.20.0","execPath":"/Users/nat/.nvm/versions/node/v22.20.0/bin/node","bun":null}
+exit_status=0
+
+Supplement end UTC: 2026-09-08T01:18:36.123502+00:00
+
+Runtime/startup/backup supplement UTC: 2026-09-08T01:21:24.713081+00:00
+
+## Process census and top CPU/RSS; executable basenames only, no arguments
+
+$ ps -axo pid=,uid=,pcpu=,rss=,comm=
+exit_status=0
+process_count=807
+owner_counts={"root": 161, "current_user": 512, "other_uid": 134}
+top_10_by_cpu_percent=[
+  {
+    "pid": 732,
+    "uid": 501,
+    "cpu_percent": 71.5,
+    "rss_KiB": 330816,
+    "executable": "wezterm-gui"
+  },
+  {
+    "pid": 380,
+    "uid": 0,
+    "cpu_percent": 19.4,
+    "rss_KiB": 9328,
+    "executable": "opendirectoryd"
+  },
+  {
+    "pid": 414,
+    "uid": 88,
+    "cpu_percent": 18.7,
+    "rss_KiB": 62688,
+    "executable": "WindowServer"
+  },
+  {
+    "pid": 2621,
+    "uid": 501,
+    "cpu_percent": 10.6,
+    "rss_KiB": 77344,
+    "executable": "ego Helper"
+  },
+  {
+    "pid": 407,
+    "uid": 0,
+    "cpu_percent": 9.5,
+    "rss_KiB": 3936,
+    "executable": "notifyd"
+  },
+  {
+    "pid": 608,
+    "uid": 501,
+    "cpu_percent": 8.5,
+    "rss_KiB": 20720,
+    "executable": "WindowManager"
+  },
+  {
+    "pid": 2528,
+    "uid": 501,
+    "cpu_percent": 8.4,
+    "rss_KiB": 145184,
+    "executable": "ego lite"
+  },
+  {
+    "pid": 34797,
+    "uid": 501,
+    "cpu_percent": 8.2,
+    "rss_KiB": 194800,
+    "executable": "codex"
+  },
+  {
+    "pid": 27092,
+    "uid": 501,
+    "cpu_percent": 8.0,
+    "rss_KiB": 661376,
+    "executable": "Google Chrome Helper (Renderer)"
+  },
+  {
+    "pid": 1,
+    "uid": 0,
+    "cpu_percent": 6.8,
+    "rss_KiB": 14160,
+    "executable": "launchd"
+  }
+]
+top_10_by_rss_KiB=[
+  {
+    "pid": 27092,
+    "uid": 501,
+    "cpu_percent": 8.0,
+    "rss_KiB": 661376,
+    "executable": "Google Chrome Helper (Renderer)"
+  },
+  {
+    "pid": 61718,
+    "uid": 501,
+    "cpu_percent": 0.3,
+    "rss_KiB": 395488,
+    "executable": "Comet Helper (Renderer)"
+  },
+  {
+    "pid": 72730,
+    "uid": 501,
+    "cpu_percent": 0.1,
+    "rss_KiB": 392448,
+    "executable": "Comet Helper (Renderer)"
+  },
+  {
+    "pid": 82503,
+    "uid": 501,
+    "cpu_percent": 4.1,
+    "rss_KiB": 332560,
+    "executable": "Discord Helper (Renderer)"
+  },
+  {
+    "pid": 732,
+    "uid": 501,
+    "cpu_percent": 71.5,
+    "rss_KiB": 330816,
+    "executable": "wezterm-gui"
+  },
+  {
+    "pid": 20175,
+    "uid": 501,
+    "cpu_percent": 0.6,
+    "rss_KiB": 317808,
+    "executable": "Comet"
+  },
+  {
+    "pid": 20203,
+    "uid": 501,
+    "cpu_percent": 0.0,
+    "rss_KiB": 292496,
+    "executable": "Comet Helper (Renderer)"
+  },
+  {
+    "pid": 58857,
+    "uid": 501,
+    "cpu_percent": 0.1,
+    "rss_KiB": 277952,
+    "executable": "Comet Helper (Renderer)"
+  },
+  {
+    "pid": 34797,
+    "uid": 501,
+    "cpu_percent": 8.2,
+    "rss_KiB": 194800,
+    "executable": "codex"
+  },
+  {
+    "pid": 23247,
+    "uid": 501,
+    "cpu_percent": 2.0,
+    "rss_KiB": 185632,
+    "executable": "Google Chrome"
+  }
+]
+
+## Current-user-visible TCP listening endpoints (not outbound peers)
+
+$ lsof -nP -iTCP -sTCP:LISTEN -Fpcn
+exit_status=0
+p621
+crapportd
+f11
+n*:51869
+f12
+n*:51869
+f22
+n*:56398
+f24
+n*:56399
+p622
+cControlCenter
+f9
+n*:7000
+f10
+n*:7000
+f11
+n*:5000
+f12
+n*:5000
+p682
+cARDAgent
+f10
+n*:3283
+p770
+cmosquitto
+f5
+n127.0.0.1:1883
+f7
+n127.0.0.1:9001
+p787
+cbun
+f4
+n127.0.0.1:8900
+p1495
+cbun
+f20
+n*:47778
+p82503
+cDiscord Helper (Renderer)
+f41
+n127.0.0.1:6463
+
+
+## Current-user-visible UDP bind metadata; connected peer suffixes omitted
+
+$ lsof -nP -iUDP -Fpcn
+exit_status=0
+p621
+crapportd
+n*:3722
+p670
+cidentityservicesd
+n*:*
+n*:*
+n*:*
+n*:*
+n*:*
+p682
+cARDAgent
+n*:3283
+n*:3283
+p703
+csharingd
+n*:*
+n*:57463
+p2622
+cego Helper
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+p17921
+cmosh-client
+n*:54985
+p20197
+cComet Helper
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+p23260
+cGoogle Chrome Helper
+n[local-IPv6-redacted]:63218
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+n*:5353
+p28737
+cmosh-client
+n*:58621
+p35444
+cmosh-client
+n*:51034
+p52487
+cmosh-client
+n*:59231
+p64141
+cmosh-client
+n*:63122
+p82485
+cDiscord Helper
+n192.168.1.12:60869
+p87418
+cmosh-client
+n*:56158
+
+
+## Current-user launchd job aggregate and infrastructure-related labels only
+
+$ launchctl list
+exit_status=0
+{
+  "jobs": 520,
+  "running": 248,
+  "nonzero_last_exit_status": 169,
+  "apple_labels": 495,
+  "other_labels": 25
+}
+Infrastructure-related label sample:
+739	0	application.io.netbird.client.178541716.178541721
+17930	0	com.openssh.ssh-agent
+-	0	Oracle Pulse
+
+## Launch configuration file counts; contents not read
+/System/Library/LaunchDaemons: plist_count=422
+/System/Library/LaunchAgents: plist_count=460
+/Library/LaunchDaemons: plist_count=10
+/Library/LaunchAgents: plist_count=10
+/Users/nat/Library/LaunchAgents: plist_count=25
+
+## Time Machine configured destinations; names/URLs/UUIDs suppressed
+
+$ tmutil destinationinfo
+exit_status=0
+{
+  "destination_count_from_ID_records": 2,
+  "destination_kinds": [
+    "Local",
+    "Network"
+  ],
+  "no_destinations_message": false
+}
+
+## Time Machine latest backup; only timestamp pattern retained
+
+$ tmutil latestbackup
+exit_status=0
+timestamp_patterns=[]
+no_backup_message=False
+
+## Time Machine backup activity (whitelisted fields only)
+
+$ tmutil status
+exit_status=0
+Percent = "-1";
+Running = 0;
+
+## Installed top-level application and package counts; names omitted
+/Applications: top_level_app_bundle_count=83
+/Users/nat/Applications: top_level_app_bundle_count=1
+
+$ pkgutil --pkgs
+exit_status=0
+package_receipt_count=206
+
+$ brew list --formula
+exit_status=0
+installed_formula_count=319
+
+$ brew list --cask
+exit_status=0
+installed_cask_count=13
+
+Runtime/startup/backup supplement end UTC: 2026-09-08T01:21:25.299625+00:00
+
+## Time Machine latest-backup recheck with broader timestamp parsing
+UTC: 2026-09-08T01:21:45.325472+00:00
+$ tmutil latestbackup (only timestamp patterns and output metadata retained)
+{
+  "exit_status": 0,
+  "stdout_nonempty": false,
+  "stdout_line_count": 0,
+  "stderr_nonempty": true,
+  "timestamp_patterns": []
+}
+
+## Time Machine latest-backup diagnostic classification (error message phrases only)
+$ tmutil latestbackup
+{
+  "utc": "2026-09-08T01:22:03.255055+00:00",
+  "exit_status": 0,
+  "matched_diagnostic_phrases": []
+}
+
+## Time Machine latest-backup stderr, paths/URLs/UUIDs/quoted text scrubbed
+UTC: 2026-09-08T01:22:21.473073+00:00
+$ tmutil latestbackup (sanitized stderr only)
+Failed to mount backup destination, error: Error Domain=com.apple.backupd.ErrorDomain Code=17 [quoted text omitted] UserInfo={NSLocalizedDescription=Failed to mount destination.}
+

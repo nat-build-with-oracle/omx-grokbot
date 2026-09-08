@@ -1,0 +1,2708 @@
+Remote target: box@grokbot1
+Read-only inventory; no process arguments, environments, credential files or browser data captured.
+
+===== CAPTURE METADATA =====
+2026-09-08T01:17:23Z
+cursor
+uid=1000(box) gid=1000(box) groups=1000(box)
+
+===== PID 1 AND PROCESS INVENTORY (NAMES ONLY) =====
+    PID    PPID USER     COMMAND             ELAPSED
+      1       0 root     tini               07:36:46
+    PID    PPID USER     COMMAND         ELAPSED   RSS
+      1       0 root     tini              27406   748
+      7       1 root     pod-daemon        27406  5160
+     53       7 root     sand-exit-watch   27405 11664
+    167      53 box      node              27404 63492
+    192      53 box      node              27404 81348
+    193      53 box      node              27404 116992
+    199     193 box      bash              27404  1912
+    201     199 box      flock             27404  1948
+    204     201 box      node              27404 55036
+    222      53 box      node              27404 93760
+    227     222 box      bash              27404  1848
+    228     227 box      flock             27404  1836
+    229     228 box      node              27404 55128
+    275      53 box      node              27404 84364
+    276      53 box      bash              27404  4252
+    298     276 box      bash              27404  3536
+    302     298 box      node              27404 146408
+    419      53 box      bash              27387  3592
+    431     419 box      node              27387 121360
+    432     419 box      bash              27387  3420
+    439      53 box      bash              27387  3720
+    444     439 box      bash              27387  1964
+    446     444 box      flock             27387  1864
+    451     446 box      node              27387 55720
+    498       1 box      dbus-daemon       27387  2708
+    504     439 box      Xvfb              27387 40248
+    509     504 box      bash              27387  1980
+    511     509 box      flock             27387  1864
+    512     511 box      node              27387 55452
+    517     504 box      bash              27387     0
+    639     439 box      x11vnc            27387 15856
+    648     639 box      bash              27387  1960
+    650     648 box      flock             27387  1944
+    655     650 box      node              27387 55196
+    678     439 box      websockify        27387 37168
+    686     678 box      bash              27387  1976
+    687     686 box      flock             27387  1864
+    693     687 box      node              27387 55000
+    719     439 box      xfwm4             27387 84180
+    729     719 box      bash              27387  1904
+    731     729 box      flock             27387  1932
+    734     731 box      node              27387 55424
+    786     439 box      picom             27387  6436
+    797     786 box      bash              27387  1980
+    800     797 box      flock             27387  1944
+    801     800 box      node              27387 55052
+    863       1 box      dconf-service     27387  6236
+   1000      53 box      plank             27387 81916
+   1004    1000 box      bash              27387  2084
+   1006    1004 box      flock             27387  1832
+   1010    1006 box      node              27387 55108
+   1023     439 box      tail              27387  2000
+   1044       1 box      bamfdaemon-dbus   27387  3504
+   1045    1044 box      bamfdaemon        27387 17492
+   1084     431 box      node              27385 497008
+   1178      53 box      bash              27383  3684
+   1181    1178 box      bash              27383  2040
+   1182    1181 box      flock             27383  1828
+   1184    1182 box      node              27383 55224
+   1222      53 box      dbus-daemon       27383  4096
+   1226    1178 box      Xvfb              27383 53760
+   1231    1226 box      bash              27383  2056
+   1233    1231 box      flock             27383  1832
+   1234    1233 box      node              27383 56404
+   1891    1226 box      bash              27383     0
+   1901      53 box      node              27383 139232
+   1953    1178 box      x11vnc            27382 22460
+   1959    1953 box      bash              27382  2072
+   1960    1959 box      flock             27382  1832
+   1961    1960 box      node              27382 55400
+   1978    1178 box      xfwm4             27382 82868
+   1987    1978 box      bash              27382  2040
+   1989    1987 box      flock             27382  1880
+   1992    1989 box      node              27382 55020
+   2023    1178 box      picom             27382  6376
+   2031    2023 box      bash              27382  1936
+   2034    2031 box      flock             27382  1872
+   2039    2034 box      node              27382 55016
+   2111      53 box      dconf-service     27382  5952
+   2258      53 box      plank             27382 81916
+   2272    2258 box      bash              27382  1948
+   2273    2272 box      flock             27382  1832
+   2278    2273 box      node              27382 54920
+   2301    1178 box      tail              27382  1952
+   2391      53 box      bamfdaemon-dbus   27382  3476
+   2392    2391 box      bamfdaemon        27382 23644
+   2510    1084 box      csnaps            27360 31164
+ 107774      53 box      bash               3975  3784
+ 107778  107774 box      bash               3975  2080
+ 107779  107778 box      flock              3975  1900
+ 107780  107779 box      node               3975 55088
+ 107818      53 box      dbus-daemon        3975  2756
+ 107822  107774 box      Xvfb               3975 42928
+ 107827  107822 box      bash               3975  1992
+ 107828  107827 box      flock              3975  1868
+ 107830  107828 box      node               3975 55148
+ 108829  107822 box      bash               3974     0
+ 108873      53 box      node               3974 146172
+ 108885  107774 box      x11vnc             3974 26420
+ 108890  108885 box      bash               3974  1984
+ 108892  108890 box      flock              3974  1880
+ 108893  108892 box      node               3974 55576
+ 108910  107774 box      xfwm4              3974 28092
+ 108918  108910 box      bash               3974  1992
+ 108920  108918 box      flock              3974  1848
+ 108922  108920 box      node               3974 55484
+ 108957  107774 box      picom              3974  6420
+ 108963  108957 box      bash               3974  2000
+ 108964  108963 box      flock              3974  1928
+ 108967  108964 box      node               3974 54980
+ 109021      53 box      dconf-service      3974  6208
+ 109180      53 box      plank              3974 85816
+ 109191  109180 box      bash               3974  2016
+ 109192  109191 box      flock              3974  1944
+ 109195  109192 box      node               3974 55088
+ 109223  107774 box      tail               3974  2004
+ 109376      53 box      bamfdaemon-dbus    3973  3496
+ 109377  109376 box      bamfdaemon         3973 23484
+ 112005     431 box      websockify         3511 37268
+ 112006  112005 box      bash               3511  2000
+ 112007  112006 box      flock              3511  1864
+ 112008  112007 box      node               3510 56228
+ 113213      53 box      xfce4-terminal     3420 37592
+ 113225  113213 box      bash               3420  4040
+ 113361  113225 box      tmux: client       3415  6772
+ 113363      53 box      tmux: server       3415  5344
+ 113364  113363 box      bash               3415  4144
+ 113473      53 root     netbird            3410 66584
+ 115263      53 box      bash               3148  3756
+ 115270  115263 box      bash               3148  1928
+ 115274  115270 box      flock              3148  1904
+ 115279  115274 box      node               3148 54948
+ 115338      53 box      dbus-daemon        3148  2816
+ 115350  115263 box      Xvfb               3148 39696
+ 115358  115350 box      bash               3148  2044
+ 115361  115358 box      flock              3148  1900
+ 115364  115361 box      node               3148 54684
+ 116729  115350 box      bash               3147     0
+ 116776      53 box      node               3147 127508
+ 116830  115263 box      x11vnc             3146 23904
+ 116835  116830 box      bash               3146  2036
+ 116837  116835 box      flock              3146  1904
+ 116838  116837 box      node               3146 54700
+ 116855  115263 box      xfwm4              3146 27828
+ 116861  116855 box      bash               3146  1944
+ 116862  116861 box      flock              3146  1828
+ 116864  116862 box      node               3146 54756
+ 116902  115263 box      picom              3146  6356
+ 116909  116902 box      bash               3146  2092
+ 116911  116909 box      flock              3146  1948
+ 116912  116911 box      node               3146 54984
+ 116988      53 box      dconf-service      3146  6156
+ 117184      53 box      plank              3146 85544
+ 117196  117184 box      bash               3146  1980
+ 117199  117196 box      flock              3146  1824
+ 117200  117199 box      node               3146 54744
+ 117225  115263 box      tail               3146  1888
+ 117491      53 box      bamfdaemon-dbus    3146  3512
+ 117492  117491 box      bamfdaemon         3146 23520
+ 117564      53 box      xfce4-terminal     3135 37464
+ 117571  117564 box      bash               3135  4108
+ 120574      53 root     sshd               2790  5228
+ 123687  120574 root     sshd-session       2242 13340
+ 123701  123687 box      sshd-session       2239  8108
+ 123707  123701 box      bash               2238  3876
+ 125934      53 box      chrome             2018 277292
+ 125937  125934 box      bash               2018  2032
+ 125938  125937 box      flock              2018  1848
+ 125939  125938 box      node               2018 56436
+ 125943  125934 box      cat                2018  1848
+ 125945  125934 box      cat                2018  1900
+ 125957      53 box      chrome_crashpad    2018  3716
+ 125959      53 box      chrome_crashpad    2018  3516
+ 125964  125934 box      chrome             2018 68944
+ 125965  125934 box      chrome             2018 69980
+ 125990  125934 box      chrome             2018 124360
+ 125992  125965 box      chrome             2018 57580
+ 126105  125964 box      chrome             2018 92012
+ 126361  125965 box      chrome             2013 154272
+ 126383  125965 box      chrome             2012 236736
+ 126470  125965 box      chrome             2012 77236
+ 139794  120574 root     sshd-session          3 11704
+ 139796     432 box      sleep                 3  1968
+ 139808  139794 box      sshd-session          1  7780
+ 139811     276 box      sleep                 0  2028
+ 139812  139808 box      sh                    0  1948
+ 139817  139812 box      ps                    0  4188
+ 139818  139812 box      head                  0  1584
+
+===== LISTENING SOCKETS =====
+Netid State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                                
+udp   UNCONN 0      0            0.0.0.0:51820      0.0.0.0:*                                          
+udp   UNCONN 0      0          127.0.0.1:3128       0.0.0.0:*                                          
+udp   UNCONN 0      0      100.97.63.219:53         0.0.0.0:*                                          
+udp   UNCONN 0      0                  *:51820            *:*                                          
+tcp   LISTEN 0      128          0.0.0.0:50052      0.0.0.0:*                                          
+tcp   LISTEN 0      10         127.0.0.1:9225       0.0.0.0:*    users:(("chrome",pid=125934,fd=85))   
+tcp   LISTEN 0      128          0.0.0.0:22         0.0.0.0:*                                          
+tcp   LISTEN 0      128          0.0.0.0:26500      0.0.0.0:*                                          
+tcp   LISTEN 0      511          0.0.0.0:1339       0.0.0.0:*    users:(("node",pid=167,fd=21))        
+tcp   LISTEN 0      511          0.0.0.0:1340       0.0.0.0:*    users:(("node",pid=1084,fd=68))       
+tcp   LISTEN 0      5            0.0.0.0:2375       0.0.0.0:*                                          
+tcp   LISTEN 0      32         127.0.0.1:5904       0.0.0.0:*    users:(("x11vnc",pid=116830,fd=10))   
+tcp   LISTEN 0      32         127.0.0.1:5900       0.0.0.0:*    users:(("x11vnc",pid=639,fd=8))       
+tcp   LISTEN 0      32         127.0.0.1:5903       0.0.0.0:*    users:(("x11vnc",pid=1953,fd=10))     
+tcp   LISTEN 0      32         127.0.0.1:5902       0.0.0.0:*    users:(("x11vnc",pid=108885,fd=10))   
+tcp   LISTEN 0      100          0.0.0.0:6081       0.0.0.0:*    users:(("websockify",pid=112005,fd=3))
+tcp   LISTEN 0      100          0.0.0.0:6080       0.0.0.0:*    users:(("websockify",pid=678,fd=3))   
+tcp   LISTEN 0      4096   100.97.63.219:53         0.0.0.0:*                                          
+tcp   LISTEN 0      128             [::]:22            [::]:*                                          
+tcp   LISTEN 0      32             [::1]:5900          [::]:*    users:(("x11vnc",pid=639,fd=9))       
+tcp   LISTEN 0      32             [::1]:5903          [::]:*    users:(("x11vnc",pid=1953,fd=11))     
+tcp   LISTEN 0      32             [::1]:5902          [::]:*    users:(("x11vnc",pid=108885,fd=11))   
+tcp   LISTEN 0      32             [::1]:5904          [::]:*    users:(("x11vnc",pid=116830,fd=11))   
+tcp   LISTEN 0      511                *:1337             *:*    users:(("node",pid=302,fd=21))        
+tcp   LISTEN 0      511                *:1338             *:*    users:(("node",pid=302,fd=22))        
+tcp   LISTEN 0      511                *:14003            *:*    users:(("node",pid=1901,fd=23))       
+tcp   LISTEN 0      511                *:14002            *:*    users:(("node",pid=108873,fd=23))     
+tcp   LISTEN 0      511                *:14004            *:*    users:(("node",pid=116776,fd=23))     
+tcp   LISTEN 0      511                *:13603            *:*    users:(("node",pid=1901,fd=24))       
+tcp   LISTEN 0      511                *:13602            *:*    users:(("node",pid=108873,fd=24))     
+tcp   LISTEN 0      511                *:13604            *:*    users:(("node",pid=116776,fd=24))     
+
+===== COMMON EXECUTABLE LOCATIONS =====
+/usr/bin/node
+/usr/bin/npm
+/usr/bin/npx
+/usr/local/bin/bun
+/usr/bin/python3
+/usr/bin/pip
+/usr/bin/pip3
+/usr/local/bin/uv
+/usr/bin/git
+/usr/bin/ssh
+/usr/bin/curl
+/usr/bin/wget
+/usr/bin/bash
+/usr/bin/tmux
+/usr/bin/go
+/usr/bin/rustc
+/usr/bin/cargo
+/usr/bin/netbird
+
+===== RUNTIME VERSIONS =====
+
+$ node --version
+v20.19.2
+
+$ npm --version
+9.2.0
+
+$ bun --version
+1.4.2
+
+$ python3 --version
+Python 3.13.5
+
+$ pip3 --version
+pip 25.1.1 from /usr/lib/python3/dist-packages/pip (python 3.13)
+
+$ git --version
+git version 2.47.3
+
+$ bash --version
+GNU bash, version 5.2.37(1)-release (x86_64-pc-linux-gnu)
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+
+$ tmux -V
+tmux 3.5a
+
+$ ss -V
+ss utility, iproute2-6.15.0
+
+$ netbird version
+0.78.1
+
+===== INSTALLED DEBIAN PACKAGES =====
+adduser	3.152
+adwaita-icon-theme	48.1-1
+apt	3.0.3
+at-spi2-common	2.56.2-1+deb13u1
+bamfdaemon	0.5.6+repack-1.1+b2
+base-files	13.8+deb13u6
+base-passwd	3.6.7
+bash	5.2.37-2+b9
+binutils	2.44-3
+binutils-common:amd64	2.44-3
+binutils-x86-64-linux-gnu	2.44-3
+bsdutils	1:2.41.5-0+deb13u1
+ca-certificates	20250419
+cargo	1.85.0+dfsg3-1
+coreutils	9.7-3
+cpp	4:14.2.0-1
+cpp-14	14.2.0-19
+cpp-14-x86-64-linux-gnu	14.2.0-19
+cpp-x86-64-linux-gnu	4:14.2.0-1
+curl	8.14.1-2+deb13u4
+dash	0.5.12-12
+dbus	1.16.2-2
+dbus-bin	1.16.2-2
+dbus-daemon	1.16.2-2
+dbus-session-bus-common	1.16.2-2
+dbus-system-bus-common	1.16.2-2
+dbus-user-session	1.16.2-2
+dbus-x11	1.16.2-2
+dconf-cli	0.40.0-5
+dconf-gsettings-backend:amd64	0.40.0-5
+dconf-service	0.40.0-5
+debconf	1.5.91
+debian-archive-keyring	2025.1
+debianutils	5.23.2
+desktop-file-utils	0.28-1
+diffutils	1:3.10-4
+dirmngr	2.4.7-21+deb13u1+b4
+dmsetup	2:1.02.205-2
+dpkg	1.22.22
+eslint	6.4.0~dfsg+~6.1.9-12
+exo-utils	4.20.0-1
+ffmpeg	7:7.1.5-0+deb13u1
+findutils	4.10.0-3
+fontconfig	2.15.0-2.3
+fontconfig-config	2.15.0-2.3
+fonts-dejavu-core	2.37-8
+fonts-dejavu-mono	2.37-8
+fonts-liberation	1:2.1.5-3
+fonts-noto-cjk	1:20240730+repack1-1
+fonts-noto-color-emoji	2.051-0+deb13u1
+fonts-urw-base35	20200910-8
+gcc	4:14.2.0-1
+gcc-14	14.2.0-19
+gcc-14-base:amd64	14.2.0-19
+gcc-14-x86-64-linux-gnu	14.2.0-19
+gcc-x86-64-linux-gnu	4:14.2.0-1
+gh	2.46.0-3
+git	1:2.47.3-0+deb13u1
+git-man	1:2.47.3-0+deb13u1
+gnome-themes-extra:amd64	3.28-4
+gnome-themes-extra-data	3.28-4
+gnupg	2.4.7-21+deb13u1
+gnupg-l10n	2.4.7-21+deb13u1
+golang-1.24-go	1.24.4-1
+golang-1.24-src	1.24.4-1
+golang-go:amd64	2:1.24~2
+golang-src	2:1.24~2
+google-chrome-stable	151.0.7922.169-1
+gpg	2.4.7-21+deb13u1+b4
+gpg-agent	2.4.7-21+deb13u1+b4
+gpgconf	2.4.7-21+deb13u1+b4
+gpgsm	2.4.7-21+deb13u1+b4
+grep	3.11-4
+gtk-update-icon-cache	4.18.6+ds-2
+gtk2-engines-pixbuf:amd64	2.24.33-7
+gyp	0.16.2-2
+gzip	1.13-1
+handlebars	3:4.7.7+~4.1.0-1
+hicolor-icon-theme	0.18-2
+hostname	3.25
+hsetroot	1.0.5-1+b1
+htop	3.4.1-5
+init-system-helpers	1.69~deb13u1
+iproute2	6.15.0-1
+jq	1.7.1-6+deb13u3
+libacl1:amd64	2.3.2-2+b1
+libaom3:amd64	3.12.1-1+deb13u1
+libapparmor1:amd64	4.1.0-1
+libapt-pkg7.0:amd64	3.0.3
+libasan8:amd64	14.2.0-19
+libasound2-data	1.2.14-1
+libasound2t64:amd64	1.2.14-1
+libass9:amd64	1:0.17.3-1+deb13u1
+libassuan9:amd64	3.0.2-2
+libasyncns0:amd64	0.8-6+b5
+libatk-bridge2.0-0t64:amd64	2.56.2-1+deb13u1
+libatk1.0-0t64:amd64	2.56.2-1+deb13u1
+libatomic1:amd64	14.2.0-19
+libatspi2.0-0t64:amd64	2.56.2-1+deb13u1
+libattr1:amd64	1:2.5.2-3
+libaudit-common	1:4.0.2-2
+libaudit1:amd64	1:4.0.2-2+b2
+libavahi-client3:amd64	0.8-16
+libavahi-common-data:amd64	0.8-16
+libavahi-common3:amd64	0.8-16
+libavc1394-0:amd64	0.5.4-5+b2
+libavcodec61:amd64	7:7.1.5-0+deb13u1
+libavdevice61:amd64	7:7.1.5-0+deb13u1
+libavfilter10:amd64	7:7.1.5-0+deb13u1
+libavformat61:amd64	7:7.1.5-0+deb13u1
+libavutil59:amd64	7:7.1.5-0+deb13u1
+libbamf3-2t64:amd64	0.5.6+repack-1.1+b2
+libbinutils:amd64	2.44-3
+libblas3:amd64	3.12.1-6
+libblkid1:amd64	2.41.5-0+deb13u1
+libbluray2:amd64	1:1.3.4-1+b2
+libbpf1:amd64	1:1.5.0-3
+libbrotli1:amd64	1.1.0-2+b7
+libbs2b0:amd64	3.1.0+dfsg-8+b1
+libbsd0:amd64	0.12.2-2
+libbz2-1.0:amd64	1.0.8-6
+libc-bin	2.41-12+deb13u3
+libc-dev-bin	2.41-12+deb13u3
+libc6:amd64	2.41-12+deb13u3
+libc6-dev:amd64	2.41-12+deb13u3
+libcaca0:amd64	0.99.beta20-5+deb13u1
+libcairo-gobject2:amd64	1.18.4-1+b1
+libcairo2:amd64	1.18.4-1+b1
+libcap-ng0:amd64	0.8.5-4+b1
+libcap2:amd64	1:2.75-10+deb13u1+b1
+libcap2-bin	1:2.75-10+deb13u1+b1
+libcares2:amd64	1.34.5-1+deb13u1
+libcbor0.10:amd64	0.10.2-2
+libcc1-0:amd64	14.2.0-19
+libcdio-cdda2t64:amd64	10.2+2.0.2-1+b1
+libcdio-paranoia2t64:amd64	10.2+2.0.2-1+b1
+libcdio19t64:amd64	2.2.0-4.1~deb13u1
+libchromaprint1:amd64	1.5.1-7
+libcjson1:amd64	1.7.18-3.1+deb13u1
+libcloudproviders0:amd64	0.3.6-2
+libcodec2-1.2:amd64	1.2.0-3
+libcolord2:amd64	1.4.7-3
+libcom-err2:amd64	1.47.2-3+b11
+libconfig11:amd64	1.7.3-2
+libcrypt-dev:amd64	1:4.4.38-1
+libcrypt1:amd64	1:4.4.38-1
+libcryptsetup12:amd64	2:2.7.5-2
+libctf-nobfd0:amd64	2.44-3
+libctf0:amd64	2.44-3
+libcups2t64:amd64	2.4.10-3+deb13u2
+libcurl3t64-gnutls:amd64	8.14.1-2+deb13u4
+libcurl4t64:amd64	8.14.1-2+deb13u4
+libdatrie1:amd64	0.2.13-3+b1
+libdav1d7:amd64	1.5.1-1
+libdb5.3t64:amd64	5.3.28+dfsg2-9
+libdbus-1-3:amd64	1.16.2-2
+libdbusmenu-glib4:amd64	18.10.20180917~bzr492+repack1-4
+libdbusmenu-gtk3-4:amd64	18.10.20180917~bzr492+repack1-4
+libdc1394-25:amd64	2.2.6-5
+libdconf1:amd64	0.40.0-5
+libde265-0:amd64	1.0.15-1+deb13u2
+libdebconfclient0:amd64	0.280
+libdecor-0-0:amd64	0.2.2-2
+libdeflate0:amd64	1.23-2
+libdevmapper1.02.1:amd64	2:1.02.205-2
+libdrm-amdgpu1:amd64	2.4.124-2
+libdrm-common	2.4.124-2
+libdrm-intel1:amd64	2.4.124-2
+libdrm2:amd64	2.4.124-2
+libdvdnav4:amd64	6.1.1-3+b1
+libdvdread8t64:amd64	6.1.3-2
+libedit2:amd64	3.1-20250104-1
+libelf1t64:amd64	0.192-4
+libepoxy0:amd64	1.5.10-2
+liberror-perl	0.17030-1
+libev4t64:amd64	1:4.33-2.1+b1
+libevent-core-2.1-7t64:amd64	2.1.12-stable-10+b1
+libexif12:amd64	0.6.25-1+deb13u1
+libexo-2-0:amd64	4.20.0-1
+libexo-common	4.20.0-1
+libexpat1:amd64	2.8.3-1~deb13u1
+libffi8:amd64	3.4.8-2
+libfftw3-double3:amd64	3.3.10-2+b1
+libfido2-1:amd64	1.15.0-1+b1
+libflac14:amd64	1.5.0+ds-2
+libflite1:amd64	2.2-7
+libfontconfig1:amd64	2.15.0-2.3
+libfontenc1:amd64	1:1.1.8-1+b2
+libfreetype6:amd64	2.13.3+dfsg-1+deb13u1
+libfribidi0:amd64	1.0.16-1
+libgbm1:amd64	25.0.7-2+deb13u1
+libgcc-14-dev:amd64	14.2.0-19
+libgcc-s1:amd64	14.2.0-19
+libgcrypt20:amd64	1.11.0-7+deb13u1
+libgdbm-compat4t64:amd64	1.24-2
+libgdbm6t64:amd64	1.24-2
+libgdk-pixbuf-2.0-0:amd64	2.42.12+dfsg-4+deb13u1
+libgdk-pixbuf2.0-common	2.42.12+dfsg-4+deb13u1
+libgee-0.8-2:amd64	0.20.8-1
+libgfortran5:amd64	14.2.0-19
+libgif7:amd64	5.2.2-1+deb13u1
+libgit2-1.9:amd64	1.9.0+ds-2+deb13u1
+libgl1:amd64	1.7.0-1+b2
+libgl1-mesa-dri:amd64	25.0.7-2+deb13u1
+libglib2.0-0t64:amd64	2.84.4-3~deb13u3
+libglvnd0:amd64	1.7.0-1+b2
+libglx-mesa0:amd64	25.0.7-2+deb13u1
+libglx0:amd64	1.7.0-1+b2
+libgme0:amd64	0.6.3-7+b2
+libgmp10:amd64	2:6.3.0+dfsg-3
+libgnome-menu-3-0:amd64	3.36.0-3
+libgnutls30t64:amd64	3.8.9-3+deb13u4
+libgomp1:amd64	14.2.0-19
+libgpg-error0:amd64	1.51-4
+libgpgme11t64:amd64	1.24.2-3
+libgpgmepp6t64:amd64	1.24.2-3
+libgprofng0:amd64	2.44-3
+libgraphite2-3:amd64	1.3.14-2+deb13u1
+libgs-common	10.05.1~dfsg-1+deb13u1
+libgs10:amd64	10.05.1~dfsg-1+deb13u1
+libgs10-common	10.05.1~dfsg-1+deb13u1
+libgsm1:amd64	1.0.22-1+b2
+libgssapi-krb5-2:amd64	1.21.3-5+deb13u1
+libgtk-3-0t64:amd64	3.24.49-3
+libgtk-3-common	3.24.49-3
+libgtop-2.0-11:amd64	2.41.3-1+b2
+libgtop2-common	2.41.3-1
+libgudev-1.0-0:amd64	238-6
+libharfbuzz0b:amd64	10.2.0-1+deb13u1
+libheif-plugin-dav1d:amd64	1.19.8-1+deb13u1
+libheif-plugin-libde265:amd64	1.19.8-1+deb13u1
+libheif1:amd64	1.19.8-1+deb13u1
+libhogweed6t64:amd64	3.10.1-1
+libhttp-parser2.9:amd64	2.9.4-6+b2
+libhwasan0:amd64	14.2.0-19
+libhwy1t64:amd64	1.2.0-2+b2
+libice6:amd64	2:1.1.1-1
+libicu76:amd64	76.1-4
+libid3tag0:amd64	0.16.3-1
+libidn12:amd64	1.43-1
+libidn2-0:amd64	2.3.8-2
+libiec61883-0:amd64	1.2.0-7
+libijs-0.35:amd64	0.35-15.2
+libimlib2t64:amd64	1.12.4-2
+libisl23:amd64	0.27-1
+libitm1:amd64	14.2.0-19
+libjack-jackd2-0:amd64	1.9.22~dfsg-4
+libjansson4:amd64	2.14-2+b3
+libjbig0:amd64	2.1-6.1+b2
+libjbig2dec0:amd64	0.20-1+b3
+libjemalloc2:amd64	5.3.0-3
+libjpeg62-turbo:amd64	1:2.1.5-4
+libjq1:amd64	1.7.1-6+deb13u3
+libjs-events	3.3.0+~3.0.0-3
+libjs-inherits	2.0.4-6
+libjs-is-typedarray	1.0.0-4
+libjs-prettify	2015.12.04+dfsg-1.1
+libjs-regenerate	1.4.2-3
+libjs-source-map	0.7.0++dfsg2+really.0.6.1-15
+libjs-sprintf-js	1.1.2+ds1+~1.1.2-1
+libjs-typedarray-to-buffer	4.0.0-2
+libjs-util	0.12.5+~1.0.10-1
+libjson-c5:amd64	0.18+ds-1
+libjxl0.11:amd64	0.11.2-0.1~deb13u2
+libk5crypto3:amd64	1.21.3-5+deb13u1
+libkeyutils1:amd64	1.6.3-6
+libkmod2:amd64	34.2-2
+libkrb5-3:amd64	1.21.3-5+deb13u1
+libkrb5support0:amd64	1.21.3-5+deb13u1
+libksba8:amd64	1.6.7-2+b1
+liblapack3:amd64	3.12.1-6
+liblastlog2-2:amd64	2.41.5-0+deb13u1
+liblcms2-2:amd64	2.16-2+deb13u2
+libldap2:amd64	2.6.10+dfsg-1
+liblerc4:amd64	4.0.0+ds-5
+liblilv-0-0:amd64	0.24.26-1
+libllvm19:amd64	1:19.1.7-3+b1
+liblsan0:amd64	14.2.0-19
+liblz4-1:amd64	1.10.0-4
+liblzma5:amd64	5.8.1-1+deb13u1
+liblzo2-2:amd64	2.10-3+b1
+libmbedcrypto16:amd64	3.6.5-0.1~deb13u1
+libmbedtls21:amd64	3.6.5-0.1~deb13u1
+libmbedx509-7:amd64	3.6.5-0.1~deb13u1
+libmd0:amd64	1.1.0-2+b1
+libmnl0:amd64	1.0.5-3
+libmount1:amd64	2.41.5-0+deb13u1
+libmp3lame0:amd64	3.100-6+b3
+libmpc3:amd64	1.3.1-1+b3
+libmpfr6:amd64	4.2.2-1
+libmpg123-0t64:amd64	1.32.10-1+deb13u1
+libmysofa1:amd64	1.3.3+dfsg-1
+libncursesw6:amd64	6.5+20250216-2
+libnettle8t64:amd64	3.10.1-1
+libnghttp2-14:amd64	1.64.0-1.1+deb13u1
+libnghttp3-9:amd64	1.8.0-1
+libngtcp2-16:amd64	1.11.0-1+deb13u1
+libngtcp2-crypto-gnutls8:amd64	1.11.0-1+deb13u1
+libnode-dev	20.19.2+dfsg-1+deb13u2
+libnode115:amd64	20.19.2+dfsg-1+deb13u2
+libnorm1t64:amd64	1.5.9+dfsg-3.1+b2
+libnotify4:amd64	0.8.6-1
+libnpth0t64:amd64	1.8-3
+libnspr4:amd64	2:4.36-1
+libnss-systemd:amd64	257.13-1~deb13u1
+libnss3:amd64	2:3.110-1+deb13u4
+libnuma1:amd64	2.0.19-1
+libogg0:amd64	1.3.5-3+b2
+libonig5:amd64	6.9.9-1+b1
+libopenal-data	1:1.24.2-1
+libopenal1:amd64	1:1.24.2-1
+libopenjp2-7:amd64	2.5.3-2.1~deb13u2
+libopenmpt0t64:amd64	0.7.13-1+b1
+libopus0:amd64	1.5.2-2
+libp11-kit0:amd64	0.25.5-3
+libpam-modules:amd64	1.7.0-5
+libpam-modules-bin	1.7.0-5
+libpam-runtime	1.7.0-5
+libpam-systemd:amd64	257.13-1~deb13u1
+libpam0g:amd64	1.7.0-5
+libpango-1.0-0:amd64	1.56.3-1
+libpangocairo-1.0-0:amd64	1.56.3-1
+libpangoft2-1.0-0:amd64	1.56.3-1
+libpaper2:amd64	2.2.5-0.3+b2
+libpciaccess0:amd64	0.17-3+b3
+libpcre2-8-0:amd64	10.46-1~deb13u1
+libperl5.40:amd64	5.40.1-6
+libpgm-5.3-0t64:amd64	5.3.128~dfsg-2.1+b1
+libpixman-1-0:amd64	0.44.0-3
+libplacebo349:amd64	7.349.0-3
+libplank-common	0.11.89-6
+libplank1:amd64	0.11.89-6+b1
+libpng16-16t64:amd64	1.6.48-1+deb13u5
+libpocketsphinx3:amd64	0.8+5prealpha+1-15+b4
+libpoppler147:amd64	25.03.0-5+deb13u4
+libpostproc58:amd64	7:7.1.5-0+deb13u1
+libproc2-0:amd64	2:4.0.4-9
+libpsl5t64:amd64	0.21.2-1.1+b1
+libpulse0:amd64	17.0+dfsg1-2+b1
+libpython3-stdlib:amd64	3.13.5-1
+libpython3.13-minimal:amd64	3.13.5-2+deb13u4
+libpython3.13-stdlib:amd64	3.13.5-2+deb13u4
+libquadmath0:amd64	14.2.0-19
+librabbitmq4:amd64	0.15.0-1+deb13u2
+librav1e0.7:amd64	0.7.1-9+b2
+libraw1394-11:amd64	2.1.2-2+b2
+libreadline8t64:amd64	8.2-6
+librist4:amd64	0.2.11+dfsg-1
+librsvg2-2:amd64	2.60.0+dfsg-1
+librtmp1:amd64	2.4+20151223.gitfa8646d.1-2+b5
+librubberband2:amd64	3.3.0+dfsg-2+b3
+libsamplerate0:amd64	0.2.2-4+b2
+libsasl2-2:amd64	2.1.28+dfsg1-9
+libsasl2-modules-db:amd64	2.1.28+dfsg1-9
+libsdl2-2.0-0:amd64	2.32.4+dfsg-1
+libseccomp2:amd64	2.6.0-2
+libselinux1:amd64	3.8.1-1
+libsemanage-common	3.8.1-1
+libsemanage2:amd64	3.8.1-1
+libsensors-config	1:3.6.2-2
+libsensors5:amd64	1:3.6.2-2
+libsepol2:amd64	3.8.1-1
+libserd-0-0:amd64	0.32.4-1
+libsframe1:amd64	2.44-3
+libsharpyuv0:amd64	1.5.0-0.1
+libshine3:amd64	3.1.1-2+b2
+libslang2:amd64	2.3.3-5+b2
+libsm6:amd64	2:1.2.6-1
+libsmartcols1:amd64	2.41.5-0+deb13u1
+libsnappy1v5:amd64	1.2.2-1
+libsndfile1:amd64	1.2.2-2+deb13u1
+libsodium23:amd64	1.0.18-1+deb13u1
+libsord-0-0:amd64	0.16.18-1
+libsoxr0:amd64	0.1.3-4+b2
+libspectre1:amd64	0.2.12-1+b2
+libspeex1:amd64	1.2.1-3
+libsphinxbase3t64:amd64	0.8+5prealpha+1-21+b1
+libsqlite3-0:amd64	3.46.1-7+deb13u1
+libsratom-0-0:amd64	0.6.18-1
+libsrt1.5-gnutls:amd64	1.5.4-1+deb13u1
+libssh-4:amd64	0.11.5-0+deb13u1
+libssh2-1t64:amd64	1.11.1-1+deb13u1
+libssl-dev:amd64	3.5.7-1~deb13u2
+libssl3t64:amd64	3.5.7-1~deb13u2
+libstartup-notification0:amd64	0.12-8
+libstd-rust-1.85:amd64	1.85.0+dfsg3-1
+libstd-rust-dev:amd64	1.85.0+dfsg3-1
+libstdc++6:amd64	14.2.0-19
+libsvtav1enc2:amd64	2.3.0+dfsg-1
+libswresample5:amd64	7:7.1.5-0+deb13u1
+libswscale8:amd64	7:7.1.5-0+deb13u1
+libsystemd-shared:amd64	257.13-1~deb13u1
+libsystemd0:amd64	257.13-1~deb13u1
+libtasn1-6:amd64	4.20.0-2+deb13u1
+libtcl8.6:amd64	8.6.16+dfsg-1
+libtext-charwidth-perl:amd64	0.04-11+b4
+libtext-wrapi18n-perl	0.06-10
+libthai-data	0.1.29-2
+libthai0:amd64	0.1.29-2+b1
+libtheoradec1:amd64	1.2.0~alpha1+dfsg-6
+libtheoraenc1:amd64	1.2.0~alpha1+dfsg-6
+libthunarx-3-0:amd64	4.20.2-1+deb13u1
+libtiff6:amd64	4.7.0-3+deb13u3
+libtinfo6:amd64	6.5+20250216-2
+libtirpc-common	1.3.6+ds-1
+libtirpc3t64:amd64	1.3.6+ds-1
+libtk8.6:amd64	8.6.16-1
+libtsan2:amd64	14.2.0-19
+libtwolame0:amd64	0.4.0-2+b2
+libubsan1:amd64	14.2.0-19
+libudev1:amd64	257.13-1~deb13u1
+libudfread0:amd64	1.1.2-1+b2
+libunibreak6:amd64	6.1-3
+libunistring5:amd64	1.3-2
+libunwind8:amd64	1.8.1-0.1
+libusb-1.0-0:amd64	2:1.0.28-1
+libutempter0:amd64	1.2.1-4
+libuuid1:amd64	2.41.5-0+deb13u1
+libuv1-dev:amd64	1.50.0-2
+libuv1t64:amd64	1.50.0-2
+libva-drm2:amd64	2.22.0-3
+libva-x11-2:amd64	2.22.0-3
+libva2:amd64	2.22.0-3
+libvdpau1:amd64	1.5-3+b1
+libvidstab1.1:amd64	1.1.0-2+b2
+libvncclient1:amd64	0.9.15+dfsg-1+deb13u2
+libvncserver1:amd64	0.9.15+dfsg-1+deb13u2
+libvorbis0a:amd64	1.3.7-3
+libvorbisenc2:amd64	1.3.7-3
+libvorbisfile3:amd64	1.3.7-3
+libvpl2	1:2.14.0-1+b1
+libvpx9:amd64	1.15.0-2.1+deb13u1
+libvte-2.91-0:amd64	0.80.1-1
+libvte-2.91-common	0.80.1-1
+libvulkan1:amd64	1.4.309.0-1
+libwayland-client0:amd64	1.23.1-3
+libwayland-cursor0:amd64	1.23.1-3
+libwayland-egl1:amd64	1.23.1-3
+libwayland-server0:amd64	1.23.1-3
+libwebp7:amd64	1.5.0-0.1
+libwebpdemux2:amd64	1.5.0-0.1
+libwebpmux3:amd64	1.5.0-0.1
+libwnck-3-0:amd64	43.2-1
+libwnck-3-common	43.2-1
+libwrap0:amd64	7.6.q-36
+libwtmpdb0:amd64	0.73.0-3+deb13u1
+libx11-6:amd64	2:1.8.12-1
+libx11-data	2:1.8.12-1
+libx11-xcb1:amd64	2:1.8.12-1
+libx264-164:amd64	2:0.164.3108+git31e19f9-2+b1
+libx265-215:amd64	4.1-2
+libxau6:amd64	1:1.0.11-1
+libxaw7:amd64	2:1.0.16-1
+libxcb-composite0:amd64	1.17.0-2+b1
+libxcb-damage0:amd64	1.17.0-2+b1
+libxcb-dri3-0:amd64	1.17.0-2+b1
+libxcb-glx0:amd64	1.17.0-2+b1
+libxcb-image0:amd64	0.4.0-2+b2
+libxcb-present0:amd64	1.17.0-2+b1
+libxcb-randr0:amd64	1.17.0-2+b1
+libxcb-render-util0:amd64	0.3.10-1
+libxcb-render0:amd64	1.17.0-2+b1
+libxcb-shape0:amd64	1.17.0-2+b1
+libxcb-shm0:amd64	1.17.0-2+b1
+libxcb-sync1:amd64	1.17.0-2+b1
+libxcb-util1:amd64	0.4.1-1
+libxcb-xfixes0:amd64	1.17.0-2+b1
+libxcb1:amd64	1.17.0-2+b1
+libxcomposite1:amd64	1:0.4.6-1
+libxcursor1:amd64	1:1.2.3-1
+libxdamage1:amd64	1:1.1.6-1+b2
+libxdmcp6:amd64	1:1.1.5-1
+libxdo3:amd64	1:3.20160805.1-5.1
+libxext6:amd64	2:1.3.4-1+b3
+libxfce4ui-2-0:amd64	4.20.1-1
+libxfce4ui-common	4.20.1-1
+libxfce4util-common	4.20.1-1
+libxfce4util7:amd64	4.20.1-1
+libxfconf-0-3:amd64	4.20.0-1
+libxfixes3:amd64	1:6.0.0-2+b4
+libxfont2:amd64	1:2.0.6-1+deb13u1
+libxft2:amd64	2.3.6-1+b4
+libxi6:amd64	2:1.8.2-1
+libxinerama1:amd64	2:1.1.4-3+b4
+libxkbcommon0:amd64	1.7.0-2
+libxkbfile1:amd64	1:1.1.0-1+b4
+libxml2:amd64	2.12.7+dfsg+really2.9.14-2.1+deb13u3
+libxmu6:amd64	2:1.1.3-3+b4
+libxmuu1:amd64	2:1.1.3-3+b4
+libxpm4:amd64	1:3.5.17-1+deb13u1
+libxpresent1:amd64	1.0.1-1+b2
+libxrandr2:amd64	2:1.5.4-1+b3
+libxrender1:amd64	1:0.9.12-1
+libxres1:amd64	2:1.2.1-1+b2
+libxshmfence1:amd64	1.3.3-1
+libxss1:amd64	1:1.2.3-1+b3
+libxt6t64:amd64	1:1.2.1-1.2+b2
+libxtables12:amd64	1.8.11-2
+libxtst6:amd64	2:1.2.5-1
+libxv1:amd64	2:1.0.11-1.1+b3
+libxvidcore4:amd64	2:1.3.7-1+b2
+libxxf86dga1:amd64	2:1.1.5-1+b3
+libxxf86vm1:amd64	1:1.1.4-1+b4
+libxxhash0:amd64	0.8.3-2
+libz3-4:amd64	4.13.3-1
+libzimg2:amd64	3.0.5+ds1-1+b2
+libzix-0-0:amd64	0.6.2-1
+libzmq5:amd64	4.3.5-1+b3
+libzstd1:amd64	1.5.7+dfsg-1
+libzvbi-common	0.2.44-1
+libzvbi0t64:amd64	0.2.44-1
+linux-libc-dev	6.12.107-1
+linux-sysctl-defaults	4.12.1
+login	1:4.16.0-2+really2.41.5-0+deb13u1
+login.defs	1:4.17.4-2
+mawk	1.3.4.20250131-1
+media-types	13.0.0
+mesa-libgallium:amd64	25.0.7-2+deb13u1
+mount	2.41.5-0+deb13u1
+ncurses-base	6.5+20250216-2
+ncurses-bin	6.5+20250216-2
+ncurses-term	6.5+20250216-2
+net-tools	2.10-1.3
+netbase	6.5
+netbird	0.78.1
+node-abbrev	1.1.1+~1.1.2-1
+node-acorn	8.8.1+ds+~cs25.17.7-2
+node-agent-base	7.1.1~0~2024040606-6+deb13u1
+node-ajv	8.12.0~ds+~2.1.1-5
+node-ajv-keywords	5.1.0-4
+node-ampproject-remapping	2.2.0+~cs5.15.37-1
+node-ansi-escapes	5.0.0+really.4.3.1-1
+node-ansi-regex	5.0.1-1
+node-ansi-styles	6.2.1-3
+node-anymatch	3.1.3+~cs4.6.1-2
+node-aproba	2.0.0-3
+node-archy	1.0.0-6
+node-are-we-there-yet	3.0.1+~1.1.0-1
+node-argparse	2.0.1-2
+node-arrify	2.0.1-3
+node-assert	2.0.0+~cs3.9.8-2
+node-async	3.2.6+dfsg-2
+node-async-each	1.0.3-3
+node-babel-helper-define-polyfill-provider	0.3.3~0~20220913+ds1-1
+node-babel-plugin-add-module-exports	1.0.4+dfsg1~cs5.8.0-4
+node-babel-plugin-lodash	3.3.4+~cs2.0.1-7
+node-babel-plugin-polyfill-corejs2	0.3.3~0~20220913+ds1-1
+node-babel-plugin-polyfill-corejs3	0.6.0~0~20220913+ds1-1
+node-babel-plugin-polyfill-regenerator	0.4.1~0~20220913+ds1-1
+node-babel7	7.20.15+ds1+~cs214.269.168-8
+node-babel7-runtime	7.20.15+ds1+~cs214.269.168-8
+node-balanced-match	2.0.0-1
+node-base64-js	1.5.1+dfsg+~1.3.0-2
+node-binary-extensions	2.2.0-2
+node-brace-expansion	2.0.1+~1.1.0-2
+node-braces	3.0.3+~3.0.5-1
+node-browserslist	4.25.0+~cs6.3.22-1
+node-builtins	5.0.1-1
+node-cacache	17.0.3+~cs10.3.7-2
+node-camelcase	7.0.0-3
+node-caniuse-lite	1.0.30001723+dfsg+~1.0.5-1
+node-chalk	5.3.0-1
+node-chokidar	3.6.0-3
+node-chownr	2.0.0-3
+node-chrome-trace-event	1.0.3-2
+node-ci-info	4.0.0+~cs1.1.0-1
+node-cjs-module-lexer	1.2.3+dfsg-1
+node-cli-table	0.3.11+~cs0.13.4-3
+node-cliui	7.0.4+repack+1+~cs1.4.2-2
+node-clone	2.1.2+~2.1.2-1
+node-clone-deep	4.0.1+~cs7.0.2-1
+node-color-convert	2.0.1+~cs2.0.0-2
+node-color-name	1.1.4+~1.1.1-2
+node-colors	1.4.0-4
+node-columnify	1.6.0+~1.5.1-1
+node-commander	9.4.1-1
+node-commondir	1.0.1+~1.0.0-1
+node-concat-stream	2.0.0+~2.0.0-2
+node-console-control-strings	1.1.0-3
+node-convert-source-map	1.9.0+~1.5.2-1
+node-copy-concurrently	1.0.5-9
+node-core-js	3.33.2-1
+node-core-js-compat	3.33.2-1
+node-core-js-pure	3.33.2-1
+node-core-util-is	1.0.3-1
+node-corepack	0.24.0-5
+node-css-loader	6.8.1+~cs14.0.17-1
+node-css-selector-tokenizer	0.8.0+~cs4.8.3-1
+node-data-uri-to-buffer	6.0.2~0~2024040606-6+deb13u1
+node-debbundle-es-to-primitive	1.2.1+~cs9.7.25-2
+node-debug	4.3.4+~cs4.1.7-1
+node-decamelize	4.0.0-2
+node-decompress-response	6.0.0-3
+node-deep-equal	2.2.3+~cs43.15.94-1
+node-deep-is	0.1.4-1
+node-defaults	1.0.4+~1.0.3-1
+node-define-properties	1.2.1+~cs2.2.3-1
+node-define-property	2.0.2+really+2.0.2-3
+node-defined	1.0.1+~1.0.0-1
+node-del	7.1.0-1
+node-delegates	1.0.0-3
+node-depd	2.0.0-2
+node-diff	5.0.0~dfsg+~5.0.1-4
+node-doctrine	3.0.0-4
+node-electron-to-chromium	1.5.166-1
+node-encoding	0.1.13-2
+node-enhanced-resolve	5.15.0-1
+node-envinfo	7.11.0+~cs14.3.0-3
+node-err-code	2.0.3+dfsg-3
+node-errno	1.0.0-3
+node-error-ex	1.3.2-4
+node-es-abstract	1.20.4+~cs26.27.47-2
+node-es-module-lexer	1.1.0+dfsg-3
+node-es6-error	4.1.1-5
+node-escape-string-regexp	4.0.0-2
+node-escodegen	2.1.0+dfsg+~0.0.8-1
+node-eslint-scope	7.1.1+~3.7.4-1
+node-eslint-utils	3.0.0-3
+node-eslint-visitor-keys	3.3.0+~1.0.0-1
+node-espree	9.4.1~dfsg-2
+node-esprima	4.0.1+ds+~4.0.3-2
+node-esquery	1.4.2~ds-1
+node-esrecurse	4.3.0-2
+node-estraverse	5.3.0+ds+~5.1.1-1
+node-esutils	2.0.3+~2.0.0-1
+node-events	3.3.0+~3.0.0-3
+node-execa	8.0.1+dfsg1+~cs12.0.0-1
+node-fancy-log	1.3.3+~cs1.3.1-2
+node-fast-deep-equal	3.1.3-3
+node-fast-levenshtein	2.0.6+ds-3
+node-fetch	3.3.2+~cs11.4.11-3
+node-file-entry-cache	6.0.1+~3.0.4+~2.0.0+~1.0.0+~2.0.1-1
+node-fill-range	7.1.1+~7.0.3-1
+node-find-cache-dir	3.3.2+~3.2.1-1
+node-find-up	6.3.0-7
+node-flat-cache	3.0.4~6.0.1+~3.0.4+~2.0.0+~1.0.0+~2.0.1-1
+node-flatted	3.2.7~ds-1+deb13u1
+node-for-in	1.0.2-4
+node-for-own	1.0.0-3
+node-foreground-child	3.1.1-2
+node-fs-readdir-recursive	1.1.0+~1.1.0-1
+node-fs-write-stream-atomic	1.0.10-6
+node-fs.realpath	1.0.0-3
+node-function-bind	1.1.2+~cs2.1.14-1
+node-functional-red-black-tree	1.0.1+20181105-7
+node-gauge	4.0.4-2
+node-get-caller-file	2.0.5+~cs1.1.1-4
+node-get-stream	8.0.1-11
+node-glob	8.1.0+~cs8.5.15-1
+node-glob-parent	6.0.2+~5.1.1-2
+node-globals	13.23.0-1
+node-globby	13.1.3+~cs16.25.40-3
+node-got	11.8.5+~cs58.13.36-5
+node-graceful-fs	4.2.10-1
+node-gyp	11.1.0+~5.0.0-1
+node-has-flag	5.0.1-1
+node-has-unicode	2.0.1-5
+node-hosted-git-info	6.1.1-2
+node-http-proxy-agent	7.0.2~0~2024040606-6+deb13u1
+node-https-proxy-agent	7.0.4~0~2024040606-6+deb13u1
+node-iconv-lite	0.6.3-3
+node-icss-utils	5.1.0+~5.1.0-1
+node-ieee754	1.2.1-3
+node-iferr	1.0.2+~1.0.2-1
+node-ignore	5.2.1-1
+node-imurmurhash	0.1.4+dfsg+~0.1.1-2
+node-indent-string	4.0.0-2
+node-inflight	1.0.6-2
+node-inherits	2.0.4-6
+node-ini	3.0.1-2
+node-interpret	2.2.0-3
+node-ip	2.0.1+~1.1.3-3
+node-ip-regex	4.3.0+~4.1.1-1
+node-is-arrayish	0.3.2-3
+node-is-binary-path	2.1.0-5
+node-is-buffer	2.0.5-2
+node-is-descriptor	3.0.0-2
+node-is-extendable	1.0.1-3
+node-is-extglob	2.1.1-5
+node-is-glob	4.0.3-2
+node-is-number	7.0.0-4
+node-is-path-cwd	2.2.0-2
+node-is-path-inside	3.0.3-2
+node-is-plain-obj	3.0.0-2
+node-is-plain-object	5.0.0-7
+node-is-stream	3.0.0-4
+node-is-typedarray	1.0.0-4
+node-is-windows	1.0.2+~cs1.0.0-1
+node-isarray	2.0.5-4
+node-isexe	2.0.0+~2.0.1-5
+node-isobject	4.0.0-2
+node-istanbul	0.4.5+repack10+~cs98.25.59-3
+node-jest-debbundle	29.6.2~ds1+~cs73.45.28-5
+node-jest-worker	29.6.2~ds1+~cs73.45.28-5
+node-js-tokens	8.0.0-2
+node-js-yaml	4.1.0+dfsg+~4.0.5-7
+node-jsesc	3.0.2+~3.0.1-1
+node-json-buffer	3.0.1+~3.0.0-1
+node-json-parse-better-errors	1.0.2+~cs3.3.1-3
+node-json-schema	0.4.0+~7.0.11-1
+node-json-schema-traverse	1.0.0-3
+node-json-stable-stringify	1.0.2+repack1+~cs1.0.34-2
+node-json5	2.2.3+dfsg-1
+node-jsonify	0.0.1-1
+node-jsonparse	1.3.1-10
+node-kind-of	6.0.3+dfsg-2
+node-levn	0.4.1+dfsg-2
+node-loader-runner	4.3.0-1
+node-locate-path	7.1.1-2
+node-lodash	4.17.21+dfsg+~cs8.31.198.20210220-9
+node-lodash-packages	4.17.21+dfsg+~cs8.31.198.20210220-9
+node-lowercase-keys	2.0.0-2
+node-lru-cache	10.0.1-3
+node-make-dir	3.1.0-3
+node-memfs	3.4.12+~cs1.0.3-1
+node-memory-fs	0.5.0+~0.3.3-2
+node-merge-stream	2.0.0+~1.1.2-2
+node-micromatch	4.0.7+~4.0.9-1
+node-mime	3.0.0+dfsg+~cs6.97.2-2
+node-mime-types	2.1.35-2
+node-mimic-fn	4.0.0-5
+node-mimic-response	3.1.0-9
+node-minimatch	9.0.3-6
+node-minimist	1.2.8+~cs5.3.5-1
+node-minipass	5.0.0+~cs10.3.21-3
+node-mkdirp	2.1.6+~cs5.2.1-2
+node-move-concurrently	1.0.1-5
+node-ms	2.1.3+~cs0.7.31-3
+node-mute-stream	0.0.8+~0.0.1-3
+node-n3	1.16.3+~1.2.3+~1.10.4-1
+node-negotiator	0.6.3+~0.6.1-1
+node-neo-async	2.6.2+~cs3.0.0-3
+node-nopt	5.0.0-4
+node-normalize-package-data	4.0.1+~2.4.1-1
+node-normalize-path	3.0.0+~3.0.0-1
+node-npm-bundled	2.0.1-2
+node-npm-package-arg	10.0.0+~3.0.0-2
+node-npm-run-path	5.1.0+~4.0.0-8
+node-npmlog	7.0.1+~4.1.4-1
+node-object-assign	4.1.1-7
+node-object-inspect	1.12.2+~cs1.8.1-1
+node-once	1.4.1-1
+node-optimist	0.6.1+~0.0.30-2
+node-optionator	0.9.1+dfsg+~cs1.2.3-1
+node-osenv	0.1.5+~0.1.1-1
+node-p-cancelable	2.1.1-1
+node-p-limit	4.0.0+~cs4.0.0-5
+node-p-locate	6.0.0-12
+node-p-map	4.0.0+~3.1.0+~3.0.1-2
+node-parse-json	5.2.0+~cs5.1.7-2
+node-path-dirname	1.0.2-2
+node-path-exists	5.0.0-8
+node-path-is-absolute	2.0.0-2
+node-path-is-inside	1.0.2+~1.0.0-1
+node-path-type	4.0.0-3
+node-picocolors	1.0.0-4
+node-pify	5.0.0+~cs5.0.1-1
+node-pkg-dir	5.0.0-2
+node-postcss	8.4.49+~cs9.2.32-1
+node-postcss-modules-extract-imports	3.0.0-2
+node-postcss-modules-values	4.0.0+~4.0.0-1
+node-postcss-value-parser	4.2.0-1
+node-prelude-ls	1.2.1+dfsg-3
+node-process-nextick-args	2.0.1-3
+node-progress	2.0.3-2
+node-promise-inflight	1.0.1+~1.0.0-1
+node-promise-retry	2.0.1-4
+node-promzard	0.3.0-2
+node-prr	1.0.1-3
+node-punycode	2.3.1+~2.1.4-1
+node-quick-lru	6.1.1-4
+node-randombytes	2.1.0+~2.0.0-2
+node-read	1.0.7-5
+node-read-package-json	5.0.2+~2.0.0-2
+node-read-pkg	5.2.0-2
+node-readable-stream	3.6.0+~cs3.0.0-4
+node-readdirp	3.6.0-1
+node-rechoir	0.8.0+~0.6.1-2
+node-regenerate	1.4.2-3
+node-regenerate-unicode-properties	10.1.0+ds-1
+node-regenerator-runtime	0.15.2+~0.10.8-1
+node-regenerator-transform	0.15.2+~0.10.8-1
+node-regexpp	3.2.0-5
+node-regexpu-core	5.2.2-3
+node-regjsgen	0.7.1+ds-1
+node-regjsparser	0.9.1+ds-2
+node-repeat-string	1.6.1+repack-1
+node-require-directory	2.1.1+~2.1.2-1
+node-resolve	1.22.8+~cs5.34.15-2
+node-resolve-cwd	3.0.0-2
+node-resolve-from	5.0.0+~3.1.0+~3.3.0+~2.0.0-1
+node-resumer	0.0.0-6
+node-retry	0.13.1.+~cs2.19.16-1
+node-rimraf	3.0.2-2
+node-run-queue	2.0.0-3
+node-safe-buffer	5.2.1+~cs2.1.2-3
+node-schema-utils	4.2.0~ds-3
+node-semver	7.6.1+~7.5.8-2
+node-serialize-javascript	6.0.2-1
+node-set-blocking	2.0.0-2
+node-set-immediate-shim	2.0.0-2
+node-shebang-command	2.0.0-1
+node-shebang-regex	3.0.0-2
+node-signal-exit	4.1.0-7
+node-slash	4.0.0-3
+node-slice-ansi	5.0.0+~cs9.0.0-5
+node-source-list-map	2.0.1+dfsg+~0.1.2-1
+node-source-map	0.7.0++dfsg2+really.0.6.1-15
+node-source-map-support	0.5.21+ds+~0.5.10-1
+node-spdx-correct	3.1.1-2
+node-spdx-exceptions	2.3.0-2
+node-spdx-expression-parse	3.0.1+~3.0.1-1
+node-spdx-license-ids	3.0.12-1
+node-sprintf-js	1.1.2+ds1+~1.1.2-1
+node-ssri	9.0.1-3
+node-string-decoder	1.3.0-6
+node-string-width	4.2.3+~cs13.2.3-1
+node-strip-ansi	6.0.1-2
+node-strip-bom	4.0.0-2
+node-strip-eof	3.0.0-5
+node-strip-json-comments	4.0.0-4
+node-supports-color	8.1.1+~8.1.1-1
+node-tapable	2.2.1-3
+node-tape	5.6.1+~cs8.20.19-3
+node-tar	6.2.1+~cs7.0.8-1+deb13u1
+node-terser	5.38.0-1
+node-text-table	0.2.0-4
+node-through	2.3.8+~cs0.0.30-1
+node-time-stamp	2.2.0-2
+node-to-fast-properties	3.0.1-3
+node-to-regex-range	5.0.1-4
+node-tslib	2.4.1-1
+node-type-check	0.4.0+dfsg-3
+node-typedarray	0.0.7-1
+node-typedarray-to-buffer	4.0.0-2
+node-undici	7.3.0+dfsg1+~cs24.12.11-1
+node-unicode-canonical-property-names-ecmascript	2.0.0-2
+node-unicode-match-property-ecmascript	2.0.0-2
+node-unicode-match-property-value-ecmascript	2.1.0+ds-1
+node-unicode-property-aliases-ecmascript	2.1.0+ds-1
+node-unique-filename	1.1.1+ds-2
+node-uri-js	4.4.0+dfsg-8
+node-util	0.12.5+~1.0.10-1
+node-util-deprecate	1.0.2-3
+node-uuid	8.3.2+~8.3.4-1
+node-v8-compile-cache	2.4.0-2
+node-v8flags	3.2.0+~3.1.1-1
+node-validate-npm-package-license	3.0.4-2
+node-validate-npm-package-name	5.0.0+~4.0.0-1
+node-watchpack	2.4.0+~cs2.8.1-1
+node-wcwidth.js	1.0.2-2
+node-webassemblyjs	1.11.4+dfsg+~cs10.11.17-2
+node-webpack-sources	3.2.3+~3.2.0-2
+node-which	2.0.2+~cs1.3.2-3
+node-wide-align	1.1.3-4
+node-wordwrap	1.0.0-4
+node-wrap-ansi	8.0.1+~8.0.1-3
+node-wrappy	1.0.2-3
+node-write	2.0.0~6.0.1+~3.0.4+~2.0.0+~1.0.0+~2.0.1-1
+node-write-file-atomic	4.0.2+~4.0.0-2
+node-xtend	4.0.2-3
+node-y18n	5.0.8+~5.0.0-3
+node-yallist	4.0.0+~4.0.1-1
+node-yargs	16.2.0+~16.0.4-7
+node-yargs-parser	21.1.1+~21.0.0-4
+nodejs	20.19.2+dfsg-1+deb13u2
+novnc	1:1.6.0-2
+npm	9.2.0~ds1-3
+ocl-icd-libopencl1:amd64	2.3.3-1
+openssh-client	1:10.0p1-7+deb13u4
+openssh-server	1:10.0p1-7+deb13u4
+openssh-sftp-server	1:10.0p1-7+deb13u4
+openssl	3.5.7-1~deb13u2
+openssl-provider-legacy	3.5.7-1~deb13u2
+passwd	1:4.17.4-2
+patch	2.8-2
+perl	5.40.1-6
+perl-base	5.40.1-6
+perl-modules-5.40	5.40.1-6
+picom	12.5-1
+pinentry-curses	1.3.1-2
+plank	0.11.89-6+b1
+poppler-data	0.4.12-1
+poppler-utils	25.03.0-5+deb13u4
+procps	2:4.0.4-9
+psmisc	23.7-2
+python3	3.13.5-1
+python3-bcrypt	4.2.0-2.1+b1
+python3-certifi	2025.1.31+ds-1
+python3-cffi-backend:amd64	1.17.1-3
+python3-chardet	5.2.0+dfsg-2
+python3-charset-normalizer	3.4.2-1
+python3-cryptography	43.0.0-3+deb13u1
+python3-deprecated	1.2.18-1
+python3-idna	3.10-1+deb13u1
+python3-jwcrypto	1.5.6-1.1~deb13u1
+python3-minimal	3.13.5-1
+python3-numpy	1:2.2.4+ds-1
+python3-numpy-dev:amd64	1:2.2.4+ds-1
+python3-packaging	25.0-1
+
+===== STARTUP AND SCHEDULER METADATA =====
+
+--- /etc/init.d ---
+drwxr-xr-x 1 root root 4096 Sep  8 00:30 /etc/init.d
+-rwxr-xr-x root root dbus
+-rwxr-xr-x root root netbird
+-rwxr-xr-x root root procps
+-rwxr-xr-x root root ssh
+-rwxr-xr-x root root sudo
+-rwxr-xr-x root root x11-common
+
+--- /etc/systemd/system ---
+drwxr-xr-x 1 root root 4096 Sep  8 00:30 /etc/systemd/system
+drwxr-xr-x root root getty.target.wants
+drwxr-xr-x root root multi-user.target.wants
+drwxr-xr-x root root ssh.service.wants
+drwxr-xr-x root root ssh.socket.wants
+drwxr-xr-x root root sshd.service.wants
+drwxr-xr-x root root sshd@.service.wants
+drwxr-xr-x root root sysinit.target.wants
+drwxr-xr-x root root timers.target.wants
+lrwxrwxrwx root root dbus-org.freedesktop.timesync1.service
+lrwxrwxrwx root root sshd.service
+
+--- /etc/supervisor ---
+ls: cannot access '/etc/supervisor': No such file or directory
+
+--- /etc/supervisor/conf.d ---
+ls: cannot access '/etc/supervisor/conf.d': No such file or directory
+
+--- /etc/cron.d ---
+ls: cannot access '/etc/cron.d': No such file or directory
+
+--- /etc/cron.daily ---
+drwxr-xr-x 1 root root 4096 Sep  7 13:45 /etc/cron.daily
+-rwxr-xr-x root root apt-compat
+-rwxr-xr-x root root dpkg
+lrwxrwxrwx root root google-chrome
+
+--- /etc/cron.hourly ---
+ls: cannot access '/etc/cron.hourly': No such file or directory
+
+--- /etc/cron.weekly ---
+ls: cannot access '/etc/cron.weekly': No such file or directory
+
+--- /etc/cron.monthly ---
+ls: cannot access '/etc/cron.monthly': No such file or directory
+
+--- /var/spool/cron ---
+ls: cannot access '/var/spool/cron': No such file or directory
+
+--- /var/log ---
+drwxr-xr-x 1 root root 4096 Sep  8 01:12 /var/log
+-rw-r--r-- root root alternatives.log
+-rw-r--r-- root root dpkg.log
+-rw-r--r-- root root fontconfig.log
+-rw-r--r-- root root wtmp.db
+-rw-rw---- root utmp btmp
+-rw-rw-r-- root utmp lastlog
+-rw-rw-r-- root utmp wtmp
+drwx------ root root private
+drwxr-sr-x root systemd-journal journal
+drwxr-x--- root root netbird
+drwxr-xr-x root root apt
+drwxr-xr-x root root runit
+lrwxrwxrwx root root README
+
+--- /exec-daemon ---
+drwxr-xr-x 1 root root 4096 Sep  7 13:44 /exec-daemon
+-rw-r--r-- root root 162.index.js
+-rw-r--r-- root root 181.index.js
+-rw-r--r-- root root 250.index.js
+-rw-r--r-- root root 252.index.js
+-rw-r--r-- root root 284.index.js
+-rw-r--r-- root root 295.index.js
+-rw-r--r-- root root 407.index.js
+-rw-r--r-- root root 511.index.js
+-rw-r--r-- root root 690.index.js
+-rw-r--r-- root root 731.index.js
+-rw-r--r-- root root 831.index.js
+-rw-r--r-- root root 953.index.js
+-rw-r--r-- root root 97f64a4d8eca9a2e35bb.mp4
+-rw-r--r-- root root 980.index.js
+-rw-r--r-- root root index.js
+-rw-r--r-- root root mac-webp-runtime.cjs
+-rw-r--r-- root root package.json
+-rw-r--r-- root root pty.node
+-rw-r--r-- root root tmux.portal.conf
+-rwxr-xr-x root root cursorsandbox
+-rwxr-xr-x root root exec-daemon
+-rwxr-xr-x root root gh
+-rwxr-xr-x root root node
+-rwxr-xr-x root root npx
+-rwxr-xr-x root root polished-renderer.node
+-rwxr-xr-x root root rg
+-rwxr-xr-x root root ssh-keygen
+-rwxr-xr-x root root tmux
+drwxr-xr-x root root agent-sdk
+drwxr-xr-x root root canvas-runtime
+drwxr-xr-x root root lib
+drwxr-xr-x root root node_modules
+drwxr-xr-x root root tmux-root
+drwxr-xr-x root root tools
+
+===== SERVICE CODE PATH METADATA =====
+-rw-r--r-- root root 1609 bytes /exec-daemon/953.index.js
+-rw-r--r-- root root 4242 bytes /exec-daemon/252.index.js
+-rw-r--r-- root root 4014 bytes /exec-daemon/511.index.js
+-rw-r--r-- root root 2137255 bytes /exec-daemon/canvas-runtime/canvas-runtime.esm.js
+-rw-r--r-- root root 36900 bytes /exec-daemon/162.index.js
+-rw-r--r-- root root 29268 bytes /exec-daemon/284.index.js
+-rw-r--r-- root root 321720 bytes /exec-daemon/181.index.js
+-rw-r--r-- root root 14390895 bytes /exec-daemon/index.js
+-rw-r--r-- root root 41656 bytes /exec-daemon/731.index.js
+-rw-r--r-- root root 2116 bytes /exec-daemon/980.index.js
+-rw-r--r-- root root 64115 bytes /exec-daemon/831.index.js
+-rw-r--r-- root root 165379 bytes /exec-daemon/250.index.js
+-rw-r--r-- root root 140 bytes /exec-daemon/package.json
+-rw-r--r-- root root 194558 bytes /exec-daemon/295.index.js
+-rw-r--r-- root root 71521 bytes /exec-daemon/690.index.js
+-rw-r--r-- root root 226 bytes /exec-daemon/agent-sdk/cursor/package.json
+-rw-r--r-- root root 4236 bytes /exec-daemon/407.index.js
+
+===== END =====
+2026-09-08T01:17:24Z
+
+SSH STDERR:
+
+Exit status: 0
+
+===== SERVICE DETAIL CAPTURE =====
+2026-09-08T01:18:22.470685+00:00
+
+--- Safe process identity: selected script paths, recognized roles and numeric port flags only ---
+{"pid": 167, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/sand-window-router.mjs", "1339", "1337", "14000"], "stdio_destinations": {"1": "/tmp/sand-window-router.log", "2": "/tmp/sand-window-router.log"}}
+{"pid": 192, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/sand-session-sync.mjs"], "stdio_destinations": {"1": "/tmp/sand-session-sync.log", "2": "/tmp/sand-session-sync.log"}}
+{"pid": 193, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/sand-web-bot-auth.mjs"], "stdio_destinations": {"1": "pipe:[1299]", "2": "pipe:[1299]"}}
+{"pid": 199, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", "/usr/local/bin/sand-web-bot-auth.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 204, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 222, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/sand-ua-governor.mjs"], "stdio_destinations": {"1": "pipe:[716]", "2": "pipe:[716]"}}
+{"pid": 227, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", "/usr/local/bin/sand-ua-governor.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 229, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 275, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/sand-cookie-persist.mjs"], "stdio_destinations": {"1": "/tmp/sand-cookie-persist.log", "2": "/tmp/sand-cookie-persist.log"}}
+{"pid": 276, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["1337"], "stdio_destinations": {"1": "/tmp/exec-daemon.log", "2": "/dev/null"}}
+{"pid": 298, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": [], "stdio_destinations": {"1": "/tmp/exec-daemon.log", "2": "/tmp/exec-daemon.log"}}
+{"pid": 302, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/exec-daemon/index.js", "serve", "--port", "1337", "--pty-websocket-port", "1338", "--auth-token", "--rg-path", "--pty-auth-token", "--computer-use-enabled", "--computer-use-lazy-init", "--mcp-meta-tool-enabled", "--origin-cli-enabled"], "stdio_destinations": {"1": "/tmp/exec-daemon.log", "2": "/tmp/exec-daemon.log"}}
+{"pid": 419, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["/usr/local/bin/sand-supervisor.mjs"], "stdio_destinations": {"1": "/tmp/sand-supervisor-supervise.log", "2": "/dev/null"}}
+{"pid": 431, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/sand-supervisor.mjs"], "stdio_destinations": {"1": "/tmp/sand-supervisor.log", "2": "/tmp/sand-supervisor.log"}}
+{"pid": 432, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": [], "stdio_destinations": {"1": "/tmp/sand-supervisor-supervise.log", "2": "/tmp/sand-supervisor-supervise.log"}}
+{"pid": 439, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["/usr/local/bin/start-desktop.sh"], "stdio_destinations": {"1": "pipe:[1876]", "2": "pipe:[1876]"}}
+{"pid": 444, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", "/usr/local/bin/start-desktop.sh"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 451, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 504, "comm": "Xvfb", "exe": "/usr/bin/Xvfb", "safe_args": [":1"], "stdio_destinations": {"1": "pipe:[8780]", "2": "pipe:[8780]"}}
+{"pid": 509, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", ":1"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 512, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 639, "comm": "x11vnc", "exe": "/usr/bin/x11vnc", "safe_args": ["-display", ":1", "-localhost", "-nopw", "-shared", "-forever", "-rfbport", "5900"], "stdio_destinations": {"1": "pipe:[922]", "2": "pipe:[922]"}}
+{"pid": 648, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", "-display", ":1", "-localhost", "-nopw", "-shared", "-forever", "-rfbport", "5900"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 655, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 678, "comm": "websockify", "exe": "/usr/bin/python3.13", "safe_args": [], "stdio_destinations": {"1": "pipe:[938]", "2": "pipe:[938]"}}
+{"pid": 686, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 693, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 729, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 734, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 797, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", "--backend", "--no-vsync", "--no-frame-pacing", "--no-use-damage"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 801, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 1004, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", "--name"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 1010, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 1023, "comm": "tail", "exe": "/usr/bin/tail", "safe_args": [], "stdio_destinations": {"1": "pipe:[1876]", "2": "pipe:[1876]"}}
+{"pid": 1084, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/home/box/sand-host/host-main.cjs"], "stdio_destinations": {"1": "/tmp/sand-host.log", "2": "/tmp/sand-host.log"}}
+{"pid": 1178, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["/usr/local/bin/start-desktop.sh"], "stdio_destinations": {"1": "pipe:[6738]", "2": "pipe:[6738]"}}
+{"pid": 1181, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", "/usr/local/bin/start-desktop.sh"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 1184, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 1226, "comm": "Xvfb", "exe": "/usr/bin/Xvfb", "safe_args": [":3"], "stdio_destinations": {"1": "pipe:[2751]", "2": "pipe:[2751]"}}
+{"pid": 1231, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", ":3"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 1234, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 1901, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/exec-daemon/index.js", "serve", "--port", "14003", "--pty-websocket-port", "13603", "--auth-token", "--rg-path", "--computer-use-enabled", "--origin-cli-enabled"], "stdio_destinations": {"1": "/tmp/sand-window-3/exec-daemon.log", "2": "/tmp/sand-window-3/exec-daemon.log"}}
+{"pid": 1953, "comm": "x11vnc", "exe": "/usr/bin/x11vnc", "safe_args": ["-display", ":3", "-localhost", "-nopw", "-shared", "-forever", "-rfbport", "5903"], "stdio_destinations": {"1": "pipe:[9728]", "2": "pipe:[9728]"}}
+{"pid": 1959, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", "-display", ":3", "-localhost", "-nopw", "-shared", "-forever", "-rfbport", "5903"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 1961, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 1987, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 1992, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 2031, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", "--backend", "--no-vsync", "--no-frame-pacing", "--no-use-damage"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 2039, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 2272, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", "--name"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 2278, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 2301, "comm": "tail", "exe": "/usr/bin/tail", "safe_args": [], "stdio_destinations": {"1": "pipe:[6738]", "2": "pipe:[6738]"}}
+{"pid": 107774, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["/usr/local/bin/start-desktop.sh"], "stdio_destinations": {"1": "pipe:[1251808]", "2": "pipe:[1251808]"}}
+{"pid": 107778, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", "/usr/local/bin/start-desktop.sh"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 107780, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 107822, "comm": "Xvfb", "exe": "/usr/bin/Xvfb", "safe_args": [":2"], "stdio_destinations": {"1": "pipe:[1252665]", "2": "pipe:[1252665]"}}
+{"pid": 107827, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", ":2"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 107830, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 108873, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/exec-daemon/index.js", "serve", "--port", "14002", "--pty-websocket-port", "13602", "--auth-token", "--rg-path", "--computer-use-enabled", "--origin-cli-enabled"], "stdio_destinations": {"1": "/tmp/sand-window-2/exec-daemon.log", "2": "/tmp/sand-window-2/exec-daemon.log"}}
+{"pid": 108885, "comm": "x11vnc", "exe": "/usr/bin/x11vnc", "safe_args": ["-display", ":2", "-localhost", "-nopw", "-shared", "-forever", "-rfbport", "5902"], "stdio_destinations": {"1": "pipe:[1245903]", "2": "pipe:[1245903]"}}
+{"pid": 108890, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", "-display", ":2", "-localhost", "-nopw", "-shared", "-forever", "-rfbport", "5902"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 108893, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 108918, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 108922, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 108963, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", "--backend", "--no-vsync", "--no-frame-pacing", "--no-use-damage"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 108967, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 109191, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", "--name"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 109195, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 109223, "comm": "tail", "exe": "/usr/bin/tail", "safe_args": [], "stdio_destinations": {"1": "pipe:[1251808]", "2": "pipe:[1251808]"}}
+{"pid": 112005, "comm": "websockify", "exe": "/usr/bin/python3.13", "safe_args": ["--token-plugin", "--token-source"], "stdio_destinations": {"1": "pipe:[1269433]", "2": "pipe:[1269433]"}}
+{"pid": 112006, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", "--token-plugin", "--token-source"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 112008, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 113225, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": [], "stdio_destinations": {"1": "/dev/pts/0", "2": "/dev/pts/0"}}
+{"pid": 113364, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": [], "stdio_destinations": {"1": "/dev/pts/1", "2": "/dev/pts/1"}}
+{"pid": 115263, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["/usr/local/bin/start-desktop.sh"], "stdio_destinations": {"1": "pipe:[1311039]", "2": "pipe:[1311039]"}}
+{"pid": 115270, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", "/usr/local/bin/start-desktop.sh"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 115279, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 115350, "comm": "Xvfb", "exe": "/usr/bin/Xvfb", "safe_args": [":4"], "stdio_destinations": {"1": "pipe:[1316992]", "2": "pipe:[1316992]"}}
+{"pid": 115358, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", ":4"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 115364, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 116776, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/exec-daemon/index.js", "serve", "--port", "14004", "--pty-websocket-port", "13604", "--auth-token", "--rg-path", "--computer-use-enabled", "--origin-cli-enabled"], "stdio_destinations": {"1": "/tmp/sand-window-4/exec-daemon.log", "2": "/tmp/sand-window-4/exec-daemon.log"}}
+{"pid": 116830, "comm": "x11vnc", "exe": "/usr/bin/x11vnc", "safe_args": ["-display", ":4", "-localhost", "-nopw", "-shared", "-forever", "-rfbport", "5904"], "stdio_destinations": {"1": "pipe:[1317380]", "2": "pipe:[1317380]"}}
+{"pid": 116835, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", "-display", ":4", "-localhost", "-nopw", "-shared", "-forever", "-rfbport", "5904"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 116838, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 116861, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 116864, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 116909, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", "--backend", "--no-vsync", "--no-frame-pacing", "--no-use-damage"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 116912, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 117196, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", "--name"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 117200, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 117225, "comm": "tail", "exe": "/usr/bin/tail", "safe_args": [], "stdio_destinations": {"1": "pipe:[1311039]", "2": "pipe:[1311039]"}}
+{"pid": 117571, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": [], "stdio_destinations": {"1": "/dev/pts/2", "2": "/dev/pts/2"}}
+{"pid": 123707, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": [], "stdio_destinations": {"1": "/dev/pts/3", "2": "/dev/pts/3"}}
+{"pid": 125937, "comm": "bash", "exe": "/usr/bin/bash", "safe_args": ["--run", "--no-sandbox", "--disable-dev-shm-usage", "--no-first-run", "--no-default-browser-check", "--hide-crash-restore-bubble", "--start-maximized", "--enable-unsafe-swiftshader", "--no-startup-window"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+{"pid": 125939, "comm": "node", "exe": "/exec-daemon/node", "safe_args": ["/usr/local/bin/box-bounded-log.mjs"], "stdio_destinations": {"1": "/dev/null", "2": "/dev/null"}}
+
+--- Package manifest metadata (descriptive fields only) ---
+/exec-daemon/package.json {"name": "@anysphere/exec-daemon-runtime"}
+/exec-daemon/agent-sdk/cursor/package.json {"name": "cursor", "version": "0.0.0", "description": "Shipped Cursor SDK declarations for agent-authored canvases."}
+
+--- Startup candidate metadata only ---
+/usr/local/bin : box-bounded-log, box-bounded-log.mjs, box-cgroups.sh, box-chrome, box-chrome-policy, box-contract.generated.mjs, box-doctor, box-picom, box-plank, box-x11vnc, box-xfwm4, box-xvfb, bun, bunx, cdp-cookies.mjs, cursor-agent-store-fuse, cursor_agent_store_fuse_version, ensure-machine-id, link-chrome-session, pack-webauthn-proxy, persist-cli-auth, playwright-core, printing-press-library, sand-cookie-import.mjs, sand-cookie-persist.mjs, sand-desktop-supervise.sh, sand-egress-tunnel, sand-exit-watch, sand-fingerprint-profiles.mjs, sand-session-sync.mjs, sand-supervisor.mjs, sand-team-converge.mjs, sand-ua-governor.mjs, sand-wallpaper, sand-wallpaper-tone.mjs, sand-web-bot-auth.mjs, sand-webauthn-proxy-host, sand-window-router.mjs, start-desktop.sh, start-egress-tunnel, start-exec-daemon, start-sand-box, start-window, stop-window, supervise-egress-tunnel, supervise-exec-daemon, supervise-sand-supervisor, table-reservation-goat-pp-cli, uv, uvx, webauthn-proxy-host.mjs
+/usr/local/sbin : 
+/etc/runit : runsvdir
+/etc/service FileNotFoundError
+/etc/sv : ssh
+/run : adduser, host-services, lock, log, motd.dynamic, netbird.pid, netbird.sock, sand, sendsigs.omit.d, shm, sshd, sshd.pid, systemd, user
+/sand FileNotFoundError
+/opt : google, orbit, sand-managed
+
+--- Package total and complete installed package list ---
+Installed package count: 962 capture limit: 1600
+installed	adduser	3.152
+installed	adwaita-icon-theme	48.1-1
+installed	apt	3.0.3
+installed	at-spi2-common	2.56.2-1+deb13u1
+installed	bamfdaemon	0.5.6+repack-1.1+b2
+installed	base-files	13.8+deb13u6
+installed	base-passwd	3.6.7
+installed	bash	5.2.37-2+b9
+installed	binutils	2.44-3
+installed	binutils-common:amd64	2.44-3
+installed	binutils-x86-64-linux-gnu	2.44-3
+installed	bsdutils	1:2.41.5-0+deb13u1
+installed	ca-certificates	20250419
+installed	cargo	1.85.0+dfsg3-1
+installed	coreutils	9.7-3
+installed	cpp	4:14.2.0-1
+installed	cpp-14	14.2.0-19
+installed	cpp-14-x86-64-linux-gnu	14.2.0-19
+installed	cpp-x86-64-linux-gnu	4:14.2.0-1
+installed	curl	8.14.1-2+deb13u4
+installed	dash	0.5.12-12
+installed	dbus	1.16.2-2
+installed	dbus-bin	1.16.2-2
+installed	dbus-daemon	1.16.2-2
+installed	dbus-session-bus-common	1.16.2-2
+installed	dbus-system-bus-common	1.16.2-2
+installed	dbus-user-session	1.16.2-2
+installed	dbus-x11	1.16.2-2
+installed	dconf-cli	0.40.0-5
+installed	dconf-gsettings-backend:amd64	0.40.0-5
+installed	dconf-service	0.40.0-5
+installed	debconf	1.5.91
+installed	debian-archive-keyring	2025.1
+installed	debianutils	5.23.2
+installed	desktop-file-utils	0.28-1
+installed	diffutils	1:3.10-4
+installed	dirmngr	2.4.7-21+deb13u1+b4
+installed	dmsetup	2:1.02.205-2
+installed	dpkg	1.22.22
+installed	eslint	6.4.0~dfsg+~6.1.9-12
+installed	exo-utils	4.20.0-1
+installed	ffmpeg	7:7.1.5-0+deb13u1
+installed	findutils	4.10.0-3
+installed	fontconfig	2.15.0-2.3
+installed	fontconfig-config	2.15.0-2.3
+installed	fonts-dejavu-core	2.37-8
+installed	fonts-dejavu-mono	2.37-8
+installed	fonts-liberation	1:2.1.5-3
+installed	fonts-noto-cjk	1:20240730+repack1-1
+installed	fonts-noto-color-emoji	2.051-0+deb13u1
+installed	fonts-urw-base35	20200910-8
+installed	gcc	4:14.2.0-1
+installed	gcc-14	14.2.0-19
+installed	gcc-14-base:amd64	14.2.0-19
+installed	gcc-14-x86-64-linux-gnu	14.2.0-19
+installed	gcc-x86-64-linux-gnu	4:14.2.0-1
+installed	gh	2.46.0-3
+installed	git	1:2.47.3-0+deb13u1
+installed	git-man	1:2.47.3-0+deb13u1
+installed	gnome-themes-extra:amd64	3.28-4
+installed	gnome-themes-extra-data	3.28-4
+installed	gnupg	2.4.7-21+deb13u1
+installed	gnupg-l10n	2.4.7-21+deb13u1
+installed	golang-1.24-go	1.24.4-1
+installed	golang-1.24-src	1.24.4-1
+installed	golang-go:amd64	2:1.24~2
+installed	golang-src	2:1.24~2
+installed	google-chrome-stable	151.0.7922.169-1
+installed	gpg	2.4.7-21+deb13u1+b4
+installed	gpg-agent	2.4.7-21+deb13u1+b4
+installed	gpgconf	2.4.7-21+deb13u1+b4
+installed	gpgsm	2.4.7-21+deb13u1+b4
+installed	grep	3.11-4
+installed	gtk-update-icon-cache	4.18.6+ds-2
+installed	gtk2-engines-pixbuf:amd64	2.24.33-7
+installed	gyp	0.16.2-2
+installed	gzip	1.13-1
+installed	handlebars	3:4.7.7+~4.1.0-1
+installed	hicolor-icon-theme	0.18-2
+installed	hostname	3.25
+installed	hsetroot	1.0.5-1+b1
+installed	htop	3.4.1-5
+installed	init-system-helpers	1.69~deb13u1
+installed	iproute2	6.15.0-1
+installed	jq	1.7.1-6+deb13u3
+installed	libacl1:amd64	2.3.2-2+b1
+installed	libaom3:amd64	3.12.1-1+deb13u1
+installed	libapparmor1:amd64	4.1.0-1
+installed	libapt-pkg7.0:amd64	3.0.3
+installed	libasan8:amd64	14.2.0-19
+installed	libasound2-data	1.2.14-1
+installed	libasound2t64:amd64	1.2.14-1
+installed	libass9:amd64	1:0.17.3-1+deb13u1
+installed	libassuan9:amd64	3.0.2-2
+installed	libasyncns0:amd64	0.8-6+b5
+installed	libatk-bridge2.0-0t64:amd64	2.56.2-1+deb13u1
+installed	libatk1.0-0t64:amd64	2.56.2-1+deb13u1
+installed	libatomic1:amd64	14.2.0-19
+installed	libatspi2.0-0t64:amd64	2.56.2-1+deb13u1
+installed	libattr1:amd64	1:2.5.2-3
+installed	libaudit-common	1:4.0.2-2
+installed	libaudit1:amd64	1:4.0.2-2+b2
+installed	libavahi-client3:amd64	0.8-16
+installed	libavahi-common-data:amd64	0.8-16
+installed	libavahi-common3:amd64	0.8-16
+installed	libavc1394-0:amd64	0.5.4-5+b2
+installed	libavcodec61:amd64	7:7.1.5-0+deb13u1
+installed	libavdevice61:amd64	7:7.1.5-0+deb13u1
+installed	libavfilter10:amd64	7:7.1.5-0+deb13u1
+installed	libavformat61:amd64	7:7.1.5-0+deb13u1
+installed	libavutil59:amd64	7:7.1.5-0+deb13u1
+installed	libbamf3-2t64:amd64	0.5.6+repack-1.1+b2
+installed	libbinutils:amd64	2.44-3
+installed	libblas3:amd64	3.12.1-6
+installed	libblkid1:amd64	2.41.5-0+deb13u1
+installed	libbluray2:amd64	1:1.3.4-1+b2
+installed	libbpf1:amd64	1:1.5.0-3
+installed	libbrotli1:amd64	1.1.0-2+b7
+installed	libbs2b0:amd64	3.1.0+dfsg-8+b1
+installed	libbsd0:amd64	0.12.2-2
+installed	libbz2-1.0:amd64	1.0.8-6
+installed	libc-bin	2.41-12+deb13u3
+installed	libc-dev-bin	2.41-12+deb13u3
+installed	libc6:amd64	2.41-12+deb13u3
+installed	libc6-dev:amd64	2.41-12+deb13u3
+installed	libcaca0:amd64	0.99.beta20-5+deb13u1
+installed	libcairo-gobject2:amd64	1.18.4-1+b1
+installed	libcairo2:amd64	1.18.4-1+b1
+installed	libcap-ng0:amd64	0.8.5-4+b1
+installed	libcap2:amd64	1:2.75-10+deb13u1+b1
+installed	libcap2-bin	1:2.75-10+deb13u1+b1
+installed	libcares2:amd64	1.34.5-1+deb13u1
+installed	libcbor0.10:amd64	0.10.2-2
+installed	libcc1-0:amd64	14.2.0-19
+installed	libcdio-cdda2t64:amd64	10.2+2.0.2-1+b1
+installed	libcdio-paranoia2t64:amd64	10.2+2.0.2-1+b1
+installed	libcdio19t64:amd64	2.2.0-4.1~deb13u1
+installed	libchromaprint1:amd64	1.5.1-7
+installed	libcjson1:amd64	1.7.18-3.1+deb13u1
+installed	libcloudproviders0:amd64	0.3.6-2
+installed	libcodec2-1.2:amd64	1.2.0-3
+installed	libcolord2:amd64	1.4.7-3
+installed	libcom-err2:amd64	1.47.2-3+b11
+installed	libconfig11:amd64	1.7.3-2
+installed	libcrypt-dev:amd64	1:4.4.38-1
+installed	libcrypt1:amd64	1:4.4.38-1
+installed	libcryptsetup12:amd64	2:2.7.5-2
+installed	libctf-nobfd0:amd64	2.44-3
+installed	libctf0:amd64	2.44-3
+installed	libcups2t64:amd64	2.4.10-3+deb13u2
+installed	libcurl3t64-gnutls:amd64	8.14.1-2+deb13u4
+installed	libcurl4t64:amd64	8.14.1-2+deb13u4
+installed	libdatrie1:amd64	0.2.13-3+b1
+installed	libdav1d7:amd64	1.5.1-1
+installed	libdb5.3t64:amd64	5.3.28+dfsg2-9
+installed	libdbus-1-3:amd64	1.16.2-2
+installed	libdbusmenu-glib4:amd64	18.10.20180917~bzr492+repack1-4
+installed	libdbusmenu-gtk3-4:amd64	18.10.20180917~bzr492+repack1-4
+installed	libdc1394-25:amd64	2.2.6-5
+installed	libdconf1:amd64	0.40.0-5
+installed	libde265-0:amd64	1.0.15-1+deb13u2
+installed	libdebconfclient0:amd64	0.280
+installed	libdecor-0-0:amd64	0.2.2-2
+installed	libdeflate0:amd64	1.23-2
+installed	libdevmapper1.02.1:amd64	2:1.02.205-2
+installed	libdrm-amdgpu1:amd64	2.4.124-2
+installed	libdrm-common	2.4.124-2
+installed	libdrm-intel1:amd64	2.4.124-2
+installed	libdrm2:amd64	2.4.124-2
+installed	libdvdnav4:amd64	6.1.1-3+b1
+installed	libdvdread8t64:amd64	6.1.3-2
+installed	libedit2:amd64	3.1-20250104-1
+installed	libelf1t64:amd64	0.192-4
+installed	libepoxy0:amd64	1.5.10-2
+installed	liberror-perl	0.17030-1
+installed	libev4t64:amd64	1:4.33-2.1+b1
+installed	libevent-core-2.1-7t64:amd64	2.1.12-stable-10+b1
+installed	libexif12:amd64	0.6.25-1+deb13u1
+installed	libexo-2-0:amd64	4.20.0-1
+installed	libexo-common	4.20.0-1
+installed	libexpat1:amd64	2.8.3-1~deb13u1
+installed	libffi8:amd64	3.4.8-2
+installed	libfftw3-double3:amd64	3.3.10-2+b1
+installed	libfido2-1:amd64	1.15.0-1+b1
+installed	libflac14:amd64	1.5.0+ds-2
+installed	libflite1:amd64	2.2-7
+installed	libfontconfig1:amd64	2.15.0-2.3
+installed	libfontenc1:amd64	1:1.1.8-1+b2
+installed	libfreetype6:amd64	2.13.3+dfsg-1+deb13u1
+installed	libfribidi0:amd64	1.0.16-1
+installed	libgbm1:amd64	25.0.7-2+deb13u1
+installed	libgcc-14-dev:amd64	14.2.0-19
+installed	libgcc-s1:amd64	14.2.0-19
+installed	libgcrypt20:amd64	1.11.0-7+deb13u1
+installed	libgdbm-compat4t64:amd64	1.24-2
+installed	libgdbm6t64:amd64	1.24-2
+installed	libgdk-pixbuf-2.0-0:amd64	2.42.12+dfsg-4+deb13u1
+installed	libgdk-pixbuf2.0-common	2.42.12+dfsg-4+deb13u1
+installed	libgee-0.8-2:amd64	0.20.8-1
+installed	libgfortran5:amd64	14.2.0-19
+installed	libgif7:amd64	5.2.2-1+deb13u1
+installed	libgit2-1.9:amd64	1.9.0+ds-2+deb13u1
+installed	libgl1:amd64	1.7.0-1+b2
+installed	libgl1-mesa-dri:amd64	25.0.7-2+deb13u1
+installed	libglib2.0-0t64:amd64	2.84.4-3~deb13u3
+installed	libglvnd0:amd64	1.7.0-1+b2
+installed	libglx-mesa0:amd64	25.0.7-2+deb13u1
+installed	libglx0:amd64	1.7.0-1+b2
+installed	libgme0:amd64	0.6.3-7+b2
+installed	libgmp10:amd64	2:6.3.0+dfsg-3
+installed	libgnome-menu-3-0:amd64	3.36.0-3
+installed	libgnutls30t64:amd64	3.8.9-3+deb13u4
+installed	libgomp1:amd64	14.2.0-19
+installed	libgpg-error0:amd64	1.51-4
+installed	libgpgme11t64:amd64	1.24.2-3
+installed	libgpgmepp6t64:amd64	1.24.2-3
+installed	libgprofng0:amd64	2.44-3
+installed	libgraphite2-3:amd64	1.3.14-2+deb13u1
+installed	libgs-common	10.05.1~dfsg-1+deb13u1
+installed	libgs10:amd64	10.05.1~dfsg-1+deb13u1
+installed	libgs10-common	10.05.1~dfsg-1+deb13u1
+installed	libgsm1:amd64	1.0.22-1+b2
+installed	libgssapi-krb5-2:amd64	1.21.3-5+deb13u1
+installed	libgtk-3-0t64:amd64	3.24.49-3
+installed	libgtk-3-common	3.24.49-3
+installed	libgtop-2.0-11:amd64	2.41.3-1+b2
+installed	libgtop2-common	2.41.3-1
+installed	libgudev-1.0-0:amd64	238-6
+installed	libharfbuzz0b:amd64	10.2.0-1+deb13u1
+installed	libheif-plugin-dav1d:amd64	1.19.8-1+deb13u1
+installed	libheif-plugin-libde265:amd64	1.19.8-1+deb13u1
+installed	libheif1:amd64	1.19.8-1+deb13u1
+installed	libhogweed6t64:amd64	3.10.1-1
+installed	libhttp-parser2.9:amd64	2.9.4-6+b2
+installed	libhwasan0:amd64	14.2.0-19
+installed	libhwy1t64:amd64	1.2.0-2+b2
+installed	libice6:amd64	2:1.1.1-1
+installed	libicu76:amd64	76.1-4
+installed	libid3tag0:amd64	0.16.3-1
+installed	libidn12:amd64	1.43-1
+installed	libidn2-0:amd64	2.3.8-2
+installed	libiec61883-0:amd64	1.2.0-7
+installed	libijs-0.35:amd64	0.35-15.2
+installed	libimlib2t64:amd64	1.12.4-2
+installed	libisl23:amd64	0.27-1
+installed	libitm1:amd64	14.2.0-19
+installed	libjack-jackd2-0:amd64	1.9.22~dfsg-4
+installed	libjansson4:amd64	2.14-2+b3
+installed	libjbig0:amd64	2.1-6.1+b2
+installed	libjbig2dec0:amd64	0.20-1+b3
+installed	libjemalloc2:amd64	5.3.0-3
+installed	libjpeg62-turbo:amd64	1:2.1.5-4
+installed	libjq1:amd64	1.7.1-6+deb13u3
+installed	libjs-events	3.3.0+~3.0.0-3
+installed	libjs-inherits	2.0.4-6
+installed	libjs-is-typedarray	1.0.0-4
+installed	libjs-prettify	2015.12.04+dfsg-1.1
+installed	libjs-regenerate	1.4.2-3
+installed	libjs-source-map	0.7.0++dfsg2+really.0.6.1-15
+installed	libjs-sprintf-js	1.1.2+ds1+~1.1.2-1
+installed	libjs-typedarray-to-buffer	4.0.0-2
+installed	libjs-util	0.12.5+~1.0.10-1
+installed	libjson-c5:amd64	0.18+ds-1
+installed	libjxl0.11:amd64	0.11.2-0.1~deb13u2
+installed	libk5crypto3:amd64	1.21.3-5+deb13u1
+installed	libkeyutils1:amd64	1.6.3-6
+installed	libkmod2:amd64	34.2-2
+installed	libkrb5-3:amd64	1.21.3-5+deb13u1
+installed	libkrb5support0:amd64	1.21.3-5+deb13u1
+installed	libksba8:amd64	1.6.7-2+b1
+installed	liblapack3:amd64	3.12.1-6
+installed	liblastlog2-2:amd64	2.41.5-0+deb13u1
+installed	liblcms2-2:amd64	2.16-2+deb13u2
+installed	libldap2:amd64	2.6.10+dfsg-1
+installed	liblerc4:amd64	4.0.0+ds-5
+installed	liblilv-0-0:amd64	0.24.26-1
+installed	libllvm19:amd64	1:19.1.7-3+b1
+installed	liblsan0:amd64	14.2.0-19
+installed	liblz4-1:amd64	1.10.0-4
+installed	liblzma5:amd64	5.8.1-1+deb13u1
+installed	liblzo2-2:amd64	2.10-3+b1
+installed	libmbedcrypto16:amd64	3.6.5-0.1~deb13u1
+installed	libmbedtls21:amd64	3.6.5-0.1~deb13u1
+installed	libmbedx509-7:amd64	3.6.5-0.1~deb13u1
+installed	libmd0:amd64	1.1.0-2+b1
+installed	libmnl0:amd64	1.0.5-3
+installed	libmount1:amd64	2.41.5-0+deb13u1
+installed	libmp3lame0:amd64	3.100-6+b3
+installed	libmpc3:amd64	1.3.1-1+b3
+installed	libmpfr6:amd64	4.2.2-1
+installed	libmpg123-0t64:amd64	1.32.10-1+deb13u1
+installed	libmysofa1:amd64	1.3.3+dfsg-1
+installed	libncursesw6:amd64	6.5+20250216-2
+installed	libnettle8t64:amd64	3.10.1-1
+installed	libnghttp2-14:amd64	1.64.0-1.1+deb13u1
+installed	libnghttp3-9:amd64	1.8.0-1
+installed	libngtcp2-16:amd64	1.11.0-1+deb13u1
+installed	libngtcp2-crypto-gnutls8:amd64	1.11.0-1+deb13u1
+installed	libnode-dev	20.19.2+dfsg-1+deb13u2
+installed	libnode115:amd64	20.19.2+dfsg-1+deb13u2
+installed	libnorm1t64:amd64	1.5.9+dfsg-3.1+b2
+installed	libnotify4:amd64	0.8.6-1
+installed	libnpth0t64:amd64	1.8-3
+installed	libnspr4:amd64	2:4.36-1
+installed	libnss-systemd:amd64	257.13-1~deb13u1
+installed	libnss3:amd64	2:3.110-1+deb13u4
+installed	libnuma1:amd64	2.0.19-1
+installed	libogg0:amd64	1.3.5-3+b2
+installed	libonig5:amd64	6.9.9-1+b1
+installed	libopenal-data	1:1.24.2-1
+installed	libopenal1:amd64	1:1.24.2-1
+installed	libopenjp2-7:amd64	2.5.3-2.1~deb13u2
+installed	libopenmpt0t64:amd64	0.7.13-1+b1
+installed	libopus0:amd64	1.5.2-2
+installed	libp11-kit0:amd64	0.25.5-3
+installed	libpam-modules:amd64	1.7.0-5
+installed	libpam-modules-bin	1.7.0-5
+installed	libpam-runtime	1.7.0-5
+installed	libpam-systemd:amd64	257.13-1~deb13u1
+installed	libpam0g:amd64	1.7.0-5
+installed	libpango-1.0-0:amd64	1.56.3-1
+installed	libpangocairo-1.0-0:amd64	1.56.3-1
+installed	libpangoft2-1.0-0:amd64	1.56.3-1
+installed	libpaper2:amd64	2.2.5-0.3+b2
+installed	libpciaccess0:amd64	0.17-3+b3
+installed	libpcre2-8-0:amd64	10.46-1~deb13u1
+installed	libperl5.40:amd64	5.40.1-6
+installed	libpgm-5.3-0t64:amd64	5.3.128~dfsg-2.1+b1
+installed	libpixman-1-0:amd64	0.44.0-3
+installed	libplacebo349:amd64	7.349.0-3
+installed	libplank-common	0.11.89-6
+installed	libplank1:amd64	0.11.89-6+b1
+installed	libpng16-16t64:amd64	1.6.48-1+deb13u5
+installed	libpocketsphinx3:amd64	0.8+5prealpha+1-15+b4
+installed	libpoppler147:amd64	25.03.0-5+deb13u4
+installed	libpostproc58:amd64	7:7.1.5-0+deb13u1
+installed	libproc2-0:amd64	2:4.0.4-9
+installed	libpsl5t64:amd64	0.21.2-1.1+b1
+installed	libpulse0:amd64	17.0+dfsg1-2+b1
+installed	libpython3-stdlib:amd64	3.13.5-1
+installed	libpython3.13-minimal:amd64	3.13.5-2+deb13u4
+installed	libpython3.13-stdlib:amd64	3.13.5-2+deb13u4
+installed	libquadmath0:amd64	14.2.0-19
+installed	librabbitmq4:amd64	0.15.0-1+deb13u2
+installed	librav1e0.7:amd64	0.7.1-9+b2
+installed	libraw1394-11:amd64	2.1.2-2+b2
+installed	libreadline8t64:amd64	8.2-6
+installed	librist4:amd64	0.2.11+dfsg-1
+installed	librsvg2-2:amd64	2.60.0+dfsg-1
+installed	librtmp1:amd64	2.4+20151223.gitfa8646d.1-2+b5
+installed	librubberband2:amd64	3.3.0+dfsg-2+b3
+installed	libsamplerate0:amd64	0.2.2-4+b2
+installed	libsasl2-2:amd64	2.1.28+dfsg1-9
+installed	libsasl2-modules-db:amd64	2.1.28+dfsg1-9
+installed	libsdl2-2.0-0:amd64	2.32.4+dfsg-1
+installed	libseccomp2:amd64	2.6.0-2
+installed	libselinux1:amd64	3.8.1-1
+installed	libsemanage-common	3.8.1-1
+installed	libsemanage2:amd64	3.8.1-1
+installed	libsensors-config	1:3.6.2-2
+installed	libsensors5:amd64	1:3.6.2-2
+installed	libsepol2:amd64	3.8.1-1
+installed	libserd-0-0:amd64	0.32.4-1
+installed	libsframe1:amd64	2.44-3
+installed	libsharpyuv0:amd64	1.5.0-0.1
+installed	libshine3:amd64	3.1.1-2+b2
+installed	libslang2:amd64	2.3.3-5+b2
+installed	libsm6:amd64	2:1.2.6-1
+installed	libsmartcols1:amd64	2.41.5-0+deb13u1
+installed	libsnappy1v5:amd64	1.2.2-1
+installed	libsndfile1:amd64	1.2.2-2+deb13u1
+installed	libsodium23:amd64	1.0.18-1+deb13u1
+installed	libsord-0-0:amd64	0.16.18-1
+installed	libsoxr0:amd64	0.1.3-4+b2
+installed	libspectre1:amd64	0.2.12-1+b2
+installed	libspeex1:amd64	1.2.1-3
+installed	libsphinxbase3t64:amd64	0.8+5prealpha+1-21+b1
+installed	libsqlite3-0:amd64	3.46.1-7+deb13u1
+installed	libsratom-0-0:amd64	0.6.18-1
+installed	libsrt1.5-gnutls:amd64	1.5.4-1+deb13u1
+installed	libssh-4:amd64	0.11.5-0+deb13u1
+installed	libssh2-1t64:amd64	1.11.1-1+deb13u1
+installed	libssl-dev:amd64	3.5.7-1~deb13u2
+installed	libssl3t64:amd64	3.5.7-1~deb13u2
+installed	libstartup-notification0:amd64	0.12-8
+installed	libstd-rust-1.85:amd64	1.85.0+dfsg3-1
+installed	libstd-rust-dev:amd64	1.85.0+dfsg3-1
+installed	libstdc++6:amd64	14.2.0-19
+installed	libsvtav1enc2:amd64	2.3.0+dfsg-1
+installed	libswresample5:amd64	7:7.1.5-0+deb13u1
+installed	libswscale8:amd64	7:7.1.5-0+deb13u1
+installed	libsystemd-shared:amd64	257.13-1~deb13u1
+installed	libsystemd0:amd64	257.13-1~deb13u1
+installed	libtasn1-6:amd64	4.20.0-2+deb13u1
+installed	libtcl8.6:amd64	8.6.16+dfsg-1
+installed	libtext-charwidth-perl:amd64	0.04-11+b4
+installed	libtext-wrapi18n-perl	0.06-10
+installed	libthai-data	0.1.29-2
+installed	libthai0:amd64	0.1.29-2+b1
+installed	libtheoradec1:amd64	1.2.0~alpha1+dfsg-6
+installed	libtheoraenc1:amd64	1.2.0~alpha1+dfsg-6
+installed	libthunarx-3-0:amd64	4.20.2-1+deb13u1
+installed	libtiff6:amd64	4.7.0-3+deb13u3
+installed	libtinfo6:amd64	6.5+20250216-2
+installed	libtirpc-common	1.3.6+ds-1
+installed	libtirpc3t64:amd64	1.3.6+ds-1
+installed	libtk8.6:amd64	8.6.16-1
+installed	libtsan2:amd64	14.2.0-19
+installed	libtwolame0:amd64	0.4.0-2+b2
+installed	libubsan1:amd64	14.2.0-19
+installed	libudev1:amd64	257.13-1~deb13u1
+installed	libudfread0:amd64	1.1.2-1+b2
+installed	libunibreak6:amd64	6.1-3
+installed	libunistring5:amd64	1.3-2
+installed	libunwind8:amd64	1.8.1-0.1
+installed	libusb-1.0-0:amd64	2:1.0.28-1
+installed	libutempter0:amd64	1.2.1-4
+installed	libuuid1:amd64	2.41.5-0+deb13u1
+installed	libuv1-dev:amd64	1.50.0-2
+installed	libuv1t64:amd64	1.50.0-2
+installed	libva-drm2:amd64	2.22.0-3
+installed	libva-x11-2:amd64	2.22.0-3
+installed	libva2:amd64	2.22.0-3
+installed	libvdpau1:amd64	1.5-3+b1
+installed	libvidstab1.1:amd64	1.1.0-2+b2
+installed	libvncclient1:amd64	0.9.15+dfsg-1+deb13u2
+installed	libvncserver1:amd64	0.9.15+dfsg-1+deb13u2
+installed	libvorbis0a:amd64	1.3.7-3
+installed	libvorbisenc2:amd64	1.3.7-3
+installed	libvorbisfile3:amd64	1.3.7-3
+installed	libvpl2	1:2.14.0-1+b1
+installed	libvpx9:amd64	1.15.0-2.1+deb13u1
+installed	libvte-2.91-0:amd64	0.80.1-1
+installed	libvte-2.91-common	0.80.1-1
+installed	libvulkan1:amd64	1.4.309.0-1
+installed	libwayland-client0:amd64	1.23.1-3
+installed	libwayland-cursor0:amd64	1.23.1-3
+installed	libwayland-egl1:amd64	1.23.1-3
+installed	libwayland-server0:amd64	1.23.1-3
+installed	libwebp7:amd64	1.5.0-0.1
+installed	libwebpdemux2:amd64	1.5.0-0.1
+installed	libwebpmux3:amd64	1.5.0-0.1
+installed	libwnck-3-0:amd64	43.2-1
+installed	libwnck-3-common	43.2-1
+installed	libwrap0:amd64	7.6.q-36
+installed	libwtmpdb0:amd64	0.73.0-3+deb13u1
+installed	libx11-6:amd64	2:1.8.12-1
+installed	libx11-data	2:1.8.12-1
+installed	libx11-xcb1:amd64	2:1.8.12-1
+installed	libx264-164:amd64	2:0.164.3108+git31e19f9-2+b1
+installed	libx265-215:amd64	4.1-2
+installed	libxau6:amd64	1:1.0.11-1
+installed	libxaw7:amd64	2:1.0.16-1
+installed	libxcb-composite0:amd64	1.17.0-2+b1
+installed	libxcb-damage0:amd64	1.17.0-2+b1
+installed	libxcb-dri3-0:amd64	1.17.0-2+b1
+installed	libxcb-glx0:amd64	1.17.0-2+b1
+installed	libxcb-image0:amd64	0.4.0-2+b2
+installed	libxcb-present0:amd64	1.17.0-2+b1
+installed	libxcb-randr0:amd64	1.17.0-2+b1
+installed	libxcb-render-util0:amd64	0.3.10-1
+installed	libxcb-render0:amd64	1.17.0-2+b1
+installed	libxcb-shape0:amd64	1.17.0-2+b1
+installed	libxcb-shm0:amd64	1.17.0-2+b1
+installed	libxcb-sync1:amd64	1.17.0-2+b1
+installed	libxcb-util1:amd64	0.4.1-1
+installed	libxcb-xfixes0:amd64	1.17.0-2+b1
+installed	libxcb1:amd64	1.17.0-2+b1
+installed	libxcomposite1:amd64	1:0.4.6-1
+installed	libxcursor1:amd64	1:1.2.3-1
+installed	libxdamage1:amd64	1:1.1.6-1+b2
+installed	libxdmcp6:amd64	1:1.1.5-1
+installed	libxdo3:amd64	1:3.20160805.1-5.1
+installed	libxext6:amd64	2:1.3.4-1+b3
+installed	libxfce4ui-2-0:amd64	4.20.1-1
+installed	libxfce4ui-common	4.20.1-1
+installed	libxfce4util-common	4.20.1-1
+installed	libxfce4util7:amd64	4.20.1-1
+installed	libxfconf-0-3:amd64	4.20.0-1
+installed	libxfixes3:amd64	1:6.0.0-2+b4
+installed	libxfont2:amd64	1:2.0.6-1+deb13u1
+installed	libxft2:amd64	2.3.6-1+b4
+installed	libxi6:amd64	2:1.8.2-1
+installed	libxinerama1:amd64	2:1.1.4-3+b4
+installed	libxkbcommon0:amd64	1.7.0-2
+installed	libxkbfile1:amd64	1:1.1.0-1+b4
+installed	libxml2:amd64	2.12.7+dfsg+really2.9.14-2.1+deb13u3
+installed	libxmu6:amd64	2:1.1.3-3+b4
+installed	libxmuu1:amd64	2:1.1.3-3+b4
+installed	libxpm4:amd64	1:3.5.17-1+deb13u1
+installed	libxpresent1:amd64	1.0.1-1+b2
+installed	libxrandr2:amd64	2:1.5.4-1+b3
+installed	libxrender1:amd64	1:0.9.12-1
+installed	libxres1:amd64	2:1.2.1-1+b2
+installed	libxshmfence1:amd64	1.3.3-1
+installed	libxss1:amd64	1:1.2.3-1+b3
+installed	libxt6t64:amd64	1:1.2.1-1.2+b2
+installed	libxtables12:amd64	1.8.11-2
+installed	libxtst6:amd64	2:1.2.5-1
+installed	libxv1:amd64	2:1.0.11-1.1+b3
+installed	libxvidcore4:amd64	2:1.3.7-1+b2
+installed	libxxf86dga1:amd64	2:1.1.5-1+b3
+installed	libxxf86vm1:amd64	1:1.1.4-1+b4
+installed	libxxhash0:amd64	0.8.3-2
+installed	libz3-4:amd64	4.13.3-1
+installed	libzimg2:amd64	3.0.5+ds1-1+b2
+installed	libzix-0-0:amd64	0.6.2-1
+installed	libzmq5:amd64	4.3.5-1+b3
+installed	libzstd1:amd64	1.5.7+dfsg-1
+installed	libzvbi-common	0.2.44-1
+installed	libzvbi0t64:amd64	0.2.44-1
+installed	linux-libc-dev	6.12.107-1
+installed	linux-sysctl-defaults	4.12.1
+installed	login	1:4.16.0-2+really2.41.5-0+deb13u1
+installed	login.defs	1:4.17.4-2
+installed	mawk	1.3.4.20250131-1
+installed	media-types	13.0.0
+installed	mesa-libgallium:amd64	25.0.7-2+deb13u1
+installed	mount	2.41.5-0+deb13u1
+installed	ncurses-base	6.5+20250216-2
+installed	ncurses-bin	6.5+20250216-2
+installed	ncurses-term	6.5+20250216-2
+installed	net-tools	2.10-1.3
+installed	netbase	6.5
+installed	netbird	0.78.1
+installed	node-abbrev	1.1.1+~1.1.2-1
+installed	node-acorn	8.8.1+ds+~cs25.17.7-2
+installed	node-agent-base	7.1.1~0~2024040606-6+deb13u1
+installed	node-ajv	8.12.0~ds+~2.1.1-5
+installed	node-ajv-keywords	5.1.0-4
+installed	node-ampproject-remapping	2.2.0+~cs5.15.37-1
+installed	node-ansi-escapes	5.0.0+really.4.3.1-1
+installed	node-ansi-regex	5.0.1-1
+installed	node-ansi-styles	6.2.1-3
+installed	node-anymatch	3.1.3+~cs4.6.1-2
+installed	node-aproba	2.0.0-3
+installed	node-archy	1.0.0-6
+installed	node-are-we-there-yet	3.0.1+~1.1.0-1
+installed	node-argparse	2.0.1-2
+installed	node-arrify	2.0.1-3
+installed	node-assert	2.0.0+~cs3.9.8-2
+installed	node-async	3.2.6+dfsg-2
+installed	node-async-each	1.0.3-3
+installed	node-babel-helper-define-polyfill-provider	0.3.3~0~20220913+ds1-1
+installed	node-babel-plugin-add-module-exports	1.0.4+dfsg1~cs5.8.0-4
+installed	node-babel-plugin-lodash	3.3.4+~cs2.0.1-7
+installed	node-babel-plugin-polyfill-corejs2	0.3.3~0~20220913+ds1-1
+installed	node-babel-plugin-polyfill-corejs3	0.6.0~0~20220913+ds1-1
+installed	node-babel-plugin-polyfill-regenerator	0.4.1~0~20220913+ds1-1
+installed	node-babel7	7.20.15+ds1+~cs214.269.168-8
+installed	node-babel7-runtime	7.20.15+ds1+~cs214.269.168-8
+installed	node-balanced-match	2.0.0-1
+installed	node-base64-js	1.5.1+dfsg+~1.3.0-2
+installed	node-binary-extensions	2.2.0-2
+installed	node-brace-expansion	2.0.1+~1.1.0-2
+installed	node-braces	3.0.3+~3.0.5-1
+installed	node-browserslist	4.25.0+~cs6.3.22-1
+installed	node-builtins	5.0.1-1
+installed	node-cacache	17.0.3+~cs10.3.7-2
+installed	node-camelcase	7.0.0-3
+installed	node-caniuse-lite	1.0.30001723+dfsg+~1.0.5-1
+installed	node-chalk	5.3.0-1
+installed	node-chokidar	3.6.0-3
+installed	node-chownr	2.0.0-3
+installed	node-chrome-trace-event	1.0.3-2
+installed	node-ci-info	4.0.0+~cs1.1.0-1
+installed	node-cjs-module-lexer	1.2.3+dfsg-1
+installed	node-cli-table	0.3.11+~cs0.13.4-3
+installed	node-cliui	7.0.4+repack+1+~cs1.4.2-2
+installed	node-clone	2.1.2+~2.1.2-1
+installed	node-clone-deep	4.0.1+~cs7.0.2-1
+installed	node-color-convert	2.0.1+~cs2.0.0-2
+installed	node-color-name	1.1.4+~1.1.1-2
+installed	node-colors	1.4.0-4
+installed	node-columnify	1.6.0+~1.5.1-1
+installed	node-commander	9.4.1-1
+installed	node-commondir	1.0.1+~1.0.0-1
+installed	node-concat-stream	2.0.0+~2.0.0-2
+installed	node-console-control-strings	1.1.0-3
+installed	node-convert-source-map	1.9.0+~1.5.2-1
+installed	node-copy-concurrently	1.0.5-9
+installed	node-core-js	3.33.2-1
+installed	node-core-js-compat	3.33.2-1
+installed	node-core-js-pure	3.33.2-1
+installed	node-core-util-is	1.0.3-1
+installed	node-corepack	0.24.0-5
+installed	node-css-loader	6.8.1+~cs14.0.17-1
+installed	node-css-selector-tokenizer	0.8.0+~cs4.8.3-1
+installed	node-data-uri-to-buffer	6.0.2~0~2024040606-6+deb13u1
+installed	node-debbundle-es-to-primitive	1.2.1+~cs9.7.25-2
+installed	node-debug	4.3.4+~cs4.1.7-1
+installed	node-decamelize	4.0.0-2
+installed	node-decompress-response	6.0.0-3
+installed	node-deep-equal	2.2.3+~cs43.15.94-1
+installed	node-deep-is	0.1.4-1
+installed	node-defaults	1.0.4+~1.0.3-1
+installed	node-define-properties	1.2.1+~cs2.2.3-1
+installed	node-define-property	2.0.2+really+2.0.2-3
+installed	node-defined	1.0.1+~1.0.0-1
+installed	node-del	7.1.0-1
+installed	node-delegates	1.0.0-3
+installed	node-depd	2.0.0-2
+installed	node-diff	5.0.0~dfsg+~5.0.1-4
+installed	node-doctrine	3.0.0-4
+installed	node-electron-to-chromium	1.5.166-1
+installed	node-encoding	0.1.13-2
+installed	node-enhanced-resolve	5.15.0-1
+installed	node-envinfo	7.11.0+~cs14.3.0-3
+installed	node-err-code	2.0.3+dfsg-3
+installed	node-errno	1.0.0-3
+installed	node-error-ex	1.3.2-4
+installed	node-es-abstract	1.20.4+~cs26.27.47-2
+installed	node-es-module-lexer	1.1.0+dfsg-3
+installed	node-es6-error	4.1.1-5
+installed	node-escape-string-regexp	4.0.0-2
+installed	node-escodegen	2.1.0+dfsg+~0.0.8-1
+installed	node-eslint-scope	7.1.1+~3.7.4-1
+installed	node-eslint-utils	3.0.0-3
+installed	node-eslint-visitor-keys	3.3.0+~1.0.0-1
+installed	node-espree	9.4.1~dfsg-2
+installed	node-esprima	4.0.1+ds+~4.0.3-2
+installed	node-esquery	1.4.2~ds-1
+installed	node-esrecurse	4.3.0-2
+installed	node-estraverse	5.3.0+ds+~5.1.1-1
+installed	node-esutils	2.0.3+~2.0.0-1
+installed	node-events	3.3.0+~3.0.0-3
+installed	node-execa	8.0.1+dfsg1+~cs12.0.0-1
+installed	node-fancy-log	1.3.3+~cs1.3.1-2
+installed	node-fast-deep-equal	3.1.3-3
+installed	node-fast-levenshtein	2.0.6+ds-3
+installed	node-fetch	3.3.2+~cs11.4.11-3
+installed	node-file-entry-cache	6.0.1+~3.0.4+~2.0.0+~1.0.0+~2.0.1-1
+installed	node-fill-range	7.1.1+~7.0.3-1
+installed	node-find-cache-dir	3.3.2+~3.2.1-1
+installed	node-find-up	6.3.0-7
+installed	node-flat-cache	3.0.4~6.0.1+~3.0.4+~2.0.0+~1.0.0+~2.0.1-1
+installed	node-flatted	3.2.7~ds-1+deb13u1
+installed	node-for-in	1.0.2-4
+installed	node-for-own	1.0.0-3
+installed	node-foreground-child	3.1.1-2
+installed	node-fs-readdir-recursive	1.1.0+~1.1.0-1
+installed	node-fs-write-stream-atomic	1.0.10-6
+installed	node-fs.realpath	1.0.0-3
+installed	node-function-bind	1.1.2+~cs2.1.14-1
+installed	node-functional-red-black-tree	1.0.1+20181105-7
+installed	node-gauge	4.0.4-2
+installed	node-get-caller-file	2.0.5+~cs1.1.1-4
+installed	node-get-stream	8.0.1-11
+installed	node-glob	8.1.0+~cs8.5.15-1
+installed	node-glob-parent	6.0.2+~5.1.1-2
+installed	node-globals	13.23.0-1
+installed	node-globby	13.1.3+~cs16.25.40-3
+installed	node-got	11.8.5+~cs58.13.36-5
+installed	node-graceful-fs	4.2.10-1
+installed	node-gyp	11.1.0+~5.0.0-1
+installed	node-has-flag	5.0.1-1
+installed	node-has-unicode	2.0.1-5
+installed	node-hosted-git-info	6.1.1-2
+installed	node-http-proxy-agent	7.0.2~0~2024040606-6+deb13u1
+installed	node-https-proxy-agent	7.0.4~0~2024040606-6+deb13u1
+installed	node-iconv-lite	0.6.3-3
+installed	node-icss-utils	5.1.0+~5.1.0-1
+installed	node-ieee754	1.2.1-3
+installed	node-iferr	1.0.2+~1.0.2-1
+installed	node-ignore	5.2.1-1
+installed	node-imurmurhash	0.1.4+dfsg+~0.1.1-2
+installed	node-indent-string	4.0.0-2
+installed	node-inflight	1.0.6-2
+installed	node-inherits	2.0.4-6
+installed	node-ini	3.0.1-2
+installed	node-interpret	2.2.0-3
+installed	node-ip	2.0.1+~1.1.3-3
+installed	node-ip-regex	4.3.0+~4.1.1-1
+installed	node-is-arrayish	0.3.2-3
+installed	node-is-binary-path	2.1.0-5
+installed	node-is-buffer	2.0.5-2
+installed	node-is-descriptor	3.0.0-2
+installed	node-is-extendable	1.0.1-3
+installed	node-is-extglob	2.1.1-5
+installed	node-is-glob	4.0.3-2
+installed	node-is-number	7.0.0-4
+installed	node-is-path-cwd	2.2.0-2
+installed	node-is-path-inside	3.0.3-2
+installed	node-is-plain-obj	3.0.0-2
+installed	node-is-plain-object	5.0.0-7
+installed	node-is-stream	3.0.0-4
+installed	node-is-typedarray	1.0.0-4
+installed	node-is-windows	1.0.2+~cs1.0.0-1
+installed	node-isarray	2.0.5-4
+installed	node-isexe	2.0.0+~2.0.1-5
+installed	node-isobject	4.0.0-2
+installed	node-istanbul	0.4.5+repack10+~cs98.25.59-3
+installed	node-jest-debbundle	29.6.2~ds1+~cs73.45.28-5
+installed	node-jest-worker	29.6.2~ds1+~cs73.45.28-5
+installed	node-js-tokens	8.0.0-2
+installed	node-js-yaml	4.1.0+dfsg+~4.0.5-7
+installed	node-jsesc	3.0.2+~3.0.1-1
+installed	node-json-buffer	3.0.1+~3.0.0-1
+installed	node-json-parse-better-errors	1.0.2+~cs3.3.1-3
+installed	node-json-schema	0.4.0+~7.0.11-1
+installed	node-json-schema-traverse	1.0.0-3
+installed	node-json-stable-stringify	1.0.2+repack1+~cs1.0.34-2
+installed	node-json5	2.2.3+dfsg-1
+installed	node-jsonify	0.0.1-1
+installed	node-jsonparse	1.3.1-10
+installed	node-kind-of	6.0.3+dfsg-2
+installed	node-levn	0.4.1+dfsg-2
+installed	node-loader-runner	4.3.0-1
+installed	node-locate-path	7.1.1-2
+installed	node-lodash	4.17.21+dfsg+~cs8.31.198.20210220-9
+installed	node-lodash-packages	4.17.21+dfsg+~cs8.31.198.20210220-9
+installed	node-lowercase-keys	2.0.0-2
+installed	node-lru-cache	10.0.1-3
+installed	node-make-dir	3.1.0-3
+installed	node-memfs	3.4.12+~cs1.0.3-1
+installed	node-memory-fs	0.5.0+~0.3.3-2
+installed	node-merge-stream	2.0.0+~1.1.2-2
+installed	node-micromatch	4.0.7+~4.0.9-1
+installed	node-mime	3.0.0+dfsg+~cs6.97.2-2
+installed	node-mime-types	2.1.35-2
+installed	node-mimic-fn	4.0.0-5
+installed	node-mimic-response	3.1.0-9
+installed	node-minimatch	9.0.3-6
+installed	node-minimist	1.2.8+~cs5.3.5-1
+installed	node-minipass	5.0.0+~cs10.3.21-3
+installed	node-mkdirp	2.1.6+~cs5.2.1-2
+installed	node-move-concurrently	1.0.1-5
+installed	node-ms	2.1.3+~cs0.7.31-3
+installed	node-mute-stream	0.0.8+~0.0.1-3
+installed	node-n3	1.16.3+~1.2.3+~1.10.4-1
+installed	node-negotiator	0.6.3+~0.6.1-1
+installed	node-neo-async	2.6.2+~cs3.0.0-3
+installed	node-nopt	5.0.0-4
+installed	node-normalize-package-data	4.0.1+~2.4.1-1
+installed	node-normalize-path	3.0.0+~3.0.0-1
+installed	node-npm-bundled	2.0.1-2
+installed	node-npm-package-arg	10.0.0+~3.0.0-2
+installed	node-npm-run-path	5.1.0+~4.0.0-8
+installed	node-npmlog	7.0.1+~4.1.4-1
+installed	node-object-assign	4.1.1-7
+installed	node-object-inspect	1.12.2+~cs1.8.1-1
+installed	node-once	1.4.1-1
+installed	node-optimist	0.6.1+~0.0.30-2
+installed	node-optionator	0.9.1+dfsg+~cs1.2.3-1
+installed	node-osenv	0.1.5+~0.1.1-1
+installed	node-p-cancelable	2.1.1-1
+installed	node-p-limit	4.0.0+~cs4.0.0-5
+installed	node-p-locate	6.0.0-12
+installed	node-p-map	4.0.0+~3.1.0+~3.0.1-2
+installed	node-parse-json	5.2.0+~cs5.1.7-2
+installed	node-path-dirname	1.0.2-2
+installed	node-path-exists	5.0.0-8
+installed	node-path-is-absolute	2.0.0-2
+installed	node-path-is-inside	1.0.2+~1.0.0-1
+installed	node-path-type	4.0.0-3
+installed	node-picocolors	1.0.0-4
+installed	node-pify	5.0.0+~cs5.0.1-1
+installed	node-pkg-dir	5.0.0-2
+installed	node-postcss	8.4.49+~cs9.2.32-1
+installed	node-postcss-modules-extract-imports	3.0.0-2
+installed	node-postcss-modules-values	4.0.0+~4.0.0-1
+installed	node-postcss-value-parser	4.2.0-1
+installed	node-prelude-ls	1.2.1+dfsg-3
+installed	node-process-nextick-args	2.0.1-3
+installed	node-progress	2.0.3-2
+installed	node-promise-inflight	1.0.1+~1.0.0-1
+installed	node-promise-retry	2.0.1-4
+installed	node-promzard	0.3.0-2
+installed	node-prr	1.0.1-3
+installed	node-punycode	2.3.1+~2.1.4-1
+installed	node-quick-lru	6.1.1-4
+installed	node-randombytes	2.1.0+~2.0.0-2
+installed	node-read	1.0.7-5
+installed	node-read-package-json	5.0.2+~2.0.0-2
+installed	node-read-pkg	5.2.0-2
+installed	node-readable-stream	3.6.0+~cs3.0.0-4
+installed	node-readdirp	3.6.0-1
+installed	node-rechoir	0.8.0+~0.6.1-2
+installed	node-regenerate	1.4.2-3
+installed	node-regenerate-unicode-properties	10.1.0+ds-1
+installed	node-regenerator-runtime	0.15.2+~0.10.8-1
+installed	node-regenerator-transform	0.15.2+~0.10.8-1
+installed	node-regexpp	3.2.0-5
+installed	node-regexpu-core	5.2.2-3
+installed	node-regjsgen	0.7.1+ds-1
+installed	node-regjsparser	0.9.1+ds-2
+installed	node-repeat-string	1.6.1+repack-1
+installed	node-require-directory	2.1.1+~2.1.2-1
+installed	node-resolve	1.22.8+~cs5.34.15-2
+installed	node-resolve-cwd	3.0.0-2
+installed	node-resolve-from	5.0.0+~3.1.0+~3.3.0+~2.0.0-1
+installed	node-resumer	0.0.0-6
+installed	node-retry	0.13.1.+~cs2.19.16-1
+installed	node-rimraf	3.0.2-2
+installed	node-run-queue	2.0.0-3
+installed	node-safe-buffer	5.2.1+~cs2.1.2-3
+installed	node-schema-utils	4.2.0~ds-3
+installed	node-semver	7.6.1+~7.5.8-2
+installed	node-serialize-javascript	6.0.2-1
+installed	node-set-blocking	2.0.0-2
+installed	node-set-immediate-shim	2.0.0-2
+installed	node-shebang-command	2.0.0-1
+installed	node-shebang-regex	3.0.0-2
+installed	node-signal-exit	4.1.0-7
+installed	node-slash	4.0.0-3
+installed	node-slice-ansi	5.0.0+~cs9.0.0-5
+installed	node-source-list-map	2.0.1+dfsg+~0.1.2-1
+installed	node-source-map	0.7.0++dfsg2+really.0.6.1-15
+installed	node-source-map-support	0.5.21+ds+~0.5.10-1
+installed	node-spdx-correct	3.1.1-2
+installed	node-spdx-exceptions	2.3.0-2
+installed	node-spdx-expression-parse	3.0.1+~3.0.1-1
+installed	node-spdx-license-ids	3.0.12-1
+installed	node-sprintf-js	1.1.2+ds1+~1.1.2-1
+installed	node-ssri	9.0.1-3
+installed	node-string-decoder	1.3.0-6
+installed	node-string-width	4.2.3+~cs13.2.3-1
+installed	node-strip-ansi	6.0.1-2
+installed	node-strip-bom	4.0.0-2
+installed	node-strip-eof	3.0.0-5
+installed	node-strip-json-comments	4.0.0-4
+installed	node-supports-color	8.1.1+~8.1.1-1
+installed	node-tapable	2.2.1-3
+installed	node-tape	5.6.1+~cs8.20.19-3
+installed	node-tar	6.2.1+~cs7.0.8-1+deb13u1
+installed	node-terser	5.38.0-1
+installed	node-text-table	0.2.0-4
+installed	node-through	2.3.8+~cs0.0.30-1
+installed	node-time-stamp	2.2.0-2
+installed	node-to-fast-properties	3.0.1-3
+installed	node-to-regex-range	5.0.1-4
+installed	node-tslib	2.4.1-1
+installed	node-type-check	0.4.0+dfsg-3
+installed	node-typedarray	0.0.7-1
+installed	node-typedarray-to-buffer	4.0.0-2
+installed	node-undici	7.3.0+dfsg1+~cs24.12.11-1
+installed	node-unicode-canonical-property-names-ecmascript	2.0.0-2
+installed	node-unicode-match-property-ecmascript	2.0.0-2
+installed	node-unicode-match-property-value-ecmascript	2.1.0+ds-1
+installed	node-unicode-property-aliases-ecmascript	2.1.0+ds-1
+installed	node-unique-filename	1.1.1+ds-2
+installed	node-uri-js	4.4.0+dfsg-8
+installed	node-util	0.12.5+~1.0.10-1
+installed	node-util-deprecate	1.0.2-3
+installed	node-uuid	8.3.2+~8.3.4-1
+installed	node-v8-compile-cache	2.4.0-2
+installed	node-v8flags	3.2.0+~3.1.1-1
+installed	node-validate-npm-package-license	3.0.4-2
+installed	node-validate-npm-package-name	5.0.0+~4.0.0-1
+installed	node-watchpack	2.4.0+~cs2.8.1-1
+installed	node-wcwidth.js	1.0.2-2
+installed	node-webassemblyjs	1.11.4+dfsg+~cs10.11.17-2
+installed	node-webpack-sources	3.2.3+~3.2.0-2
+installed	node-which	2.0.2+~cs1.3.2-3
+installed	node-wide-align	1.1.3-4
+installed	node-wordwrap	1.0.0-4
+installed	node-wrap-ansi	8.0.1+~8.0.1-3
+installed	node-wrappy	1.0.2-3
+installed	node-write	2.0.0~6.0.1+~3.0.4+~2.0.0+~1.0.0+~2.0.1-1
+installed	node-write-file-atomic	4.0.2+~4.0.0-2
+installed	node-xtend	4.0.2-3
+installed	node-y18n	5.0.8+~5.0.0-3
+installed	node-yallist	4.0.0+~4.0.1-1
+installed	node-yargs	16.2.0+~16.0.4-7
+installed	node-yargs-parser	21.1.1+~21.0.0-4
+installed	nodejs	20.19.2+dfsg-1+deb13u2
+installed	novnc	1:1.6.0-2
+installed	npm	9.2.0~ds1-3
+installed	ocl-icd-libopencl1:amd64	2.3.3-1
+installed	openssh-client	1:10.0p1-7+deb13u4
+installed	openssh-server	1:10.0p1-7+deb13u4
+installed	openssh-sftp-server	1:10.0p1-7+deb13u4
+installed	openssl	3.5.7-1~deb13u2
+installed	openssl-provider-legacy	3.5.7-1~deb13u2
+installed	passwd	1:4.17.4-2
+installed	patch	2.8-2
+installed	perl	5.40.1-6
+installed	perl-base	5.40.1-6
+installed	perl-modules-5.40	5.40.1-6
+installed	picom	12.5-1
+installed	pinentry-curses	1.3.1-2
+installed	plank	0.11.89-6+b1
+installed	poppler-data	0.4.12-1
+installed	poppler-utils	25.03.0-5+deb13u4
+installed	procps	2:4.0.4-9
+installed	psmisc	23.7-2
+installed	python3	3.13.5-1
+installed	python3-bcrypt	4.2.0-2.1+b1
+installed	python3-certifi	2025.1.31+ds-1
+installed	python3-cffi-backend:amd64	1.17.1-3
+installed	python3-chardet	5.2.0+dfsg-2
+installed	python3-charset-normalizer	3.4.2-1
+installed	python3-cryptography	43.0.0-3+deb13u1
+installed	python3-deprecated	1.2.18-1
+installed	python3-idna	3.10-1+deb13u1
+installed	python3-jwcrypto	1.5.6-1.1~deb13u1
+installed	python3-minimal	3.13.5-1
+installed	python3-numpy	1:2.2.4+ds-1
+installed	python3-numpy-dev:amd64	1:2.2.4+ds-1
+installed	python3-packaging	25.0-1
+installed	python3-pip	25.1.1+dfsg-1
+installed	python3-pip-whl	25.1.1+dfsg-1
+installed	python3-redis	6.1.0-2
+installed	python3-requests	2.32.3+dfsg-5+deb13u1
+installed	python3-setuptools-whl	78.1.1-0.1
+installed	python3-typing-extensions	4.13.2-1
+installed	python3-urllib3	2.3.0-3+deb13u2
+installed	python3-venv	3.13.5-1
+installed	python3-websockify	0.12.0+dfsg1-4+b1
+installed	python3-wheel	0.46.1-2
+installed	python3-wrapt	1.15.0-4+b1
+installed	python3.13	3.13.5-2+deb13u4
+installed	python3.13-minimal	3.13.5-2+deb13u4
+installed	python3.13-venv	3.13.5-2+deb13u4
+installed	readline-common	8.2-6
+installed	ripgrep	14.1.1-1+b4
+installed	rpcsvc-proto	1.4.3-1
+installed	runit-helper	2.16.4
+installed	rustc	1.85.0+dfsg3-1
+installed	sed	4.9-2+deb13u1
+installed	sensible-utils	0.0.25
+installed	shared-mime-info	2.4-5+b2
+installed	sqv	1.3.0-3+b2
+installed	sudo	1.9.16p2-3+deb13u2
+installed	systemd	257.13-1~deb13u1
+installed	systemd-cryptsetup	257.13-1~deb13u1
+installed	systemd-sysv	257.13-1~deb13u1
+installed	systemd-timesyncd	257.13-1~deb13u1
+installed	sysvinit-utils	3.14-4
+installed	tar	1.35+dfsg-3.1
+installed	tcl	8.6.16
+installed	tcl8.6	8.6.16+dfsg-1
+installed	terser	5.38.0-1
+installed	thunar	4.20.2-1+deb13u1
+installed	thunar-data	4.20.2-1+deb13u1
+installed	tk	8.6.16
+installed	tk8.6	8.6.16-1
+installed	tmux	3.5a-3
+installed	tzdata	2026b-0+deb13u1
+installed	ucf	3.0052
+installed	unzip	6.0-29+deb13u1
+installed	util-linux	2.41.5-0+deb13u1
+installed	webpack	5.97.1+dfsg1+~cs11.18.27-3
+installed	websockify	0.12.0+dfsg1-4+b1
+installed	wget	1.25.0-2
+installed	x11-common	1:7.7+24+deb13u1
+installed	x11-utils	7.7+7
+installed	x11-xkb-utils	7.7+9
+installed	x11-xserver-utils	7.7+11
+installed	x11vnc	0.9.17-1
+installed	xauth	1:1.1.2-1.1
+installed	xdg-utils	1.2.1-2
+installed	xdotool	1:3.20160805.1-5.1
+installed	xfce4-terminal	1.1.4-1
+installed	xfconf	4.20.0-1
+installed	xfonts-encodings	1:1.0.4-2.2
+installed	xfonts-utils	1:7.7+7
+installed	xfwm4	4.20.0-1
+installed	xkb-data	2.42-1
+installed	xserver-common	2:21.1.16-1.3+deb13u3
+installed	xvfb	2:21.1.16-1.3+deb13u3
+installed	zlib1g:amd64	1:1.3.dfsg+really1.3.1-1+b1
+
+--- Additional tool versions ---
+/exec-daemon/node --version : v22.14.0
+uv --version : uv 0.12.10 (x86_64-unknown-linux-gnu)
+go version : go version go1.24.4 linux/amd64
+rustc --version : rustc 1.85.0 (4d91de4e4 2025-02-17) (built from a source tarball)
+cargo --version : cargo 1.85.0 (d73d2caf9 2024-12-31)
+google-chrome --version : Google Chrome 151.0.7922.169
+
+SSH STDERR:
+
+Exit status: 0
+
+===== SANITIZED STARTUP AND SERVICE SOURCE STRUCTURE =====
+2026-09-08T01:21:16.353208+00:00
+
+--- /usr/local/bin/start-sand-box ---
+bytes: 18884 sha256: 738d3058f47149622ffca6faafcdca37496466317d7e3ae4a81762880c464f57
+initial prose comments: ["# >>> box port table (from sand/src/shared/box/box-contract.ts; regenerate: pnpm --filter sand run gen:box-ports) >>>", "# <<< box port table <<<", "*) return 1 ;;"]
+function identifiers: ["emit_boot_stage", "emit_boot_failure", "sand_user_non_root", "reassert_cli_config_owner", "export_npm_prefix_without_seeded_npmrc", "clear_stale_root_box_store_lock", "ensure_real_dir", "start_in_box_supervisor", "run_box_doctor", "start_managed_converge", "cli_auth_boot", "start_desktop", "sand_exit_watch_enabled"]
+environment variable names only: ["AS_BOX", "BOX_BOOT_LOGS", "DISPLAY", "EGRESS_TUNNEL_SUPERVISOR_PID", "EXEC_DAEMON_SUPERVISOR_PID", "FORK_ROUTER_ARGS", "FORK_ROUTER_PID", "FORK_WEBSOCKIFY_ARGS", "FORK_WEBSOCKIFY_PID", "NOVNC_FORKS_LOG", "NOVNC_HEARTBEAT_S", "NOVNC_TOKEN_DIR", "PATH", "SAND_BOX_BOOT_ID", "SAND_BOX_BOOT_STARTED_AT_MS", "SAND_BOX_CGROUPS_LIB", "SAND_BOX_FORK_EXEC_BASE", "SAND_BOX_LAUNCHER_HELPERS", "SAND_BOX_PORT_EGRESS_CONNECT_PROXY", "SAND_BOX_PORT_EGRESS_TUNNEL_WS", "SAND_BOX_PORT_FORK_NOVNC", "SAND_BOX_PORT_PRIMARY_EXEC_DAEMON", "SAND_BOX_PORT_WINDOW_ROUTER", "SAND_BOX_SCRIPT_SYNC_DISABLED", "SAND_BOX_STORE_COPY_IN", "SAND_BOX_TELEMETRY_LOG", "SAND_CGROUP_INTERACTIVE_NAME", "SAND_DESKTOP_DIR", "SAND_DESKTOP_SUPERVISE_DIR", "SAND_DEV_LOCAL_BACKEND_PROXY_PORTS", "SAND_EGRESS_TUNNEL_ENABLED", "SAND_EGRESS_TUNNEL_PROXY_ADDR", "SAND_EGRESS_TUNNEL_WS_PORT", "SAND_EXIT_WATCH_DISABLED", "SAND_NOVNC_HEARTBEAT_S", "SAND_SUPERVISOR_ENABLED", "SAND_SUPERVISOR_SUPERVISE_PID", "SAND_UA_GOVERNOR_PID", "SAND_USER_NON_ROOT", "SAND_WEB_BOT_AUTH_PID", "WINDOW_TOKEN_DIR"]
+known health route literals: []
+operational keyword counts: {"proxy": 13, "exec-daemon": 18, "websockify": 9}
+referenced executable script paths: ["/exec-daemon/node", "/usr/local/bin/box-bounded-log", "/usr/local/bin/box-cgroups.sh", "/usr/local/bin/box-chrome", "/usr/local/bin/box-doctor", "/usr/local/bin/ensure-machine-id", "/usr/local/bin/persist-cli-auth", "/usr/local/bin/sand-cookie-persist.mjs", "/usr/local/bin/sand-desktop-supervise.sh", "/usr/local/bin/sand-exit-watch", "/usr/local/bin/sand-session-sync.mjs", "/usr/local/bin/sand-supervisor.mjs", "/usr/local/bin/sand-team-converge.mjs", "/usr/local/bin/sand-ua-governor.mjs", "/usr/local/bin/sand-web-bot-auth.mjs", "/usr/local/bin/sand-window-router.mjs", "/usr/local/bin/start-desktop.sh", "/usr/local/bin/start-egress-tunnel", "/usr/local/bin/start-exec-daemon", "/usr/local/bin/supervise-egress-tunnel", "/usr/local/bin/supervise-exec-daemon", "/usr/local/bin/supervise-sand-supervisor"]
+
+--- /usr/local/bin/sand-exit-watch ---
+bytes: 8993 sha256: c485182acf9290e4dd1903ff5c20ea4c1530308b2947f7219645811499f82965
+initial prose comments: ["# prctl(2) option 15 is PR_SET_NAME and 36 is PR_SET_CHILD_SUBREAPER:", "# /proc/<pid>/stat still exists for an unreaped zombie and writes comm (field", "# 2) in parentheses unescaped, so it is read before waitpid and up to the"]
+function identifiers: []
+environment variable names only: []
+known health route literals: []
+operational keyword counts: {"exec-daemon": 1, "websockify": 1, "Xvfb": 1, "x11vnc": 1}
+referenced executable script paths: []
+
+--- /usr/local/bin/start-exec-daemon ---
+bytes: 550 sha256: 83a33dc4d8b4387788b4ecb1b448cbaa82d0f96710cc05548b02a46cdeb38bae
+initial prose comments: []
+function identifiers: []
+environment variable names only: []
+known health route literals: []
+operational keyword counts: {"exec-daemon": 3}
+referenced executable script paths: ["/exec-daemon/exec-daemon", "/exec-daemon/rg"]
+
+--- /usr/local/bin/supervise-exec-daemon ---
+bytes: 5978 sha256: bad16edde98cc4d5e6fb1fb46380a317d6eafa1c517a2e77ca417a86679feb5c
+initial prose comments: []
+function identifiers: ["emit_daemon_boot_stage", "emit_restart_event", "stop_supervisor", "port_is_listening", "has_exec_daemon_bundle_args", "stale_exec_daemon_listeners", "reap_stale_port_owner", "stop_unhealthy_child"]
+environment variable names only: ["SAND_BOX_BOOT_STARTED_AT_MS", "SAND_BOX_CGROUPS_LIB", "SAND_BOX_TELEMETRY_LOG", "SAND_CGROUP_AGENT_NAME"]
+known health route literals: []
+operational keyword counts: {"restart": 32, "exec-daemon": 11, "health": 4}
+referenced executable script paths: ["/exec-daemon/index.js", "/exec-daemon/node", "/usr/local/bin/box-cgroups.sh"]
+
+--- /usr/local/bin/supervise-sand-supervisor ---
+bytes: 7008 sha256: 78fc081df2c54881da8073cd9d5f9923334732b76b291a39e82b1f73dc29611e
+initial prose comments: []
+function identifiers: ["emit_restart_event", "stop_supervisor", "start_ticker", "stop_ticker", "status_mtime_s", "stop_unhealthy_child", "kill_supervisor_group_not_host", "consume_restart_intent"]
+environment variable names only: ["EPOCHREALTIME", "SAND_BOX_TELEMETRY_LOG", "SAND_SUPERVISOR_CHECK_INTERVAL_S", "SAND_SUPERVISOR_INTENT_READY_INTERVAL_S", "SAND_SUPERVISOR_MAX_QUICK_FAILURES", "SAND_SUPERVISOR_RESTART_INTENT", "SAND_SUPERVISOR_STALE_S", "SAND_SUPERVISOR_STARTUP_GRACE_S", "SAND_SUPERVISOR_STOP_GRACE_S"]
+known health route literals: []
+operational keyword counts: {"restart": 49, "backoff": 6, "health": 3}
+referenced executable script paths: []
+
+--- /usr/local/bin/sand-supervisor.mjs ---
+bytes: 116582 sha256: a387f70a2134addc6a1f576b9a50589a2680d047daed15ecf7d102afc8f741c8
+initial prose comments: []
+function identifiers: ["numberFromEnv", "parseCommand", "verifyStagedBundleDigest", "parseGatewayEndpoint", "isSafeStagedBundlePath", "normalizeUpgradeMode", "commandRequiresIdle", "decideUpgradeReadiness", "shouldForceHostUpgrade", "decideUpgradeAction", "isSandBoxAutoUpdateOptedOut", "shouldBootFetchHostBundle", "decidePostSwapAction", "bundleSwapTargetsClearOfDataRoot", "pathsOverlap", "pathSegments", "normalizeHostCrashExitSignal", "classifyHostProcessExit", "classifyHostCrashMarkerWriteError", "decideHostAction", "nextBackoffMs", "isDesktopSupervisionEnabled", "isHostSupervisionEnabled", "parseDesktopComponentDescriptor", "countRestartsInWindow", "decideDesktopComponentAction", "shouldDisableCompositor", "classifyDesktopDownReason", "desktopStateSignature", "buildDesktopHealthSnapshot", "isPidAlive", "createRfbHandshake", "probeRfbTcp", "probeRfbWebSocket", "probeForkRfbChain", "parseForkRfbTokenRecord", "listenerInspectionUnavailable", "stableListenerInspection", "inspectTcpPortListener", "isPidComm", "isExpectedForkRfbProcess", "isDockPid", "findCompositorReapTargets", "readProcStartTime", "parseCgroupCpuStat"]
+environment variable names only: ["AGENT_DATA_ROOT", "CGROUP_INTERACTIVE", "HOST_DIR", "HOST_ENTRY", "JSON", "MAX_DEFER_MS", "POST_SWAP_MAX_QUICK_EXITS", "POST_SWAP_MAX_RESTORE_ATTEMPTS", "SAND_BOX_TELEMETRY_LOG", "SAND_CGROUP_ROOT", "SUPERVISOR_DIR", "TICK_MS"]
+known health route literals: ["/health"]
+operational keyword counts: {"spawn": 5, "restart": 92, "backoff": 36, "exec-daemon": 3, "websockify": 20, "Xvfb": 1, "x11vnc": 25, "health": 40}
+referenced executable script paths: ["/usr/local/bin/box-bounded-log"]
+
+--- /usr/local/bin/sand-window-router.mjs ---
+bytes: 3666 sha256: cf9a9004b30f64a984f8b7c1955b29c42935f1e0c1bbb4f10db3c7d62c67a2a8
+initial prose comments: ["// >>> box port table (from sand/src/shared/box/box-contract.ts; regenerate: pnpm --filter sand run gen:box-ports) >>>", "// <<< box port table <<<"]
+function identifiers: ["firstHeader", "parseDisplayNumber", "tokensMatch", "decideWindowRoute", "readBoundToken", "main"]
+environment variable names only: ["EXEC_BASE", "LISTEN_PORT", "PRIMARY_PORT", "WINDOW_TOKEN_DIR"]
+known health route literals: []
+operational keyword counts: {"listen(": 1, "createServer": 1}
+referenced executable script paths: []
+
+--- /usr/local/bin/sand-session-sync.mjs ---
+bytes: 17291 sha256: 6bbf8e630cc3c84624fcc274d0d7e6e84cc0043a1f8431fee7899f546fd49083
+initial prose comments: []
+function identifiers: ["makeStorageKey", "splitStorageKey", "mergeStorage", "selectStorageSeed", "mergeCookies", "selectCookieSeed", "readBusyMonitorPorts", "log", "main"]
+environment variable names only: ["RELOAD_MAX_PER_WINDOW", "RELOAD_WINDOW_MS", "SAND_SESSION_SYNC_INTERVAL_MS", "STORAGE_SEP"]
+known health route literals: []
+operational keyword counts: {}
+referenced executable script paths: []
+
+--- /usr/local/bin/sand-web-bot-auth.mjs ---
+bytes: 25740 sha256: 216062560e0e6a18fc897e168cc81dcbe28b0c3d8981b0ff68df8a09e9569684
+initial prose comments: []
+function identifiers: ["log", "logUnlessTargetGone", "classifyWebBotAuthFailure", "emitWebBotAuthFailure", "isWebBotAuthEnabled", "isTunnelClientAttached", "watchWebBotAuthMarkers", "writeSignedCacheFile", "lookupWebBotAuthSignedEntry", "webBotAuthFetchEnablePatterns", "isWebBotAuthSigningCandidate", "parseSignatureHeaders", "parseCacheTtlMs", "parseRetryAfterMs", "parseJwtExpiryMs", "fetchWithTimeout", "unexpiredAccessToken", "readSigningResponseBody", "resolveWebBotAuthConfig", "mergeRequestHeaders", "continueWebBotAuthRequest", "configureWebBotAuthBrowser", "discoverSigningPorts", "main"]
+environment variable names only: ["JSON", "SAND_BOX_TELEMETRY_LOG"]
+known health route literals: []
+operational keyword counts: {"backoff": 11}
+referenced executable script paths: []
+
+--- /usr/local/bin/sand-ua-governor.mjs ---
+bytes: 9071 sha256: 9c89f3da8ff14ca7df2fe35c420ebd6f2b5ec3256f4a4cf654b5afc84154ebd3
+initial prose comments: []
+function identifiers: ["errorClass", "reportOnce", "grokAgentUaToken", "chromeMajorOf", "userAgentFromTemplate", "liveChromeProduct", "desktopUserAgent", "desktopUserAgentOverride", "applyDesktopUaToTarget", "resolveOsSpoofProfileName", "osSpoofUserAgentOverride", "spoofDocumentScriptMap", "removeSpoofDocumentScript", "applyOsSpoofToTarget", "applyUaTreatmentToTarget", "configureUaGovernorBrowser", "reapplyUaTreatment", "main"]
+environment variable names only: ["SAND_BROWSER_FINGERPRINT_SPOOF"]
+known health route literals: []
+operational keyword counts: {}
+referenced executable script paths: []
+
+--- /usr/local/bin/sand-cookie-persist.mjs ---
+bytes: 11504 sha256: 7ae1c3cb9c9d247bc0b45402e9bb8c77d897058269b8e2b8d5212f61385e39b1
+initial prose comments: []
+function identifiers: ["log", "emitTelemetry", "sleep", "dropToBoxUser", "lockOwnerPath", "readLockOwner", "lockOwnerPid", "processIsAlive", "removeLockDir", "withSeedLock", "isCookiePersistEnabled", "serializeSeed", "parseSeed", "cookiesDigest", "selectMissingCookies", "classifyRestoreOutcome", "readFirstLiveJar", "captureToSeed", "writeSeedFile", "restoreFromSeed", "isAnyChromeUp", "main"]
+environment variable names only: ["CAPTURE_INTERVAL_MS", "JSON", "SAND_BOX_TELEMETRY_LOG", "SAND_COOKIE_PERSIST_INTERVAL_MS", "SAND_COOKIE_SEED_PATH", "SEED_PATH"]
+known health route literals: []
+operational keyword counts: {}
+referenced executable script paths: []
+
+--- /usr/local/bin/start-desktop.sh ---
+bytes: 18722 sha256: dfe3a9d7de0347ed89fcb6ccf8a2d5815df27b94363d7dc5c48db35e20e190a8
+initial prose comments: ["# >>> box port table (from sand/src/shared/box/box-contract.ts; regenerate: pnpm --filter sand run gen:box-ports) >>>", "# <<< box port table <<<"]
+function identifiers: ["chrome_ready", "launch_chrome", "wait_for_chrome", "write_dconf_setting", "configure_plank_dock", "start_dock_once"]
+environment variable names only: ["BOX_DBUS_ADDRESS", "BOX_DISPLAY_NUM", "BOX_PRIMARY_XDG", "BOX_USER_XDG_DIR", "CHROME_DBUS_ADDRESS", "CHROME_DEBUG_PORT", "CHROME_ENV", "CHROME_FLAGS", "CHROME_LOG", "CHROME_PROFILE", "CHROME_USER_DATA_DIR", "CHROME_XDG", "DBUS_SESSION_BUS_ADDRESS", "DISPLAY", "DISPLAY_READY", "HOME", "NOVNC_HEARTBEAT_S", "NOVNC_PORT", "PICOM_ARGS", "SAND_BOX_CGROUPS_LIB", "SAND_BOX_NOVNC_TOKEN_DIR", "SAND_BOX_PORT_HOST_GATEWAY", "SAND_CGROUP_INTERACTIVE_NAME", "SAND_CHROME_LEGACY_GPU", "SAND_CHROME_PREPARE", "SAND_CHROME_REMOTE_DEBUG_PORT", "SAND_CHROME_TZ", "SAND_CHROME_TZ_HELPER", "SAND_CHROME_UA_DISABLED_FILE", "SAND_CHROME_UA_MAJOR", "SAND_CHROME_UA_OWNER", "SAND_CHROME_UA_OWNER_FILE", "SAND_CHROME_UA_TOKEN", "SAND_CHROME_USER_TZ", "SAND_DESKTOP_GROUP", "SAND_DESKTOP_NUM", "SAND_EGRESS_PROXY_ADDR", "SAND_EGRESS_PROXY_FILE", "SAND_ENABLE_SPOOF_GPU", "SAND_ENABLE_SPOOF_GPU_FILE", "SAND_GATEWAY_TOKEN", "SAND_HOST_PORT", "SAND_INCOGNITO_SEED", "SAND_NOVNC_HEARTBEAT_S", "SAND_NOVNC_PORT", "SAND_NOVNC_TOKEN", "SAND_NOVNC_TOKEN_DIR", "SAND_VNC_PORT", "SAND_WEBAUTHN_CRED_FILE", "SAND_WEBAUTHN_FILE_TOKEN", "SAND_WEBAUTHN_GATEWAY_PORT", "SAND_WEBAUTHN_GATEWAY_TOKEN", "SAND_WEBAUTHN_ID_FILE", "SAND_WEBAUTHN_MARKER", "SAND_XDG_RUNTIME_DIR", "SCREEN_HEIGHT", "SCREEN_WIDTH", "TOKEN_DIR", "VNC_PORT", "WEBSOCKIFY_ARGS", "X11VNC_ARGS", "XDG_RUNTIME_DIR"]
+known health route literals: []
+operational keyword counts: {"restart": 1, "proxy": 12, "websockify": 6, "Xvfb": 7, "x11vnc": 9, "flock": 4}
+referenced executable script paths: ["/usr/local/bin/box-bounded-log", "/usr/local/bin/box-cgroups.sh", "/usr/local/bin/box-chrome", "/usr/local/bin/box-chrome-policy", "/usr/local/bin/box-picom", "/usr/local/bin/box-plank", "/usr/local/bin/box-x11vnc", "/usr/local/bin/box-xfwm4", "/usr/local/bin/box-xvfb", "/usr/local/bin/ensure-machine-id", "/usr/local/bin/link-chrome-session", "/usr/local/bin/sand-desktop-supervise.sh", "/usr/local/bin/sand-wallpaper"]
+
+--- /usr/local/bin/sand-desktop-supervise.sh ---
+bytes: 2436 sha256: dfdc6ef0801f61c885f8bfee48ea44df76f90d7ebbdfc4522acefa8574dffd0b
+initial prose comments: ["# >>> desktop supervision predicate (from packages/constants/src/sand-supervisor.ts; regenerate: pnpm --filter sand run gen:box-ports) >>>", "*) return 0 ;;", "# <<< desktop supervision predicate <<<"]
+function identifiers: ["sand_desktop_supervision_enabled", "sand_desktop_register", "sand_desktop_unregister_group"]
+environment variable names only: ["DBUS_SESSION_BUS_ADDRESS", "DISPLAY", "HOME", "SAND_DESKTOP_DIR", "SAND_DESKTOP_SUPERVISION_DISABLED", "XDG_RUNTIME_DIR"]
+known health route literals: []
+operational keyword counts: {}
+referenced executable script paths: []
+
+--- /usr/local/bin/start-window ---
+bytes: 3100 sha256: 1b02a3796ace84edac3d12d653701020f1f4d33fc795e64468b8788f490d78af
+initial prose comments: ["# >>> box port table (from sand/src/shared/box/box-contract.ts; regenerate: pnpm --filter sand run gen:box-ports) >>>", "# <<< box port table <<<"]
+function identifiers: ["bind_owner_token", "display_alive", "daemon_alive"]
+environment variable names only: ["DISP", "DISPLAY_NUM", "EXEC_DAEMON_PORT", "LOG_DIR", "NOVNC_TOKEN_DIR", "OWNER_TOKEN", "PTY_PORT", "VNC_PORT", "WINDOW_TOKEN_DIR", "WINDOW_UNAVAILABLE_EXIT_CODE"]
+known health route literals: []
+operational keyword counts: {"exec-daemon": 5, "websockify": 1}
+referenced executable script paths: ["/exec-daemon/exec-daemon", "/exec-daemon/rg", "/usr/local/bin/box-bounded-log", "/usr/local/bin/start-desktop.sh"]
+
+--- /usr/local/bin/stop-window ---
+bytes: 2738 sha256: 3f3a0d07cdecce86ce6e7b801e2da6a6d26ecf2fed051e5b331992b5fa41bc60
+initial prose comments: ["# >>> box port table (from sand/src/shared/box/box-contract.ts; regenerate: pnpm --filter sand run gen:box-ports) >>>", "# <<< box port table <<<", "*x11vnc*) printf '%s\\n' \"${pid}\" ;;"]
+function identifiers: ["pids_on_port", "kill_pid", "x11vnc_pids_on_port", "reap_x11vnc_on_port"]
+environment variable names only: ["DISPLAY_NUM", "EXEC_DAEMON_PORT", "LOCK", "NOVNC_TOKEN_DIR", "VNC_PORT", "WINDOW_TOKEN_DIR"]
+known health route literals: []
+operational keyword counts: {"x11vnc": 8}
+referenced executable script paths: ["/usr/local/bin/sand-desktop-supervise.sh"]
+
+--- /usr/local/bin/box-bounded-log.mjs ---
+bytes: 3946 sha256: 66282ebd988a2e1045d3f8020cfcea822937eae48968a392fc50f535aa659f5d
+initial prose comments: []
+function identifiers: ["unlinkIfPresent", "removeUnsafeOrOversized", "append", "snapshot", "prepareLogs", "writeSnapshot", "startFlush"]
+environment variable names only: ["SAND_BOX_BOUNDED_LOG_MAX_BYTES"]
+known health route literals: []
+operational keyword counts: {"setInterval": 1, "exec-daemon": 1, "MAX_BYTES": 4, "LOG_MAX": 1}
+referenced executable script paths: ["/exec-daemon/node"]
+
+--- /usr/local/bin/box-doctor ---
+bytes: 8724 sha256: 56b6b5238f42361e2f02767f6cc903820552879b018d77266c5f0b3fedf11b99
+initial prose comments: ["# >>> box port table (from sand/src/shared/box/box-contract.ts; regenerate: pnpm --filter sand run gen:box-ports) >>>", "# <<< box port table <<<", "# Chromium copies --remote-debugging-port into renderer command lines, which", "# browser main (kSwitchNames in"]
+function identifiers: ["pass", "fail", "check_machine_id", "check_chrome", "probe_chrome_browser_pids", "probe_process_fd_usage", "check_chrome_fds", "check_egress", "check_clock", "check_dbus", "probe_display_ready", "probe_tcp_listening", "probe_process_running", "retry_probe", "check_xvfb", "check_x11vnc", "check_novnc", "check_compositor", "run_all_checks"]
+environment variable names only: ["BASH_SOURCE", "CHROME_FD_FAIL_PCT", "DBUS_SESSION_BUS_ADDRESS", "DESKTOP_DISPLAY", "DESKTOP_PROBE_ATTEMPTS", "DESKTOP_PROBE_DELAY_S", "FAILED_CHECKS", "FAIL_COUNT", "SAND_BOX_NOVNC_TOKEN_DIR", "SAND_BOX_PORT_FORK_NOVNC", "SAND_BOX_PORT_PRIMARY_NOVNC", "SAND_BOX_PRIMARY_VNC_PORT", "SAND_DOCTOR_DISPLAY", "SAND_NOVNC_TOKEN_DIR", "SKEW_THRESHOLD_S", "TOTAL"]
+known health route literals: []
+operational keyword counts: {"websockify": 4, "Xvfb": 4, "x11vnc": 4}
+referenced executable script paths: []
+
+--- /usr/local/bin/start-egress-tunnel ---
+bytes: 89 sha256: 84ec1a9b95c5532087cdc098a66808b6c5902c587f4e6b1d5caa6522adb53310
+initial prose comments: []
+function identifiers: []
+environment variable names only: []
+known health route literals: []
+operational keyword counts: {}
+referenced executable script paths: ["/usr/local/bin/sand-egress-tunnel"]
+
+--- /usr/local/bin/supervise-egress-tunnel ---
+bytes: 3934 sha256: b57c327c606dee5cf62848a30adf6946594d952849f0d0f5ce6fd6f82dd45c8a
+initial prose comments: []
+function identifiers: ["emit_tunnel_event", "stop_supervisor", "port_is_listening", "listener_pids", "reap_stale_port_owner", "backoff"]
+environment variable names only: ["SAND_BOX_TELEMETRY_LOG"]
+known health route literals: []
+operational keyword counts: {"restart": 21, "backoff": 3}
+referenced executable script paths: []
+
+--- /usr/local/bin/box-cgroups.sh ---
+bytes: 5056 sha256: 4ded24ab9026ae5abd86fb18923b35ea5da4923a9ca5a7de5b925f97f320be4e
+initial prose comments: ["*) return 0 ;;", "# A cgroup created under a threaded cgroup is \"domain invalid\": it cannot be", "# populated or have controllers enabled until its cgroup.type is written", "# \"threaded\", and operations on it fail with EOPNOTSUPP", "# skipped when the box's own cgroup is threaded (the dev-box case).", "*) return 1 ;;", "# Non-root cgroups can enable a domain controller in cgroup.subtree_control", "# only while they hold no processes of their own", "# and the box's cgroup, shown as \"/\" inside its cgroup namespace, is the cgroupns", "# so sand_cgroup_migrate_root_procs moves its processes to a leaf before +cpu is written.", "# cgroup.procs is a live listing whose PIDs are unordered and may repeat when a", "# so the list is snapshotted before the migration writes."]
+function identifiers: ["sand_cgroups_enabled", "sand_cgroup_log", "sand_cgroup_write", "sand_cgroup_v2_cpu_available", "sand_cgroup_is_threaded", "sand_cgroup_migrate_root_procs", "sand_cgroup_apply_weight", "sand_cgroup_setup", "sand_cgroup_place", "sand_cgroup_join"]
+environment variable names only: ["SAND_BOX_CGROUPS_DISABLED", "SAND_CGROUP_AGENT_NAME", "SAND_CGROUP_AGENT_WEIGHT", "SAND_CGROUP_INTERACTIVE_NAME", "SAND_CGROUP_INTERACTIVE_WEIGHT", "SAND_CGROUP_ROOT"]
+known health route literals: []
+operational keyword counts: {}
+referenced executable script paths: []
+
+--- Sand host instructions and manifest metadata ---
+/home/box/sand-host/package.json {"type": "commonjs"}
+dependency names only: []
+
+--- Runtime / log metadata (no contents) ---
+/run/sand : managed-setup-status.json
+/run/host-services : ssh-auth.sock
+/var/log/runit : ssh
+/etc/sv/ssh : .meta, finish, log, run
+/etc/runit/runsvdir : default
+/home/box/sand-host : agent-isolation, box-scripts, diff-patch-worker.js, diff-worker.js, extensions, host-main.cjs, node_modules, package.json, pdf-worker.js, pdf.worker.mjs, sand-eval-runner.cjs, unified-diff-worker.js, version
+/tmp/sand-box-telemetry.log size= 538 mode= -rw-rw-rw- mtime_utc= 2026-09-08T00:20:20.664855+00:00
+/tmp/sand-cookie-persist.log size= 152 mode= -rw-rw-rw- mtime_utc= 2026-09-08T00:20:20.664855+00:00
+/tmp/sand-copy-in.log size= 237 mode= -rw-r--r-- mtime_utc= 2026-09-07T17:40:55.699055+00:00
+/tmp/sand-host.log size= 60064 mode= -rw-r--r-- mtime_utc= 2026-09-08T01:20:08.511729+00:00
+/tmp/sand-managed-converge.log size= 279 mode= -rw------- mtime_utc= 2026-09-07T17:41:25.003300+00:00
+/tmp/sand-session-sync.log size= 193 mode= -rw-rw-rw- mtime_utc= 2026-09-08T00:43:46.943467+00:00
+/tmp/sand-supervisor-supervise.log size= 140 mode= -rw-r--r-- mtime_utc= 2026-09-07T17:41:00.891656+00:00
+/tmp/sand-supervisor.log size= 67208 mode= -rw-rw-rw- mtime_utc= 2026-09-08T01:20:19.467750+00:00
+/tmp/sand-window-router.log size= 99 mode= -rw-rw-rw- mtime_utc= 2026-09-07T17:40:39.119090+00:00
+/tmp/exec-daemon.log size= 4924 mode= -rw-rw-rw- mtime_utc= 2026-09-08T00:25:02.397367+00:00
+/tmp/sand-window-2/exec-daemon.log size= 22811 mode= -rw-r--r-- mtime_utc= 2026-09-08T01:02:52.445650+00:00
+/tmp/sand-window-3/exec-daemon.log size= 10434 mode= -rw-r--r-- mtime_utc= 2026-09-08T00:47:14.559861+00:00
+/tmp/sand-window-4/exec-daemon.log size= 4081 mode= -rw-r--r-- mtime_utc= 2026-09-08T00:24:57.213357+00:00
+
+--- Systemd / cron activity checks ---
+systemctl is-system-running exit= 1 stdout= offline stderr= 
+crontab -l FileNotFoundError
+
+SSH STDERR:
+
+Exit status: 0
+
+===== FINAL SERVICE HEALTH AND SOURCE VERIFICATION =====
+2026-09-08T01:22:27.551096+00:00
+
+--- Actual Chrome main process flags (allowlist; no profile paths or URLs) ---
+{"pid": 125934, "flags_present": [], "remote_debugging_port": []}
+{"pid": 125964, "flags_present": [], "remote_debugging_port": []}
+{"pid": 125965, "flags_present": [], "remote_debugging_port": []}
+{"pid": 125990, "flags_present": [], "remote_debugging_port": []}
+{"pid": 125992, "flags_present": [], "remote_debugging_port": []}
+{"pid": 126105, "flags_present": [], "remote_debugging_port": []}
+{"pid": 126361, "flags_present": [], "remote_debugging_port": []}
+{"pid": 126383, "flags_present": [], "remote_debugging_port": []}
+{"pid": 126470, "flags_present": [], "remote_debugging_port": []}
+
+--- Static operational reference headings (not executed as instructions) ---
+/home/box/reference/app-ui.md bytes 3102
+headings: ["# The Grok Bot app UI (real paths \u2014 never invent others)"]
+referenced service log paths: []
+/home/box/reference/debugging-the-box.md bytes 4180
+headings: ["# Debugging the box"]
+referenced service log paths: []
+
+--- Router decision source excerpt: all string literals redacted except protocol/header identifiers ---
+export function decideWindowRoute({
+  displayHeader,
+  ownerHeader,
+  primaryPort,
+  execBase,
+  lookupBoundToken,
+}
+
+--- Bounded log numeric defaults: source statements only ---
+const DEFAULT_MAX_BYTES = 1024 * 1024;
+const maxBytes =
+
+--- GET /health status only; no authentication supplied or response content retained ---
+127.0.0.1:1337/health HTTP 404 content-type= [absent]
+127.0.0.1:1339/health HTTP 404 content-type= [absent]
+127.0.0.1:1340/health HTTP 200 content-type= application/json
+127.0.0.1:14002/health HTTP 404 content-type= [absent]
+127.0.0.1:14003/health HTTP 404 content-type= [absent]
+127.0.0.1:14004/health HTTP 404 content-type= [absent]
+END 2026-09-08T01:22:27.577344+00:00
+
+SSH STDERR:
+
+Exit status: 0
+
+===== CHROME ARGUMENT VISIBILITY AND ROUTER CORRECTION =====
+2026-09-08T01:23:10.621962+00:00
+Chrome PID 125934 proc cmdline byte count= 350 argument_count= 1 contains_no_sandbox_flag= True
+Inspection limit: if arguments are rewritten/hidden, absent flags here do not establish secure sandbox configuration.
+Corrected complete router decision function (literal values omitted):
+export function decideWindowRoute({
+  displayHeader,
+  ownerHeader,
+  primaryPort,
+  execBase,
+  lookupBoundToken,
+}) {
+  const display = parseDisplayNumber(displayHeader);
+  if (display <= 1) return { port: primaryPort };
+  const owner = firstHeader(ownerHeader);
+  const bound = lookupBoundToken(display);
+  if (bound === undefined || !tokensMatch(owner, bound)) {
+    return {
+      reject: {
+        status: 403,
+        message: `sand-window-router: forbidden (display :${display} owner-token mismatch)`,
+      },
+    };
+  }
+  return { port: execBase + display };
+}
+
+No source imports or application code executed.
+
+SSH STDERR:
+
+Exit status: 0

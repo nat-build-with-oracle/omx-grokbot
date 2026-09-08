@@ -1,0 +1,30 @@
+Read-only QA: local DNS and SSH configuration provenance
+2026-09-08T01:34:21.955151+00:00
+
+$ ssh -vv -G box@grokbot1
+Only configuration file-read/include lines retained; no keys or full config contents.
+debug1: Reading configuration data /Users/nat/.ssh/config
+debug1: /Users/nat/.ssh/config line 1: Applying options for *
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: Reading configuration data /etc/ssh/ssh_config.d/100-macos.conf
+debug1: /etc/ssh/ssh_config.d/100-macos.conf line 1: Applying options for *
+debug1: Reading configuration data /etc/ssh/crypto.conf
+debug1: Reading configuration data /etc/ssh/ssh_config.d/99-netbird.conf
+debug1: /etc/ssh/ssh_config line 57: Applying options for *
+exit=0
+
+$ scutil --dns
+Only oracle.netbird resolver blocks and selected resolver fields retained; other domains omitted.
+resolver #1
+  search domain[0] : oracle.netbird
+  nameserver[0] : 1.1.1.1
+  flags    : Request A records, Request AAAA records
+  reach    : 0x00000002 (Reachable)
+resolver #3
+  domain   : oracle.netbird
+  nameserver[0] : 100.97.255.254
+  flags    : Supplemental, Request A records, Request AAAA records
+  reach    : 0x00000002 (Reachable)
+  order    : 104600
+exit=0; selected_blocks=2
+End=2026-09-08T01:34:23.393098+00:00

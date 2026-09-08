@@ -1,0 +1,415 @@
+
+===== Capture and identity =====
+
+$ date -u +%FT%TZ
+2026-09-08T01:17:42Z
+
+$ hostname
+cursor
+
+$ id
+uid=1000(box) gid=1000(box) groups=1000(box)
+
+$ uname -a
+Linux cursor 6.12.94+ #1 SMP PREEMPT_DYNAMIC Tue Sep  1 16:19:40 UTC 2026 x86_64 GNU/Linux
+
+$ cat /etc/os-release
+PRETTY_NAME="Debian GNU/Linux 13 (trixie)"
+NAME="Debian GNU/Linux"
+VERSION_ID="13"
+VERSION="13 (trixie)"
+VERSION_CODENAME=trixie
+DEBIAN_VERSION_FULL=13.6
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+
+$ uptime
+ 01:17:42 up  7:39,  0 users,  load average: 0.11, 0.12, 0.11
+
+$ ps -p 1 -o pid\,ppid\,user\,comm
+    PID    PPID USER     COMMAND
+      1       0 root     tini
+
+$ readlink /proc/1/ns/pid /proc/self/ns/pid /proc/1/ns/mnt /proc/self/ns/mnt
+pid:[4026532211]
+mnt:[4026532208]
+[exit=1]
+
+$ cat /proc/self/cgroup
+0::/agent
+
+$ ls -ld /.dockerenv /run/.containerenv
+ls: cannot access '/run/.containerenv': No such file or directory
+-rwxr-xr-x 1 root root 0 Sep  7 17:40 /.dockerenv
+[exit=2]
+
+===== CPU, memory and effective cgroup controls =====
+
+$ lscpu
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           46 bits physical, 57 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  8
+On-line CPU(s) list:                     0-7
+Vendor ID:                               GenuineIntel
+Model name:                              Intel(R) Xeon(R) Processor
+CPU family:                              6
+Model:                                   207
+Thread(s) per core:                      1
+Core(s) per socket:                      8
+Socket(s):                               1
+Stepping:                                2
+BogoMIPS:                                4800.00
+Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc pebs bts rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq dtes64 vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves avx_vnni avx512_bf16 wbnoinvd arat vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid bus_lock_detect cldemote movdiri movdir64b fsrm md_clear serialize tsxldtrk amx_bf16 avx512_fp16 amx_tile amx_int8 flush_l1d arch_capabilities
+Virtualization:                          VT-x
+Hypervisor vendor:                       KVM
+Virtualization type:                     full
+L1d cache:                               384 KiB (8 instances)
+L1i cache:                               256 KiB (8 instances)
+L2 cache:                                16 MiB (8 instances)
+L3 cache:                                320 MiB (1 instance)
+NUMA node(s):                            1
+NUMA node0 CPU(s):                       0-7
+Vulnerability Gather data sampling:      Not affected
+Vulnerability Indirect target selection: Not affected
+Vulnerability Itlb multihit:             Not affected
+Vulnerability L1tf:                      Not affected
+Vulnerability Mds:                       Not affected
+Vulnerability Meltdown:                  Not affected
+Vulnerability Mmio stale data:           Not affected
+Vulnerability Reg file data sampling:    Not affected
+Vulnerability Retbleed:                  Not affected
+Vulnerability Spec rstack overflow:      Not affected
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI BHI_DIS_S
+Vulnerability Srbds:                     Not affected
+Vulnerability Tsa:                       Not affected
+Vulnerability Tsx async abort:           Mitigation; TSX disabled
+Vulnerability Vmscape:                   Not affected
+
+$ nproc
+8
+
+$ free -h
+               total        used        free      shared  buff/cache   available
+Mem:            15Gi        12Gi       265Mi        35Mi       3.2Gi       3.1Gi
+Swap:           15Gi       780Ki        15Gi
+
+$ cat /proc/loadavg
+0.11 0.12 0.11 1/980 140077
+
+$ vmstat 1 3
+procs -----------memory---------- ---swap-- -----io---- -system-- -------cpu-------
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st gu
+ 1  0    780 271068 143220 3256896    0    0    13   274 1123    1  1  0 99  0  0  0
+ 0  0    780 269884 143220 3257204    0    0     0     0 1333 1292  0  1 99  0  0  0
+ 0  0    780 269884 143220 3257204    0    0     0     0  949  909  1  0 99  0  0  0
+
+/sys/fs/cgroup/cpu.max
+800000 100000
+
+/sys/fs/cgroup/cpu.stat
+usage_usec 2367309232
+user_usec 1453457510
+system_usec 913851722
+nice_usec 14950698
+nr_periods 274268
+nr_throttled 0
+throttled_usec 0
+nr_bursts 0
+burst_usec 0
+
+/sys/fs/cgroup/cpuset.cpus.effective
+0-7
+
+/sys/fs/cgroup/memory.max
+17179869184
+
+/sys/fs/cgroup/memory.high
+max
+
+/sys/fs/cgroup/memory.current
+2876960768
+
+/sys/fs/cgroup/memory.peak
+2922307584
+
+/sys/fs/cgroup/memory.events
+low 0
+high 0
+max 0
+oom 0
+oom_kill 0
+oom_group_kill 0
+
+/sys/fs/cgroup/memory.swap.max
+17179869184
+
+/sys/fs/cgroup/memory.swap.current
+360448
+
+/sys/fs/cgroup/pids.max
+19209
+
+/sys/fs/cgroup/pids.current
+805
+
+/proc/pressure/cpu
+some avg10=0.00 avg60=0.00 avg300=0.00 total=12924971
+full avg10=0.00 avg60=0.00 avg300=0.00 total=0
+
+/proc/pressure/memory
+some avg10=0.00 avg60=0.00 avg300=0.00 total=145458
+full avg10=0.00 avg60=0.00 avg300=0.00 total=144340
+
+/proc/pressure/io
+some avg10=0.00 avg60=0.00 avg300=0.00 total=2007444
+full avg10=0.00 avg60=0.00 avg300=0.00 total=1927976
+
+===== Filesystem and storage boundaries =====
+
+$ df -hT
+Filesystem     Type     Size  Used Avail Use% Mounted on
+overlay        overlay  126G   22G   98G  19% /
+tmpfs          tmpfs     64M     0   64M   0% /dev
+shm            tmpfs     64M     0   64M   0% /dev/shm
+/dev/root      ext4     126G   22G   98G  19% /etc/hosts
+
+$ df -i
+Filesystem      Inodes  IUsed   IFree IUse% Mounted on
+overlay        8388608 107650 8280958    2% /
+tmpfs          2049702    152 2049550    1% /dev
+shm            2049702      1 2049701    1% /dev/shm
+/dev/root      8388608 107650 8280958    2% /etc/hosts
+
+$ findmnt -rn -o TARGET\,SOURCE\,FSTYPE
+/ overlay overlay
+/proc proc proc
+/dev tmpfs tmpfs
+/dev/pts devpts devpts
+/sys sysfs sysfs
+/sys/fs/cgroup cgroup cgroup2
+/dev/mqueue mqueue mqueue
+/dev/shm shm tmpfs
+/etc/resolv.conf /dev/vda[/var/lib/docker/containers/fae5edb30e0b39a4c5c1f9e91d7a7b678abd3ee667c794db81e2e28a9504646e/resolv.conf] ext4
+/etc/hostname /dev/vda[/var/lib/docker/containers/fae5edb30e0b39a4c5c1f9e91d7a7b678abd3ee667c794db81e2e28a9504646e/hostname] ext4
+/etc/hosts /dev/vda[/var/lib/docker/containers/fae5edb30e0b39a4c5c1f9e91d7a7b678abd3ee667c794db81e2e28a9504646e/hosts] ext4
+
+$ lsblk -o NAME\,TYPE\,SIZE\,FSTYPE\,MOUNTPOINTS
+NAME TYPE  SIZE FSTYPE MOUNTPOINTS
+vda  disk  128G        /etc/hosts
+                       /etc/hostname
+                       /etc/resolv.conf
+
+$ ls -ld / /home /home/box /tmp /dev/shm /workspace /workspaces /opt /usr/local /var/log /var/backups
+ls: cannot access '/workspaces': No such file or directory
+drwxr-xr-x 1 root root 4096 Sep  7 17:40 /
+drwxrwxrwt 2 root root   40 Sep  7 17:40 /dev/shm
+drwxr-xr-x 1 root root 4096 Sep  7 13:45 /home
+drwx------ 1 box  box  4096 Sep  8 01:17 /home/box
+drwxr-xr-x 1 root root 4096 Sep  7 17:40 /opt
+drwxrwxrwt 1 root root 4096 Sep  8 01:17 /tmp
+drwxr-xr-x 1 root root 4096 Aug 24 00:00 /usr/local
+drwxr-xr-x 2 root root 4096 Jul  4 09:05 /var/backups
+drwxr-xr-x 1 root root 4096 Sep  8 01:12 /var/log
+drwxr-xr-x 1 box  box  4096 Sep  8 01:01 /workspace
+[exit=2]
+
+$ ls -la /var/backups
+total 12
+drwxr-xr-x 2 root root 4096 Jul  4 09:05 .
+drwxr-xr-x 1 root root 4096 Aug 24 00:00 ..
+
+$ find /home/box -mindepth 1 -maxdepth 1 -printf %y\ %f\\n
+f .bash_logout
+f .bashrc
+f .profile
+d chrome-profile
+f .sand-window-assignments.json
+d cli-config
+d reference
+d .cache
+d .local
+l agent-data
+d .ssh
+d .bun
+d .config
+d .grok
+d sand-host
+d .cursor
+d sand-data
+d deps
+d chrome-profile-3
+f .sand-webauthn-proxy-enabled
+d chrome-profile-2
+d .npm
+f .keep
+
+$ find /opt /srv -mindepth 1 -maxdepth 1 -printf %y\ %p\\n
+d /opt/sand-managed
+d /opt/orbit
+d /opt/google
+
+===== Network and DNS configuration =====
+
+$ ip -brief address
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enp0s3           UP             172.30.0.2/24 fe80::802b:38ff:fe3d:bcd0/64 
+docker0          DOWN           172.17.0.1/16 
+wt0              UNKNOWN        100.97.63.219/16 fdda:b053:7ca5:b660:b194:9390:d02:368b/64 
+
+$ ip route show
+default via 172.30.0.1 dev enp0s3 
+100.97.0.0/16 dev wt0 proto kernel scope link src 100.97.63.219 
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown 
+172.30.0.0/24 dev enp0s3 proto kernel scope link src 172.30.0.2 
+
+$ ip -6 route show
+fdda:b053:7ca5:b660::/64 dev wt0 proto kernel metric 256 pref medium
+fe80::/64 dev enp0s3 proto kernel metric 256 pref medium
+
+$ cat /etc/resolv.conf
+# Generated by NetBird
+# The original file can be restored from /etc/resolv.conf.original.netbird
+
+search oracle.netbird
+nameserver 100.97.63.219
+
+$ getent hosts grokbot1 grokbot1.oracle.netbird cursor.oracle.netbird
+fdda:b053:7ca5:b660:b194:9390:d02:368b grokbot1.oracle.netbird
+fdda:b053:7ca5:b660:b194:9390:d02:368b grokbot1.oracle.netbird
+[exit=2]
+
+$ ss -s
+Total: 427
+TCP:   108 (estab 26, closed 55, orphaned 0, timewait 55)
+
+Transport Total     IP        IPv6
+RAW	  4         2         2        
+UDP	  4         3         1        
+TCP	  53        40        13       
+INET	  61        45        16       
+FRAG	  0         0         0        
+
+
+$ ss -H -lntu
+udp UNCONN 0      0            0.0.0.0:51820 0.0.0.0:*
+udp UNCONN 0      0          127.0.0.1:3128  0.0.0.0:*
+udp UNCONN 0      0      100.97.63.219:53    0.0.0.0:*
+udp UNCONN 0      0                  *:51820       *:*
+tcp LISTEN 0      128          0.0.0.0:50052 0.0.0.0:*
+tcp LISTEN 0      10         127.0.0.1:9225  0.0.0.0:*
+tcp LISTEN 0      128          0.0.0.0:22    0.0.0.0:*
+tcp LISTEN 0      128          0.0.0.0:26500 0.0.0.0:*
+tcp LISTEN 0      511          0.0.0.0:1339  0.0.0.0:*
+tcp LISTEN 0      511          0.0.0.0:1340  0.0.0.0:*
+tcp LISTEN 0      5            0.0.0.0:2375  0.0.0.0:*
+tcp LISTEN 0      32         127.0.0.1:5904  0.0.0.0:*
+tcp LISTEN 0      32         127.0.0.1:5900  0.0.0.0:*
+tcp LISTEN 0      32         127.0.0.1:5903  0.0.0.0:*
+tcp LISTEN 0      32         127.0.0.1:5902  0.0.0.0:*
+tcp LISTEN 0      100          0.0.0.0:6081  0.0.0.0:*
+tcp LISTEN 0      100          0.0.0.0:6080  0.0.0.0:*
+tcp LISTEN 0      4096   100.97.63.219:53    0.0.0.0:*
+tcp LISTEN 0      128             [::]:22       [::]:*
+tcp LISTEN 0      32             [::1]:5900     [::]:*
+tcp LISTEN 0      32             [::1]:5903     [::]:*
+tcp LISTEN 0      32             [::1]:5902     [::]:*
+tcp LISTEN 0      32             [::1]:5904     [::]:*
+tcp LISTEN 0      511                *:1337        *:*
+tcp LISTEN 0      511                *:1338        *:*
+tcp LISTEN 0      511                *:14003       *:*
+tcp LISTEN 0      511                *:14002       *:*
+tcp LISTEN 0      511                *:14004       *:*
+tcp LISTEN 0      511                *:13603       *:*
+tcp LISTEN 0      511                *:13602       *:*
+tcp LISTEN 0      511                *:13604       *:*
+
+===== Security configuration and observation limits =====
+
+$ sh -c grep\ -E\ \'\^\(Uid\|Gid\|Cap\(Inh\|Prm\|Eff\|Bnd\|Amb\)\|NoNewPrivs\|Seccomp\):\'\ /proc/self/status
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+
+$ sh -c grep\ -E\ \'\^\(Uid\|Gid\|Cap\(Inh\|Prm\|Eff\|Bnd\|Amb\)\|NoNewPrivs\|Seccomp\):\'\ /proc/1/status
+Uid:	0	0	0	0
+Gid:	0	0	0	0
+CapInh:	0000000000000000
+CapPrm:	000001ffffffffff
+CapEff:	000001ffffffffff
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+
+$ cat /proc/sys/kernel/unprivileged_userns_clone /proc/sys/kernel/yama/ptrace_scope
+cat: /proc/sys/kernel/unprivileged_userns_clone: No such file or directory
+cat: /proc/sys/kernel/yama/ptrace_scope: No such file or directory
+[exit=1]
+
+$ ls -ld /home/box/.ssh
+drwx------ 2 box box 4096 Sep  7 17:40 /home/box/.ssh
+
+$ stat -c %a\ %U:%G\ %n /home/box/.ssh/authorized_keys
+600 box:box /home/box/.ssh/authorized_keys
+
+$ sh -c if\ \[\ -r\ /etc/ssh/sshd_config\ \]\;\ then\ grep\ -Eih\ \'\^\[\[:space:\]\]\*\(Include\|Port\|ListenAddress\|PasswordAuthentication\|KbdInteractiveAuthentication\|PubkeyAuthentication\|PermitRootLogin\|PermitEmptyPasswords\|AuthenticationMethods\|AllowTcpForwarding\|GatewayPorts\|X11Forwarding\|UsePAM\|Match\)\[\[:space:\]\]\'\ /etc/ssh/sshd_config\ /etc/ssh/sshd_config.d/\*.conf\ 2\>/dev/null\;\ fi
+Include /etc/ssh/sshd_config.d/*.conf
+KbdInteractiveAuthentication no
+UsePAM yes
+X11Forwarding yes
+[exit=2]
+
+$ /usr/sbin/sshd -T
+sshd: no hostkeys available -- exiting.
+[exit=1]
+
+$ sh -c command\ -v\ nft\;\ command\ -v\ iptables\;\ command\ -v\ ufw\;\ command\ -v\ systemctl\;\ command\ -v\ docker\;\ command\ -v\ journalctl
+/usr/bin/systemctl
+/usr/bin/journalctl
+
+$ sh -c if\ command\ -v\ nft\ \>/dev/null\;\ then\ nft\ list\ ruleset\;\ elif\ command\ -v\ iptables\ \>/dev/null\;\ then\ iptables\ -S\;\ else\ printf\ \"No\ firewall\ inspection\ CLI\ on\ PATH\\n\"\;\ fi
+No firewall inspection CLI on PATH
+
+$ sh -c awk\ -F:\ \'BEGIN\ \{n=0\}\ \{n++\}\ END\ \{printf\ \"passwd\ account\ count:\ %d\\n\"\,\ n\}\'\ /etc/passwd
+passwd account count: 25
+
+===== Time and logs (metadata only) =====
+
+$ date -u +%FT%TZ
+2026-09-08T01:17:44Z
+
+$ readlink /etc/localtime
+/usr/share/zoneinfo/Etc/UTC
+
+$ ls -ld /var/log /var/log/journal /run/log/journal /var/log/apt /var/log/supervisor
+ls: cannot access '/run/log/journal': No such file or directory
+ls: cannot access '/var/log/supervisor': No such file or directory
+drwxr-xr-x  1 root root            4096 Sep  8 01:12 /var/log
+drwxr-xr-x  1 root root            4096 Sep  8 00:54 /var/log/apt
+drwxr-sr-x+ 2 root systemd-journal 4096 Sep  8 00:30 /var/log/journal
+[exit=2]
+
+$ find /var/log -maxdepth 1 -type f -printf %f\ %s\ bytes\\n
+lastlog 292292 bytes
+wtmp 768 bytes
+btmp 0 bytes
+wtmp.db 8192 bytes
+dpkg.log 441709 bytes
+fontconfig.log 4069 bytes
+alternatives.log 5164 bytes
+
+===== End of read-only snapshot =====
+
+SSH transport exit=0

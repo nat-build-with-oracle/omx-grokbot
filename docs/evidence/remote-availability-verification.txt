@@ -1,0 +1,69 @@
+Read-only QA follow-up: individual availability checks; no sudo or installs.
+2026-09-08T01:33:40Z
+
+Command for each tool: command -v TOOL (PATH lookup, not global installation scan).
+
+TOOL=restic
+lookup_exit=1
+
+TOOL=borg
+lookup_exit=1
+
+TOOL=rclone
+lookup_exit=1
+
+TOOL=rsync
+lookup_exit=1
+
+TOOL=cron
+lookup_exit=1
+
+TOOL=crond
+lookup_exit=1
+
+TOOL=crontab
+lookup_exit=1
+
+TOOL=docker
+lookup_exit=1
+
+TOOL=podman
+lookup_exit=1
+
+TOOL=containerd
+lookup_exit=1
+
+TOOL=supervisord
+lookup_exit=1
+
+TOOL=supervisorctl
+lookup_exit=1
+
+TOOL=nft
+lookup_exit=1
+
+TOOL=iptables
+lookup_exit=1
+
+TOOL=ufw
+lookup_exit=1
+
+TOOL=systemctl
+/usr/bin/systemctl
+lookup_exit=0
+
+TOOL=journalctl
+/usr/bin/journalctl
+lookup_exit=0
+
+Child cgroup file presence and readability: shell test -e and test -r.
+/sys/fs/cgroup/agent/cpu.max exists=yes readable=yes
+/sys/fs/cgroup/agent/memory.max exists=no readable=no
+/sys/fs/cgroup/agent/memory.current exists=no readable=no
+/sys/fs/cgroup/agent/memory.events exists=no readable=no
+/sys/fs/cgroup/agent/memory.swap.max exists=no readable=no
+/sys/fs/cgroup/agent/pids.max exists=no readable=no
+
+End=2026-09-08T01:33:40Z
+
+SSH transport exit=0

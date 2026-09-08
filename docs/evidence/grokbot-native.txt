@@ -1,0 +1,486 @@
+NATIVE GROK BOT INSTALLED-BUNDLE STATIC DISCOVERY
+Capture UTC: 2026-09-08T01:42:06.310165+00:00
+Source: /Applications/Grok Bot.app/Contents only. Read package/plist/ASAR index and selected shipped source in memory; no application launch, API call, user-data inspection, chat send, or settings change. Source capabilities are not proof of runtime activation or supported public API.
+Info.plist selected fields: {
+  "CFBundleIdentifier": "com.anysphere.sand",
+  "CFBundleShortVersionString": "0.44.0",
+  "CFBundleVersion": "0.44.0",
+  "CFBundleExecutable": "Grok Bot",
+  "CFBundleURLTypes": [
+    {
+      "CFBundleTypeRole": "Viewer",
+      "CFBundleURLName": "Grok Bot",
+      "CFBundleURLSchemes": [
+        "grokbot",
+        "sand"
+      ]
+    }
+  ],
+  "LSMinimumSystemVersion": "12.0"
+}
+ASAR bytes=34485800 SHA256=dbf2bbf4c8f870ccbae459eba9f84a84ba1c00aaa97ffbecbd806b3f0452ae1e file_count=478
+Package selected metadata: {
+  "name": "sand",
+  "version": "0.44.0",
+  "main": "dist/electron-main/main.cjs",
+  "type": "module"
+}
+Selected dependency names: ["@anysphere/agent-client", "@anysphere/agent-core", "@anysphere/grok-bot", "@anysphere/grok-bot-harness", "@anysphere/grok-bot-voice-call-harness", "@anysphere/local-exec", "@base-ui/react", "@connectrpc/connect", "@connectrpc/connect-node", "@lingui/react", "@sand/client", "@sand/shared", "@tiptap/react", "react", "ws"]
+
+## dist/electron-main/main.cjs bytes=12706 SHA256=386619b5a2c2b48571d764572b015c79426f6419a9fb2a7bd3aea5ea77c7aa5a
+Targeted search term offsets (character offsets, first 12 per term; count also retained): {}
+
+## dist/electron-main/main-app.cjs bytes=2035751 SHA256=583c20ffdab7f85bdcdf5e28588684694104b5a240a1e6c981d85089cc62a443
+Targeted search term offsets (character offsets, first 12 per term; count also retained): {
+  "open-url": {
+    "count": 4,
+    "first_offsets": [
+      290313,
+      1750714,
+      1756197,
+      1756215
+    ]
+  },
+  ".listen(": {
+    "count": 4,
+    "first_offsets": [
+      905700,
+      1146506,
+      1753721,
+      1957561
+    ]
+  },
+  "grokbot://": {
+    "count": 1,
+    "first_offsets": [
+      1103686
+    ]
+  },
+  "sendMessage": {
+    "count": 1,
+    "first_offsets": [
+      1415553
+    ]
+  },
+  "DeepLink": {
+    "count": 13,
+    "first_offsets": [
+      1598060,
+      1754624,
+      1756371,
+      1756705,
+      1756720,
+      1820454,
+      1820488,
+      1820511,
+      1999101,
+      2015068,
+      2015119,
+      2022505
+    ]
+  },
+  ".sock": {
+    "count": 1,
+    "first_offsets": [
+      1738085
+    ]
+  },
+  "second-instance": {
+    "count": 3,
+    "first_offsets": [
+      1750791,
+      1756265,
+      1756290
+    ]
+  },
+  "deepLink": {
+    "count": 5,
+    "first_offsets": [
+      1751259,
+      1754584,
+      1754638,
+      1996774,
+      2019153
+    ]
+  },
+  "deeplink": {
+    "count": 1,
+    "first_offsets": [
+      1820154
+    ]
+  },
+  "deep-link": {
+    "count": 1,
+    "first_offsets": [
+      2019192
+    ]
+  }
+}
+
+## dist/electron-main/main-core.cjs bytes=1733528 SHA256=56efd820527f094b84f186fddca01ef7de4ab7df4e48fae406ca382243930336
+Targeted search term offsets (character offsets, first 12 per term; count also retained): {
+  "DeepLink": {
+    "count": 16,
+    "first_offsets": [
+      265255,
+      266229,
+      267950,
+      270606,
+      284647,
+      284717,
+      284779,
+      284845,
+      284901,
+      286559,
+      287053,
+      287752
+    ]
+  },
+  "open-url": {
+    "count": 3,
+    "first_offsets": [
+      267181,
+      267354,
+      267877
+    ]
+  },
+  "second-instance": {
+    "count": 3,
+    "first_offsets": [
+      267302,
+      267373,
+      267897
+    ]
+  },
+  "setAsDefaultProtocolClient": {
+    "count": 1,
+    "first_offsets": [
+      267508
+    ]
+  },
+  "deepLink": {
+    "count": 4,
+    "first_offsets": [
+      289053,
+      289843,
+      1732941,
+      1732954
+    ]
+  },
+  "deep-link": {
+    "count": 1,
+    "first_offsets": [
+      1730436
+    ]
+  }
+}
+
+## dist/electron-preload/preload.cjs bytes=65863 SHA256=1f381428d74dbf800a497853f7472965c02719c1366b0d3da5170288d9964e6c
+Targeted search term offsets (character offsets, first 12 per term; count also retained): {
+  "DeepLink": {
+    "count": 3,
+    "first_offsets": [
+      40770,
+      53574,
+      53658
+    ]
+  },
+  "deep-link": {
+    "count": 1,
+    "first_offsets": [
+      53607
+    ]
+  },
+  "deepLink": {
+    "count": 1,
+    "first_offsets": [
+      53629
+    ]
+  }
+}
+
+## dist/local-exec-daemon/main.cjs bytes=3577102 SHA256=71d078845f8da37ac04b7762aa6019d48c826bbd9ba32c5b3d42369e406fa0e7
+Targeted search term offsets (character offsets, first 12 per term; count also retained): {
+  "sendMessage": {
+    "count": 2,
+    "first_offsets": [
+      2021505,
+      2036111
+    ]
+  }
+}
+
+## dist/node-agent-coordinator/main.cjs bytes=643366 SHA256=1a12e3fc0bef06ae45e2c35feee8950a18c89ce4fcde55884dd275fd0124af13
+Targeted search term offsets (character offsets, first 12 per term; count also retained): {
+  ".listen(": {
+    "count": 1,
+    "first_offsets": [
+      614255
+    ]
+  }
+}
+
+## dist/renderer/assets/index-C6zjACOA.js bytes=3448328 SHA256=d6a981a03e295fd1630de21eb107157d691c540da00a1083ed9c54f1d3ea61c9
+Targeted search term offsets (character offsets, first 12 per term; count also retained): {
+  "DeepLink": {
+    "count": 11,
+    "first_offsets": [
+      926539,
+      926979,
+      927064,
+      932522,
+      2880453,
+      3132801,
+      3390885,
+      3390903,
+      3404827,
+      3404859,
+      3433017
+    ]
+  },
+  "deepLink": {
+    "count": 3,
+    "first_offsets": [
+      931951,
+      3392715,
+      3404883
+    ]
+  },
+  "deep_link": {
+    "count": 4,
+    "first_offsets": [
+      1158334,
+      1158380,
+      2880674,
+      3392745
+    ]
+  },
+  "NewChat": {
+    "count": 62,
+    "first_offsets": [
+      1515912,
+      1531433,
+      1533417,
+      1677642,
+      1678603,
+      1697009,
+      1704233,
+      1706725,
+      1709809,
+      2067906,
+      2067954,
+      2769249
+    ]
+  },
+  "sand://": {
+    "count": 3,
+    "first_offsets": [
+      1963334,
+      2561978,
+      2722878
+    ]
+  },
+  "newChat": {
+    "count": 20,
+    "first_offsets": [
+      2068075,
+      2068336,
+      2824197,
+      2827180,
+      2836188,
+      2836902,
+      2837607,
+      2837901,
+      2838422,
+      2838708,
+      2838899,
+      2931199
+    ]
+  },
+  "open-url": {
+    "count": 4,
+    "first_offsets": [
+      2741265,
+      3048391,
+      3048472,
+      3048624
+    ]
+  },
+  "deep-link": {
+    "count": 4,
+    "first_offsets": [
+      2880597,
+      3390863,
+      3392688,
+      3432997
+    ]
+  },
+  "deeplink": {
+    "count": 1,
+    "first_offsets": [
+      2966726
+    ]
+  },
+  ".listen(": {
+    "count": 1,
+    "first_offsets": [
+      3423777
+    ]
+  }
+}
+
+## Follow-up selected static source evidence
+UTC: 2026-09-08T01:45:08.765674+00:00
+Info.plist AppleScript declaration fields: {"NSAppleScriptEnabled": "NOT DECLARED", "OSAScriptingDefinition": "NOT DECLARED"}
+Package bin field: "NOT DECLARED"
+Archive .sdef paths: []
+
+### N1 Entrypoint orders main-core then main-app
+ASAR path: dist/electron-main/main.cjs
+UTF-8 decoded character offsets: 12000..12340
+n"}i(Je,"isMainCoreExports");function ue({runBundle:e}){let r=e("main-core");R(Je(r.exports),"main-core.cjs does not export remainderDue and noteStartupFailed.");let{remainderDue:t,noteStartupFailed:n}=r.exports;return t.then(()=>{let o=e("main-app");R(le(o.exports),"main-app.cjs does not export reportMainCodeCache."),o.exports.reportMain
+
+### N2 Deep-link schemes, authority, HTTP link prefixes and size constant
+ASAR path: dist/electron-main/main-core.cjs
+UTF-8 decoded character offsets: 295451..295679
+...vW,...RW];var kc=/^[A-Za-z0-9_-]{21}$/;var Ci={schemes:["grokbot","sand"],authority:"app",httpsOrigin:"https://cursor.com",httpsPathPrefixes:["/grok-bot/link","/sand/link"],path:"/v1/bot-template",maxLength:2048};var Sb=[["th
+
+### N3 Complete shipped deep-link route declaration; schema, not runtime values
+ASAR path: dist/electron-main/main-core.cjs
+UTF-8 decoded character offsets: 296612..297558
+-9])?/,wW=/[A-Za-z0-9_-]{1,128}/,cu=Ih({authority:PW,schemes:[NW,CW],maxUrlLength:xW,routes:{agent:jr("/v1/agent",{id:xt(wW)}),"bot-template":jr(Ci.path,{id:xt(kc)}),marketplace:jr("/v1/marketplace",{tab:xt({oneOf:IW}),id:ea(xt({pattern:DW,maxDecodedLength:128}))}),"plugin-add":jr("/v1/plugin/add",{id:xt(/[0-9]{1,19}/)}),"github-connect-callback":jr("/v1/github-connect-callback",{state:xt(/cursor_grok_bot_github_v1\.[0-9a-f]{32}\.[0-9a-f]{32}/),code:ea(xt(/[A-Za-z0-9_-]{1,200}/)),installationId:ea(xt(/[1-9][0-9]{0,18}/)),setupAction:ea(xt({oneOf:["install","update","request"]})),error:ea(xt(/[a-z_]{1,64}/))}),open:jr("/v1/open",{}),settings:jr("/v1/settings",{id:xt({oneOf:yb})}),sidebar:jr("/v1/sidebar",{target:xt({oneOf:Eb}),automation:xt(hb)})}}),lu=cu.schemes,Dye=cu.buildUrl("open");var OW=["settings","plugin-add","sidebar"],wye=new Set(OW);var _b="sand:main-edge-served";var Tb="sand:renderer-alive";var kb={state:"off",relayedStr
+
+### N4 Deep-link open-url/second-instance handling and protocol registration
+ASAR path: dist/electron-main/main-core.cjs
+UTF-8 decoded character offsets: 266700..267620
+.markRendererNotReady()}),{rendererAnnounced:o(()=>{r=!0,n||t.markRendererReady()},"rendererAnnounced")}}o(R2,"watchRendererReadiness");function $d(e,t){let{surface:r,isPrimaryInstance:n}=t,a=bA(r,{dispatch:o(l=>t.emit(l.link),"dispatch"),focus:t.focus,onRejected:o((l,d)=>t.onOutcome?.("rejected",l,d),"onRejected"),onDropped:o((l,d)=>t.onOutcome?.("dropped",l,d),"onDropped"),...t.clock===void 0?{}:{clock:t.clock}}),i=null,s=o((l,d)=>{l.preventDefault(),n&&a.handleCandidate(d,"open-url")},"onOpenUrl"),c=o((l,d)=>{let u=hh(r,d);if(u.length===0){t.focus();return}for(let p of u)a.handleCandidate(p,"second-instance")},"onSecondInstance");return e.on("open-url",s),e.on("second-instance",c),n&&(a.handleArgv(t.argv,"initial-argv"),t.registerProtocolClient&&e.whenReady().then(()=>{for(let l of r.schemes)e.setAsDefaultProtocolClient(l)})),{watchRenderer:o(l=>{i=R2(l,a)},"watchRenderer"),rendererAnnounced:o(()=>{if(i=
+
+### N5 Developer preload gating
+ASAR path: dist/electron-main/main-core.cjs
+UTF-8 decoded character offsets: 1452200..1452480
+1),Xi=require("electron");var MS="SAND_DEV_CAPABILITY",BS="preload-sand-dev.cjs",p4="preload.cjs",yC="sand:render-trace-port";function np({isPackaged:e,env:t=process.env}){return!e&&t[MS]==="1"?BS:p4}o(np,"resolveSandMainWindowPreload");var TC={x:16,y:15};var m4=52,US=m4-1;functi
+
+### N6 Developer IPC and developer HTTP server gating
+ASAR path: dist/electron-main/main-app.cjs
+UTF-8 decoded character offsets: 1756390..1757248
+);function XIe(e){let{skipOnboarding:t,exitForDevRestart:r}=e,n=!e.isPackaged&&process.env[YIe.SAND_DEV_CAPABILITY_ENV]==="1";Ou(PIe,{transport:em({ipcMain:e.ipcMain,senderFacts:o(()=>({hasDevCapability:n}),"senderFacts"),broadcast:o(()=>{},"broadcast")}),trust:FIe(),handlers:GIe({legs:e.legs,skipOnboarding:t,emitDeepLink:e.emitDeepLink,devLogin:o(i=>of(e.account,s=>s.devLogin(i)),"devLogin"),requestWebAuthnConsent:o(async()=>await e.webAuthnExecutors.requestWebAuthnConsent(DIe),"requestWebAuthnConsent"),requestWebAuthnPin:o(async i=>await e.webAuthnExecutors.requestWebAuthnPin({promptId:i,invalid:!1}),"requestWebAuthnPin")})}),e.isPackaged||(e.startDevControlServer??UIe)({restartExitCode:gM(process.env.SAND_RESTART_EXIT_CODE),renderTraceStats:e.renderTraceStats,reloadMainWindow:e.reloadMainWindow,isGatewayOfflineInduced:e.isGatewayOfflineInduced
+
+### N7 Developer trust denial text
+ASAR path: dist/electron-main/main-app.cjs
+UTF-8 decoded character offsets: 1753750..1754022
+"startDevControlServer");function FIe(){return{dev:{kind:"require",test:o(e=>e.hasDevCapability,"test"),denial:"The sand-dev edge is only served to an unpackaged app started with SAND_DEV_CAPABILITY=1."}}}o(FIe,"createDevTrust");var tm=Nu();function GIe(e){return{...tm("d
+
+### N8 Coordinator child and Electron MessageChannel bootstrap
+ASAR path: dist/electron-main/main-app.cjs
+UTF-8 decoded character offsets: 1692380..1692880
+er");var Zq="sand-node-agent-coordinator";function lve(e){let t=e.fork(e.artifactPath,{serviceName:Zq}),r=e.createChannel(),n=e.createChannel(),i=e.createChannel(),s=ave({post:o(f=>r.port2.postMessage(f),"post"),executors:e.executors,onEvent:e.onEvent,onProblem:e.onProblem});r.port2.on("message",f=>s.handleMessage(f.data)),r.port2.on("close",()=>s.handlePortClosed()),r.port2.start(),t.postMessage({bootstrap:{processConfig:e.processConfig}},[r.port1,n.port1,i.port1]);let a=!1,{promise:l,resolve:c
+
+### N9 Trusted renderer coordinator-port request
+ASAR path: dist/electron-main/main-app.cjs
+UTF-8 decoded character offsets: 1712350..1712780
+kind==="serving"){t.runtime.requestRendererPort(n);return}t={kind:"waiting",sink:n}},"request");return e.ipcMain.handle(Dve,n=>{e.assertTrustedRequester(n),e.telemetry.requested();let i=n.sender;return r(s=>{if(!i.isDestroyed()){try{i.postMessage(Pve,null,[s])}catch(a){throw e.telemetry.invokeFailed("renderer_port"),a}e.telemetry.adopted("renderer_port")}}),null}),{serveFrom(n){if(t.kind==="serving")return;let i=t.sink;t={kind
+
+### N10 Preload renderer bridge exposure
+ASAR path: dist/electron-preload/preload.cjs
+UTF-8 decoded character offsets: 65578..65790
+ants:Zt},attachProdBox:xa},Da=Qt.bridge;N.contextBridge.exposeInMainWorld("desktop",Pa);N.contextBridge.exposeInMainWorld("coordinatorPort",Da);N.ipcRenderer.on("sand:coordinator-port",e=>{let r=e.ports[0];r!=nul
+
+### N11 Main process connects coordinator gateway legs and settings sync
+ASAR path: dist/electron-main/main-app.cjs
+UTF-8 decoded character offsets: 2031750..2031927
+hange:Ube,supersedeSelectedTeamSync:Cg.supersedeSelectedTeamSync,syncHostSettingsToBox:tC,sandSettingsStore:Ge,coordinatorGatewayLegs:Pn,gatewayFastPath:Te,resetMcpManager:wo.re
+
+### N12 Renderer composer-submit and new-chat handlers (identifiers, not user text)
+ASAR path: dist/renderer/assets/index-C6zjACOA.js
+UTF-8 decoded character offsets: 2968000..2968280
+it:w,handleSidebarOpenAgent:x,openInfoPane:E,openInfoPaneSection:T,themePreference:C,setThemePreference:I,handleComposerSubmit:P,openNewChat:M,infoPane:D,composer:j,agentCommands:O,handleToggleSidebar:N,toggleInfoPane:L,isMacPlatform:$}=t,q=xo(),F=x;let H;e[0]!==w?(H=sn=>{w(sn.ag
+
+### N13 Coordinator localhost HTTP listener belongs to MCP OAuth registry
+ASAR path: dist/node-agent-coordinator/main.cjs
+UTF-8 decoded character offsets: 614200..614635
+((l,d)=>{let c=r(u=>d(u),"onError");s.once("error",c),s.listen(i,n,()=>{s.off("error",c),l()})})}catch(l){throw s.close(),l}return s.unref(),{close:r(()=>new Promise(l=>{var d;s.close(()=>l()),(d=s.closeAllConnections)===null||d===void 0||d.call(s)}),"close"),destroy:r(()=>new Promise(l=>{var d;s.close(()=>l()),(d=s.closeAllConnections)===null||d===void 0||d.call(s)}),"destroy")}}),"bind")},Tp=class{static{r(this,"McpOAuthLoopbackR
+
+### N14 Updater localhost ephemeral HTTP feed, not chat API
+ASAR path: dist/electron-main/main-app.cjs
+UTF-8 decoded character offsets: 1956870..1957790
+ver)((s,a)=>{let l=s.url?.split("?")[0];if(s.method!=="GET"){a.writeHead(405).end();return}if(l==="/feed.json"){let u={url:`http://127.0.0.1:${XFe(n).port}/update.zip`,name:t.releaseName??`${rGe.SAND_PRODUCT_DISPLAY_NAME} ${t.version}`,pub_date:t.pubDate??new Date().toISOString()};a.writeHead(200,{"content-type":"application/json","cache-control":"no-store"}).end(JSON.stringify(u));return}if(l==="/update.zip"){a.writeHead(200,{"content-type":"application/zip","content-length":r,"cache-control":"no-store"});let c=(0,PN.createReadStream)(t.zipPath);c.on("error",()=>a.destroy()),c.pipe(a);return}a.writeHead(404).end()});return this.server=n,await new Promise((s,a)=>{n.once("error",a),n.listen(0,"127.0.0.1",s)}),`http://127.0.0.1:${XFe(n).port}/feed.json`}stop(){this.server?.close(),this.server=null}};var nGe=require("node:crypto"),oGe=require("node:fs"),iGe=require("node:fs/promises"),sGe=E(ge()),aGe=E(le());v
+
+## Static-inspection interpretation boundaries
+No installed-bundle package bin entry or AppleScript automation dictionary was found in the inspected declarations. This does not prove no undocumented CLI exists.
+The complete declared deep-link route set contains navigation/configuration/integration routes, not a message/prompt send route. No deep link was invoked.
+Developer IPC requires !isPackaged AND SAND_DEV_CAPABILITY=1. Developer HTTP control server is separately gated by !isPackaged. Neither was enabled or invoked.
+Electron renderer/preload/coordinator IPC is a private application implementation channel, not a validated stable external automation contract. No renderer code was injected.
+Local helper artifact presence and source capabilities do not establish activation, configured accounts, selected remote box, permissions, or current bot responses.
+Capture end UTC: 2026-09-08T01:45:08.775549+00:00
+
+## Focused draft-preservation static follow-up
+UTC: 2026-09-08T01:52:51.742749+00:00
+No live AX value, account/session state, existing prompt text, GUI or IPC was read or altered by this pass.
+
+### D1 New Chat handler guards already-open state; opens launcher without prompt clearing
+ASAR path: dist/renderer/assets/index-C6zjACOA.js
+UTF-8 decoded character offsets: 2935486..2935677
+const G=s.readIsNewChatOpen;let X;e[12]!==T||e[13]!==a||e[14]!==Z||e[15]!==G||e[16]!==l?(X=()=>{G()||(a(),l(),T(),Z.open())},e[12]=T,e[13]=a,e[14]=Z,e[15]=G,e[16]=l,e[17]=X):X=e[17];const Y=X
+
+### D2 Dedicated shared new-chat draft key
+ASAR path: dist/renderer/assets/index-C6zjACOA.js
+UTF-8 decoded character offsets: 2773840..2773910
+group",recipients:o}}const bM="sand:new-chat";function vkt(t){const e=
+
+### D3 Current phase and composer key selection
+ASAR path: dist/renderer/assets/index-C6zjACOA.js
+UTF-8 decoded character offsets: 3062510..3062730
+oe,{selectAndWait:G,readCurrentAgentId:X}=Vx(),Y=Cwt(),{isNewChatOpen:ne,isNewAgentOpen:de,readIsNewChatOpen:ge,newChatRecipients:ke,pendingAgentCreation:ue,cancelPendingCreation:Se,closeNewChat:ye,isLauncherOpen:ae}=Y,m
+
+### D4 New-chat key versus current agent ID
+ASAR path: dist/renderer/assets/index-C6zjACOA.js
+UTF-8 decoded character offsets: 3063590..3063770
+.keyboardLockdown.onAllowedEscape),Ye=ER(),qe=Ye.status.kind==="logged-in",ot=Jx().transport==="connected",De=ne?bM:F,Ue=oa(Ko);let Ze;t[40]!==L||t[41]!==q||t[42]!==F||t[43]!==Ue||
+
+### D5 Selected key passed into composer controller
+ASAR path: dist/renderer/assets/index-C6zjACOA.js
+UTF-8 decoded character offsets: 3066200..3066450
+|t[82]!==ne||t[83]!==ge?($s={composerAgentKey:De,currentAgentId:F,currentAgent:q,agents:L,isCurrentGroup:Hs,isNewChatOpen:ne,readIsNewChatOpen:ge,isComputerOverlayOpen:j,computerRebuildLockKind:Lt,entries:He.entries,replyTargetId:He.replyTargetId,set
+
+### D6 Composer draft hook wiring
+ASAR path: dist/renderer/assets/index-C6zjACOA.js
+UTF-8 decoded character offsets: 2791460..2791835
+4]!==a?(P=()=>a,e[4]=a,e[5]=P):P=e[5];const M=oa(P),D=A.useRef(s),j=o?null:m,O=Nrt(n),{prompt:N,richText:L,stagedAttachmentPaths:$,setPrompt:q,setRichText:F,setStagedAttachmentPaths:H,promptRef:B,richTextRef:z,stagedAttachmentPathsRef:U,persistLiveDraft:W,identifySubmittedDraft:Z,draftSeed:Q,editorKey:te,attachSlotLifecycle:J,restoredReplyContext:ie}=O;let fe;e[6]!==v.cloc
+
+### D7 Draft initialization defaults to stored draft or empty string
+ASAR path: dist/renderer/assets/index-C6zjACOA.js
+UTF-8 decoded character offsets: 2229190..2229980
+e=ee.c(46),n=Ke();let s;e[0]!==t?(s=t==null?null:t,e[0]=t,e[1]=s):s=e[1];const r=s;let a;e[2]!==n||e[3]!==r?(a=()=>{const oe=r==null||r.length===0?null:n.drafts.snapshotsFor(r).get().draft;Z8(oe);const ce=oe?.replyToId==null?null:{key:1,replyToId:oe.replyToId};return{draft:oe,context:ce}},e[2]=n,e[3]=r,e[4]=a):a=e[4];const[i]=A.useState(a),o=i.draft,l=A.useRef(i.context==null?0:1),[c,u]=A.useState(i.context);let d;e[5]===Symbol.for("react.memo_cache_sentinel")?(d=oe=>{l.current=l.current+1,u({key:l.current,replyToId:oe?.replyToId??null})},e[5]=d):d=e[5];const m=d;let h;e[6]!==o?.prompt?(h=()=>o?.prompt??"",e[6]=o?.prompt,e[7]=h):h=e[7];const[g,y]=A.useState(h);let k;e[8]!==o?.richText?(k=()=>o?.richText,e[8]=o?.richText,e[9]=k):k=e[9];const[v,S]=A.useState(k);let w;e[10]!==o?.att
+
+### D8 Slot-switch saves old draft then restores target draft/recovery/empty
+ASAR path: dist/renderer/assets/index-C6zjACOA.js
+UTF-8 decoded character offsets: 2230520..2231370
+ oe=="function"?oe(I.current):oe;I.current=ce,E(ce)},e[14]=O):O=e[14];const N=O,[L,$]=A.useState(r),q=A.useRef(r);let F;e[15]!==n?(F=oe=>{if(oe==null||oe.length===0)return null;const ce=n.drafts.snapshotsFor(oe).get();if(ce.draft!=null)return Z8(ce.draft),ce.draft;if(ce.recovery!=null){const G=ce.recovery;return n.drafts.setDraft(oe,G),n.drafts.clearRecovery(oe),Z8(G),G}return null},e[15]=n,e[16]=F):F=e[16];const H=F;let B;e[17]!==n||e[18]!==H||e[19]!==r?(B=oe=>{if(oe==null)return;const ce=q.current;if(ce!==r){q.current=r,ce!=null&&n.drafts.setDraft(ce,Y8(T.current,C.current,I.current,n.drafts.snapshotsFor(ce).get().draft));const G=H(r);M(G?.prompt??""),j(G?.richText),N(G?.attachments.map(Mrt)??[]),m(G)}$(r)},e[17]=n,e[18]=H,e[19]=r,e[20]=B):B=e[20];const z=B,U=L!==r;let W;e[21]!==n||e[22]!==U||e[23]!==r?(W=U&&r!=null?n.drafts.snapshotsFo
+
+### D9 Preserved draft payload fields
+ASAR path: dist/renderer/assets/index-C6zjACOA.js
+UTF-8 decoded character offsets: 2228841..2229058
+function Y8(t,e,n,s){return{prompt:t,attachments:n.map(eT),...e==null||e.length===0?{}:{richText:e},...s?.replyToId==null?{}:{replyToId:s.replyToId},...s?.replySessionId===void 0?{}:{replySessionId:s.replySessionId}}}
+
+### D10 Prompt seed and placeholder are separate editor props
+ASAR path: dist/renderer/assets/index-C6zjACOA.js
+UTF-8 decoded character offsets: 2224340..2224690
+orRef:Re,editorRef:ce,fieldClassName:ls,getAppActions:vt,getMcpReferences:Gt,getMentionMembers:Ve,getPlaceholder:kn,getPrReferences:mt,getSkills:kt,hostClassName:qr,hostStyle:zr,initialPrompt:D,initialRichText:j,isAutoFocusDisabled:br,isGroupChat:Q,isVoiceActiveRef:Rt,onFieldCleared:Bn,onFieldLayoutChange:ln,onPromptChange:N,onStageFilesRef:ht,onSu
+
+Draft follow-up interpretation: separate current-agent and shared new-chat draft slots are directly evidenced. Key-change lifecycle saves the prior slot and restores the target. New Chat does not mean guaranteed blank, especially if already open or its shared draft exists. Persistence across restart and the live 16-character AX value were not examined.
+
+### D11 Composer-keyed lifecycle ref is attached in rendered tree
+ASAR path: dist/renderer/assets/index-C6zjACOA.js
+UTF-8 decoded character offsets: 3080680..3080910
+[324]=Fi):Fi=t[324];let Da;t[325]!==Rr||t[326]!==Vt.composerKey?(Da=f.jsx("span",{"aria-hidden":!0,ref:Rr,style:Fi},Vt.composerKey),t[325]=Rr,t[326]=Vt.composerKey,t[327]=Da):Da=t[327];const hi=!Me,Ga=j||N;let Qo;t[328]!==Or?(Qo=U
+Draft follow-up end UTC: 2026-09-08T01:53:08.933763+00:00
+
+### D12 Handler alias mappings to workspace/reply/recipient actions
+ASAR path: dist/renderer/assets/index-C6zjACOA.js
+UTF-8 decoded character offsets: 2934157..2934710
+function Mwt(t){const e=ee.c(147),{_:n}=$e(),{phases:s,selectAgent:r,closeWorkspace:a,closeSettings:i,closeInfoPane:o}=t,{resetReplyTarget:l}=t,{submitPrompt:c,composerDraft:u,restoreFailedComposer:d,roster:m,retryAgents:h}=t,{onGatewayReconnectFailed:g}=t,{isNewChatOpen:y,isNewAgentOpen:k,newChatRecipients:v,isChannelsEnabled:S,isGroupMode:w,pendingAgentCreation:x,closeNewChat:E,clearNewChatRecipients:T,addNewChatRecipient:C,removeNewChatRecipientAt:I,enterGroupMode:P}=s,{createAgent:M,createGroup:D,deleteAgents:j}=m,{promptRef:O,richTextRef:N,st
+
+### D13 Handler Y returned as openNewChat
+ASAR path: dist/renderer/assets/index-C6zjACOA.js
+UTF-8 decoded character offsets: 2942820..2943020
+e?(ze={isCreatingAgent:ot,isNewChatPreviewActive:Ue,newChatPlaceholder:He,composeDraftLabel:xe,handleRetryAgents:le,openNewChat:Y,submitNewChat:_t,launchSingleRecipient:Pe,prefetchAgentChat:re,newChat

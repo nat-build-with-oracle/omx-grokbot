@@ -1,0 +1,11 @@
+UTC=2026-09-08T01:57:50.693633+00:00
+Local Oracle routing metadata only; no messages sent and no unrelated contact entries retained.
+Path.exists('ψ/contacts.json')=False
+Path.exists('.oracle/contacts.json')=False
+command=zsh -lc "command -v maw"
+exit=0
+/Users/nat/.bun/bin/maw
+command=zsh -lc "maw ls"; output filter: case-insensitive Grok name match only
+exit=0
+matching_lines=0
+End=2026-09-08T01:57:53.616442+00:00

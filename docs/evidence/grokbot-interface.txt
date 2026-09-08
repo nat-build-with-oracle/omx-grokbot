@@ -1,0 +1,909 @@
+Grokbot interface discovery; read-only; no messages sent.
+2026-09-08T01:39:22.654622+00:00
+
+===== REFERENCE DOCUMENT: /home/box/reference/app-ui.md =====
+# The Grok Bot app UI (real paths — never invent others)
+
+A compact map of Grok Bot's real interface so you can guide the user or self-recover. Use only what's listed here; for anything else, follow "Never fabricate data" and say you're unsure rather than inventing a path.
+- Opening settings: the sidebar account button at the bottom-left (avatar + account name), the Cmd+, shortcut, or the command palette's "Open settings". There's no gear icon or macOS Preferences menu item.
+- Deleting an agent: the user does this from the sidebar — right-click the agent's row and choose "Delete" (a permanent delete that removes the agent and its transcript, with a confirm). It's not in Settings; there's no archive or hide, just this permanent delete.
+- Settings tabs: General, Computer, Usage & Billing, Updates. Usage & Billing appears only when enabled for the current account. Rows you can link by anchor: General: theme, accent, language, microphone, hardware-acceleration, hardware-acceleration-restart, notification-sound-enabled, notification-sound, timezone, local-execution, auto-review, autofill, security-keys; Computer: computers; Usage & Billing: plan, cancel-trial, on-demand; Updates: update-status, update-channel, automatic-updates, update-computer, reset-computer. Some rows exist only on some accounts, builds, or states; if the user cannot find a row, say so.
+- General: the account card ("Sign In with Cursor" / "Sign Out"), appearance controls ([Theme](grokbot://app/v1/settings?id=theme) with Follow System / Light / Dark and [Language](grokbot://app/v1/settings?id=language)), system controls, agent defaults, and security keys.
+- Computer: registered machines and box recovery. Recovery is [Update Grok Bot's Computer](grokbot://app/v1/settings?id=update-computer) (its button says "Update"; it moves the box to a fresh instance keeping files and logins, but installed software must be reinstalled), a two-click confirm ("Click Again to Confirm"). The [Reset Grok Bot's Computer](grokbot://app/v1/settings?id=reset-computer) row (button "Reset") is the destructive recovery of last resort: it restores from the last saved snapshot and can lose recent unsynced work, so steer users to Update instead.
+- Usage & Billing: included and on-demand usage plus plan controls.
+- Updates: [Update Track](grokbot://app/v1/settings?id=update-channel) (Stable / Nightly) and "Check for Updates", which update the Grok Bot app itself, distinct from [Update Grok Bot's Computer](grokbot://app/v1/settings?id=update-computer) (which recreates the box).
+- Per-agent info pane (separate from the global Settings): open it by clicking the agent's name in the chat header (or Cmd+Shift+I), close it with the "X" in the pane's own header. It shows a live preview of that agent's computer (click it to open the full screen view) over its Routines list, plus Channels when a channel connector is available to connect or one is already connected, and Members in group chats. The gear beside the "X" opens a per-agent Settings subpage (avatar, name, title, description, and per-assistant notifications).
+
+
+===== REFERENCE DOCUMENT: /home/box/reference/debugging-the-box.md =====
+# Debugging the box
+
+When the box acts up (won't start, Shell or Screenshot calls fail, a computerUse subagent reports Computer failures, or the desktop won't render), diagnose it yourself before giving up, and keep the user posted with a plain status instead of going silent.
+- Is it up? If a Shell command returns output, the box is running and its daemon is healthy. If a box tool instead comes back saying the computer is still starting up (its image is downloading or it's booting), that's transient: wait a few seconds and retry, since a first boot or image pull can take minutes. If Shell and Screenshot aren't offered to you at all, the box substrate is down; in the local Docker setup that means Docker isn't running, which the user fixes from the app's "computer needs Docker" prompt.
+- Run the self-check. The box ships a box-doctor health check that runs once at startup and on demand: run `box-doctor` over Shell to probe the live box, or read its last startup result at /tmp/box-doctor.log (its summary also lands in the box's startup log alongside the other /tmp logs). It verifies the handful of things that silently break the box (a valid /etc/machine-id, Chrome and its version, DNS/egress, the system clock, and the D-Bus session bus) and prints one `[box-doctor] PASS|FAIL <name>: <detail>` line per check plus a final `[box-doctor] SUMMARY`. When a page or login times out for no clear reason, run this first and report the failing check to the user instead of guessing.
+- Desktop not rendering? Capture it with Screenshot to see the real screen, then use Shell only for read-only diagnostics. The primary desktop is display :1, so xdpyinfo -display :1 confirms the X server is up. The desktop comes up with no browser window, so no Chrome process is normal until a computerUse subagent opens it. Each desktop piece logs under /tmp on the box (start-desktop.log for the overall bringup, plus x11vnc:1.log and novnc:1.log), so tail those to see which one failed; a stale X or Chrome lock left over from a wake is a known cause. If Chrome itself will not start, launch it from Shell with the box's own `box-chrome` launcher (never a raw chrome binary), then inspect the resulting process and logs with Shell; don't drive GUI apps from Shell with input automation such as xdotool or Shell CDP.
+- Which runtime, and is it healthy? The box runs either as a local Docker container (dev) or a brokered anyrun pod (the shipped default), behind the same Shell and Screenshot surfaces plus the Computer tool delegated to computerUse subagents. Tell them apart by testing for /.dockerenv from Shell (present means Docker, absent means anyrun). On Docker you can inspect the runtime from the shell surface for the user's computer with docker ps, docker logs, and docker inspect on the sand-box- container, and a stopped Docker daemon is why the box won't come up. On anyrun the pod's lifecycle is managed server-side, so there's nothing to inspect locally; lean on the in-box probes above.
+- Commands failing? Check the basics over Shell: df -h /workspace for disk (your persistent scratch space) plus the command's own error text. Files and installed tools persist across turns, so a tool that went missing just needs reinstalling.
+- Next steps: retry first, since most failures are just a box still booting. You can't rebuild the box yourself, so if it's wedged or stuck on a stale image, surface a clear status and tell the user to recover it with [Update Grok Bot's Computer](grokbot://app/v1/settings?id=update-computer) (its button says "Update") — it moves the box to a fresh instance while keeping files and logins, and can unstick a wedged box. Installed software (apt/npm/pip packages, CLIs, docker images) does not survive the move, so tell the user that up front and reinstall what you need after. That is the recovery action to point users at; the [Reset Grok Bot's Computer](grokbot://app/v1/settings?id=reset-computer) row below it restores from the last saved snapshot and can lose recent unsynced work, so never direct the user to it. request_box_help is for handing the user a manual step on a working desktop (a login or captcha), not a repair tool.
+
+
+===== CANDIDATE COMMAND LOCATIONS =====
+grokbot: [not on PATH]
+grok: [not on PATH]
+grokbot1: [not on PATH]
+sand: [not on PATH]
+maw: [not on PATH]
+oracle: [not on PATH]
+claude: [not on PATH]
+codex: [not on PATH]
+cursor: [not on PATH]
+agent: [not on PATH]
+tmux: /usr/bin/tmux
+
+===== TMUX METADATA ONLY =====
+command: ['tmux', 'list-sessions'] exit: 0
+0 windows=1 attached=1
+
+
+command: ['tmux', 'list-panes'] exit: 0
+0:0.0 command=bash active=1
+
+
+
+===== TOP-LEVEL GROK/WORKSPACE METADATA (NO CONTENTS) =====
+/home/box/.grok entry_count: 1
+dir skills
+/workspace/ψ entry_count: 1
+dir memory
+/workspace/ψ/inbox FileNotFoundError
+/workspace/ψ/contacts FileNotFoundError
+/home/box/reference entry_count: 2
+file app-ui.md
+file debugging-the-box.md
+
+END 2026-09-08T01:39:22.675410+00:00
+
+SSH STDERR:
+
+Exit status: 0
+
+===== GROKBOT STATIC INTERFACE IDENTIFIERS =====
+2026-09-08T01:40:26.400563+00:00
+
+/home/box/.grok/skills entry_count= 29
+file .arra-oracle-skills.json
+file VERSION.md
+dir about-oracle
+dir awaken
+dir bampenpien
+dir bud
+dir calver
+dir create-shortcut
+dir dig
+dir feel
+dir forward
+dir go
+dir incubate
+dir learn
+dir oracle-cheatsheet
+dir oracle-family-scan
+dir oracle-prism
+dir oracle-title-forge
+dir oracle-write-complete-book
+dir philosophy
+dir project
+dir psi
+dir recap
+dir resonance
+dir rrr
+dir talk-to
+dir trace
+dir where-we-are
+dir who-are-you
+
+/exec-daemon/tools entry_count= 1
+file origin
+
+/home/box/sand-host/box-scripts entry_count= 24
+file box-bounded-log
+file box-bounded-log.mjs
+file box-chrome-policy
+file box-contract.generated.mjs
+file box-doctor
+file box-picom
+file box-plank
+file box-xfwm4
+file cdp-cookies.mjs
+file link-chrome-session
+file persist-cli-auth
+file sand-cookie-import.mjs
+file sand-cookie-persist.mjs
+file sand-fingerprint-profiles.mjs
+file sand-session-sync.mjs
+file sand-team-converge.mjs
+file sand-ua-governor.mjs
+file sand-wallpaper
+file sand-wallpaper-tone.mjs
+file sand-web-bot-auth.mjs
+file sand-window-router.mjs
+file start-desktop.sh
+file start-window
+file stop-window
+
+/home/box/sand-host/agent-isolation entry_count= 2
+file agent-store-worker.cjs
+file transcript-mirror-worker.cjs
+
+--- Bundle: /home/box/sand-host/host-main.cjs ---
+bytes= 28264654 sha256= 1aeb24cba1297390bbb63191a5d80d927d56eed8a6b8ee53c0b07bd1440602de
+interface keyword counts: {"grokbot://": 1, "sendMessage": 484, "sendUserMessage": 0, "createAgent": 241, "startAgent": 11, "chatMessage": 65, "agentMessage": 124, "WebSocketServer": 1, "createServer": 102, "/health": 1, "/rpc": 17, "grpc": 157, "listen(": 2}
+candidate route literals (existence only, not method/auth support): ["/api", "/events", "/health", "/sand/automation-events/poll", "/sand/automation-runs/complete", "/sand/feedback", "/sand/link", "/sand/listener-events/poll", "/sand/listener-subscriptions", "/sand/notify", "/sand/scm-connect/wait", "/v1/agent", "/var/lib/sand/telemetry/codebase"]
+candidate API identifiers: ["TaskSendMessage", "TaskSendMessageRequest", "TaskSendMessageResponse", "_CreateAgentArgs", "_CreateAgentError", "_CreateAgentResult", "_CreateAgentShareRequest", "_CreateAgentShareResponse", "_CreateAgentSuccess", "_CreateAgentToolCall", "_SendMessageArgs", "_SendMessageAttachment", "_SendMessageError", "_SendMessageResult", "_SendMessageSuccess", "_SendMessageText", "_SendMessageToolCall", "_TaskSendMessageRequest", "_TaskSendMessageResponse", "appendSendMessageEntry", "applySendMessageReminder", "buildSandSendMessage", "canSendMessage", "collectSendMessage", "countNonSendMessageToolCalls", "countToolCallsSinceLastSendMessage", "countTrailingSendMessages", "createCreateAgentTool", "createProjectSendMessageVisibilityReminder", "createSendMessageEntry", "createSendMessageReminderMessage", "createSendMessageReminderMiddleware", "createSendMessageTool2", "createSendMessageToolCall", "devAppendSendMessage", "encodeSendMessage", "fromRedactedCreateAgentArgs", "fromRedactedCreateAgentError", "fromRedactedCreateAgentResult", "fromRedactedCreateAgentResult_result", "fromRedactedCreateAgentSuccess", "fromRedactedCreateAgentToolCall", "fromRedactedSendMessageArgs", "fromRedactedSendMessageArgs_message", "fromRedactedSendMessageAttachment", "fromRedactedSendMessageError", "fromRedactedSendMessageResult", "fromRedactedSendMessageResult_result", "fromRedactedSendMessageSuccess", "fromRedactedSendMessageText", "fromRedactedSendMessageToolCall", "getProjectSendMessageCursorProviderOptions", "getProjectSendMessageToolName", "handledRecreateAgentIds", "hasProjectSendMessageReminderForCurrentRequest", "hasSendMessageCall", "hasSendMessageCapability", "hasSendMessageSinceRealTurnStart", "hasTextSendMessageCall", "hasTextSendMessageSinceTurnStart", "isProjectSendMessageEnabled", "isProjectSendMessageRequestBoundary", "isSendMessageReminderMessage", "isTextSendMessageArgs", "kickstartAgent", "maybeCreateAgentStreamStartTimeoutTurnError", "maybeRetryProjectCoordinatorWithoutSendMessage", "onSendMessage", "outlineSendMessageText", "previewSendMessageDelivery", "projectSendMessageReminder", "projectSendMessageRequestBoundary", "projectSendMessageToolName", "refineSendMessage", "renderSendMessageGuidance", "resolveDevSendMessage", "sandSendMessageDeliveryOwed", "sandSendMessageReminder", "sessionPreviewForSendMessage", "stripCreateAgentResult", "subagentSendMessageEnabled", "taskSendMessage", "toRedactedCreateAgentArgs", "toRedactedCreateAgentError", "toRedactedCreateAgentResult", "toRedactedCreateAgentResult_result", "toRedactedCreateAgentSuccess", "toRedactedCreateAgentToolCall", "toRedactedSendMessageArgs", "toRedactedSendMessageArgs_message", "toRedactedSendMessageAttachment", "toRedactedSendMessageError", "toRedactedSendMessageResult", "toRedactedSendMessageResult_result", "toRedactedSendMessageSuccess", "toRedactedSendMessageText", "toRedactedSendMessageToolCall"]
+route registrations: []
+
+--- Bundle: /exec-daemon/index.js ---
+bytes= 14390895 sha256= d4f3e46a97b617f8a6ec8f1f5f73d9d6a174c56463bf523f76b6bb8b390ebdc4
+interface keyword counts: {"grokbot://": 3, "sendMessage": 77, "sendUserMessage": 0, "createAgent": 2, "startAgent": 0, "chatMessage": 12, "agentMessage": 2, "WebSocketServer": 13, "createServer": 98, "/health": 0, "/rpc": 6, "grpc": 2167, "listen(": 7}
+candidate route literals (existence only, not method/auth support): ["/agent/repos", "/api", "/api/users"]
+candidate API identifiers: ["maxSendMessageLength", "maxSendMessageSize", "withSendMessage"]
+route registrations: []
+
+END 2026-09-08T01:40:32.727794+00:00
+
+SSH STDERR:
+
+Exit status: 0
+
+===== SHIPPED HELPER AND HOST TRANSPORT STRUCTURE =====
+2026-09-08T01:41:29.874167+00:00
+
+--- /exec-daemon/tools/origin ---
+bytes= 104520460
+binary; not executed
+
+--- /home/box/.grok/skills/talk-to/SKILL.md ---
+bytes= 9467
+headings: ["# /talk-to - Agent Messaging", "## Usage", "## Mode 0: No arguments", "## Step 0: Contacts Lookup", "## Transport Selection", "# Auto-detect: contacts-first, maw ls fallback", "### Replying to a message another oracle sent you (#434)", "## Routing", "## Mode 1: --list", "## Mode 2: --new (fast create)", "## Mode 3: One-shot (default)", "## Mode 4: loop (autonomous conversation)", "## Parsing Rules", "## Message Composition", "## Auto Notification (maw hey)", "## Important Notes"]
+referenced tooling identifiers: {"oracle_thread": 1, "oracle_search": 0, "maw": 42, "inbox": 11, "contacts": 21, "origin": 1, "grokbot": 0}
+initial description: ---
+installer: arra-oracle-skills-cli v26.8.23-alpha.2112
+origin: Nat Weerawan's brain, digitized — how one human works with AI, captured as code — Soul Brews Studio
+name: talk-to
+description: '[core] v26.8.23-alpha.2112 G-SKLL | Talk to another Oracle agent via contacts + threads. Use when user says "talk to", "message", "chat with", or wants to communicate with another agent (e.g. "talk to pulse", "message neo"). Do NOT trigger for OracleNet social feed (use /oraclenet), skill management (use /oracle), or family registry (use /oracle-family-scan).'
+argument-hint: "<agent-name> [message] [--maw | --thread | --inbox]"
+hidden: true
+metadata:
+  internal: true
+---
+
+# /talk-to - Agent Messaging
+
+Send messages to agents via Oracle threads. Each agent has a persistent channel thread.
+
+> **Messaging consolidation (2026-07-06):** /hey, /contacts, /mailbox, and /inbox were
+> archived to the zombie tier — this skill is the one messaging verb now. For real-time
+> tmux pings use `maw hey` directly (or `--maw` here). Archived skills remain installable
+> via `arra install -s <name>`.
+
+## Usage
+
+```
+/talk-to arthur "What's your status?"          # one-shot message
+/talk-to arthur --new "Hey, star
+
+--- /home/box/.grok/skills/VERSION.md ---
+bytes= 751
+# Oracle Skills
+
+Installed by: **arra-oracle-skills-cli v26.8.23-alpha.2112**
+Installed at: 2026-09-08T00:52:35.580Z
+Agent: Grok CLI
+Skills: 27
+
+## Report This Version
+
+When asked about skills version, report:
+```
+arra-oracle-skills-cli v26.8.23-alpha.2112
+```
+
+## Installed Skills
+
+- forward
+- about-oracle
+- rrr
+- recap
+- trace
+- project
+- resonance
+- awaken
+- go
+- oracle-prism
+- incubate
+- oracle-cheatsheet
+- create-shortcut
+- learn
+- oracle-family-scan
+- psi
+- feel
+- philosophy
+- bud
+- dig
+- b
+
+Host function names matching interface/server/gateway/chat: ["McpMetaToolServerList", "McpMetaToolServersSection", "_dropSettledCacheForEmptyServerSet", "_ensureBoxServersPushed", "_httpServerNamesForBackend", "_inlineHttpServerNames", "_listBoxServers", "_peekDiscoveryServerNames", "_stdioServerNamesForBox", "_toolServerSetKey", "accountSlotsFromAvailableServer", "appendMcpServerEntryNodes", "appendUserMessageReminders", "applyConversationStateMapping", "applyConversationStateOp", "beginGatewayCommandTrace", "botTemplateGatewayView", "boxLoadMcpServers", "buildBuiltinToolsServerUseInstructions", "buildCloudAgentConversationAction", "buildCloudAgentUserMessage", "buildCustomUserToolsServerUseInstructions", "buildMcpMetaToolServerEntries", "buildServerConfigJson", "buildServerIdentifierParameterSchemas", "buildUserMessageAddressNote", "checkForAgentMessageLooping", "checkRpcFields", "clampAgentMessage", "classifyGatewayCommandError", "classifyServerAgentActionError", "clearGatewayDiscovery", "clientStateToServerStatus", "collectBudgetedUserMessages", "collectConversationContentPartSegments", "collectConversationContentSegments", "collectConversationPromptValueSegments", "collectConversationSegments", "collectConversationStepsFromStepBlobIds", "collectConversationStepsWithToolCallCount", "collectConversationStructuredValueSegments", "collectConversationTurnStructures", "collectPrependUserMessages", "collectRecentUserMessages", "collectSummarizedConversationSegments", "computeServerPacedDelayMs", "configuredServersBucket", "convertConversationMessagesToTrace", "countConversationHistoryTokens", "countUserMessages", "createHostGatewayApi", "createRedactedConversationSummary", "createRedactedConversationSummaryArchive", "createRedactedConversationTokenDetails", "createRedactedUserMessageAction", "createSandRpcTracingInterceptor", "createServerAgentActionCore", "createServerAgentActivity", "createServerAgentProxy", "createServerDeserializer", "createServerSerializer", "createServerStreamingFn", "createServerTranscriptClient", "createServerTranscriptTail", "createServerUserComputers", "createTemplateImportGatewayMethod", "createUserMessage", "createUserMessageAction", "declareRpcEdge", "deriveConversationStateFromStructure", "deriveOutlineFromConversationState", "deriveOutlineTurnsFromConversationState", "describeServerIdResolutionFailure", "descriptorToServerMetadata", "descriptorToServerPayload", "deserializeConversationHistoryMessages", "displayServerFromAvailableServer", "ensureConversationCapacityForTurn", "ensureUserMessageTiming", "expandMcpServerConfig", "extractMcpPreflightConversationContext", "extractMcpServerTagRanges", "extractSandAutoReviewClassifierConversationContext", "extractShellPreflightConversationContext", "extractSmartModeClassifierConversationContext", "fetchAccountMcpServers", "fetchPluginServers", "findLastUserMessageIndex", "findLastUserMessageIndex2", "findServerRetryAfterMs", "formatGroupChatTag", "formatProjectSideChatPrompt", "fromRedactedConversationHistory", "fromRedactedConversationHistoryAssistantContent", "fromRedactedConversationHistoryAssistantContent_content", "fromRedactedConversationHistoryAssistantMessage", "fromRedactedConversationHistoryImageContent", "fromRedactedConversationHistoryMessage", "fromRedactedConversationHistoryMessage_message", "fromRedactedConversationHistoryReasoningContent", "fromRedactedConversationHistoryRedactedReasoningContent", "fromRedactedConversationHistoryTextContent", "fromRedactedConversationHistoryToolCall", "fromRedactedConversationHistoryToolMessage", "fromRedactedConversationHistoryToolResultContent", "fromRedactedConversationHistoryToolResultContent_content", "fromRedactedConversationHistoryUserContent", "fromRedactedConversationHistoryUserContent_content", "fromRedactedConversationHistoryUserMessage", "fromRedactedConversationPlan", "fromRedactedConversationSearchArgs", "fromRedactedConversationSearchError", "fromRedactedConversationSearchHit", "fromRedactedConversationSearchResult", "fromRedactedConversationSearchResult_result", "fromRedactedConversationSearchSuccess", "fromRedactedConversationStateStructure", "fromRedactedConversationStep", "fromRedactedConversationStep_message", "fromRedactedConversationSummary", "fromRedactedConversationSummaryArchive", "fromRedactedConversationTokenDetails", "fromRedactedProjectSideChatDetails", "fromRedactedSearchConversationsToolCall", "fromRedactedSelectedPastChat", "fromRedactedUserMessage", "fromRedactedUserMessage2", "fromRedactedUserMessageAppendedUpdate", "fromRedactedUserMessage_SimulatedMessageMetadata", "getBuiltinMcpServers"]
+
+Static contexts for createServer (last 2 occurrences; no source execution):
+
+      return requiredAgents.has(agentId);
+    },
+    emit: (event) => boundEmit?.(event),
+    onAgentState: (frame) => serverAgentActivity.ingest(frame),
+    log: (line) => deps.log(`server-agent-proxy: ${line}`),
+    clock
+  });
+  const actionClient = deps.actionClient ?? createSandCursorBackendClient(GrokBotService, {
+    backend: deps.backend,
+    getAccessToken: deps.auth.getAccessToken,
+    getTeamId: deps.auth.getTeamId,
+    getMachineId: deps.auth.getMachineId
+  });
+  const actionCore = createServerAgentActionCore(actionClient);
+  const roomCreateRetry = deps.roomCreateRetry ?? createSameIdRoomCreateRetryPolicy(deps.clock);
+  const roomClient = deps.roomClient ?? createSandCursorBackendClient(GrokBotService, {
+    backend: deps.backend,
+    getAccessToken: deps.auth.getAccessToken,
+    getTeamId: deps.auth.getTeamId,
+    getMachineId: deps.auth.getMachineId
+  });
+  let roomsCapability = null;
+  const serverRoomsEnabled = async () => {
+    const now = clock.monotonicNow();
+    if (roomsCapability !== null && now - roomsCapability.checkedAtMs < SERVER_AGENT_PROXY_ROOMS_CAPABILITY_TTL_MS) {
+      return roomsCapability.enabled;
+    }
+    let enabled = false;
+    try {
+      const response = await roomClient.getGrokBotRuntimeCapabilities(
+        {},
+        { timeoutMs: SERVER_AGENT_ACTION_TIMEOUT_MS }
+      );
+      enabled = response.capabilities?.serverRoomsEnabled === true;
+    } catch (error41) {
+      deps.log(`server-agent-proxy: rooms capability check failed: ${String(error41)}`);
+    }
+    roomsCapability = { enabled, checkedAtMs: now };
+    return enabled;
+  };
+  const roomSummaryAfterAdopt = async (confirmed) => {
+    if (!await deps.adoptServerAgent(confirmed)) {
+   
+
+      reconcileWait = null;
+      serverAgentActivity.stop();
+      tail.stop();
+      tailStarted = false;
+    }
+  };
+}
+
+// src/host/extensions/server-agent-proxy/extension.ts
+var serverAgentProxyExtension = defineHostExtension({
+  id: "server-agent-proxy",
+  dependencies: [
+    HostExtensions.AgentIdentity,
+    HostExtensions.Auth,
+    HostExtensions.Telemetry,
+    HostExtensions.Transcript
+  ],
+  start: (context2) => {
+    const { auth: auth2, transcript } = context2.deps;
+    const proxy = createServerAgentProxy({
+      backend: context2.host.environment.backend,
+      bootId: (0, import_node_crypto59.randomUUID)(),
+      auth: {
+        getAccessToken: auth2.getAccessToken,
+        getTeamId: auth2.getTeamId,
+        getMachineId: auth2.getMachineId,
+        peekAccessToken: auth2.peekAccessToken
+      },
+      listAgentsSync: () => transcript.listAgentsSync(),
+      reconcileNow: () => context2.deps["agent-identity"].reconcileNow(),
+      adoptServerAgent: (wire) => context2.deps["agent-identity"].adoptServerAgent(wire),
+      log: (line) => context2.host.log(line)
+    });
+    proxy.bindRunStateChanged((agentId) => {
+      transcript.emitAgentUpdate(agentId).catch((error41) => {
+        context2.host.log(`server-agent-proxy roster emit failed: ${String(error41)}`);
+      });
+    });
+    transcript.setServerActivityOverlayProvider((agentId) => proxy.activityOverlayFor(agentId));
+    context2.onStop(() => transcript.setServerActivityOverlayProvider(null));
+    context2.onStop(transcript.subscribeAgents(() => proxy.refreshRoster()));
+    context2.onStop(transcript.subscribeAgentUpserted(() => proxy.refreshRoster()));
+    context2.onStop(() => proxy.dispose());
+    return proxy;
+ 
+
+Static contexts for /health (last 2 occurrences; no source execution):
+: ${describeZodIssues(result.error)}`
+    );
+  }
+  const frames = [];
+  for (const frame of result.data.frames) {
+    const parsed = parseResponseFrame(frame);
+    if (parsed !== null) frames.push(parsed);
+  }
+  return result.data.providerId === void 0 ? { frames } : { providerId: result.data.providerId, frames };
+}
+
+// src/host/gateway-server.ts
+init_errors();
+
+// src/shared/gateway/gateway-wire.ts
+var GATEWAY_API_PREFIX = "/api";
+var GATEWAY_EVENTS_PATH = "/events";
+var GATEWAY_HEALTH_PATH = "/health";
+var GATEWAY_AUTH_SCHEME = "Bearer";
+var GATEWAY_SLIM_AVATARS_HEADER = "x-sand-slim-avatars";
+var GATEWAY_MINT_DEDUPE_HEADER = "x-sand-mint-dedupe";
+var GATEWAY_TRACEPARENT_HEADER = "traceparent";
+var GATEWAY_AVATARS_PATH = "/avatars";
+var GATEWAY_UNKNOWN_METHOD_FAILURE_CODE = "gateway/unknown-method";
+
+// src/shared/local-exec/local-exec-gateway.ts
+init_v4();
+
+// ../packages/messages-mac/dist/wire.js
+init_v4();
+
+// ../packages/messages-mac/dist/page.js
+var MESSAGES_PAGE_LIMITS = {
+  items: { default: 50, max: 200 },
+  search: { default: 25, max: 100 },
+  "find-chats": { default: 50, max: 500 }
+};
+var MESSAGES_RESULT_CHAR_BUDGET = 64e3;
+function isBelow(key, beforeMs, beforeId) {
+  const keyMs = Date.parse(key.date);
+  if (keyMs !== beforeMs)
+    return keyMs < beforeMs;
+  return key.id < beforeId;
+}
+function clampedLimit(requested, limits) {
+  return Math.min(Math.max(1, requested !== null && requested !== void 0 ? requested : limits.default), limits.max);
+}
+function take(newestFirst, limit) {
+  const taken = [];
+  let chars = 2;
+  for (const item of newestFirst) {
+    if (taken.length >= limit)
+      return { taken, cause: "limit" };
+    const size = JSON.stringify(item).length
+
+Static contexts for /rpc (last 2 occurrences; no source execution):
+st parsed = parseHeapMetricsReport(value);
+    return parsed === null ? { success: false } : { success: true, data: parsed };
+  }
+);
+function describeIssues(issues) {
+  return issues.map((issue2) => {
+    const path31 = (issue2.path ?? []).map(
+      (segment) => typeof segment === "object" && segment !== null ? String(segment.key) : String(segment)
+    ).join(".");
+    return path31.length === 0 ? `args: ${issue2.message}` : `args.${path31}: ${issue2.message}`;
+  }).join("[literal omitted]");
+}
+
+// src/shared/rpc/gateway.ts
+var idArgs = { id: rpcString() };
+var agentIdAndAutomationId = { id: rpcString(), automationId: rpcString() };
+var idAndSkillArgs = { id: rpcString(), workflowId: rpcString() };
+var agentIdAndPlatform = { id: rpcString(), platform: rpcString() };
+var clientPlatform = oneOf("client platform", SAND_USER_FORM_CLIENT_PLATFORMS);
+var approvalPlatform = payloadShape(
+  "approval platform",
+  isSandApprovalPlatform
+);
+var stringRecord = rpcRecord(rpcString());
+var variableValueRecord = rpcRecord(rpcUnion(rpcString(), rpcNumber(), rpcBoolean()));
+var draftPayload = payloadShape(
+  "draft payload",
+  isSandDraftPayload
+);
+var userFormPrefillFieldQuery = rpcObject({
+  id: rpcString(),
+  label: rpcString(),
+  type: oneOf("user-form field type", SAND_USER_FORM_FIELD_TYPES),
+  secret: rpcOptional(rpcBoolean()),
+  extraKey: rpcOptional(rpcString())
+});
+var gatewayAcceptanceStatusArgs = rpcObject({
+  accountSlot: rpcString(),
+  clientNonce: rpcString(),
+  agentId: rpcOptional(rpcString()),
+  sessionId: rpcOptional(rpcString())
+});
+var transcriptPageArgs = rpcObject({
+  id: rpcString(),
+  beforeSeq: rpcOptional(rpcNumber()),
+  limit: rpcNumber(),
+  sinceMs: rpcOptional(rpcNumber()),
+  
+       finish({
+            status: "error",
+            text: `The Cursor agent (${bcId}) status check failed unexpectedly. Check the Cursor cloud agents dashboard for the result.`
+          });
+        }
+      });
+      if (!settled) {
+        this.activeCompletionPolls.add(poll);
+      }
+    });
+  }
+};
+
+// src/host/extensions/cloud-agents/cloud-agents-service.ts
+init_background_composer_connect();
+init_dashboard_connect();
+init_dashboard_pb();
+
+// ../packages/proto/dist/generated/git_forge/v1/rpc_pb.js
+init_esm();
+var CompareCommitsStatus;
+(function(CompareCommitsStatus2) {
+  CompareCommitsStatus2[CompareCommitsStatus2["UNSPECIFIED"] = 0] = "UNSPECIFIED";
+  CompareCommitsStatus2[CompareCommitsStatus2["IDENTICAL"] = 1] = "IDENTICAL";
+  CompareCommitsStatus2[CompareCommitsStatus2["AHEAD"] = 2] = "AHEAD";
+  CompareCommitsStatus2[CompareCommitsStatus2["BEHIND"] = 3] = "BEHIND";
+  CompareCommitsStatus2[CompareCommitsStatus2["DIVERGED"] = 4] = "DIVERGED";
+  CompareCommitsStatus2[CompareCommitsStatus2["NO_MERGE_BASE"] = 5] = "NO_MERGE_BASE";
+})(CompareCommitsStatus || (CompareCommitsStatus = {}));
+proto3.util.setEnumType(CompareCommitsStatus, "git_forge.v1.CompareCommitsStatus", [
+  { no: 0, name: "COMPARE_COMMITS_STATUS_UNSPECIFIED" },
+  { no: 1, name: "COMPARE_COMMITS_STATUS_IDENTICAL" },
+  { no: 2, name: "COMPARE_COMMITS_STATUS_AHEAD" },
+  { no: 3, name: "COMPARE_COMMITS_STATUS_BEHIND" },
+  { no: 4, name: "COMPARE_COMMITS_STATUS_DIVERGED" },
+  { no: 5, name: "COMPARE_COMMITS_STATUS_NO_MERGE_BASE" }
+]);
+var MergeMode;
+(function(MergeMode2) {
+  MergeMode2[MergeMode2["UNSPECIFIED"] = 0] = "UNSPECIFIED";
+  MergeMode2[MergeMode2["MERGE_COMMIT"] = 1] = "MERGE_COMMIT";
+  MergeMode2[M
+
+END 2026-09-08T01:41:30.586204+00:00
+
+SSH STDERR:
+
+Exit status: 0
+
+===== HOST RPC SCHEMA AND GATEWAY AUTH STRUCTURE =====
+2026-09-08T01:42:10.400198+00:00
+RPC gateway module bytes: 29642
+top-level declaration names: ["idArgs", "agentIdAndAutomationId", "idAndSkillArgs", "agentIdAndPlatform", "clientPlatform", "approvalPlatform", "stringRecord", "variableValueRecord", "draftPayload", "userFormPrefillFieldQuery", "gatewayAcceptanceStatusArgs", "transcriptPageArgs", "transcriptWindowArgs", "transcriptTailArgs", "sendPromptFields", "sendPromptArgs", "webAuthnCeremonyKind", "webAuthnCeremonyRequest", "botTemplatePublishArgs", "botTemplateVersionArgs", "botTemplateForSourceAgentArgs", "botTemplateDeleteArgs", "botTemplateVisibilityArgs", "agentOrigin", "agentPurpose", "agentProfileFields", "agentProfile", "createAgentArgs", "createAgentFromTemplateArgs", "uploadAttachmentArgs", "uploadAttachmentChunkArgs", "readAttachmentTextArgs", "readAttachmentChunkArgs", "notificationConfigInput", "selectedTeamBinding", "modelSelection", "autoReviewInstructions", "localToolPermission", "sidebarSectionUpdate", "hostSettingsUpdate", "hostStatusArgs", "localToolPermissionResolution", "skillTrigger", "skillSpec", "voiceCallTurn", "voiceCallNudge", "voiceCallEvent", "voiceCallToolCall", "voiceCallRecord", "slackMatch", "slackListener", "githubListener", "originListener", "microsoftTeamsTrigger", "linearTriggerEvent", "linearTrigger", "sentryTrigger", "pagerDutyTrigger", "webhookTrigger", "cronTrigger2", "trigger", "triggerGroupListeners", "triggerGroup", "automationTrigger", "automationSpec", "boxHandBackTrigger", "teachEntryPoint", "cookieValue", "cookieOriginRequestEntry", "chromeCookieRecord", "mcpAuthCompletion", "mcpServerIdArgs", "mcpAccountRef", "mcpRenameAccountRequest", "mcpInstallEntryRequest", "mcpUpdatePluginInstallRequest", "mcpAuthenticateRequest", "mcpSetInstructionsRequest", "mcpToggleToolDisabledRequest", "TWO_BASE64_ALPHABET_CHARS", "nonEmptyAudioBase64", "transcribeAudioArgs", "gatewayRpcEdge"]
+method/schema key candidates: ["id", "label", "type", "secret", "extraKey", "accountSlot", "clientNonce", "agentId", "sessionId", "beforeSeq", "limit", "sinceMs", "untilMs", "prompt", "directAddressedAcceptance", "attachmentPaths", "attachmentNames", "richText", "replyToId", "automationWriteProvenance", "isFork", "traceparent", "enterEpochMs", "composedAtMs", "source", "kind", "origin", "optionsJson", "shareId", "version", "sourceAgentId", "visibility", "name", "description", "title", "avatarShape", "avatarColor", "avatarPngBase64", "creationRoute", "purpose", "isIntroductionSuppressed", "isKickstartRequested", "language", "templateId", "supportsTemporalHarness", "harness", "expectedActiveVersion", "creatorContext", "filename", "bytesBase64", "uploadId", "offset", "totalSize", "path", "length", "videoPlayback", "isEnabled", "allowedApps", "minIntervalMs", "maxPerWindow", "windowMs", "teamId", "accountScope", "modelId", "maxMode", "parameters", "allowInstructions", "blockInstructions", "agentIds", "isCollapsed", "notifications", "selectedTeam", "mcpCustomInstructions", "mcpCustomInstructionsByServerId", "mcpCustomInstructionsAccountScope", "mcpDisabledToolsByServerId", "mcpBoxServers", "userTimeZone", "osLocale", "userTimeZoneOverride", "agentDefaultModel", "computerUseModel", "autoReviewInstructions", "localToolPermission", "localToolPermissionMachineId", "webauthnProxyEnabled", "messagesEnabled", "pinnedAgentIds", "sidebarSections", "hasSeenOnboarding", "featureFlagOverrides", "includeManagedCapabilities", "schedule", "body", "trigger", "sourceRef", "speaker", "text", "atMs", "request", "answer", "answeredAtMs", "direction", "cut", "argumentsJson", "result", "callId", "model", "realtimeConversationId", "agentRequestId", "startedAtMs", "endedAtMs", "durationMs", "ending", "turns", "nudges", "events", "toolCalls", "harnessMayCollect", "channel", "match", "repo", "pr", "userAllowlist", "ciBranch", "tenantId", "teamIds", "channelIds", "messageContains", "messageContainsIsRegex", "blockUnauthenticatedTeamsUsers", "event", "projectIds", "serviceIds", "listeners", "value", "domain", "expires", "httpOnly", "secure", "sameSite", "session", "priority", "partitionKey", "serverId", "serverName", "accountKey", "serverIdentifier", "requestingAgentId", "outcome", "newAccountKey", "entryId", "values", "hasTeamConfiguredVariables", "pluginId", "forceReauth", "oauthRedirectUri", "instructions", "toolName", "audioBase64", "mimeType", "methods", "capabilities", "failureCodes"]
+
+RPC context createAgent :
+
+var agentProfileFields = {
+  name: rpcString(),
+  description: rpcString(),
+  title: rpcOptional(rpcString()),
+  avatarShape: rpcOptional(rpcString()),
+  avatarColor: rpcOptional(rpcString())
+};
+var agentProfile = rpcObject(agentProfileFields);
+var createAgentArgs = rpcObject({
+  ...agentProfileFields,
+  avatarPngBase64: rpcOptional(rpcString()),
+  creationRoute: rpcOptional(
+    rpcUnion(
+      rpcObject({ kind: rpcLiteral("box") }),
+      rpcObject({ kind: rpcLiteral("temporal"), scope: rpcString() })
+    )
+  ),
+  origin: rpcOptional(agentOrigin),
+  purpose: rpcOptional(agentPurpose),
+  isIntroductionSuppressed: rpcOptional(rpcBoolean()),
+  isKickstartRequested: rpcOptional(rpcBoolean()),
+  language: rpcOptional(rpcString()),
+  templateId: rpcOptional(rpcString()),
+  clientNonce: rpcOptional(rpcString()),
+  supportsTemporalHarness: rpcOptional(rpcBoolean()),
+  harness: rpcOptional(
+    rpcUnion(
+      rpcLiteral(SAND_REQUESTED_AGENT_HARNESS_BOX),
+      rpcLiteral(SAND_REQUESTED_AGENT_HARNESS_TEMPORAL)
+    )
+  )
+});
+var createAgentFromTemplateArgs = rpcObject({
+  shareId: rpcString(),
+  agentId: rpcString(),
+  name: rpcString(),
+  avatarShap
+
+RPC context createAgent :
+once: rpcOptional(rpcString()),
+  supportsTemporalHarness: rpcOptional(rpcBoolean()),
+  harness: rpcOptional(
+    rpcUnion(
+      rpcLiteral(SAND_REQUESTED_AGENT_HARNESS_BOX),
+      rpcLiteral(SAND_REQUESTED_AGENT_HARNESS_TEMPORAL)
+    )
+  )
+});
+var createAgentFromTemplateArgs = rpcObject({
+  shareId: rpcString(),
+  agentId: rpcString(),
+  name: rpcString(),
+  avatarShape: rpcString(),
+  avatarColor: rpcString(),
+  expectedActiveVersion: rpcNumber(),
+  creatorContext: rpcOptional(rpcString())
+});
+var uploadAttachmentArgs = rpcObject({
+  agentId: rpcOptional(rpcString()),
+  filename: rpcString(),
+  bytesBase64: rpcString()
+});
+var uploadAttachmentChunkArgs = rpcObject({
+  agentId: rpcOptional(rpcString()),
+  uploadId: rpcString(),
+  filename: rpcString(),
+  offset: rpcNumber(),
+  totalSize: rpcNumber(),
+  bytesBase64: rpcString()
+});
+var readAttachmentTextArgs = rpcObject({
+  agentId: rpcOptional(rpcString()),
+  path: rpcString()
+});
+var readAttachmentChunkArgs = rpcObject({
+  agentId: rpcOptional(rpcString()),
+  path: rpcString(),
+  offset: rpcNumber(),
+  length: rpcNumber(),
+  videoPlayback: rpcOptional(rpcBoolean())
+});
+var notificationConfi
+
+RPC context createAgent :
+ents: rpcMethod().args({
+      query: rpcString(),
+      limit: rpcOptional(rpcNumber())
+    }),
+    searchMedia: rpcMethod().args({
+      query: rpcString(),
+      limit: rpcOptional(rpcNumber())
+    }),
+    openAgent: rpcMethod().args(idArgs),
+    createAgent: rpcMethod().args(createAgentArgs),
+    createAgentFromTemplate: rpcMethod().args(
+      createAgentFromTemplateArgs
+    ),
+    createGroup: rpcMethod().args({
+      name: rpcString(),
+      description: rpcOptional(rpcString()),
+      memberAgentIds: rpcArray(rpcString()),
+      creationRoute: rpcOptional(
+        rpcUnion(
+          rpcObject({ kind: rpcLiteral("box") }),
+          rpcObject({ kind: rpcLiteral("temporal"), scope: rpcString() })
+        )
+      ),
+      clientNonce: rpcOptional(rpcString())
+    }),
+    setGroupMembers: rpcMethod().args({
+      id: rpcString(),
+      memberAgentIds: rpcArray(rpcString()),
+      requesterAgentId: rpcOptional(rpcString())
+    }),
+    updateAgent: rpcMethod().args({
+      id: rpcString(),
+      profile: agentProfile
+    }),
+    deleteAgents: rpcMethod().args({
+      ids: rpcArray(rpcString()),
+      allowEmptyRoster: rpcOptional(rpcBoolean
+
+RPC context startAgent :
+.args({
+      id: rpcString(),
+      profile: agentProfile
+    }),
+    deleteAgents: rpcMethod().args({
+      ids: rpcArray(rpcString()),
+      allowEmptyRoster: rpcOptional(rpcBoolean())
+    }),
+    duplicateAgent: rpcMethod().args(idArgs),
+    kickstartAgent: rpcMethod().args(idArgs),
+    interruptAgentRun: rpcMethod().args({
+      id: rpcString(),
+      sessionId: rpcOptional(rpcString())
+    }),
+    requestDiskSaverAudit: rpcMethod().args(idArgs),
+    broadcastToAgents: rpcMethod().args({
+      targets: rpcUnion(rpcLiteral("all"), rpcArray(rpcString())),
+      message: rpcString()
+    }),
+    getCloudAgentInfo: rpcMethod().args({
+      bcId: rpcString(),
+      includeFiles: rpcOptional(rpcBoolean())
+    }),
+    stopCloudAgent: rpcMethod().args({ bcId: rpcString() }),
+    getListenerIntegrations: rpcMethod().noArgs,
+    getListenerConnectUrl: rpcMethod().args({
+      platform: rpcString()
+    }),
+    completeGithubConnect: rpcMethod().args({
+      state: rpcString(),
+      code: rpcOptional(rpcString()),
+      installationId: rpcOptional(rpcString()),
+      setupAction: rpcOptional(rpcString()),
+      error: rpcOptional(rpcString())
+    })
+
+Host transport/auth use sites for GATEWAY_API_PREFIX
+ATEWAY_COOKIE_ORIGIN_APPROVAL_REQUESTS_PATH;
+  const isCookieOriginApprovalResponses = req.method === "POST" && url2.pathname === GATEWAY_COOKIE_ORIGIN_APPROVAL_RESPONSES_PATH;
+  const isCommand = req.method === "POST" && url2.pathname.startsWith(`${GATEWAY_API_PREFIX}/`);
+  if (isEvents || isAvatar || isCommand || isPrepareUpgrade || isLocalExecRequests || isLocalExecResponses || isWebAuthnRequests || isWebAuthnResponses || isCookieOriginApprovalRequests || isCookieOriginApprovalResponses) {
+    if ((isLocalExecRequests || isLocalExecResponses) && deps.authToken == null) {
+      return respondError(res, 401, "local-exec requires gateway authentication");
+    }
+    if ((isWebAuthnRequests || isWebAuthnResponses) && deps.authToken == null) {
+      return respondError(res, 401, "webauthn requires gateway authentication");
+    }
+    if ((isCookieOriginApprovalRequests || isCookieOriginApprovalResponses) && deps.authToken == null) {
+      return respondError(res, 401, "cookie-origin-approval requires gateway authentication");
+    }
+    if (deps.authToken != null && !isAuthorized(req, deps.authToken)) {
+      return respondError(res, 401, "unauthorized");
+ait readBody(req), res);
+    }
+    if (isEvents) {
+      return handleEvents(deps, req, res, parseSubscribedChannels(url2));
+    }
+    if (isAvatar) {
+      return handleAvatarImage(deps, req, res, url2);
+    }
+    const method = url2.pathname.slice(GATEWAY_API_PREFIX.length + 1);
+    const body = await readBody(req);
+    return routeCommand(
+      deps.api,
+      method,
+      body,
+      res,
+      req,
+      deps.onCommandError,
+      deps.onCommandComplete
+    );
+  }
+  respondError(res, 404, `not found: ${req.method} ${url2.pathname}`);
+}
+
+// src/host/i18n.ts
+init_dist4();
+init_locale();
+
+// src/host/locales/en/messages.po
+var messages = JSON.parse(`{"+Qa8Gs":["Run a command on your local computer"],"+XVZBo":["The reply couldn't be saved to this conversation. Send the message again."],"+YZ9td":["Browsing the web"],"/B/UTx":[["description"]," on Grok Bot's computer"],"1Q+cpb":["The Bot wants to use your existing logins"],"1Z7eGY":["Cursor agent: ",["trimmed"]],"1ZBb7q":["Upgrade to Ultra to send messages with Grok Bot."],"1damry":["Messaged ",["recipient"],": ",["trimmed"]],"1kZmcw":[["0"]," at ",["clock"]],"22WNB9":["Sending is off until you make
+
+Host transport/auth use sites for GATEWAY_AUTH_SCHEME
+ction respondError(res, status, message) {
+  respondErrorPayload(res, status, { message });
+}
+function isAuthorized(req, expectedToken) {
+  const header = req.headers.authorization;
+  if (typeof header !== "string") return false;
+  const prefix = `${GATEWAY_AUTH_SCHEME} `;
+  if (!header.startsWith(prefix)) return false;
+  const provided = Buffer.from(header.slice(prefix.length));
+  const expected = Buffer.from(expectedToken);
+  return provided.length === expected.length && (0, import_node_crypto15.timingSafeEqual)(provided, expected);
+}
+function hostHeaderHostname(req) {
+  const header = req.headers.host;
+  if (typeof header !== "string" || header.length === 0) return null;
+  try {
+    return new URL(`http://${header}`).hostname;
+  } catch {
+    return null;
+  }
+}
+function rejectUntrustedBrowserRequest(deps, req, res) {
+  if (req.headers.origin !== void 0) {
+    respondError(res, 403, "browser-origin gateway requests are not allowed");
+    return true;
+  }
+  if (deps.authToken == null) {
+    const hostname3 = hostHeaderHostname(req);
+    if (hostname3 == null || !isLoopbackHost(hostname3)) {
+      respondError(res, 403, "untrusted gateway host");
+    
+
+END 2026-09-08T01:42:10.438426+00:00
+
+SSH STDERR:
+
+Exit status: 0
+
+===== EXACT CHAT RPC SOURCE CONTRACT (NOT INVOKED) =====
+2026-09-08T01:43:15.529162+00:00
+
+var sendPromptFields =
+var sendPromptFields = {
+  prompt: rpcString(),
+  agentId: rpcString(),
+  directAddressedAcceptance: rpcOptional(rpcLiteral(true)),
+  clientNonce: rpcOptional(rpcString()),
+  attachmentPaths: rpcOptional(rpcArray(rpcString())),
+  attachmentNames: rpcOptional(rpcArray(rpcString())),
+  richText: rpcOptional(rpcString()),
+  replyToId: rpcOptional(rpcString()),
+  automationWriteProvenance: rpcOptional(rpcLiteral(SAND_AUTOMATION_WRITE_PROVENANCE_UNTRUSTED)),
+  isFork: rpcOptional(rpcBoolean()),
+  traceparent: rpcOptional(rpcString()),
+  enterEpochMs: rpcOptional(rpcNumber()),
+  composedAtMs: rpcOptional(rpcNumber()),
+  source: rpcOptional(payloadShape("client surface", isSandClientSurface)),
+  sessionId: rpcOptional(rpcString())
+};
+
+var sendPromptArgs =
+var sendPromptArgs = rpcObject(sendPromptFields);
+
+Gateway methods relevant to safe roster/chat discovery: ["getTranscript", "getAgentTranscript", "getAgentTranscriptPage", "openAgentWindowed", "getAgentTranscriptWindow", "openAgentTail", "getAgentTranscriptTail", "getAgentThread", "sendPrompt", "promptAcceptanceStatus", "getBotTemplateForSourceAgent", "listAgents", "countAgents", "searchAgents", "openAgent", "createAgent", "createAgentFromTemplate", "updateAgent", "deleteAgents", "duplicateAgent", "kickstartAgent", "interruptAgentRun", "broadcastToAgents", "getCloudAgentInfo", "stopCloudAgent", "setAgentUnread", "setAgentHiddenFromSidebar", "setAgentNotificationsEnabled", "setAgentNotifyOnUpdates", "setAgentVoice", "setAgentAvatarBytes", "getAgentAvatar", "getAgentNotificationAvatar", "getAgentMemories", "deleteAgentMemory", "clearAgentMemories", "getAgentWorkflows", "createAgentWorkflow", "updateAgentWorkflow", "deleteAgentWorkflow", "runAgentWorkflowNow", "importAgentWorkflowText", "importAgentWorkflowUrl", "portAgentLocalSkills", "readVoiceCallAgentContext", "getPluginSyncStatus", "generateAgentAvatarImage", "getAgentChannels", "getBoxSecretsStatus", "getAgentAutomations", "setAgentAutomationEnabled", "createAgentAutomation", "updateAgentAutomation", "deleteAgentAutomation", "runAgentAutomationNow", "getForeverBoxStatus", "getTeachRecordingStatus", "getHostStatus"]
+
+Method schema sendPrompt:
+    sendPrompt: rpcMethod().args(sendPromptArgs),
+    promptAcceptanceStatus: rpcMethod().args(gatewayAcceptanceStatusArgs),
+    respondToWidget: rpcMethod().args({
+      entryId: rpcString(),
+      value: rpcString(),
+      agentId: rpcString()
+    }),
+    resolveAutoReviewApproval: rpcMethod().args({
+      entryId: rpcString(),
+      requestId: rpcString(),
+      resolution: oneOf("approval resolution", SAND_AUTO_REVIEW_RESOLUTIONS),
+      agentId: rpcString(),
+      approvalPlatform: rpcOptional(approvalPlatform),
+      approvedCommand: rpcOptional(rpcString()),
+      sessionId: rpcOptional(rpcString())
+    }),
+    resolveLocalToolPermission: rpcMethod().args({
+      entryId: rpcString(),
+      requestId: rpcString(),
+      resolution: l
+
+Method schema listAgents:
+    listAgents: rpcMethod().args({
+      allowEmptyRoster: rpcOptional(rpcBoolean())
+    }),
+    countAgents: rpcMethod().noArgs,
+    searchAgents: rpcMethod().args({
+      query: rpcString(),
+      limit: rpcOptional(rpcNumber())
+    }),
+    searchMedia: rpcMethod().args({
+      query: rpcString(),
+      limit: rpcOptional(rpcNumber())
+    }),
+    openAgent: rpcMethod().args(idArgs),
+    createAgent: rpcMethod().args(createAgentArgs),
+    createAgentFromTemplate: rpcMethod().args(
+      createAgentFromTemplateArgs
+    ),
+    createGroup: rpcMethod().args({
+      name: rpcString(),
+      description: rpcOptional(rpcString()),
+      memberAgentIds: rpcArray(rpcString()),
+      creationRoute: rpcOptional(
+        rpcUnion(
+          rpcObject
+
+Method schema getHostStatus:
+    getHostStatus: rpcMethod().args(hostStatusArgs),
+    updateHostNow: rpcMethod().args({
+      force: rpcOptional(rpcBoolean()),
+      includeErrorDetail: rpcOptional(rpcBoolean())
+    })
+  },
+  events: rpcType(),
+  capabilities: rpcType(),
+  failureCodes: rpcType()
+});
+
+
+Function routeCommand:
+async function routeCommand(api, method, body, res, req, onCommandError, onCommandComplete) {
+  if (!isSandGatewayMethod(method)) {
+    return respondErrorPayload(res, 404, {
+      message: `unknown gateway method: ${method}`,
+      failureCode: GATEWAY_UNKNOWN_METHOD_FAILURE_CODE
+    });
+  }
+  const avatars = clientWantsSlimAvatars(req) ? "slim" : "inline";
+  const id = requestId(req);
+  const { traceparent, ...traceIds } = commandTrace(req);
+  const commandSpan = beginGatewayCommandTrace({ traceparent, method });
+  const startedAt = Date.now();
+  let result;
+  try {
+    try {
+      result = await runGatewayCommand(api, method, body, avatars);
+    } finally {
+      commandSpan?.span.end();
+    }
+  } catch (error41) {
+    if (onCommandError != null && statusForCommandError(error41) >= 500) {
+      try {
+        const { reason, errorClass, errno } = classifyGatewayCommandError(error41);
+        onCommandError({
+          method,
+          reason,
+          errorClass,
+          errno,
+          durationMs: Date.now() - startedAt,
+          requestId: id,
+          ...traceIds
+        });
+      } catch {
+      }
+    }
+    throw error41;
+  }
+  if (onCommandComplete != null) {
+    try {
+      onCommandComplete({
+        method,
+        durationMs: Date.now() - startedAt,
+        requestId: id,
+        ...traceIds
+      });
+    } catch {
+    }
+  }
+  return respondJson(res, result, req);
+}
+
+
+Function parseSubscribedChannels:
+function parseSubscribedChannels(url2) {
+  const raw = url2.searchParams.get("channels");
+  if (raw === null) return void 0;
+  const channels = raw.split(",").flatMap((channel) => {
+    const trimmed = channel.trim();
+    return trimmed.length > 0 ? [trimmed] : [];
+  });
+  return channels.length > 0 ? new Set(channels) : void 0;
+}
+
+
+Function handleEvents:
+function handleEvents(deps, req, res, subscribedChannels) {
+  const isSlim = clientWantsSlimAvatars(req);
+  res.on("close", () => deps.onEventStreamClosed?.());
+  openSseStream(
+    deps,
+    req,
+    res,
+    (write) => deps.subscribe((event) => {
+      if (subscribedChannels !== void 0 && !subscribedChannels.has(event.channel)) {
+        return;
+      }
+      write(JSON.stringify(isSlim ? stripInlineAvatarsFromEvent(event) : event));
+    })
+  );
+}
+
+
+END 2026-09-08T01:43:16.713328+00:00
+
+SSH STDERR:
+
+Exit status: 0

@@ -1,0 +1,161 @@
+===== Boundary follow-up =====
+2026-09-08T01:18:52Z
+
+--- cgroup mount root and membership ---
+331 330 0:26 / /sys/fs/cgroup rw,nosuid,nodev,noexec,relatime - cgroup2 cgroup rw,nsdelegate,memory_recursiveprot
+0::/agent
+
+Directory: /sys/fs/cgroup
+drwxr-xr-x 4 root root 0 Sep  7 17:40 /sys/fs/cgroup
+cgroup.type: domain 
+cpu.max: 800000 100000 
+cpuset.cpus.effective: 0-7 
+memory.max: 17179869184 
+memory.current: 2913464320 
+memory.events: low 0 high 0 max 0 oom 0 oom_kill 0 oom_group_kill 0 
+memory.swap.max: 17179869184 
+pids.max: 19209 
+pids.current: 805 
+
+Directory: /sys/fs/cgroup/agent
+drwxr-xr-x 2 root root 0 Sep  7 17:40 /sys/fs/cgroup/agent
+cgroup.type: domain 
+cpu.max: max 100000 
+
+--- individual namespace read access ---
+/proc/1/ns/pid: not readable
+/proc/self/ns/pid: pid:[4026532211]
+/proc/1/ns/mnt: not readable
+/proc/self/ns/mnt: mnt:[4026532208]
+/proc/1/ns/net: not readable
+/proc/self/ns/net: net:[4026531840]
+
+--- systemd runtime state ---
+offline
+exit=1
+System has not been booted with systemd as init system (PID 1). Can't operate.
+Failed to connect to system scope bus via local transport: Host is down
+exit=1
+
+--- workspace metadata only ---
+
+/workspace
+f nat-box-ssh
+d teach-sessions
+d ψ
+f nat-box-ssh.pub
+
+/home/box/reference
+f app-ui.md
+f debugging-the-box.md
+
+/home/box/sand-host
+f pdf-worker.js
+f host-main.cjs
+f diff-patch-worker.js
+d agent-isolation
+d box-scripts
+f diff-worker.js
+f pdf.worker.mjs
+f unified-diff-worker.js
+f package.json
+d extensions
+d node_modules
+f sand-eval-runner.cjs
+f version
+
+/home/box/sand-data
+f sand-statsig-bootstrap.json
+f ack-obligations.json
+f send-acceptance.json
+f gateway.json
+f search-index.db-wal
+f source-map.json
+f box-store-sync.lock
+f feedback-prompt.json
+d transcript-publish
+f settings.json
+d managed-skills
+f search-index.db-shm
+f host.lock
+f host-secrets.json
+f sand-feature-flag-overrides.json
+f teach-queue-key.json
+d agents
+f box-secrets.json
+d plugin-skills
+f chrome-cookie-seed.json
+d workflows
+f search-index.db
+d agent-transcripts
+d telemetry
+
+/home/box/deps
+d node-addon-api
+d tree-sitter
+d cursor-proclist
+d @anysphere
+d web-tree-sitter
+d node-gyp-build
+d tree-sitter-bash
+f runtime-deps-manifest.json
+
+/opt/sand-managed
+f assignment.json
+
+/opt/orbit
+l current
+d releases
+
+--- agent-data symlink target ---
+/home/box/sand-data
+
+--- backup/scheduler tool presence (not proof of policy) ---
+
+--- NSS/DNS individual results ---
+grokbot1 IPv4: 100.97.63.219
+getent_exit=0
+grokbot1.oracle.netbird IPv4: 100.97.63.219
+getent_exit=0
+cursor.oracle.netbird IPv4: getent_exit=2
+
+--- namespace process inventory without arguments ---
+box         1084     431  1.0  3.0 495668  27474 node
+box       125934      53  0.2  1.6 277304   2107 chrome
+box       126383  125965  0.0  1.4 236736   2101 chrome
+box       126361  125965  0.0  0.9 154272   2101 chrome
+box          302     298  0.0  0.8 146408  27493 node
+box       108873      53  0.0  0.8 146172   4063 node
+box         1901      53  0.0  0.8 139232  27471 node
+box       116776      53  0.0  0.7 127512   3236 node
+box       125990  125934  0.0  0.7 124352   2107 chrome
+box          431     419  0.1  0.7 121360  27476 node
+box          193      53  2.8  0.7 116992  27493 node
+box          222      53  1.0  0.5 93784   27493 node
+box       126105  125964  0.0  0.5 92012    2107 chrome
+box       109180      53  0.0  0.5 85816    4063 plank
+box       117184      53  0.0  0.5 85544    3235 plank
+box          275      53  0.0  0.5 84376   27493 node
+box          719     439  0.0  0.5 84180   27476 xfwm4
+box         1978    1178  0.0  0.5 82868   27471 xfwm4
+box         1000      53  0.0  0.4 81916   27476 plank
+box         2258      53  0.0  0.4 81916   27471 plank
+box          192      53  0.1  0.4 81348   27493 node
+box       126470  125965  0.0  0.4 77236    2101 chrome
+box       125965  125934  0.0  0.4 69980    2107 chrome
+box       125964  125934  0.0  0.4 68944    2107 chrome
+root      113473      53  0.2  0.4 66968    3499 netbird
+box          167      53  0.0  0.3 63492   27493 node
+box       125992  125965  0.0  0.3 57580    2107 chrome
+box       125939  125938  0.0  0.3 56512    2107 node
+box         1234    1233  0.0  0.3 56404   27472 node
+box       112008  112007  0.0  0.3 56228    3599 node
+box          451     446  0.0  0.3 55720   27476 node
+box       108893  108892  0.0  0.3 55576    4063 node
+box       108922  108920  0.0  0.3 55484    4063 node
+box          512     511  0.0  0.3 55452   27476 node
+box          734     731  0.0  0.3 55424   27476 node
+
+End=2026-09-08T01:18:52Z
+
+SSH transport exit=0

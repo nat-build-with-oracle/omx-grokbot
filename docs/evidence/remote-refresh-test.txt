@@ -1,0 +1,624 @@
+
+===== Capture and identity =====
+
+$ date -u +%FT%TZ
+2026-09-08T01:21:27Z
+
+$ hostname
+cursor
+
+$ id
+uid=1000(box) gid=1000(box) groups=1000(box)
+
+$ uname -a
+Linux cursor 6.12.94+ #1 SMP PREEMPT_DYNAMIC Tue Sep  1 16:19:40 UTC 2026 x86_64 GNU/Linux
+
+$ cat /etc/os-release
+PRETTY_NAME="Debian GNU/Linux 13 (trixie)"
+NAME="Debian GNU/Linux"
+VERSION_ID="13"
+VERSION="13 (trixie)"
+VERSION_CODENAME=trixie
+DEBIAN_VERSION_FULL=13.6
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+
+$ uptime
+ 01:21:27 up  7:42,  0 users,  load average: 0.11, 0.11, 0.10
+
+$ ps -p 1 -o pid\,ppid\,user\,comm
+    PID    PPID USER     COMMAND
+      1       0 root     tini
+
+$ readlink /proc/1/ns/pid /proc/self/ns/pid /proc/1/ns/mnt /proc/self/ns/mnt
+pid:[4026532211]
+mnt:[4026532208]
+[exit=1]
+
+$ cat /proc/self/cgroup
+0::/agent
+
+$ sh -c awk\ \'\$0\ ~\ /\ -\ cgroup2\ /\ \{print\}\'\ /proc/self/mountinfo
+331 330 0:26 / /sys/fs/cgroup rw,nosuid,nodev,noexec,relatime - cgroup2 cgroup rw,nsdelegate,memory_recursiveprot
+
+$ ls -ld /.dockerenv /run/.containerenv
+ls: cannot access '/run/.containerenv': No such file or directory
+-rwxr-xr-x 1 root root 0 Sep  7 17:40 /.dockerenv
+[exit=2]
+
+===== CPU, memory and visible cgroup controls (not host guarantees) =====
+
+$ lscpu
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           46 bits physical, 57 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  8
+On-line CPU(s) list:                     0-7
+Vendor ID:                               GenuineIntel
+Model name:                              Intel(R) Xeon(R) Processor
+CPU family:                              6
+Model:                                   207
+Thread(s) per core:                      1
+Core(s) per socket:                      8
+Socket(s):                               1
+Stepping:                                2
+BogoMIPS:                                4800.00
+Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc pebs bts rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq dtes64 vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves avx_vnni avx512_bf16 wbnoinvd arat vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid bus_lock_detect cldemote movdiri movdir64b fsrm md_clear serialize tsxldtrk amx_bf16 avx512_fp16 amx_tile amx_int8 flush_l1d arch_capabilities
+Virtualization:                          VT-x
+Hypervisor vendor:                       KVM
+Virtualization type:                     full
+L1d cache:                               384 KiB (8 instances)
+L1i cache:                               256 KiB (8 instances)
+L2 cache:                                16 MiB (8 instances)
+L3 cache:                                320 MiB (1 instance)
+NUMA node(s):                            1
+NUMA node0 CPU(s):                       0-7
+Vulnerability Gather data sampling:      Not affected
+Vulnerability Indirect target selection: Not affected
+Vulnerability Itlb multihit:             Not affected
+Vulnerability L1tf:                      Not affected
+Vulnerability Mds:                       Not affected
+Vulnerability Meltdown:                  Not affected
+Vulnerability Mmio stale data:           Not affected
+Vulnerability Reg file data sampling:    Not affected
+Vulnerability Retbleed:                  Not affected
+Vulnerability Spec rstack overflow:      Not affected
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI BHI_DIS_S
+Vulnerability Srbds:                     Not affected
+Vulnerability Tsa:                       Not affected
+Vulnerability Tsx async abort:           Mitigation; TSX disabled
+Vulnerability Vmscape:                   Not affected
+
+$ nproc
+8
+
+$ free -h
+               total        used        free      shared  buff/cache   available
+Mem:            15Gi        12Gi       239Mi        35Mi       3.3Gi       3.1Gi
+Swap:           15Gi       780Ki        15Gi
+
+$ cat /proc/loadavg
+0.11 0.11 0.10 1/974 141499
+
+$ vmstat 1 3
+procs -----------memory---------- ---swap-- -----io---- -system-- -------cpu-------
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st gu
+ 0  0    780 245240 143304 3277660    0    0    14   273 1123    1  1  0 99  0  0  0
+ 0  0    780 242436 143304 3277660    0    0     0     4 1300 1156  1  1 98  0  0  0
+ 0  0    780 243136 143304 3277660    0    0     0     4 1069  985  1  1 99  0  0  0
+
+/sys/fs/cgroup/cpu.max
+800000 100000
+
+/sys/fs/cgroup/cpu.stat
+usage_usec 2392026479
+user_usec 1468199405
+system_usec 923827074
+nice_usec 15074692
+nr_periods 276513
+nr_throttled 0
+throttled_usec 0
+nr_bursts 0
+burst_usec 0
+
+/sys/fs/cgroup/cpuset.cpus.effective
+0-7
+
+/sys/fs/cgroup/memory.max
+17179869184
+
+/sys/fs/cgroup/memory.high
+max
+
+/sys/fs/cgroup/memory.current
+2905096192
+
+/sys/fs/cgroup/memory.peak
+2934079488
+
+/sys/fs/cgroup/memory.events
+low 0
+high 0
+max 0
+oom 0
+oom_kill 0
+oom_group_kill 0
+
+/sys/fs/cgroup/memory.swap.max
+17179869184
+
+/sys/fs/cgroup/memory.swap.current
+360448
+
+/sys/fs/cgroup/pids.max
+19209
+
+/sys/fs/cgroup/pids.current
+805
+
+Visible member/ancestor cgroup: /sys/fs/cgroup/agent
+cgroup.type: domain 
+cpu.max: max 100000 
+
+/proc/pressure/cpu
+some avg10=0.00 avg60=0.00 avg300=0.00 total=13059124
+full avg10=0.00 avg60=0.00 avg300=0.00 total=0
+
+/proc/pressure/memory
+some avg10=0.00 avg60=0.00 avg300=0.00 total=148613
+full avg10=0.00 avg60=0.00 avg300=0.00 total=147493
+
+/proc/pressure/io
+some avg10=0.00 avg60=0.00 avg300=0.00 total=2022867
+full avg10=0.00 avg60=0.00 avg300=0.00 total=1943116
+
+===== Filesystem and storage boundaries =====
+
+$ df -hT
+Filesystem     Type     Size  Used Avail Use% Mounted on
+overlay        overlay  126G   22G   98G  19% /
+tmpfs          tmpfs     64M     0   64M   0% /dev
+shm            tmpfs     64M     0   64M   0% /dev/shm
+/dev/root      ext4     126G   22G   98G  19% /etc/hosts
+
+$ df -i
+Filesystem      Inodes  IUsed   IFree IUse% Mounted on
+overlay        8388608 107657 8280951    2% /
+tmpfs          2049702    152 2049550    1% /dev
+shm            2049702      1 2049701    1% /dev/shm
+/dev/root      8388608 107657 8280951    2% /etc/hosts
+
+$ findmnt -rn -o TARGET\,SOURCE\,FSTYPE
+/ overlay overlay
+/proc proc proc
+/dev tmpfs tmpfs
+/dev/pts devpts devpts
+/sys sysfs sysfs
+/sys/fs/cgroup cgroup cgroup2
+/dev/mqueue mqueue mqueue
+/dev/shm shm tmpfs
+/etc/resolv.conf /dev/vda[/var/lib/docker/containers/fae5edb30e0b39a4c5c1f9e91d7a7b678abd3ee667c794db81e2e28a9504646e/resolv.conf] ext4
+/etc/hostname /dev/vda[/var/lib/docker/containers/fae5edb30e0b39a4c5c1f9e91d7a7b678abd3ee667c794db81e2e28a9504646e/hostname] ext4
+/etc/hosts /dev/vda[/var/lib/docker/containers/fae5edb30e0b39a4c5c1f9e91d7a7b678abd3ee667c794db81e2e28a9504646e/hosts] ext4
+
+$ lsblk -o NAME\,TYPE\,SIZE\,FSTYPE\,MOUNTPOINTS
+NAME TYPE  SIZE FSTYPE MOUNTPOINTS
+vda  disk  128G        /etc/hosts
+                       /etc/hostname
+                       /etc/resolv.conf
+
+$ ls -ld / /home /home/box /tmp /dev/shm /workspace /workspaces /opt /usr/local /var/log /var/backups
+ls: cannot access '/workspaces': No such file or directory
+drwxr-xr-x 1 root root 4096 Sep  7 17:40 /
+drwxrwxrwt 2 root root   40 Sep  7 17:40 /dev/shm
+drwxr-xr-x 1 root root 4096 Sep  7 13:45 /home
+drwx------ 1 box  box  4096 Sep  8 01:17 /home/box
+drwxr-xr-x 1 root root 4096 Sep  7 17:40 /opt
+drwxrwxrwt 1 root root 4096 Sep  8 01:21 /tmp
+drwxr-xr-x 1 root root 4096 Aug 24 00:00 /usr/local
+drwxr-xr-x 2 root root 4096 Jul  4 09:05 /var/backups
+drwxr-xr-x 1 root root 4096 Sep  8 01:12 /var/log
+drwxr-xr-x 1 box  box  4096 Sep  8 01:01 /workspace
+[exit=2]
+
+$ ls -la /var/backups
+total 12
+drwxr-xr-x 2 root root 4096 Jul  4 09:05 .
+drwxr-xr-x 1 root root 4096 Aug 24 00:00 ..
+
+$ find /home/box -mindepth 1 -maxdepth 1 -printf %y\ %f\\n
+f .bash_logout
+f .bashrc
+f .profile
+d chrome-profile
+f .sand-window-assignments.json
+d cli-config
+d reference
+d .cache
+d .local
+l agent-data
+d .ssh
+d .bun
+d .config
+d .grok
+d sand-host
+d .cursor
+d sand-data
+d deps
+d chrome-profile-3
+f .sand-webauthn-proxy-enabled
+d chrome-profile-2
+d .npm
+f .keep
+
+$ find /opt /srv -mindepth 1 -maxdepth 1 -printf %y\ %p\\n
+d /opt/sand-managed
+d /opt/orbit
+d /opt/google
+
+===== Network and DNS configuration =====
+
+$ ip -brief address
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enp0s3           UP             172.30.0.2/24 fe80::802b:38ff:fe3d:bcd0/64 
+docker0          DOWN           172.17.0.1/16 
+wt0              UNKNOWN        100.97.63.219/16 fdda:b053:7ca5:b660:b194:9390:d02:368b/64 
+
+$ ip route show
+default via 172.30.0.1 dev enp0s3 
+100.97.0.0/16 dev wt0 proto kernel scope link src 100.97.63.219 
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown 
+172.30.0.0/24 dev enp0s3 proto kernel scope link src 172.30.0.2 
+
+$ ip -6 route show
+fdda:b053:7ca5:b660::/64 dev wt0 proto kernel metric 256 pref medium
+fe80::/64 dev enp0s3 proto kernel metric 256 pref medium
+
+$ cat /etc/resolv.conf
+# Generated by NetBird
+# The original file can be restored from /etc/resolv.conf.original.netbird
+
+search oracle.netbird
+nameserver 100.97.63.219
+
+$ getent hosts grokbot1 grokbot1.oracle.netbird cursor.oracle.netbird
+fdda:b053:7ca5:b660:b194:9390:d02:368b grokbot1.oracle.netbird
+fdda:b053:7ca5:b660:b194:9390:d02:368b grokbot1.oracle.netbird
+[exit=2]
+
+$ ss -s
+Total: 424
+TCP:   109 (estab 23, closed 59, orphaned 0, timewait 59)
+
+Transport Total     IP        IPv6
+RAW	  4         2         2        
+UDP	  4         3         1        
+TCP	  50        37        13       
+INET	  58        42        16       
+FRAG	  0         0         0        
+
+
+$ ss -H -lntu
+udp UNCONN 0      0            0.0.0.0:51820 0.0.0.0:*
+udp UNCONN 0      0          127.0.0.1:3128  0.0.0.0:*
+udp UNCONN 0      0      100.97.63.219:53    0.0.0.0:*
+udp UNCONN 0      0                  *:51820       *:*
+tcp LISTEN 0      128          0.0.0.0:50052 0.0.0.0:*
+tcp LISTEN 0      10         127.0.0.1:9225  0.0.0.0:*
+tcp LISTEN 0      128          0.0.0.0:22    0.0.0.0:*
+tcp LISTEN 0      128          0.0.0.0:26500 0.0.0.0:*
+tcp LISTEN 0      511          0.0.0.0:1339  0.0.0.0:*
+tcp LISTEN 0      511          0.0.0.0:1340  0.0.0.0:*
+tcp LISTEN 0      5            0.0.0.0:2375  0.0.0.0:*
+tcp LISTEN 0      32         127.0.0.1:5904  0.0.0.0:*
+tcp LISTEN 0      32         127.0.0.1:5900  0.0.0.0:*
+tcp LISTEN 0      32         127.0.0.1:5903  0.0.0.0:*
+tcp LISTEN 0      32         127.0.0.1:5902  0.0.0.0:*
+tcp LISTEN 0      100          0.0.0.0:6081  0.0.0.0:*
+tcp LISTEN 0      100          0.0.0.0:6080  0.0.0.0:*
+tcp LISTEN 0      4096   100.97.63.219:53    0.0.0.0:*
+tcp LISTEN 0      128             [::]:22       [::]:*
+tcp LISTEN 0      32             [::1]:5900     [::]:*
+tcp LISTEN 0      32             [::1]:5903     [::]:*
+tcp LISTEN 0      32             [::1]:5902     [::]:*
+tcp LISTEN 0      32             [::1]:5904     [::]:*
+tcp LISTEN 0      511                *:1337        *:*
+tcp LISTEN 0      511                *:1338        *:*
+tcp LISTEN 0      511                *:14003       *:*
+tcp LISTEN 0      511                *:14002       *:*
+tcp LISTEN 0      511                *:14004       *:*
+tcp LISTEN 0      511                *:13603       *:*
+tcp LISTEN 0      511                *:13602       *:*
+tcp LISTEN 0      511                *:13604       *:*
+
+===== Security configuration and observation limits =====
+
+$ sh -c grep\ -E\ \'\^\(Uid\|Gid\|Cap\(Inh\|Prm\|Eff\|Bnd\|Amb\)\|NoNewPrivs\|Seccomp\):\'\ /proc/self/status
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+
+$ sh -c grep\ -E\ \'\^\(Uid\|Gid\|Cap\(Inh\|Prm\|Eff\|Bnd\|Amb\)\|NoNewPrivs\|Seccomp\):\'\ /proc/1/status
+Uid:	0	0	0	0
+Gid:	0	0	0	0
+CapInh:	0000000000000000
+CapPrm:	000001ffffffffff
+CapEff:	000001ffffffffff
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+
+$ cat /proc/sys/kernel/unprivileged_userns_clone /proc/sys/kernel/yama/ptrace_scope
+cat: /proc/sys/kernel/unprivileged_userns_clone: No such file or directory
+cat: /proc/sys/kernel/yama/ptrace_scope: No such file or directory
+[exit=1]
+
+$ ls -ld /home/box/.ssh
+drwx------ 2 box box 4096 Sep  7 17:40 /home/box/.ssh
+
+$ stat -c %a\ %U:%G\ %n /home/box/.ssh/authorized_keys
+600 box:box /home/box/.ssh/authorized_keys
+
+$ sh -c if\ \[\ -r\ /etc/ssh/sshd_config\ \]\;\ then\ grep\ -Eih\ \'\^\[\[:space:\]\]\*\(Include\|Port\|ListenAddress\|PasswordAuthentication\|KbdInteractiveAuthentication\|PubkeyAuthentication\|PermitRootLogin\|PermitEmptyPasswords\|AuthenticationMethods\|AllowTcpForwarding\|GatewayPorts\|X11Forwarding\|UsePAM\|Match\)\[\[:space:\]\]\'\ /etc/ssh/sshd_config\ /etc/ssh/sshd_config.d/\*.conf\ 2\>/dev/null\;\ fi
+Include /etc/ssh/sshd_config.d/*.conf
+KbdInteractiveAuthentication no
+UsePAM yes
+X11Forwarding yes
+[exit=2]
+
+$ /usr/sbin/sshd -T
+sshd: no hostkeys available -- exiting.
+[exit=1]
+
+$ sh -c command\ -v\ nft\;\ command\ -v\ iptables\;\ command\ -v\ ufw\;\ command\ -v\ systemctl\;\ command\ -v\ docker\;\ command\ -v\ journalctl
+/usr/bin/systemctl
+/usr/bin/journalctl
+
+$ sh -c found=0\;\ for\ c\ in\ nft\ iptables\ ufw\;\ do\ if\ command\ -v\ \"\$c\"\ \>/dev/null\;\ then\ found=1\;\ case\ \"\$c\"\ in\ nft\)\ nft\ list\ ruleset\;\;\ iptables\)\ iptables\ -S\;\;\ ufw\)\ ufw\ status\;\;\ esac\;\ fi\;\ done\;\ if\ \[\ \"\$found\"\ =\ 0\ \]\;\ then\ printf\ \"No\ firewall\ inspection\ CLI\ on\ PATH\\n\"\;\ fi
+No firewall inspection CLI on PATH
+
+===== Process names and service-manager availability =====
+
+$ ps -eo pid\,ppid\,user\,comm\,etimes\,rss --sort=-rss
+    PID    PPID USER     COMMAND         ELAPSED   RSS
+   1084     431 box      node              27630 496560
+ 125934      53 box      chrome             2263 277280
+ 126383  125965 box      chrome             2258 236736
+ 126361  125965 box      chrome             2258 154272
+    302     298 box      node              27650 146408
+ 108873      53 box      node               4219 146176
+   1901      53 box      node              27628 139232
+ 116776      53 box      node               3392 127512
+ 125990  125934 box      chrome             2263 124352
+    431     419 box      node              27633 121360
+    193      53 box      node              27650 116992
+    222      53 box      node              27650 93820
+ 126105  125964 box      chrome             2263 92012
+ 109180      53 box      plank              4219 85816
+ 117184      53 box      plank              3392 85544
+    275      53 box      node              27650 84532
+    719     439 box      xfwm4             27632 84180
+   1978    1178 box      xfwm4             27628 82868
+   1000      53 box      plank             27632 81916
+   2258      53 box      plank             27628 81916
+    192      53 box      node              27650 81360
+ 126470  125965 box      chrome             2257 77236
+ 125965  125934 box      chrome             2263 69980
+ 125964  125934 box      chrome             2263 68944
+    167      53 box      node              27650 63492
+ 113473      53 root     netbird            3656 61736
+ 125992  125965 box      chrome             2263 57580
+ 125939  125938 box      node               2263 56600
+   1234    1233 box      node              27629 56404
+ 112008  112007 box      node               3756 56228
+    451     446 box      node              27633 55720
+ 108893  108892 box      node               4219 55576
+ 108922  108920 box      node               4219 55484
+    512     511 box      node              27633 55452
+    734     731 box      node              27632 55424
+   1961    1960 box      node              27628 55400
+   1184    1182 box      node              27629 55224
+    655     650 box      node              27632 55196
+ 107830  107828 box      node               4220 55148
+    229     228 box      node              27650 55128
+ 116912  116911 box      node               3392 55120
+   1010    1006 box      node              27632 55108
+ 115279  115274 box      node               3393 55096
+ 107780  107779 box      node               4221 55088
+ 109195  109192 box      node               4219 55088
+    801     800 box      node              27632 55052
+    204     201 box      node              27650 55036
+   1992    1989 box      node              27628 55020
+   2039    2034 box      node              27628 55016
+    693     687 box      node              27632 55000
+ 108967  108964 box      node               4219 54980
+ 117200  117199 box      node               3392 54928
+   2278    2273 box      node              27628 54920
+ 116864  116862 box      node               3392 54908
+ 116838  116837 box      node               3392 54884
+ 115364  115361 box      node               3393 54832
+   1226    1178 box      Xvfb              27629 53760
+ 107822  107774 box      Xvfb               4220 42928
+    504     439 box      Xvfb              27633 40248
+ 115350  115263 box      Xvfb               3393 39696
+ 113213      53 box      xfce4-terminal     3666 37592
+ 117564      53 box      xfce4-terminal     3380 37464
+ 112005     431 box      websockify         3756 37268
+    678     439 box      websockify        27632 37168
+   2510    1084 box      csnaps            27606 31168
+ 108910  107774 box      xfwm4              4219 28092
+ 116855  115263 box      xfwm4              3392 27828
+ 108885  107774 box      x11vnc             4219 26420
+ 116830  115263 box      x11vnc             3392 23904
+   2392    2391 box      bamfdaemon        27627 23644
+ 117492  117491 box      bamfdaemon         3391 23520
+ 109377  109376 box      bamfdaemon         4219 23484
+   1953    1178 box      x11vnc            27628 22460
+   1045    1044 box      bamfdaemon        27632 17492
+    639     439 box      x11vnc            27632 15856
+ 123687  120574 root     sshd-session       2487 13340
+ 141412  120574 root     sshd-session          6 11752
+     53       7 root     sand-exit-watch   27650 11664
+ 123701  123687 box      sshd-session       2485  8108
+ 141467  141412 box      sshd-session          3  7892
+ 113361  113225 box      tmux: client       3660  6772
+    786     439 box      picom             27632  6436
+ 108957  107774 box      picom              4219  6420
+   2023    1178 box      picom             27628  6376
+ 116902  115263 box      picom              3392  6356
+    863       1 box      dconf-service     27632  6236
+ 109021      53 box      dconf-service      4219  6208
+ 116988      53 box      dconf-service      3392  6156
+   2111      53 box      dconf-service     27628  5952
+ 113363      53 box      tmux: server       3660  5344
+ 120574      53 root     sshd               3036  5228
+      7       1 root     pod-daemon        27651  5164
+    276      53 box      bash              27650  4252
+ 141576  141575 box      ps                    0  4252
+ 113364  113363 box      bash               3660  4144
+ 117571  117564 box      bash               3380  4108
+   1222      53 box      dbus-daemon       27629  4096
+ 113225  113213 box      bash               3665  4040
+ 123707  123701 box      bash               2484  3876
+ 107774      53 box      bash               4221  3784
+ 115263      53 box      bash               3393  3756
+    439      53 box      bash              27633  3720
+ 125957      53 box      chrome_crashpad    2263  3716
+   1178      53 box      bash              27629  3684
+    419      53 box      bash              27633  3592
+    298     276 box      bash              27650  3536
+ 125959      53 box      chrome_crashpad    2263  3516
+ 117491      53 box      bamfdaemon-dbus    3391  3512
+   1044       1 box      bamfdaemon-dbus   27632  3504
+ 109376      53 box      bamfdaemon-dbus    4219  3496
+   2391      53 box      bamfdaemon-dbus   27627  3476
+    432     419 box      bash              27633  3420
+ 141468  141467 box      bash                  2  3356
+ 115338      53 box      dbus-daemon        3393  2816
+ 107818      53 box      dbus-daemon        4220  2756
+    498       1 box      dbus-daemon       27633  2708
+ 116909  116902 box      bash               3392  2092
+   1004    1000 box      bash              27632  2084
+ 107778  107774 box      bash               4221  2080
+   1959    1953 box      bash              27628  2072
+   1231    1226 box      bash              27629  2056
+ 115358  115350 box      bash               3393  2044
+   1181    1178 box      bash              27629  2040
+   1987    1978 box      bash              27628  2040
+ 116835  116830 box      bash               3392  2036
+ 125937  125934 box      bash               2263  2032
+ 141455     432 box      sleep                 4  2028
+ 109191  109180 box      bash               4219  2016
+ 109223  107774 box      tail               4219  2004
+   1023     439 box      tail              27632  2000
+ 108963  108957 box      bash               4219  2000
+ 112006  112005 box      bash               3756  2000
+ 107827  107822 box      bash               4220  1992
+ 108918  108910 box      bash               4219  1992
+ 108890  108885 box      bash               4219  1984
+    509     504 box      bash              27633  1980
+    797     786 box      bash              27632  1980
+ 117196  117184 box      bash               3392  1980
+    686     678 box      bash              27632  1976
+    444     439 box      bash              27633  1964
+    648     639 box      bash              27632  1960
+   2301    1178 box      tail              27628  1952
+    201     199 box      flock             27650  1948
+   2272    2258 box      bash              27628  1948
+ 116911  116909 box      flock              3392  1948
+    650     648 box      flock             27632  1944
+    800     797 box      flock             27632  1944
+ 109192  109191 box      flock              4219  1944
+ 116861  116855 box      bash               3392  1944
+ 141504     276 box      sleep                 1  1940
+   2031    2023 box      bash              27628  1936
+    731     729 box      flock             27632  1932
+ 108964  108963 box      flock              4219  1928
+ 115270  115263 box      bash               3393  1928
+    199     193 box      bash              27650  1912
+    729     719 box      bash              27632  1904
+ 115274  115270 box      flock              3393  1904
+ 116837  116835 box      flock              3392  1904
+ 107779  107778 box      flock              4221  1900
+ 115361  115358 box      flock              3393  1900
+ 125945  125934 box      cat                2263  1900
+ 117225  115263 box      tail               3392  1888
+   1989    1987 box      flock             27628  1880
+ 108892  108890 box      flock              4219  1880
+   2034    2031 box      flock             27628  1872
+ 107828  107827 box      flock              4220  1868
+    446     444 box      flock             27633  1864
+    511     509 box      flock             27633  1864
+    687     686 box      flock             27632  1864
+ 112007  112006 box      flock              3756  1864
+    227     222 box      bash              27650  1848
+ 108920  108918 box      flock              4219  1848
+ 125938  125937 box      flock              2263  1848
+ 125943  125934 box      cat                2263  1848
+    228     227 box      flock             27650  1836
+   1006    1004 box      flock             27632  1832
+   1233    1231 box      flock             27629  1832
+   1960    1959 box      flock             27628  1832
+   2273    2272 box      flock             27628  1832
+   1182    1181 box      flock             27629  1828
+ 116862  116861 box      flock              3392  1828
+ 117199  117196 box      flock              3392  1824
+ 141575  141468 box      timeout               0  1644
+      1       0 root     tini              27651   748
+    517     504 box      bash              27633     0
+   1891    1226 box      bash              27628     0
+ 108829  107822 box      bash               4220     0
+ 116729  115350 box      bash               3392     0
+
+$ systemctl is-system-running
+offline
+[exit=1]
+
+$ systemctl list-units --type=service --state=running --no-pager
+System has not been booted with systemd as init system (PID 1). Can't operate.
+Failed to connect to system scope bus via local transport: Host is down
+[exit=1]
+
+$ sh -c awk\ -F:\ \'BEGIN\ \{n=0\}\ \{n++\}\ END\ \{printf\ \"passwd\ account\ count:\ %d\\n\"\,\ n\}\'\ /etc/passwd
+passwd account count: 25
+
+===== Time and logs (metadata only) =====
+
+$ date -u +%FT%TZ
+2026-09-08T01:21:29Z
+
+$ readlink /etc/localtime
+/usr/share/zoneinfo/Etc/UTC
+
+$ ls -ld /var/log /var/log/journal /run/log/journal /var/log/apt /var/log/supervisor
+ls: cannot access '/run/log/journal': No such file or directory
+ls: cannot access '/var/log/supervisor': No such file or directory
+drwxr-xr-x  1 root root            4096 Sep  8 01:12 /var/log
+drwxr-xr-x  1 root root            4096 Sep  8 00:54 /var/log/apt
+drwxr-sr-x+ 2 root systemd-journal 4096 Sep  8 00:30 /var/log/journal
+[exit=2]
+
+$ find /var/log -maxdepth 1 -type f -printf %f\ %s\ bytes\\n
+lastlog 292292 bytes
+wtmp 768 bytes
+btmp 0 bytes
+wtmp.db 8192 bytes
+dpkg.log 441709 bytes
+fontconfig.log 4069 bytes
+alternatives.log 5164 bytes
+
+===== End of read-only snapshot (individual probe failures above remain significant) =====
+
+SSH transport exit=0

@@ -1,0 +1,15 @@
+test_correlates_only_same_request_after_prompt (__main__.CorrelationTests.test_correlates_only_same_request_after_prompt) ... ok
+test_duplicate_prompts_are_ambiguous (__main__.CorrelationTests.test_duplicate_prompts_are_ambiguous) ... ok
+test_echo_without_user_entry_is_not_delivery (__main__.CorrelationTests.test_echo_without_user_entry_is_not_delivery) ... ok
+test_marker_constraints (__main__.CorrelationTests.test_marker_constraints) ... ok
+test_missing_request_id_does_not_correlate (__main__.CorrelationTests.test_missing_request_id_does_not_correlate) ... ok
+test_no_redirect (__main__.CorrelationTests.test_no_redirect) ... ok
+test_sqlite_open_is_read_only (__main__.CorrelationTests.test_sqlite_open_is_read_only) ... ok
+test_tool_output_not_promoted_to_bot_reply (__main__.CorrelationTests.test_tool_output_not_promoted_to_bot_reply) ... ok
+test_truncation_explicit (__main__.CorrelationTests.test_truncation_explicit) ... ok
+test_user_entry_without_reply_is_pending (__main__.CorrelationTests.test_user_entry_without_reply_is_pending) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.011s
+
+OK

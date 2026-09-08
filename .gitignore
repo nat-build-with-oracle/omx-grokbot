@@ -1,0 +1,13 @@
+node_modules/
+dist/
+data/
+.env
+.env.*
+!.env.example
+*.log
+__pycache__/
+.reference/
+.omx/
+.impeccable/review/
+ψ/learn/**/origin
+ψ/memory/

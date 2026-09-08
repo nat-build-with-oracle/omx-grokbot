@@ -1,0 +1,14 @@
+{
+  "checked_at_utc": "2026-09-08T03:07:51.387208+00:00",
+  "result": "PASS",
+  "markdown_files": 17,
+  "relative_links_checked": 154,
+  "timestamped_evidence_files": 18,
+  "checksum_entries_checked": 20,
+  "complete_installed_package_rows": 962,
+  "collector_bash_syntax_exit": 0,
+  "recorded_collector_transport_exit": 0,
+  "omx_proxy_live_conversation_proof": true,
+  "errors": [],
+  "limits": "Mechanical checks and limited sensitive-pattern scan only. Semantic evidence review is in docs/coverage-audit.md. Probe-level failures in the snapshot remain significant; this is not a health/security certificate."
+}

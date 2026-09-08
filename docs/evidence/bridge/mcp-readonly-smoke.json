@@ -1,0 +1,23 @@
+{
+  "utc": "2026-09-08T03:02:35.430Z",
+  "transport": "Streamable HTTP",
+  "client": "@modelcontextprotocol/client",
+  "tools": [
+    "grokbot_agents",
+    "grokbot_send",
+    "grokbot_verify",
+    "history_search",
+    "history_read",
+    "history_status"
+  ],
+  "grokbotAgentCount": 6,
+  "omxProxyDiscovered": true,
+  "historyDocuments": 15,
+  "historyChunks": 46,
+  "embeddedChunks": 46,
+  "semanticHitCount": 3,
+  "credentialsRetained": false,
+  "rawHistoryRetained": false,
+  "sendsPerformed": 0,
+  "limits": "Local authenticated SDK-client proof, not Claude.ai/public or Grok Bot MCP-client acceptance."
+}

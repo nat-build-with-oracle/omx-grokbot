@@ -1,0 +1,12 @@
+debug1: Connecting to grokbot1 [100.97.63.219] port 22.
+debug1: Connection established.
+debug1: Server host key: ssh-ed25519 SHA256:rOpANPu0hrBNtNs1K7+txaffZkm7f6qUVY07600O2wI
+debug1: Host 'grokbot1' is known and matches the ED25519 host key.
+Authenticated to grokbot1 ([100.97.63.219]:22) using "publickey".
+debug1: Sending command: date -u +%FT%TZ; id -un; hostname; printf "--- key-file permissions only ---\\n"; stat -c "%a %U:%G %n" /workspace/nat-box-ssh /workspace/nat-box-ssh.pub
+2026-09-08T01:20:52Z
+box
+cursor
+600 box:box /workspace/nat-box-ssh
+644 box:box /workspace/nat-box-ssh.pub
+debug1: Exit status 0

@@ -1,0 +1,41 @@
+
+UTC=2026-09-08T01:41:35.191547+00:00
+Probe: read native app process/window counts and roles only; no conversation text.
+exit=0
+process=Grok Bot; pid=24700; visible=true, window_count=1, window_role=AXWindow; subrole=AXStandardWindow
+
+UTC=2026-09-08T01:42:15.088740+00:00
+Probe: accessibility controls only, filtered to Grok/New/Send controls and input labels; no input values/history.
+exit=0
+node_count=297, role=AXButton; name=; description=New chat, role=AXButton; name=; description=Grok Bot's Computer, role=AXTextArea; name=; description=Prompt
+
+UTC=2026-09-08T01:43:28.983130+00:00
+Action: open fresh native chat; inspect only prompt length and send-control labels.
+exit=1
+398:421: execution error: System Events got an error: Can’t get button 1 of group 1 of group 1 of group 1 of UI element "Grok Bot" of group 1 of group 1 of group 1 of group 1 of group 1 of group "Grok Bot" of window "Grok Bot" of application process "Grok Bot". Invalid index. (-1719)
+UTC=2026-09-08T01:48:03Z
+AXIsProcessTrusted=true
+App_PID=24700
+window_count=1
+role=AXButton; desc=New chat; title=
+role=AXTextArea; desc=Prompt; title=
+Prompt_characters=16; placeholder=; value_equals_placeholder=false
+value_matches_known_placeholder=false
+role=AXTextArea; desc=; title=
+role=AXTextArea; desc=Remote desktop keyboard input; title=
+visited_nodes=217
+
+Privacy note: unrelated button titles from the last accessibility walk were removed; only target control metadata is retained.
+UTC=2026-09-08T01:53:33Z
+Before_prompt_characters=16
+New_chat_AXPress_result=0
+After_prompt_characters=16
+After_prompt_placeholder=
+After_prompt_count=1
+No typing or submission performed.
+
+UTC=2026-09-08T01:55:51.185845+00:00
+Root interpretation/action record: AXPress0 means the accessibility action was accepted, not verified creation of an empty conversation. The composer stayed16characters. No text was cleared/changed/submitted. User asked whether these contents may be replaced with a short test greeting; response pending.
+
+UTC=2026-09-08T02:19:31.187531+00:00
+Resolution note (documentation update, not a new UI probe): the user subsequently authorized the gateway workflow over NetBird and selected OMX Proxy. One gateway prompt and its recorded reply were verified at 2026-09-08T02:09:21Z; see grokbot-omx-proxy-prepare.json, grokbot-omx-proxy-send.jsonl, and grokbot-omx-proxy-verify.json. The earlier native-UI route remains unsent; no composer text was overwritten by our actions. The conversation objective is no longer blocked on draft permission.

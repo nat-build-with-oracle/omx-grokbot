@@ -1,0 +1,155 @@
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "@huggingface/transformers": {
+      "name": "@huggingface/transformers",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "onnxruntime-node",
+        "sharp"
+      ],
+      "effects": [
+        "@lancedb/lancedb"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@huggingface/transformers",
+        "node_modules/@lancedb/lancedb/node_modules/@huggingface/transformers"
+      ],
+      "fixAvailable": {
+        "name": "@lancedb/lancedb",
+        "version": "0.30.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@lancedb/lancedb": {
+      "name": "@lancedb/lancedb",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@huggingface/transformers"
+      ],
+      "effects": [],
+      "range": ">=0.30.1-beta.0",
+      "nodes": [
+        "node_modules/@lancedb/lancedb"
+      ],
+      "fixAvailable": {
+        "name": "@lancedb/lancedb",
+        "version": "0.30.0",
+        "isSemVerMajor": true
+      }
+    },
+    "adm-zip": {
+      "name": "adm-zip",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1123686,
+          "name": "adm-zip",
+          "dependency": "adm-zip",
+          "title": "adm-zip: Crafted ZIP file triggers 4GB memory allocation",
+          "url": "https://github.com/advisories/GHSA-xcpc-8h2w-3j85",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-789"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<0.6.0"
+        }
+      ],
+      "effects": [
+        "onnxruntime-node"
+      ],
+      "range": "<0.6.0",
+      "nodes": [
+        "node_modules/adm-zip"
+      ],
+      "fixAvailable": {
+        "name": "@lancedb/lancedb",
+        "version": "0.30.0",
+        "isSemVerMajor": true
+      }
+    },
+    "onnxruntime-node": {
+      "name": "onnxruntime-node",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "adm-zip"
+      ],
+      "effects": [
+        "@huggingface/transformers"
+      ],
+      "range": "1.22.0-dev.20250415-c18e06d5e3 - 1.29.0-dev.20260811-e415ef9afd",
+      "nodes": [
+        "node_modules/onnxruntime-node"
+      ],
+      "fixAvailable": {
+        "name": "@lancedb/lancedb",
+        "version": "0.30.0",
+        "isSemVerMajor": true
+      }
+    },
+    "sharp": {
+      "name": "sharp",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1124066,
+          "name": "sharp",
+          "dependency": "sharp",
+          "title": "sharp inherited vulnerabilities in libvips: CVE-2026-33327, CVE-2026-33328, CVE-2026-35590, CVE-2026-35591",
+          "url": "https://github.com/advisories/GHSA-f88m-g3jw-g9cj",
+          "severity": "high",
+          "cwe": [
+            "CWE-1395"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<0.35.0"
+        }
+      ],
+      "effects": [
+        "@huggingface/transformers"
+      ],
+      "range": "<0.35.0",
+      "nodes": [
+        "node_modules/@lancedb/lancedb/node_modules/sharp",
+        "node_modules/sharp"
+      ],
+      "fixAvailable": {
+        "name": "@lancedb/lancedb",
+        "version": "0.30.0",
+        "isSemVerMajor": true
+      }
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 5,
+      "critical": 0,
+      "total": 5
+    },
+    "dependencies": {
+      "prod": 167,
+      "dev": 139,
+      "optional": 196,
+      "peer": 11,
+      "peerOptional": 0,
+      "total": 411
+    }
+  }
+}

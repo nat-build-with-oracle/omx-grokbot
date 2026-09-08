@@ -1,0 +1,10 @@
+Transport: SSH NetBird box@grokbot1 with BatchMode/StrictHostKeyChecking=yes; no Tailscale host used.
+UTC=2026-09-08T02:03:49.767780+00:00
+Gateway metadata={"port": 1340, "scheme": "http", "bind_host": "0.0.0.0", "connect_host": "127.0.0.1", "token_present": true}
+Health HTTP=200
+Health selected fields={"ok": true, "activeAgentId": "cfecd8d4-bbe9-43e0-ba9c-606b3bd460d3", "isBusy": true, "busyOnlyAwaitingApproval": false}
+Target={"agentId": "cfecd8d4-bbe9-43e0-ba9c-606b3bd460d3", "name": "New Bot"}
+SQLite tables=[["automation_completion_inbox"], ["blobs"], ["kv"], ["transcript_entries"]]
+Schema transcript_entries=[{"name": "seq", "type": "INTEGER"}, {"name": "id", "type": "TEXT"}, {"name": "entry", "type": "TEXT"}]
+Schema sessions=[]
+Transcript watermark=4

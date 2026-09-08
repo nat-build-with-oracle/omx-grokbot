@@ -1,0 +1,50 @@
+{
+  "name": "grokbot-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "tsx watch server/main.ts",
+    "start": "tsx server/main.ts",
+    "web:dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "check": "npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "4.2.0",
+    "@lancedb/lancedb": "0.38.0",
+    "@modelcontextprotocol/client": "2.0.0",
+    "@modelcontextprotocol/express": "2.0.0",
+    "@modelcontextprotocol/node": "2.0.0",
+    "@modelcontextprotocol/server": "2.0.0",
+    "@modelcontextprotocol/server-legacy": "2.0.0",
+    "better-sqlite3": "13.0.3",
+    "drizzle-orm": "0.45.2",
+    "express": "5.2.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.3.3",
+    "@types/better-sqlite3": "9.6.0",
+    "@types/express": "5.0.6",
+    "@types/node": "22.20.1",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "@vitejs/plugin-react": "6.1.1",
+    "tailwindcss": "4.3.3",
+    "tsx": "4.23.13",
+    "typescript": "7.0.2",
+    "vite": "8.2.2"
+  },
+  "overrides": {
+    "sharp": "0.35.4",
+    "adm-zip": "0.6.0"
+  }
+}

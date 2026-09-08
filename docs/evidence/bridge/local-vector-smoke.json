@@ -1,0 +1,82 @@
+{
+  "utc": "2026-09-08T03:00:06.103Z",
+  "model": "Xenova/paraphrase-multilingual-MiniLM-L12-v2:q8:mean-normalized:window96-overlap16:v1",
+  "documents": 15,
+  "chunks": 46,
+  "embeddedChunks": 46,
+  "queries": [
+    {
+      "query": "OAuth authorization approval",
+      "hitCount": 3,
+      "hits": [
+        {
+          "id": "01a530c5ab741b62dd3d5ef31b4428df9a3b369636580006516cc6757f1f55be",
+          "lineStart": 80,
+          "lineEnd": 81,
+          "score": 0.49950116872787476
+        },
+        {
+          "id": "e51b2fca60da771fe19039bb7010ff7d57006414285038e2d6d77f27a87adaee",
+          "lineStart": 80,
+          "lineEnd": 81,
+          "score": 0.460523784160614
+        },
+        {
+          "id": "107eb1b979cd603a4735f88774216d143a5c815c2bcbc36b398643966bae6ee2",
+          "lineStart": 1,
+          "lineEnd": 1,
+          "score": 0.4486720561981201
+        }
+      ]
+    },
+    {
+      "query": "LanceDB vector embeddings",
+      "hitCount": 3,
+      "hits": [
+        {
+          "id": "ee92c3747bb1208ab02490672d088893898ee1b3b611355c940c09984cee7588",
+          "lineStart": 118,
+          "lineEnd": 118,
+          "score": 0.4842633008956909
+        },
+        {
+          "id": "a38fc7bf2d63609e7037fa00085e70114ce2a43161d1979e9ee33dd36ee7f012",
+          "lineStart": 40,
+          "lineEnd": 42,
+          "score": 0.4745941162109375
+        },
+        {
+          "id": "227d6e36755f80e8684b587d4c3a580dc401b3ef238de82c7f4607202bf5b9e1",
+          "lineStart": 118,
+          "lineEnd": 118,
+          "score": 0.4691212773323059
+        }
+      ]
+    },
+    {
+      "query": "React Tailwind interface",
+      "hitCount": 3,
+      "hits": [
+        {
+          "id": "cea260f5795176f1e8256bb0b10255da423e24d83c4b634542c82d19ef4a45a5",
+          "lineStart": 346,
+          "lineEnd": 347,
+          "score": 0.43586301803588867
+        },
+        {
+          "id": "34d49f34766c54b97267219ecb8a9230abb6844df4ee76f8151b312fbe15036f",
+          "lineStart": 694,
+          "lineEnd": 702,
+          "score": 0.4150352478027344
+        },
+        {
+          "id": "b1c964a5d00b4f0f8a6f211605337fd19095276091392154b0087b6ec463face",
+          "lineStart": 40,
+          "lineEnd": 40,
+          "score": 0.29791349172592163
+        }
+      ]
+    }
+  ],
+  "limits": "Actual local embeddings and LanceDB queries; no aggregate retrieval-quality claim. Raw excerpts and private source paths are excluded."
+}
