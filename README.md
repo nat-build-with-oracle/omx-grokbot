@@ -9,7 +9,7 @@ An in-progress, single-owner bridge between Grok Bot, MCP clients, and source-li
 - Six MCP tools for agent discovery, durable message submission, read-only reply verification, and history search/read/status.
 - Drizzle/SQLite message ledger and provenance; LanceDB vectors with local multilingual embeddings in isolated model-specific stores.
 - Source-selected history import, redaction, explicit embedding and independent keyword/vector search.
-- Typed browser API and draft-preserving conversation controller. **The React/Tailwind visual interface is not built yet.**
+- Typed browser API and draft-preserving conversation controller. React/Tailwind web console now exists at `/`, with agent selection, durable send workflow, and history search.
 
 This is a checkpoint, not a completed deployment. Public HTTPS hosting, actual Claude.ai connection, Grok Bot's MCP-client connection, responsive visual verification and operational hardening remain open. See [the complete requirement ledger](docs/bridge-plan.md).
 
@@ -25,7 +25,14 @@ npm test
 npm start
 ```
 
-Default listener: `http://127.0.0.1:4328`, MCP at `/mcp`. The root currently serves a backend-status placeholder until the webapp is built.
+For web development:
+
+```sh
+npm run build
+npm run web:dev
+```
+
+Default listener: `http://127.0.0.1:4328`, MCP at `/mcp`. The root and `/chat`, `/history`, `/connections` serve the built web app when `dist/index.html` exists.
 
 On first start, independent owner and headless-client secrets are generated in `data/access.json` with mode `0600`. The data directory is private (`0700`) and Git-ignored. Read that file locally when configuring a client; never paste its contents into a commit, issue, chat, screenshot or public document. OAuth clients receive separate revocable tokens, not the owner secret. Real history, databases and model assets must remain uncommitted.
 
