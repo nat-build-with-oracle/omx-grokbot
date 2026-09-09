@@ -1,0 +1,54 @@
+name: Publish add-on image
+
+# Without a published image Supervisor builds on the Home Assistant appliance.
+# That is what happened once here: the build restarted Supervisor and left the
+# guest at 1.4 GB free while other add-ons held live databases. CI turns
+# installation into a pull and a broken build into a visible failed run.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "config.yaml"
+      - "Dockerfile"
+      - "run.sh"
+      - "package.json"
+      - "package-lock.json"
+      - "server/**"
+      - "client/**"
+      - "src/**"
+      - "scripts/grokbot-gateway.py"
+      - ".github/workflows/builder.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: amd64 image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      # The image copies a prebuilt dist/, which is not committed. Building it
+      # here also means the published image only exists when typecheck and the
+      # test suite passed.
+      - run: npm ci
+      - run: npm run check
+      - name: Log in to ghcr.io
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and publish
+        uses: home-assistant/builder@master
+        with:
+          args: |
+            --amd64 \
+            --target . \
+            --image {arch}-addon-grokbot \
+            --docker-hub ghcr.io/nat-build-with-oracle \
+            --addon

@@ -13,3 +13,4 @@ __pycache__/
 ψ/memory/
 
 .playwright-mcp/
+.envrc

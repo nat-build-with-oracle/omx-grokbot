@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import { createConversationController, type ConversationOperation } from '../client/conversation';
 import { ApiError, createApiClient, type ConnectionInfo } from '../client/api';
+import { basePath } from '../client/basePath';
 import type { Agent, HistoryStatus, MessageRun, SearchHit } from '../server/types';
 import { Avatar, Icon, Mark, type IconName } from './Icons';
 import { NewBot } from './NewBot';
@@ -8,8 +9,9 @@ import { ChatHistory } from './ChatHistory';
 
 type Route = 'chat' | 'new' | 'history' | 'connections';
 type Connection = 'unchecked' | 'checking' | 'online' | 'offline';
-const routePath: Record<Route, string> = { chat: '/', new: '/new', history: '/history', connections: '/connections' };
-function currentRoute(): Route { return ({ '/new': 'new', '/history': 'history', '/connections': 'connections' } as Record<string, Route>)[window.location.pathname] ?? 'chat'; }
+const appBase = basePath(window.location.pathname);
+const routePath: Record<Route, string> = { chat: appBase, new: `${appBase}new`, history: `${appBase}history`, connections: `${appBase}connections` };
+function currentRoute(): Route { return ({ new: 'new', history: 'history', connections: 'connections' } as Record<string, Route>)[window.location.pathname.split('/').pop() ?? ''] ?? 'chat'; }
 const statusLabel: Record<Connection, string> = { unchecked: 'Not checked', checking: 'Connecting…', online: 'Reachable', offline: 'Connection failed' };
 const phaseLabel: Record<ConversationOperation['phase'], string> = { prepared: 'Prepared', sending: 'Submitting…', accepted: 'Submitted · checking for a reply', uncertain: 'Delivery not confirmed', pending: 'Waiting for reply · checking automatically', recorded: 'Reply verified', error: 'Not sent' };
 const errorMessage = (error: unknown, fallback: string) => error instanceof ApiError ? error.message : fallback;
@@ -32,7 +34,7 @@ function ConversationEntry({ operation, onVerify }: { operation: ConversationOpe
 }
 
 export function App() {
-  const api = useMemo(() => createApiClient(), []);
+  const api = useMemo(() => createApiClient(undefined, appBase), []);
   const [controller] = useState(() => createConversationController());
   const [conversation, setConversation] = useState(controller.getState);
   const [auth, setAuth] = useState<'checking' | 'guest' | 'owner'>('checking');
@@ -213,7 +215,7 @@ export function App() {
   };
 
   const sidebarContent = <>
-    <a className="brand" aria-label="ARRA Oracle GrokBot Bridge" href="/" onClick={e => { e.preventDefault(); navigate('chat'); }}><Mark /><span className="brand-wordmark"><strong>ARRA Oracle</strong><span className="brand-subtle">GrokBot Bridge</span></span></a>
+    <a className="brand" aria-label="ARRA Oracle GrokBot Bridge" href={routePath.chat} onClick={e => { e.preventDefault(); navigate('chat'); }}><Mark /><span className="brand-wordmark"><strong>ARRA Oracle</strong><span className="brand-subtle">GrokBot Bridge</span></span></a>
     <button className={`button new-bot-button ${route === 'new' ? 'selected' : ''}`} onClick={() => navigate('new')}><Icon name="plus" />New bot <span className="button-tail"><Icon name="chevron" size={16} /></span></button>
     <nav className="workspace-nav" aria-label="Workspace">{([['chat', 'chat', 'Conversations'], ['history', 'book', 'History'], ['connections', 'link', 'Connections']] as [Route, IconName, string][]).map(([value, icon, label]) => <a key={value} href={routePath[value]} className={`nav-link${route === value ? ' active' : ''}`} aria-current={route === value ? 'page' : undefined} onClick={e => { e.preventDefault(); navigate(value); }}><Icon name={icon} size={19} />{label}</a>)}</nav>
     <div className="sidebar-section"><div className="section-label"><span>Your bots</span>{isAuthed && <button className="icon-button" aria-label="Refresh bots" disabled={remoteBusy} onClick={() => void refreshAgents()}><Icon name="refresh" size={15} /></button>}</div>

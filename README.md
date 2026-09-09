@@ -67,6 +67,15 @@ On first start, independent owner and headless-client secrets are generated in `
 
 Keep the owner, headless-client, and remote gateway credentials distinct for deployment. An owner can explicitly configure a shared owner/gateway value locally, but that removes their credential separation; it does not bypass bridge authentication. The headless-client API token must remain distinct.
 
+## Run as a Home Assistant OS add-on
+
+This repository is also an installable local add-on: `config.yaml`, `Dockerfile`,
+and `run.sh` at the root, with `just push` / `just install` /
+`just deploy` driving a Home Assistant guest over SSH. The owner console is served
+through Ingress and `8120/tcp` carries `/mcp` for MCP clients, because an MCP
+client cannot authenticate to an Ingress URL. See [the add-on documentation](DOCS.md)
+for options, credentials, and limits.
+
 Configuration: `BRIDGE_DATA_DIR`, `PORT`, `BRIDGE_HOST`, `BRIDGE_PUBLIC_URL`, `BRIDGE_ALLOWED_HOSTS`, `GROKBOT_SSH_HOST`, `GROKBOT_SSH_IDENTITY_FILE`, `BRIDGE_OWNER_SECRET`, `BRIDGE_API_TOKEN`. `BRIDGE_PUBLIC_URL` is an **origin**, not a URL ending in `/mcp`; non-loopback origins require HTTPS. Default binding is loopback. Public reachability is not created merely by setting this variable.
 
 For a dedicated SSH key, set `GROKBOT_SSH_IDENTITY_FILE` to its path when starting the bridge. The key stays on disk; SSH receives its path using `-i` and `IdentitiesOnly=yes`. Strict host-key checking remains enabled. For example:

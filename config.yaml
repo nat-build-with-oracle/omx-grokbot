@@ -1,0 +1,55 @@
+name: "GrokBot Bridge"
+version: "0.1.0"
+slug: "grokbot"
+description: >-
+  Owner-only bridge between Grok Bot, MCP clients, and source-linked local
+  memory: authenticated Streamable HTTP MCP, durable message ledger, and the
+  React owner console.
+url: "https://github.com/nat-build-with-oracle/omx-grokbot"
+
+# Prebuilt in CI and pulled by Supervisor. Building this image on the appliance
+# instead restarted Supervisor once and left 1.4 GB free on a guest shared with
+# other add-ons' live databases: a Home Assistant host is not CI.
+image: "ghcr.io/nat-build-with-oracle/{arch}-addon-grokbot"
+arch:
+  - amd64
+startup: application
+boot: auto
+init: false
+hassio_api: false
+homeassistant_api: false
+host_network: false
+
+# Ingress carries the owner console. It cannot carry MCP — an MCP client cannot
+# authenticate to an ingress URL — so the LAN port below is how Claude Code and
+# other MCP clients reach /mcp. That port is guarded by the bridge's own owner
+# secret and API token, not by a Home Assistant session.
+ingress: true
+ingress_port: 8120
+panel_icon: mdi:robot-happy-outline
+panel_title: "GrokBot Bridge"
+panel_admin: true
+ports:
+  8120/tcp: 8120
+ports_description:
+  8120/tcp: "MCP endpoint (/mcp), owner console, and JSON API"
+
+# data:rw holds the SQLite ledger, LanceDB vectors, generated access.json, and
+# the embedding model cache. share:ro is only read for the Grok Bot SSH key.
+map:
+  - data:rw
+  - type: share
+    read_only: true
+
+options:
+  allowed_hosts: ""
+  grokbot_ssh_host: "box@grokbot1.oracle.netbird"
+  ssh_identity_file: ""
+  ssh_known_hosts: ""
+  public_url: ""
+schema:
+  allowed_hosts: str
+  grokbot_ssh_host: str
+  ssh_identity_file: str
+  ssh_known_hosts: str
+  public_url: str

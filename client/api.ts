@@ -88,7 +88,7 @@ function requireId(id: string): string {
 }
 
 /** Same-origin only. Authentication/CSRF material is held in memory, never storage. */
-export function createApiClient(fetcher: FetchLike = (input, init) => globalThis.fetch(input, init)): ApiClient {
+export function createApiClient(fetcher: FetchLike = (input, init) => globalThis.fetch(input, init), base = '/'): ApiClient {
   let csrfToken: string | null = null;
   let authRevision = 0;
 
@@ -104,7 +104,7 @@ export function createApiClient(fetcher: FetchLike = (input, init) => globalThis
     }
     let response: Response;
     try {
-      response = await fetcher(path, {
+      response = await fetcher(`${base}${path.replace(/^\//, '')}`, {
         method, headers, credentials: 'same-origin', redirect: 'error', cache: 'no-store',
         ...(body === undefined ? {} : { body: JSON.stringify(body) }),
         ...(options.signal === undefined ? {} : { signal: options.signal }),
