@@ -14,7 +14,7 @@ async function request(port: number, path: string, headers: Record<string, strin
   });
 }
 
-test('host filter accepts loopback and configured public hosts', async () => {
+test('host filter accepts loopback and configured public hosts', async (t) => {
   const app = express();
   const server = app.listen(0, '127.0.0.1');
   await once(server, 'listening');
@@ -81,6 +81,17 @@ test('host filter accepts loopback and configured public hosts', async () => {
   const { app: bridgeApp, close } = createApp(config, api);
   app.use('/x', bridgeApp);
   try {
+    await t.test('unexpected errors log only the message and return a generic 500', async (t) => {
+      const log = t.mock.method(console, 'error', () => {});
+      const res = await fetch(origin + '/x/api/agent-creations/fixture/verify', {
+        method: 'POST', headers: { Authorization: `Bearer ${config.apiToken}` },
+      });
+      assert.equal(res.status, 500);
+      assert.equal((await res.json()).error.code, 'internal_error');
+      assert.equal(log.mock.callCount(), 1);
+      assert.deepEqual(log.mock.calls[0].arguments, ['HTTP request failed:', 'not mocked']);
+    });
+
     const res1 = await request(address.port, '/x/health');
     assert.equal(res1.statusCode, 200, 'loopback should pass');
 

@@ -69,7 +69,10 @@ export function createApp(config: BridgeConfig, bridge: BridgeApi) {
   app.use((error: unknown, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
     if (error instanceof BridgeError) res.status(error.status).json({ error: { code: error.code, message: error.message } });
     else if (error instanceof z.ZodError) res.status(400).json({ error: { code: 'invalid_input', message: 'Request fields failed validation.' } });
-    else res.status(500).json({ error: { code: 'internal_error', message: 'Operation failed. Do not automatically resend a message.' } });
+    else {
+      console.error('HTTP request failed:', error instanceof Error ? error.message : 'Unknown error');
+      res.status(500).json({ error: { code: 'internal_error', message: 'Operation failed. Do not automatically resend a message.' } });
+    }
   });
   return { app, async close() { await mcp.close(); auth.close(); } };
 }
