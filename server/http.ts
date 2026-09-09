@@ -62,14 +62,17 @@ export function createApp(config: BridgeConfig, bridge: BridgeApi) {
   const dist = join(process.cwd(), 'dist');
   if (existsSync(join(dist, 'index.html'))) {
     app.use(express.static(dist, { index: false }));
-    app.get(['/', '/chat', '/new', '/history', '/connections'], (_req, res) => res.sendFile(join(dist, 'index.html')));
+    app.get(['/', '/chat', '/new', '/history', '/connections'], (_req, res) => res.sendFile('index.html', { root: dist }));
   } else {
     app.get('/', (_req, res) => res.type('text').send('Grok Bot bridge backend is running. The web interface is not built yet. MCP and owner APIs require authentication.'));
   }
   app.use((error: unknown, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
     if (error instanceof BridgeError) res.status(error.status).json({ error: { code: error.code, message: error.message } });
     else if (error instanceof z.ZodError) res.status(400).json({ error: { code: 'invalid_input', message: 'Request fields failed validation.' } });
-    else res.status(500).json({ error: { code: 'internal_error', message: 'Operation failed. Do not automatically resend a message.' } });
+    else {
+      console.error('HTTP request failed:', error instanceof Error ? error.message : 'Unknown error');
+      res.status(500).json({ error: { code: 'internal_error', message: 'Operation failed. Do not automatically resend a message.' } });
+    }
   });
   return { app, async close() { await mcp.close(); auth.close(); } };
 }

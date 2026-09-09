@@ -2,6 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { once } from 'node:events';
 import http from 'node:http';
+import { execFileSync } from 'node:child_process';
+import { cpSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import express from 'express';
 import { createApp } from '../server/http.js';
 import type { BridgeApi, BridgeConfig } from '../server/types.js';
@@ -14,7 +18,7 @@ async function request(port: number, path: string, headers: Record<string, strin
   });
 }
 
-test('host filter accepts loopback and configured public hosts', async () => {
+test('host filter accepts loopback and configured public hosts', async (t) => {
   const app = express();
   const server = app.listen(0, '127.0.0.1');
   await once(server, 'listening');
@@ -78,9 +82,40 @@ test('host filter accepts loopback and configured public hosts', async () => {
     readHistory: async () => null,
     historyStatus: async () => ({ documents: 0, chunks: 0, embeddedChunks: 0, model: 'test', projects: [] }),
   };
-  const { app: bridgeApp, close } = createApp(config, api);
+  execFileSync(process.execPath, ['node_modules/vite/bin/vite.js', 'build'], { stdio: 'pipe' });
+  const indexHtml = readFileSync(join(process.cwd(), 'dist/index.html'), 'utf8');
+  // Incubate worktrees live below .local; exercise hidden ancestors on every machine.
+  const fixture = mkdtempSync(join(tmpdir(), '.grokbot-http-'));
+  t.after(() => rmSync(fixture, { recursive: true, force: true }));
+  cpSync(join(process.cwd(), 'dist'), join(fixture, 'dist'), { recursive: true });
+  const cwd = process.cwd();
+  const { app: bridgeApp, close } = (() => {
+    try {
+      process.chdir(fixture);
+      return createApp(config, api);
+    } finally {
+      process.chdir(cwd);
+    }
+  })();
   app.use('/x', bridgeApp);
   try {
+    await t.test('GET / serves the built index HTML', async () => {
+      const res = await fetch(origin + '/x/');
+      assert.equal(res.status, 200);
+      assert.match(res.headers.get('content-type') ?? '', /text\/html/);
+      assert.equal(await res.text(), indexHtml);
+    });
+    await t.test('unexpected errors log only the message and return a generic 500', async (t) => {
+      const log = t.mock.method(console, 'error', () => {});
+      const res = await fetch(origin + '/x/api/agent-creations/fixture/verify', {
+        method: 'POST', headers: { Authorization: `Bearer ${config.apiToken}` },
+      });
+      assert.equal(res.status, 500);
+      assert.equal((await res.json()).error.code, 'internal_error');
+      assert.equal(log.mock.callCount(), 1);
+      assert.deepEqual(log.mock.calls[0].arguments, ['HTTP request failed:', 'not mocked']);
+    });
+
     const res1 = await request(address.port, '/x/health');
     assert.equal(res1.statusCode, 200, 'loopback should pass');
 
