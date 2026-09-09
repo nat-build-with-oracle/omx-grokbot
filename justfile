@@ -95,6 +95,20 @@ deploy: check push
     [ "$NOW" = "$WANT" ] && [ "$STATE" = "started" ] || { echo "✗ $NOW / $STATE after 5 min — read: ssh {{box}} 'ha apps logs {{slug}} | tail -30'" >&2; exit 1; }
     just status
 
+# Fallback while the published package is not anonymously pullable: ship the web
+# bundle and let Supervisor build on the guest from the same Dockerfile, which
+# installs production dependencies only. Everything else is identical, so a later
+# `just install` moves back to the pulled image without touching the guest data.
+install-local: web
+    @echo "==> {{addon}} on {{box}} (guest build; the image: line is dropped there)"
+    rsync -az --delete \
+        --exclude node_modules/ --exclude data/ --exclude '.git*' \
+        --exclude ψ/ --exclude .impeccable/ --exclude .playwright-mcp/ \
+        ./ "{{box}}:{{addon}}/"
+    ssh "{{box}}" "chmod 0755 {{addon}}/run.sh && sed -i '/^image: /d' {{addon}}/config.yaml && ha store reload >/dev/null"
+    ssh "{{box}}" "ha store apps install {{slug}}" | tail -1 || true
+    @just status
+
 # First installation: probe the registry, let the store see the folder, install
 # (a pull, not a build), start.
 install: probe push
