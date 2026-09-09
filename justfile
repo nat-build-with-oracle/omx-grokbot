@@ -43,12 +43,18 @@ dry-run:
 # ── deploy (⚠ changes live state on the guest) ────────────────────────────────
 
 # Anonymous consumer-side probe. Supervisor pulls without credentials, so a
-# private or missing package surfaces as a misleading install failure. 200 means
-# installable, 401 private, 404 absent.
+# private package surfaces as "error from registry: unauthorized" at install.
+# The registry answers 401 to an unauthenticated request whatever the visibility,
+# so the probe must first take an anonymous token: 200 is installable, 403 means
+# the package is private, 404 that it does not exist.
 probe:
-    @printf 'amd64-addon-grokbot: HTTP '
-    @curl -sS -o /dev/null -w '%{http_code}\n' \
-        https://ghcr.io/v2/nat-build-with-oracle/amd64-addon-grokbot/tags/list
+    #!/usr/bin/env bash
+    set -euo pipefail
+    pkg=nat-build-with-oracle/amd64-addon-grokbot
+    token=$(curl -sS "https://ghcr.io/token?scope=repository:${pkg}:pull&service=ghcr.io" | sed -n 's/.*"token":"\([^"]*\)".*/\1/p')
+    code=$(curl -sS -o /dev/null -w '%{http_code}' -H "Authorization: Bearer ${token}" "https://ghcr.io/v2/${pkg}/tags/list")
+    echo "${pkg}: HTTP ${code}"
+    [ "${code}" = "200" ] || { echo "✗ not anonymously pullable: Supervisor will fail with 'unauthorized'" >&2; exit 1; }
 
 # Copy the manifest to the guest. The image itself comes from ghcr.io, so no
 # source is compiled there: only config.yaml, DOCS.md and run.sh are needed.
