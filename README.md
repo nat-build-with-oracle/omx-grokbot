@@ -40,6 +40,10 @@ send messages, or create bots.
 
 This is a checkpoint, not a completed deployment. Public HTTPS hosting, actual Claude.ai connection, Grok Bot's MCP-client connection and deployment hardening remain open. Live bot creation and the context handoff now have separate evidence in `docs/evidence/bridge/context-transfer.json`. Desktop/mobile UI behavior has local and fixture-based browser evidence in `docs/evidence/bridge/ui-smoke.json`. See [the complete requirement ledger](docs/bridge-plan.md).
 
+## Native macOS client
+
+The independent BotWorkspace fork adds native bridge conversations, creation, history search, and recovery without changing local provider chats. See [native client setup and safety boundaries](docs/native-client.md).
+
 ## Run locally
 
 Use a real Node.js runtime, version 22.12 or newer; `.nvmrc` identifies the locally exercised version. A Bun-installed `node` wrapper is not a substitute. Use an up-to-date supported Node patch release for deployment.
@@ -87,7 +91,7 @@ GROKBOT_SSH_IDENTITY_FILE="$HOME/.ssh/grokbot-bridge" npm start
 
 `BRIDGE_ALLOWED_HOSTS` (optional) is a comma-separated allowlist of extra `host[:port]` values accepted by the front-door host filter (for reverse-proxy or tunnel deployments).
 
-The bot transport permits `box@grokbot1` or `box@grokbot1.oracle.netbird`, preserves strict SSH host-key checking, and streams variable request data through stdin. The existing [NetBird gateway runbook](docs/grokbot-gateway-runbook.md) describes the underlying verified transport.
+The bot transport permits `box@grokbot1`, `box@grokbot1.oracle.netbird`, or `box@grokbot1.commu.oracle`, preserves strict SSH host-key checking, and streams variable request data through stdin. The existing [NetBird gateway runbook](docs/grokbot-gateway-runbook.md) describes the underlying verified transport.
 
 ## Memory lifecycle
 
@@ -131,7 +135,7 @@ See [MCP/Claude research](docs/learning/mcp-claude-integration.md), [React/Tailw
 - `npm run check` passes locally (typecheck, unit tests, build); the Python gateway suite includes read-only transcript and pagination checks.
 - Browser proof: `docs/evidence/bridge/ui-smoke.json` distinguishes live local UI checks from isolated message/creation fixtures. It does not establish live remote bot creation.
 - Live chat history proof: `docs/evidence/bridge/chat-history-smoke.json` checks source-matched text, earlier pages, and zero bot writes. Stale-response and failure recovery checks are explicitly isolated fixtures.
-- Real MCP-to-Grok request correlation proof: `docs/evidence/bridge/mcp-send-smoke.json` (status to `reply_recorded`).
+- Historical MCP send acceptance evidence: `docs/evidence/bridge/mcp-send-smoke.json` (accepted only; that artifact does not prove a recorded reply).
 - Owner HTTP API MCP-equivalent proof: `docs/evidence/bridge/http-send-smoke.json`.
 - Deployment-readiness proof (local): `docs/evidence/bridge/connector-readiness.json`.
 

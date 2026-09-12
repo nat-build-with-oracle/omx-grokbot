@@ -64,4 +64,4 @@ keep it out of commits, screenshots, and chat.
 - The bridge refuses to start while a lock file remains. `run.sh` clears a lock
   left by a previous container, because a restarted container cannot share a PID
   namespace with the process that wrote it.
-- `amd64` only. The image is built on the guest, not pulled from a registry.
+- `amd64` only. Normal installation pulls the CI-published GHCR image; `just install-local` provides the local guest-build fallback.

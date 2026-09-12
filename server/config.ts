@@ -22,7 +22,7 @@ export function loadConfig(): BridgeConfig {
   const apiToken = process.env.BRIDGE_API_TOKEN ?? secrets.apiToken;
   if (typeof ownerSecret !== 'string' || typeof apiToken !== 'string' || ownerSecret.length < 32 || apiToken.length < 32 || ownerSecret === apiToken) throw new Error('Distinct owner and API secrets of at least 32 characters are required');
   const grokHost = process.env.GROKBOT_SSH_HOST ?? 'box@grokbot1';
-  if (!['box@grokbot1', 'box@grokbot1.oracle.netbird'].includes(grokHost)) throw new Error('Use the approved Grok Bot NetBird SSH target');
+  if (!['box@grokbot1', 'box@grokbot1.oracle.netbird', 'box@grokbot1.commu.oracle'].includes(grokHost)) throw new Error('Use an approved Grok Bot SSH target');
   const explicitHosts = new Set<string>();
   explicitHosts.add(new URL(publicUrl).host);
   explicitHosts.add(`127.0.0.1:${port}`);

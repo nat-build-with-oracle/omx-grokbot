@@ -16,3 +16,10 @@ test('explicit SSH identity remains one argument and excludes unrelated agent id
     '-i', identity, '-o', 'IdentitiesOnly=yes', 'box@grokbot1.oracle.netbird', 'python3 -',
   ]);
 });
+
+test('authorized commu.oracle target remains one SSH argument with strict checking', () => {
+  assert.deepEqual(sshArguments('box@grokbot1.commu.oracle', 'python3 -'), [
+    '-o', 'BatchMode=yes', '-o', 'StrictHostKeyChecking=yes', '-o', 'ConnectTimeout=12',
+    'box@grokbot1.commu.oracle', 'python3 -',
+  ]);
+});

@@ -1,0 +1,23 @@
+{
+  "verifiedAt": "2026-09-12T17:53:11.196Z",
+  "transport": "native Swift GrokBridgeClient -> isolated local omx-grokbot -> strict SSH",
+  "sshHost": "box@grokbot1.commu.oracle",
+  "packagedNativeReadOnly": {
+    "authenticated": true,
+    "agentCount": 11,
+    "transcriptEntries": 34,
+    "transcriptHasMore": true
+  },
+  "singleExchange": {
+    "sendAttempts": 1,
+    "ledgerRecords": 1,
+    "status": "reply_recorded",
+    "requestCorrelated": true,
+    "watermarkPresent": true,
+    "expectedReply": true
+  },
+  "remoteCreationExercised": false,
+  "semanticIndexExercised": false,
+  "publicDeploymentVerified": false,
+  "credentialsOrPrivateTranscriptIncluded": false
+}
